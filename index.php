@@ -9,7 +9,8 @@
     <?php
       // include 'dev/t.php';
       // include 'momo.php';
-      include 'exos/03_laDecentePOO.php';
+      // include exos/03_laDescentePOO.php';
+      include 'exos/04_temperatures.php';
     ?>
 </body>
 </html>
