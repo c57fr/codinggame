@@ -97,7 +97,6 @@ class Culminant extends Montagne
   }
 }
 
-// $montagne  = new Montagne();
 $culminant = new Culminant();
 
 // game loop
@@ -108,12 +107,10 @@ while (TRUE)
     {
         // $mountainH: represents the height of one mountain.
         fscanf(STDIN, "%d", $h);
-
     
         if ($h >= $culminant->h) {
            $culminant->update($i, $h);
         }
-
     }
     // Write an action using echo(). DON'T FORGET THE TRAILING \n
     // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
