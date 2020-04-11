@@ -38,7 +38,8 @@ while (TRUE)
     // Write an action using echo(). DON'T FORGET THE TRAILING \n
     // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
 
-    $pw= ($i>24 && $vSpeed < -39) ? 4: 0; // 24 trouvé de façon empirique
+    $pw= ($i>24 && $vSpeed < -39) ? 4: 0;
+    // 24 trouvé de façon empirique
     
     // 2 integers: rotate power. rotate is the desired rotation angle (should be 0 for level 1), power is the desired thrust power (0 to 4).
     
@@ -46,6 +47,15 @@ while (TRUE)
     $i++;
 }
 ?>
+
+-----------------------------------------------------------------
+
+La solution la + courte
+
+<?php
+$i=0;
+while(1)
+    echo ((++$i<13) ? "0 0":"0 4")."\n";
 
 -----------------------------------------------------------------
 
