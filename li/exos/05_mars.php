@@ -1,4 +1,4 @@
-Pas de simu locale.
+Pas de simu locale pour l'exo Mars.
 
 <?php
 
