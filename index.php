@@ -11,7 +11,8 @@
       // include 'dev/t.php';
       // include 'momo.php';
       // include exos/03_laDescentePOO.php';
-      include 'exos/04_temperatures.php';
+      // include 'exos/04_temperatures.php';
+      include 'exos/05_mars.php';
     ?>
 </body>
 </html>

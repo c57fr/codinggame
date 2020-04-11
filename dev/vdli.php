@@ -15,7 +15,8 @@ function vname()
   // extract $varname from match no 2
   $var = preg_replace($pat, '$2', $src);
   // return var name
-  return trim($var).' (Ligne '.$bt['line'].'): ';
+  return   str_replace(');', '</strong>', str_replace('vdli(', '<strong>', trim($var))).' (Ligne '.$bt['line'].'): ';
+
 }
 
 function vdli($v)
