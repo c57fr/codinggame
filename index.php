@@ -8,7 +8,8 @@
 <body>
     <?php
       // include 'dev/t.php';
-      include 'momo.php';
+      // include 'momo.php';
+      include 'exos/03_laDecentePOO.php';
     ?>
 </body>
 </html>
