@@ -8,7 +8,9 @@
 <body>
     <?php
       include '../dev/vdli.php'; // vdli()
-      include 'exos/01_exo.php';
+      // include 'exos/01_exo.php'; // à faire
+      // include 'exos/02_exo.php'; // à faire
+      include 'exos/03_laDecente.php'; // En cours
     ?>
 </body>
 </html>
