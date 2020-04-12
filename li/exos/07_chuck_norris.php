@@ -4,24 +4,36 @@ Exo 07: Chuck NORRIS.<hr>
 
 // https://www.codingame.com/training/easy/chuck-norris
 
-$MESSAGE = 'V';
+$MESSAGE = 'C';
 
 $carbin = decbin(ord($MESSAGE));
 // $len     = strlen($carbin);
 // vdli($len);
 // $carbin = '456';
+
 var_dump($carbin);
 
-$bins = str_split($carbin);
-vdli($bins);
+$carbin=str_replace('01', '0x1',$carbin);
+$carbin=str_replace('10', '1x0',$carbin);
 
-$car1 = array_shift($bins);
-vdli($car1);
-vdli($bins);
 
-// foreach ($carbin as $k => $v) {
-//   echo $k;
-// }
+// echo '<br>';
+// var_dump($carbin);
+// echo '<br>';
+// $carbin = '1x0000x11';
+// var_dump($carbin);
+// exit;
+
+$bbins = explode('x', $carbin);
+vdli($bbins);
+
+// $car1 = array_shift($bins);
+// $car1 = $bins[0];
+// vdli($car1);
+
+foreach ($bbins as $i => $v) {
+  echo trim((($v[0] * 1) ? '0 ' : '00 ').str_repeat('0', strlen($v)).' ');
+}
 
 //////////////////////////////////////////////////////////////
 
