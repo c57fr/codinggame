@@ -3,9 +3,9 @@ Exo 06: ASCII.<hr>
 <?php
 
 // https://www.codingame.com/ide/puzzle/mars-lander-episode-1
-$l=3;
+$l=4;
 $h=5;
-$row = array (
+$rows = array (
     0 => ' #  ##   ## ##  ### ###  ## # # ###  ## # # #   # # ###  #  ##   #  ##   ## ### # # # # # # # # # # ### ### ',
     1 => '# # # # #   # # #   #   #   # #  #    # # # #   ### # # # # # # # # # # #    #  # # # # # # # # # #   #   # ',
     2 => '### ##  #   # # ##  ##  # # ###  #    # ##  #   ### # # # # ##  # # ##   #   #  # # # # ###  #   #   #   ## ',
@@ -13,7 +13,27 @@ $row = array (
     4 => '# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  ',
 );
 
-vdli($row);
+vdli($rows);
+
+$string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ?";
+$t='E';
+
+for($i=0; $i<$h; $i++){
+    $word = "";
+    foreach(str_split($t) as $let){
+        // vdli($t);
+        $index = strpos( $string, strtoupper($let));
+        //vdli($index);
+        if($index===false){
+            $index = strpos($string, strtoupper("?"));
+        }
+        $word .= substr($rows[$i], ($index) * $l, $l).'<br>';
+        // vdli($i);
+        // vdli($l);
+    }
+    echo $word.PHP_EOL;
+}
+
 //////////////////////////////////////////////////////////////
 
 /*
