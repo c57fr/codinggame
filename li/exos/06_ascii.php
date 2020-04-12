@@ -3,17 +3,51 @@ Exo 06: ASCII.<hr>
 <?php
 
 // https://www.codingame.com/ide/puzzle/mars-lander-episode-1
-$l=3;
-$h=5;
-$row = array (
-    0 => ' #  ##   ## ##  ### ###  ## # # ###  ## # # #   # # ###  #  ##   #  ##   ## ### # # # # # # # # # # ### ### ',
-    1 => '# # # # #   # # #   #   #   # #  #    # # # #   ### # # # # # # # # # # #    #  # # # # # # # # # #   #   # ',
-    2 => '### ##  #   # # ##  ##  # # ###  #    # ##  #   ### # # # # ##  # # ##   #   #  # # # # ###  #   #   #   ## ',
-    3 => '# # # # #   # # #   #   # # # #  #  # # # # #   # # # # # # #    ## # #   #  #  # # # # ### # #  #  #       ',
-    4 => '# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  ',
-);
+$l    = 4;
+$h    = 5;
+$rows = [
+  0 => ' #  ##   ## ##  ### ###  ## # # ###  ## # # #   # # ###  #  ##   #  ##   ## ### # # # # # # # # # # ### ### ',
+  1 => '# # # # #   # # #   #   #   # #  #    # # # #   ### # # # # # # # # # # #    #  # # # # # # # # # #   #   # ',
+  2 => '### ##  #   # # ##  ##  # # ###  #    # ##  #   ### # # # # ##  # # ##   #   #  # # # # ###  #   #   #   ## ',
+  3 => '# # # # #   # # #   #   # # # #  #  # # # # #   # # # # # # #    ## # #   #  #  # # # # ### # #  #  #       ',
+  4 => '# # ##   ## ##  ### #    ## # # ###  #  # # ### # # # #  #  #     # # # ##   #  ###  #  # # # #  #  ###  #  ',
+];
 
-vdli($row);
+vdli($rows);
+
+$string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ?';
+$t      = 'E';
+
+for ($i = 0; $i < $h; ++$i) {
+  $word = '';
+  foreach (str_split($t) as $let) {
+    // vdli($t);
+    $index = strpos($string, strtoupper($let));
+    //vdli($index);
+    if (false === $index) {
+      $index = strpos($string, strtoupper('?'));
+    }
+    $word .= substr($rows[$i], ($index) * $l, $l).'<br>';
+    // vdli($i);
+        // vdli($l);
+  }
+  echo $word.PHP_EOL;
+}
+echo '<hr>2ème façon + rapide<br><br>';
+
+// vdli($rows);
+for ($i = 0; $i < $h; ++$i) {
+  foreach (str_split($t) as $let) {
+    // vdli($t);
+    // vdli(ord($let));
+    // vdli($t);
+
+    $d = ctype_alpha($let) ? ord($let) - 65 : 26;
+    echo substr($rows[$i], $d * $l, $l);
+  }
+  echo "<br>\n";
+}
+
 //////////////////////////////////////////////////////////////
 
 /*
