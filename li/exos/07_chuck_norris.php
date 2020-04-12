@@ -4,7 +4,7 @@ Exo 07: Chuck NORRIS.<hr>
 
 // https://www.codingame.com/training/easy/chuck-norris
 
-$MESSAGE = 'CC';
+$MESSAGE = '%';
 
 $cesar = function ($MESSAGE) {
   $carbin = '';
@@ -12,7 +12,7 @@ $cesar = function ($MESSAGE) {
   foreach ($msg as $let) {
     $carbin .= decbin(ord($let));
     vdli($carbin);
-    $carbin = str_pad($carbin, 7, '0',STR_PAD_LEFT);
+    $carbin = str_pad($carbin, 7, '0', STR_PAD_LEFT);
     vdli($carbin);
   }
   // $len     = strlen($carbin);
@@ -48,6 +48,14 @@ echo $cesar($MESSAGE)."\n";
 
 // echo '<hr>';
 // var_dump('0 0 00 0000 0 000 00 0000 0 00');
+
+echo '<hr>';
+
+echo rtrim(preg_replace_callback('@(.)\1*@', function ($m) {
+  return ($m[1] ? '0' : '00').' '.str_repeat('0', strlen($m[0])).' ';
+}, preg_replace_callback('@.@', function ($m) {
+  return sprintf('%07b', ord($m[0]));
+}, $MESSAGE)));
 
 //////////////////////////////////////////////////////////////
 
