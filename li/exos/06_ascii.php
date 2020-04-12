@@ -2,7 +2,8 @@ Exo 06: ASCII.<hr>
 
 <?php
 
-// https://www.codingame.com/ide/puzzle/mars-lander-episode-1
+// https://www.codingame.com/training/easy/ascii-art/solution
+
 $l    = 4;
 $h    = 5;
 $rows = [
