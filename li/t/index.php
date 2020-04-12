@@ -14,6 +14,8 @@
     <?php
       include '../../dev/vdli.php';
       // include 'ascii_art.php';
+      // include 'regex.php';
+      // include 'bit.php';
       include 't.php';
     ?>
 </body>
