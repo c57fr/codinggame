@@ -1,5 +1,11 @@
 <?php
 
+
+$ch='Le soleil brille.';
+echo $ch.'<br>';
+$ch = preg_replace('/\bbrille\b/', 'est caché', $ch);
+echo $ch.'<br>';
+
 $MESSAGE = 'C';
 vdli($MESSAGE);
 

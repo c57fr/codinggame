@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
+    <style>
+body {
+  font-family: arial;
+  font-size:14px;
+}
+</style>
 </head>
 <body>
     <?php
