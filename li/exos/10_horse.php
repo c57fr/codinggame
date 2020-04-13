@@ -14,17 +14,16 @@ vdli($ps);
 
 $ecartmin=1e6;
 
-$ch = '1,2,3';
-$tab = explode(',', $ch);
-
-
-vdli(explode(',', $ch));
-vdli(implode(',', $tab));
-
+for ($c= count($ps), $i=1; $i<$c; $i++){
+    $diff = $ps[$i]-$ps[$i-1];
+    $ecartmin = ($diff<$ecartmin)?$diff:$ecartmin;
+    // vdli($ecart);
+}
+echo $ecartmin."\n";
 
 //////////////////////////////////////////////////////////////
 /*
-Solution dans codding :
+Solution dans codding : Même code
 
 <?php
 
