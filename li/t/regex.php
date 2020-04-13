@@ -1,5 +1,10 @@
 <?php
 
+$host='www.ss-dmn.boosteur.com';
+preg_match('/[^.]+\.[^.]+$/', $host, $matches);
+echo "Le nom de domaine est : {$matches[0]}\n";
+
+echo '<hr>';
 
 $ch='Le soleil brille.';
 echo $ch.'<br>';
