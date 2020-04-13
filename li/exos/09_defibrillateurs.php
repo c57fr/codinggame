@@ -13,9 +13,13 @@ $DEFIB = [
   '1 : 2;Hotel de Ville;1 place Georges Freche 34267 Montpellier;;3,89652239197876;43,5987299452849',
   '2 : 3;Zoo de Lunaret;50 avenue Agropolis 34090 Mtp;;3,87388031141133;43,6395872778854',
 ];
-
+vdli($DEFIB);
 //////////////////////////////////////////////////////////////
 
+$deg = 43.6395872778854;
+vdli($deg);
+$rad = deg2rad($deg);
+vdli($rad);
 /*
 Solution dans codding :
 
