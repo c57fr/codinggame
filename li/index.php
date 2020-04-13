@@ -23,7 +23,8 @@ body {
       // include 'exos/07_chuck_norris.php';
       // include 'exos/08_mime.php';
       // include 'exos/09_defibrillateurs.php';
-      include 'exos/10_horse.php';
+      // include 'exos/10_horse.php';
+      include 'exos/11_shadowsKnight.php';
     ?>
 </body>
 </html>
