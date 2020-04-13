@@ -31,9 +31,10 @@ $lat = $getRad($LAT);
 // vdli($lat);
 
 for ($c = count($defibs), $i = 0; $i < $c; ++$i) {
-  $x    = (($lon - $defibs[$i][4]) * cos(($defibs[$i][5] + $lat) / 2));
-  $y    = $lat - $defibs[$i][5];
-  $d    = sqrt(($x * $x) + ($y * $y)) * 6371;
+  // $x    = (($lon - $defibs[$i][4]) * cos(($defibs[$i][5] + $lat) / 2));
+  // $y    = $lat - $defibs[$i][5];
+  // $d    = sqrt(($x * $x) + ($y * $y)) * 6371;
+  $d    = sqrt(pow($defibs[$i][4] - $lon, 2) + pow($defibs[$i][5] - $lat, 2));
   $ds[] = $d;
   // echo $defibs[$i][1].' : '.number_format(($d*1e3), 0, ',', ' ').' mètre'.(($d*1e3>2)?'s':'').'<br>';
 }
@@ -61,6 +62,7 @@ for ($i = 0; $i < $N; ++$i) {
   $x    = (($lon - $vlon) * cos(($vlat + $lat) / 2));
   $y    = $lat - $vlat;
   $ds[] = sqrt(($x * $x) + ($y * $y)) * 6371;
+
   echo '<hr>';
 }
 echo $DEFIB[array_search(min($ds), $ds, true)][2];
