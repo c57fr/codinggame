@@ -33,20 +33,16 @@ $classes = [
 ];
 
 foreach ($classes as $eleve) {
-  // vdli($eleve);
+//   vdli($eleve);
   foreach ($eleve as $info => $v) {
-    // vdli($info);
-    // vdli($v);
     if ('notes' === $info) {
+      echo '<br><u>Notes:</u><br>';
       foreach ($v as $matiere => $note) {
-        echo 'Notes:<br>'.$matiere.' : '.$note;
+        echo $matiere.' : '.$note.'<br>';
       }
       echo '<hr>';
     } else {
       echo $v.' ';
     }
   }
-  // foreach ($infos as $k => $info) {
-    //     print_r($info . '<br/>');
-    // }
 }
