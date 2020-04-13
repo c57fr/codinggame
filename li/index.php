@@ -22,7 +22,8 @@ body {
       // include 'exos/06_ascii.php';
       // include 'exos/07_chuck_norris.php';
       // include 'exos/08_mime.php';
-      include 'exos/09_defibrillateurs.php';
+      // include 'exos/09_defibrillateurs.php';
+      include 'exos/10_horse.php';
     ?>
 </body>
 </html>
