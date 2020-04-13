@@ -1,5 +1,1 @@
-
-<?php
-
-$a='Ready.';
-vdli($a);
+Ready.<?php

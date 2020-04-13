@@ -14,7 +14,8 @@
       // include 'exos/04_temperatures.php';
       // include 'exos/05_mars.php';
       // include 'exos/06_ascii.php';
-      include 'exos/07_chuck_norris.php';
+      // include 'exos/07_chuck_norris.php';
+      include 'exos/08_mime.php';
     ?>
 </body>
 </html>
