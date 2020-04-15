@@ -24,7 +24,9 @@ body {
       // include 'exos/08_mime.php';
       // include 'exos/09_defibrillateurs.php';
       // include 'exos/10_horse.php';
-      include 'exos/11_shadowsKnight.php';
+      include 'exos/11_succession.php';
+
+      // include 'exos/1xx_shadowsKnight.php';
     ?>
 </body>
 </html>
