@@ -8,6 +8,8 @@ include './../../dev/vdli.php';
 
 // https://www.codingame.com/playgrounds/41820/exercice-php---base/exercice-1
 
+echo '<hr>';
+
 function init_table($n, $m, $min, $max)
 {
   $tab = [];
@@ -17,7 +19,6 @@ function init_table($n, $m, $min, $max)
       $tab[$x][$y]  = $v;
       $tab['all'][] = $v;
     }
-    echo '<br>';
   }
 
   return $tab;
@@ -27,22 +28,20 @@ function search_val($tab)
 {
   $ts = ['neg', 'pos', 'zero'];
   foreach ($ts as $t) {
-    $nomvar    = 'nb_'.$t;
-    ${$nomvar} = 0;
+    $nomvar = 'nb_'.$t;
+    $vars[] = $nomvar;
   }
-
+  $signes = [0, 0, 0];
   foreach ($tab['all'] as $t) {
     echo $t;
-    $nb_neg += ($t < 0);
-    $nb_pos += ($t > 0);
-    $nb_zero += 0 === $t;
+    ++$signes[($t <=> 0) + 1];
   }
 
-  return [
-    'neg' => $nb_neg,
-    'pos' => $nb_pos,
-    '=0'  => $nb_zero,
-  ];
+  return array_combine($vars, [
+    $signes[0],
+    $signes[1],
+    $signes[2],
+  ]);
   // return $tab;
 }
 $tab = init_table(3, 2, -2, 3);
