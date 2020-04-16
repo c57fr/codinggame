@@ -59,13 +59,46 @@ $ms[0]['bg'] = 1;
 $ms[0]['bd'] = 2;
 
 foreach ($ms as $k => $v) {
-  $ms['noms'][] = $v[0];
+  $ms['noms'][]    = $v[0];
+  $ms['parents'][] = $v[1];
 }
 
 vdli($ms['noms']);
+vdli($ms['parents']);
+
+
+// Upline de $id
+$idp = function($id) use ($ms) {
+   do{
+       $p = array_search($ms['parents'][$id], $ms['noms'], true);
+       $idps[]=$p;
+       $id=$p;
+    }
+    while($p);
+    return $idps;
+};
+
+vdli($idp(4));
+
+exit;
+
+$ms[1]['bg'] = $ms[0]['bg'] + 1;
+$ms[1]['bd'] = $ms[1]['bg'] + 1;
+$ms[0]['bd'] = $ms[0]['bd'] + 2;
+
+
+$getParent = function ($m) use ($ms) {
+  return $ms[$ms['parents'][$m]];
+};
+
+    // Upline de Georges // id 3
+
+// echo $getParent(4);
+// $ms[1]<>'-'
+
 foreach ($ms as $k => $v) {
-   vdli([$v[0], $v['bg']??'', $v['bd']??'']);
-  }
+  vdli([$k, $v[0], $v['bg'] ?? '', $v['bd'] ?? '']);
+}
 //////////////////////////////////////////////////////////////
 /*
 Solution dans codding : Même code
