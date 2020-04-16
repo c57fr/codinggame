@@ -1,4 +1,4 @@
-Exo 11: Order of Succession.<hr>
+Exo 011: Order of Succession.<hr>
 <?php
 // https://www.codingame.com/training/easy/order-of-succession
 

@@ -16,15 +16,15 @@ body {
       include '../dev/vdli.php';
       // include 'dev/t.php';
       // include 'momo.php';
-      // include exos/03_laDescentePOO.php';
-      // include 'exos/04_temperatures.php';
-      // include 'exos/05_mars.php';
-      // include 'exos/06_ascii.php';
-      // include 'exos/07_chuck_norris.php';
-      // include 'exos/08_mime.php';
-      // include 'exos/09_defibrillateurs.php';
-      // include 'exos/10_horse.php';
-      include 'exos/11_succession.php';
+      // include 'exos/003_laDescentePOO.php';
+      // include 'exos/004_temperatures.php';
+      // include 'exos/005_mars.php';
+      // include 'exos/006_ascii.php';
+      // include 'exos/007_chuck_norris.php';
+      // include 'exos/008_mime.php';
+      // include 'exos/009_defibrillateurs.php';
+      // include 'exos/010_horse.php';
+      include 'exos/011_succession.php';
 
       // include 'exos/1xx_shadowsKnight.php';
     ?>

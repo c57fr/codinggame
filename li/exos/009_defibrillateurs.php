@@ -1,4 +1,4 @@
-Exo 09: Défibrillateurs.<hr>
+Exo 009: Défibrillateurs.<hr>
 <?php
 https://www.codingame.com/training/easy/defibrillators
 

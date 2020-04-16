@@ -1,4 +1,4 @@
-Exo 07: Mime Type.<hr>
+Exo 007: Mime Type.<hr>
 
 <?php
 

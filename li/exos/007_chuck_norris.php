@@ -1,4 +1,4 @@
-Exo 07: Chuck NORRIS.<hr>
+Exo 007: Chuck NORRIS.<hr>
 
 <?php
 

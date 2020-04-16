@@ -1,4 +1,4 @@
-Exo 06: ASCII.<hr>
+Exo 006: ASCII.<hr>
 
 <?php
 
