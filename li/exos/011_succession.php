@@ -159,13 +159,13 @@ $ms = [
   ],
 ];
 
-$ms[0]['bg'] = 1;
-$ms[0]['bd'] = 2;
+
 
 foreach ($ms as $k => $v) {
   $ms['noms'][]    = $v[0];
   $ms['parents'][] = $v[1];
 }
+
 
 vdli($ms['noms']);
 // vdli($ms['parents']);
@@ -175,24 +175,29 @@ $genealogy = array_combine($ms['noms'], $ms['parents']);
 
 // Upline de $id
 $uplines = function ($id) use ($ms) {
+  if ($id==0) return [];
   do {
     $p         = array_search($ms['parents'][$id], $ms['noms'], true);
     $uplines[] = $p;
     $id        = $p;
   } while ($p);
-
+  
   return $uplines;
 };
 
-vdli($uplines(18));
-vdli(count($uplines(18)));
+// vdli($uplines(0));
+// vdli(count($uplines(0))); // = Prof
 
-exit;
+$ms[0]['bg'] = 1;
+$ms[0]['bd'] = 2;
+$ms[0]['prof']=count($uplines(0));
+vdli($ms[0]);
 
 $ms[1]['bg'] = $ms[0]['bg'] + 1;
 $ms[1]['bd'] = $ms[1]['bg'] + 1;
 $ms[0]['bd'] = $ms[0]['bd'] + 2;
 
+exit;
 $getParent = function ($m) use ($ms) {
   return $ms[$ms['parents'][$m]];
 };
