@@ -158,45 +158,57 @@ $ms = [
     5 => 'F',
   ],
 ];
-
-
+$n = count($ms);
 
 foreach ($ms as $k => $v) {
   $ms['noms'][]    = $v[0];
   $ms['parents'][] = $v[1];
 }
+$parent = array_combine($ms['noms'], $ms['parents']);
 
-
-vdli($ms['noms']);
+// vdli($ms['noms']);
 // vdli($ms['parents']);
-$genealogy = array_combine($ms['noms'], $ms['parents']);
-// vdli($genealogy);
+//  vdli($parent[$ms[18][0]]);
 // vdli(array_count_values($genealogy)); // nb enfants
-
+// exit;
 // Upline de $id
 $uplines = function ($id) use ($ms) {
-  if ($id==0) return [];
+  if (0 === $id) {
+    return [];
+  }
   do {
     $p         = array_search($ms['parents'][$id], $ms['noms'], true);
     $uplines[] = $p;
     $id        = $p;
   } while ($p);
-  
+
   return $uplines;
 };
 
 // vdli($uplines(0));
 // vdli(count($uplines(0))); // = Prof
 
-$ms[0]['bg'] = 1;
-$ms[0]['bd'] = 2;
-$ms[0]['prof']=count($uplines(0));
-vdli($ms[0]);
+$ms[0]['bg']   = 1;
+$ms[0]['bd']   = 2;
+$ms[0]['prof'] = count($uplines(0));
+// vdli($ms[0]);
 
-$ms[1]['bg'] = $ms[0]['bg'] + 1;
-$ms[1]['bd'] = $ms[1]['bg'] + 1;
-$ms[0]['bd'] = $ms[0]['bd'] + 2;
+// exit;
+for ($i = 1; $i < $n; ++$i) {
+  $ms[$i]['bg']   = $ms[$i - 1]['bg'] + 1;
+  $ms[$i]['bd']   = $ms[$i]['bg'] + 1;
+  $ms[$i]['prof'] = count($uplines($i));
 
+  for ($j = $ms[$i]['prof']; $j > 0; --$j) {
+    $ms[$j - 1]['bd'] = $ms[$j - 1]['bd'] + 2;
+    // vdli($uplines($i));
+  }
+}
+
+for ($i = 0; $i < 3; ++$i) {
+  vdli($i);
+  vdli($ms[$i]);
+}
 exit;
 $getParent = function ($m) use ($ms) {
   return $ms[$ms['parents'][$m]];
