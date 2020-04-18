@@ -1,7 +1,7 @@
 <?php
 function repondre_oui_non($phrase){
     while (true) {
-        $reponse = readline($phrase. "Voulez-vous continuer : o(ui) ou n(on) :");
+        $reponse = readline($phrase. " (O(ui) ou (N(on) :");
         if($reponse === 'o'){
             return true;
         }elseif($reponse === 'n'){
@@ -11,13 +11,13 @@ function repondre_oui_non($phrase){
 
 }
 
-$resultat = repondre_oui_non("Voulez-vous continuer ?");
-var_dump($resultat);
+$resultat = repondre_oui_non("Voulez-vous continuer /?");
+//var_dump($resultat);
 
 
-echo '<hr>';
+//echo '<hr>';
 //https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
-function helloWorld(){
+/*function helloWorld(){
     return "hello world"; 
   }
 echo helloWorld();
@@ -26,3 +26,4 @@ function quiEstLeMeilleurProf(){
     return $c;
 }
 echo quiEstLeMeilleurProf();
+*/
