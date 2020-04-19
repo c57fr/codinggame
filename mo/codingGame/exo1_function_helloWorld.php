@@ -6,3 +6,10 @@ function HelloWorld(){
     return $c;
 }
 echo HelloWorld();
+
+echo "<hr>";
+
+function sayHello(){
+    return "Hello World";
+}
+echo sayHello();
