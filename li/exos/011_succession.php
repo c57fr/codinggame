@@ -159,12 +159,50 @@ $ms = [
   ],
 ];
 $n = count($ms);
+vdli($ms[6]);
 
 foreach ($ms as $k => $v) {
   $ms['noms'][]    = $v[0];
-  $ms['parents'][] = $v[1];
+  $ms['parents'][] = $ms[$k][1];
 }
 $parent = array_combine($ms['noms'], $ms['parents']);
+// vdli($ms['noms']);
+// vdli($ms['parents']);
+// vdli($parent);
+vdli($ms[7]);
+
+// $id=6;
+$getIdP = function ($id) use ($ms) {
+  return ($id > 0) ? array_keys($ms['noms'], $ms[$id][1], true)[0] : '-';
+};
+// Donne l'Id du Parent à partir Id du filleul
+vdli($getIdP(7));
+// => Générer + facilement [uplines]
+
+// foreach ($ms as $k => $vs) {
+//   vdli(array_search('Andrew', $vs, true ));
+// }
+
+// vdli(array_map($pid('Andres', $v), $ms));
+
+// vdli(array_search('Andrew', $ms[0], true));
+$pere = 'Andrew'; // Père(Id 6)  de Béatrice (Id 7)
+
+echo '<hr>'.$ms[7][0].' (7) < '.$ms[7][1].' (6)<hr>';
+
+foreach ($ms as $k => $vs) {
+  // vdli(array_search('Andrew', $vs, true));
+}
+
+$pid = function ($pere, $ms) {
+  return ($pere === $v) ?? 'no';
+  foreach ($ms as $k => $v) {
+    $peret = ($pere === $v[0]) ?? $k;
+    vdli($peret);
+  }
+};
+
+exit;
 
 // vdli($ms['noms']);
 // vdli($ms['parents']);
@@ -200,7 +238,7 @@ for ($i = 1; $i < $n; ++$i) {
   $ms[$i]['prof'] = count($uplines($i));
 
   for ($j = $ms[$i]['prof']; $j > 0; --$j) {
-    $ms[$j - 1]['bd'] = $ms[$j - 1]['bd'] + 2;
+    $ms['parents'][$j - 1]['bd'] = $ms[$j - 1]['bd'] + 2;
     // vdli($uplines($i));
   }
 }
