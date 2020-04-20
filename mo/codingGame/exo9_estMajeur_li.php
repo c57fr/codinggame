@@ -37,3 +37,22 @@ $estIlMajeure = function ($age) {
 var_dump($estIlMajeure(15));
 echo '<br>';
 var_dump($estIlMajeure(105));
+
+echo '<hr>';
+var_dump (1<2);
+echo '<br>';
+var_dump (1>2);
+echo '<br>';
+
+
+// Un nouvel opérateur très intéressant:
+var_dump ((boolean)(3<=>3)); // false
+var_dump ((boolean)(1<=>2)); // true
+
+// Note qu'à la base:
+
+var_dump (1<=>2); // -1
+var_dump (3<=>2); // 1
+var_dump (2<=>2); // 0
+
+
