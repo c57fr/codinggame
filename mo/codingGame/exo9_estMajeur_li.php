@@ -2,33 +2,45 @@
 
 include '../../dev/vdli.php'; // vdli()
 
-function estIlMajeure()
+
+// =================================================
+function estIlMajeurePasGood(){
+
+    $age = 32;
+    if($age >= 18)
+    {
+        return "true";
+    }else{
+        return "false";
+    }
+    return $age;
+}
+echo estIlMajeurePasGood();
+// =================================================
+
+function estIlMajeure($age) // Reçoit l'âge en paramètre
 {
-  $age = 32;
-  if ($age >= 18) {
-    return 'true';
+    // Fait le traitement selon la valeur du param
+  if ($age >= 18) { 
+          return true; // Renvoit TRUE si majeur
   }
 
-  return 'false';
-
-  return $age;
+  return false;  // Renvoit FALSE si pas
 }
-echo estIlMajeure();
+
+var_dump(estIlMajeure(15)); // Affiche la réponse de la function
 
 echo '<hr>';
 
-function Majeure()
+function Majeure($age)
 {
-  $age = 32;
   if ($age >= 18) {
-    echo 'true';
-  } else {
-    echo 'false';
+    return true;
   }
 
-  return $age;
+  return  false;
 }
-echo Majeure().'<hr>';
+var_dump(Majeure(15)); echo '<hr>';
 
 $estIlMajeure = function ($age) {
   return  !($age < 18);
@@ -39,20 +51,23 @@ echo '<br>';
 var_dump($estIlMajeure(105));
 
 echo '<hr>';
-var_dump (1<2);
+var_dump(1 < 2);
 echo '<br>';
-var_dump (1>2);
+var_dump(1 > 2);
 echo '<br>';
-
 
 // Un nouvel opérateur très intéressant:
-var_dump ((boolean)(3<=>3)); // false
-var_dump ((boolean)(1<=>2)); // true
+var_dump((bool) (3 <=> 3)); // false
+var_dump((bool) (1 <=> 2)); // true
 
 // Note qu'à la base:
 
-var_dump (1<=>2); // -1
-var_dump (3<=>2); // 1
-var_dump (2<=>2); // 0
+var_dump(1 <=> 2); // -1
+var_dump(3 <=> 2); // 1
+var_dump(2 <=> 2); // 0
 
 
+
+function renvoitMonArgument ($arg) {
+    return $arg;
+}
