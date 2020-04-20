@@ -1,6 +1,8 @@
 Exo 011: Order of Succession.<hr>
 <?php
-if (!function_exists('vdli')) include '../../dev/vdli.php';
+if (!function_exists('vdli')) {
+  include '../../dev/vdli.php';
+}
 
 // https://www.codingame.com/training/easy/order-of-succession
 
@@ -161,22 +163,29 @@ $ms = [
   ],
 ];
 $n = count($ms);
+
 vdli($ms[6]);
 
 foreach ($ms as $k => $v) {
   $ms['noms'][]    = $v[0];
   $ms['parents'][] = $ms[$k][1];
+  $ms[$k][]        = $k;
+  $ms[$k][]        = ($k > 0) ? array_keys($ms['noms'], $ms[$k][1], true)[0] : '-';
 }
+
+$getIdP = function ($id) use ($ms) {
+  return ($id > 0) ? array_keys($ms['noms'], $ms[$id][1], true)[0] : '-';
+};
+
 $parent = array_combine($ms['noms'], $ms['parents']);
 // vdli($ms['noms']);
 // vdli($ms['parents']);
 // vdli($parent);
 vdli($ms[7]);
+vdli($ms);
 
 // $id=6;
-$getIdP = function ($id) use ($ms) {
-  return ($id > 0) ? array_keys($ms['noms'], $ms[$id][1], true)[0] : '-';
-};
+
 // Donne l'Id du Parent à partir Id du filleul
 vdli($getIdP(7));
 // => Générer + facilement [uplines]
