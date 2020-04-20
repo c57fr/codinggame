@@ -1,4 +1,5 @@
 <?php
+if (!function_exists('vdli')) include '../../dev/vdli.php';
 
 $ts = [ // Températures
   '0' => -10,

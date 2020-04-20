@@ -1,5 +1,7 @@
 Exo 011: Order of Succession.<hr>
 <?php
+if (!function_exists('vdli')) include '../../dev/vdli.php';
+
 // https://www.codingame.com/training/easy/order-of-succession
 
 // Reconstitution des données du test 1

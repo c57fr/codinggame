@@ -1,5 +1,7 @@
 Exo 009: Défibrillateurs.<hr>
 <?php
+if (!function_exists('vdli')) include '../../dev/vdli.php';
+
 https://www.codingame.com/training/easy/defibrillators
 
 // Reconstitution des données du test 1
