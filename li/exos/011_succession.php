@@ -167,17 +167,17 @@ $n = count($ms);
 vdli($ms[6]);
 
 foreach ($ms as $k => $v) {
-  $ms['noms'][]    = $v[0];
-  $ms['parents'][] = $ms[$k][1];
-  $ms[$k][]        = $k;
-  $ms[$k][]        = ($k > 0) ? array_keys($ms['noms'], $ms[$k][1], true)[0] : '-';
+  // $ms['parents'][] = $ms[$k][1];
+  $ms['noms'][] = $v[0];
+  $ms[$k][]     = $k;
+  $ms[$k][]     = ($k > 0) ? array_keys($ms['noms'], $ms[$k][1], true)[0] : '-';
 }
 
 $getIdP = function ($id) use ($ms) {
   return ($id > 0) ? array_keys($ms['noms'], $ms[$id][1], true)[0] : '-';
 };
 
-$parent = array_combine($ms['noms'], $ms['parents']);
+// $parent = array_combine($ms['noms'], $ms['parents']);
 // vdli($ms['noms']);
 // vdli($ms['parents']);
 // vdli($parent);
