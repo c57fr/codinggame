@@ -1,6 +1,7 @@
 Exo 007: Mime Type.<hr>
 
 <?php
+if (!function_exists('vdli')) include '../../dev/vdli.php';
 
 // https://www.codingame.com/training/easy/mime-type
 

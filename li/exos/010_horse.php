@@ -1,5 +1,7 @@
 Exo 010: Chevaux de course.<hr>
 <?php
+if (!function_exists('vdli')) include '../../dev/vdli.php';
+
 // https://www.codingame.com/training/easy/horse-racing-duals
 
 // Reconstitution des données du test 1

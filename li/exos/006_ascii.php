@@ -1,6 +1,8 @@
 Exo 006: ASCII.<hr>
 
 <?php
+if (!function_exists('vdli')) include '../../dev/vdli.php';
+
 
 // https://www.codingame.com/training/easy/ascii-art/solution
 

@@ -1,6 +1,7 @@
 Pas de simu locale pour l'exo Mars.
 
 <?php
+if (!function_exists('vdli')) include '../../dev/vdli.php';
 
 // https://www.codingame.com/ide/puzzle/mars-lander-episode-1
 

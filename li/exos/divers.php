@@ -1,6 +1,6 @@
 <?php
 
-include './../../dev/vdli.php';
+if (!function_exists('vdli')) include '../../dev/vdli.php';
 
 // À faire dans l'ordre
 
