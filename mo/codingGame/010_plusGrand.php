@@ -7,10 +7,15 @@ function plusGrand($argument1, $argument2){
     {
         return $argument1;
         //return "$argument1 est plus grand que $argument2";
+    }elseif($argument1 < $argument2){
+        return $argument2;
+    }else{
+        //return "$argument1 est plus petit que $argument2";
+        return $argument1;
     }
-    //return "$argument1 est plus petit que $argument2";
+
 }
 //var_dump(plusGrand(23,15));
-echo plusGrand(23,150);
+echo plusGrand(23,23);
 
 // A refaire: Ne marche pas si c'est le 2ème argument qui est le plus grand ( => Ne renvoie rien !)
