@@ -153,14 +153,14 @@ $ms = [
     4 => 'Anglican',
     5 => 'F',
   ],
-  [
-    0 => 'Mimi',
-    1 => 'Isla',
-    2 => 2014,
-    3 => '-',
-    4 => 'Anglican',
-    5 => 'F',
-  ],
+  // [
+  //   0 => 'Mimi',
+  //   1 => 'Isla',
+  //   2 => 2014,
+  //   3 => '-',
+  //   4 => 'Anglican',
+  //   5 => 'F',
+  // ],
 ];
 $n = count($ms);
 
@@ -194,19 +194,19 @@ $ms[0]['bg']   = 1;
 $ms[0]['bd']   = 2;
 $ms[0]['prof'] = 0;
 
-for ($c = count($ms)-1, $i = 1; $i < $c; ++$i) {
-  $idp = $ms[$i][7];
+for ($i = 1; $i < $n; ++$i) {
+  $idp            = $ms[$i][7];
   $ms[$i]['bg']   = $ms[$idp]['bd'];
   $ms[$i]['bd']   = $ms[$i]['bg'] + 1;
   $ms[$i]['prof'] = $ms[$idp]['prof'] + 1;
 
-  $idp            = $i;
+  $idp = $i;
   while ($idp > 0) {
     $idp = $ms[$idp][7];
     $ms[$idp]['bd'] += 2;
   }
 }
-for ($c = count($ms)-1, $i = 0; $i < $c; ++$i) {
+for ($i = 0; $i < $n; ++$i) {
   vdli($ms[$i]);
 }
 
