@@ -169,43 +169,20 @@ $n = count($ms);
 foreach ($ms as $k => $v) {
   // $ms['parents'][] = $ms[$k][1];
   $ms['noms'][] = $v[0];
-  $ms[$k][]     = $k;
-  $ms[$k][]     = ($k > 0) ? array_keys($ms['noms'], $ms[$k][1], true)[0] : '-';
+  $ms[$k][]     = $k; // Champs 6: id
+  $ms[$k][]     = ($k > 0) ? array_keys(
+    $ms['noms'],
+    $ms[$k][1],
+    true
+  )[0] : '-';
+  // Champs 7: idP
 }
-
-$getIdP = function ($id) use ($ms) {
-  return ($id > 0) ? array_keys($ms['noms'], $ms[$id][1], true)[0] : '-';
-};
-
-// $parent = array_combine($ms['noms'], $ms['parents']);
-// vdli($ms['noms']);
-// vdli($ms['parents']);
-// vdli($parent);
-// vdli($ms[7]);
-// vdli($ms);
-
-// $id=6;
-
-// Donne l'Id du Parent à partir Id du filleul
-// vdli($getIdP(7));
-// => Générer + facilement [uplines]
-
-// foreach ($ms as $k => $vs) {
-//   vdli(array_search('Andrew', $vs, true ));
-// }
-
-// vdli(array_map($pid('Andres', $v), $ms));
-
-// vdli(array_search('Andrew', $ms[0], true));
-$pere = 'Andrew'; // Père(Id 6)  de Béatrice (Id 7)
-
-// echo '<hr>'.$ms[7][0].' (7) < '.$ms[7][1].' (6)<hr>';
 
 foreach ($ms as $k => $vs) {
   // vdli(array_search('Andrew', $vs, true));
 }
 
-$pid = function ($pere, $ms) {
+$piduuu = function ($pere, $ms) {
   return ($pere === $v) ?? 'no';
   foreach ($ms as $k => $v) {
     $peret = ($pere === $v[0]) ?? $k;
@@ -213,81 +190,30 @@ $pid = function ($pere, $ms) {
   }
 };
 
-$uplines = function ($id) use ($ms) {
-  $parr = $ms[$id][7];
-  while ('-' !== $parr) {
-    $ids[] = $parr;
-    $parr  = $ms[$parr][7];
-  }
-
-  return $ids;
-};
-
-// vdli($uplines(18));
-
-for ($c=count($ms), $i = 0; $i < 3; ++$i) {
-  vdli($ms[$i]);
-}
-
-
-exit;
-
-// vdli($ms['noms']);
-// vdli($ms['parents']);
-//  vdli($parent[$ms[18][0]]);
-// vdli(array_count_values($genealogy)); // nb enfants
-// exit;
-// Upline de $id
-$uplinesi = function ($id) use ($ms) {
-  if (0 === $id) {
-    return [];
-  }
-  do {
-    $p         = array_search($ms['parents'][$id], $ms['noms'], true);
-    $uplines[] = $p;
-    $id        = $p;
-  } while ($p);
-
-  return $uplines;
-};
-
-// vdli($uplines(0));
-// vdli(count($uplines(0))); // = Prof
-
 $ms[0]['bg']   = 1;
 $ms[0]['bd']   = 2;
-$ms[0]['prof'] = count($uplines(0));
-// vdli($ms[0]);
+$ms[0]['prof'] = 0;
 
-// exit;
-for ($i = 1; $i < $n; ++$i) {
-  $ms[$i]['bg']   = $ms[$i - 1]['bg'] + 1;
+for ($c = count($ms)-1, $i = 1; $i < $c; ++$i) {
+  $idp = $ms[$i][7];
+  $ms[$i]['bg']   = $ms[$idp]['bd'];
   $ms[$i]['bd']   = $ms[$i]['bg'] + 1;
-  $ms[$i]['prof'] = count($uplines($i));
+  $ms[$i]['prof'] = $ms[$idp]['prof'] + 1;
 
-  for ($j = $ms[$i]['prof']; $j > 0; --$j) {
-    $ms['parents'][$j - 1]['bd'] = $ms[$j - 1]['bd'] + 2;
-    // vdli($uplines($i));
+  $idp            = $i;
+  while ($idp > 0) {
+    $idp = $ms[$idp][7];
+    $ms[$idp]['bd'] += 2;
   }
 }
-
-for ($i = 0; $i < 3; ++$i) {
-  vdli($i);
+for ($c = count($ms)-1, $i = 0; $i < $c; ++$i) {
   vdli($ms[$i]);
 }
+
+// vdli($ms[0]);
+
 exit;
-$getParent = function ($m) use ($ms) {
-  return $ms[$ms['parents'][$m]];
-};
 
-    // Upline de Georges // id 3
-
-// echo $getParent(4);
-// $ms[1]<>'-'
-
-foreach ($ms as $k => $v) {
-  vdli([$k, $v[0], $v['bg'] ?? '', $v['bd'] ?? '']);
-}
 //////////////////////////////////////////////////////////////
 /*
 Solution dans codding : Même code
