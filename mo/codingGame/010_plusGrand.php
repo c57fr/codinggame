@@ -1,5 +1,5 @@
 <?php
-//Créer une fonction from scratch qui s'appelle plusGrand(). Elle prendra deux arguments de type int. Elle devra retourner le plus grand des deux.
+// Créer une fonction from scratch qui s'appelle plusGrand(). Elle prendra deux arguments de type int. Elle devra retourner le plus grand des deux.
 
 
 function plusGrand($argument1, $argument2){
@@ -16,6 +16,6 @@ function plusGrand($argument1, $argument2){
 
 }
 //var_dump(plusGrand(23,15));
-echo plusGrand(23,23);
+echo plusGrand(2,23);
 
 // A refaire: Ne marche pas si c'est le 2ème argument qui est le plus grand ( => Ne renvoie rien !)
