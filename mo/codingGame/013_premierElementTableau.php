@@ -16,3 +16,25 @@ vdli(premierElementTableau($arr));
 echo '<hr>';
 $arr = [];
 var_dump(premierElementTableau($arr));
+echo '<hr><hr>';
+
+////////////////////////////////////////////////////////////////////
+//
+// Solution avec des if
+//
+function premierElementTableauIf($notes){
+    // $notes = [];
+    if(!empty($notes))
+    {
+        //return array_key_first(count($notes));
+        return $notes[0];
+    }
+    
+    return null;
+    
+}
+//var_dump(premierElementTableau(4,78));
+var_dump(premierElementTableauIf([78, 9]));
+echo '<hr>';
+var_dump(premierElementTableauIf([]));
+
