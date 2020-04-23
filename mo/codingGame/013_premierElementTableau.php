@@ -38,3 +38,9 @@ var_dump(premierElementTableauIf([78, 9]));
 echo '<hr>';
 var_dump(premierElementTableauIf([]));
 
+echo '<hr>';
+
+
+$str= 'Ma chaîn,e de caractères...)';
+vdli($str);
+vdli($str[0]);
