@@ -1,13 +1,14 @@
 <?php
 
 if (!function_exists('vdli')) {
-    include '../../dev/vdli.php';
-  } // vdli()
+  include '../../dev/vdli.php';
+} // vdli()
 
 //  Créer une fonction from scratch qui s'appelle premierElementTableau(). Elle prendra un argument de type array. Elle devra retourner le premier élement du tableau. Si l'array est vide, il faudra retourner null;
 
-function premierElementTableau($notes){
-    return $notes[0] ?? null;
+function premierElementTableau($notes)
+{
+  return $notes[0] ?? null;
 }
 //var_dump(premierElementTableau(4,78));
 
@@ -22,16 +23,13 @@ echo '<hr><hr>';
 //
 // Solution avec des if
 //
-function premierElementTableauIf($notes){
-    // $notes = [];
-    if(!empty($notes))
-    {
-        //return array_key_first(count($notes));
-        return $notes[0];
-    }
-    
-    return null;
-    
+function premierElementTableauIf($notes)
+{
+  if (!empty($notes)) {
+    return $notes[0];
+  }
+
+  return null;
 }
 //var_dump(premierElementTableau(4,78));
 var_dump(premierElementTableauIf([78, 9]));
@@ -40,7 +38,6 @@ var_dump(premierElementTableauIf([]));
 
 echo '<hr>';
 
-
-$str= 'Ma chaîn,e de caractères...)';
+$str = 'Ma chaîne de caractères...)';
 vdli($str);
 vdli($str[0]);
