@@ -6,6 +6,9 @@ if (!function_exists('vdli')) {
 
 //  Créer une fonction from scratch qui s'appelle premierElementTableau(). Elle prendra un argument de type array. Elle devra retourner le premier élement du tableau. Si l'array est vide, il faudra retourner null;
 
+/**
+ * Retourne le 1er élément d'un tableau
+ */
 function premierElementTableau(Array $notes): ?int
 {
   return $notes[0] ?? null;
