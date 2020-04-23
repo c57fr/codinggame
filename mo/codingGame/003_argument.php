@@ -1,9 +1,10 @@
 <?php
-//  Créer une fonction from scratch qui s'appelle jeRetourneMonArgument(). Exemple : Arg = "abc" ==> Return abc Arg = 123 ==> Return 123
 
-function jeRetourneMonArgument(){
-    $arg = "abc";
-    return $arg;
+function jeRetourneMonArgument($arg)
+{
+  return $arg;
 }
 
-echo jeRetourneMonArgument();
+echo jeRetourneMonArgument('Param');
+
+//  Créer une fonction from scratch qui s'appelle jeRetourneMonArgument(). Exemple : Arg = "abc" ==> Return abc Arg = 123 ==> Return 123

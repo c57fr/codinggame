@@ -1,4 +1,4 @@
-Exo 011: Order of Succession.<hr>
+<!-- Exo 011: Order of Succession.<hr> -->
 <?php
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
@@ -507,20 +507,25 @@ for ($i = 1; $i < $n; ++$i) {
     $ms[$idp]['bd'] += 2;
   }
 }
+
+include '011t.php';
+
+exit;
+
 vdli(array_column($ms, 0)); // Tableau borné nickel
 
-
+// Tri et sélection des données
 $profs = array_column($ms, 'prof');
-// $noms  = array_column($ms, 0);
-$ages = array_column($ms, 2);
-$sexs = array_column($ms, 5);
-$mst  = array_multisort($profs, $sexs, SORT_DESC, $ages, $ms);
+$noms  = array_column($ms, 0);
+$ages  = array_column($ms, 2);
+$sexs  = array_column($ms, 5);
+$mst   = array_multisort($profs, $sexs, SORT_DESC, $ages, $ms);
 
 for ($i = 0; $i < $n; ++$i) {
   // echo $i.' '.$ms[$i][0].'('.$ms[$i]['bg'].'-'.$ms[$i]['bd'].'-'.$ms[$i]['prof'].")\n<br>";
   echo $ms[$i][0]."\n";
 }
-vdli(array_column($ms, 0));
+vdli($noms);
 // $nasp($ms);
 
 // exit;
