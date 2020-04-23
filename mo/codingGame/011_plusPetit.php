@@ -8,6 +8,9 @@ function plusPetit($argument1, $argument2)
 
   return $argument2;
 }
+
+// Créer une fonction from scratch qui s'appelle plusPetit(). Elle prendra deux arguments de type int. Elle devra retourner le plus petit des deux.
+
 echo plusPetit(10, 9);
 echo '<br>';
 echo plusPetit(120, 18);
