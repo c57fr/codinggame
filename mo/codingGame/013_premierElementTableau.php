@@ -8,6 +8,8 @@ if (!function_exists('vdli')) {
 
 /**
  * Retourne le 1er élément d'un tableau
+ * 
+ * $notes: Le tableau des notes
  */
 function premierElementTableau(Array $notes): ?int
 {
