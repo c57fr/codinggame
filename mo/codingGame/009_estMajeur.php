@@ -18,7 +18,7 @@ var_dump(estIlMajeure(16));
 
 // Soluce Li
 $estIlMajeur = function ($n) {
-  return $n >= 18;
+  return $n > 17;
 };
 
 echo '<hr>';
