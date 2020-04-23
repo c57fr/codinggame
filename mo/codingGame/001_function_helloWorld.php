@@ -2,7 +2,7 @@
 //Faite en sorte que la fonction HelloWorld retourne exactement la valeur Hello World!
 
 function HelloWorld(){
-    $c = "Hello World";
+    $c = "Hello World!";
     return $c;
 }
 echo HelloWorld();
@@ -10,6 +10,6 @@ echo HelloWorld();
 echo "<hr>";
 
 function sayHello(){
-    return "Hello World";
+    return "Hello World!";
 }
 echo sayHello();
