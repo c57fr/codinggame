@@ -1,5 +1,8 @@
 <!-- Exo 011: Order of Succession.<hr> -->
 <?php
+// ini_set('implicit_flush', true);
+ob_implicit_flush();
+
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
