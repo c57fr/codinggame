@@ -70,7 +70,7 @@ $ms = [ // Test 1
     2 => 1982,
     3 => '-',
     4 => 'Anglican',
-    5 => 'M',
+    5 => 'F', // M
   ],
   [
     0 => 'George',
@@ -89,9 +89,9 @@ $ms = [ // Test 1
     5 => 'F',
   ],
   [
-    0 => 'Henry',
+    0 => 'YHenry', // Henry
     1 => 'Charles',
-    2 => 1980, // 1984
+    2 => 1982, // 1984
     3 => '-',
     4 => 'Anglican',
     5 => 'M',
@@ -465,41 +465,18 @@ $ms3 = [ // Test 3
 ];
 $n = count($ms);
 
-// vdli($ms);
-// $nasp = function ($tab) {
-//   foreach ($tab as $k => $v) {
-//     $us[] = $v[0].' '.$v[2].' '.$v[5];
-//   }
-  // vdli($us);
-// };
-
-// $nasp($ms);
-// $ms[0]['prof'] = 0;
-
 $ms[0][6] = 0; // id
 $ms[0][7] = 0; // prof
 $ms[0][8] = null; // prof
 
 $noms = array_column($ms, 0);
-// $u0   = array_shift($ms);
 
-// echo phpinfo();
-// require('Var_Dump.php'); // make sure the pear package path is set in php.ini
-// Var_Dump::displayInit(array('display_mode' => 'HTML4_Text'), array('mode' => 'normal','offset' => 4));
+// vdli($ms[1]);
 
-vdli($ms[1]);
-
-for($k=1; $k<$n; $k++) {
-  // $ms['parents'][] = $ms[$k][1];
-  // $ms['noms'][] = $v[0];
+for ($k = 1; $k < $n; ++$k) {
   $ms[$k][] = $k; // Champs 6: id
   $ms[$k][] = null; // Champs 7 Prof (Ini)
 
-  // $ms[$k][] = ($k >= 0) ? array_keys(
-  //   $noms,
-  //   $ms[$k][1],
-  //   true
-  // )[0] : '-';
   $ms[$k][] = array_search(
     $ms[$k][1],
     $noms,
@@ -507,45 +484,28 @@ for($k=1; $k<$n; $k++) {
   );
   // Champs 8: idP
 
-  // vdli($noms);
-
-  // if (0 === $k) {
-  //   echo'<pre>';
-  //   var_dump($ms[$k]);
-  //   echo'</pre>';
-  // }
-
-  // foreach ($ms as $k => $v) {
   $idp       = $ms[$k][8];
   $ms[$k][7] = (0 !== $k) ? $ms[$idp][7] + 1 : 1;
-  // }
-
-  if (3 === $k) {
-    echo'<pre>';
-    var_dump($ms[$k]);
-    echo'</pre>';
-  }
 }
-// array_unshift($ms, $u0);
 
 include '011_affHierarchieSimple.php';
-exit;
-$profs = array_column($ms, 6);
-sort($profs);
-vdli($profs);
-$ages = array_column($ms, 2);
-// vdli($ages);
-$genres = array_column($ms, 5);
-// vdli($genres);
 
-array_multisort($ms, SORT_ASC, $profs);
 echo '<hr>';
+
+$profs  = array_column($ms, 7);
+$ages   = array_column($ms, 2);
+$genres = array_column($ms, 5);
+
+array_multisort($profs, $ages, $genres, SORT_DESC, $ms);
+
+echo '<hr>';
+
 include '011_affHierarchieSimple.php';
 // foreach ($ms as $k => $vs) {
   //   vdli(array_search('Andrew', $vs, true));
   // }
   // vdli($ms);
-  exit;
+exit;
 $ms[0]['bg']   = 1;
 $ms[0]['bd']   = 2;
 $ms[0]['prof'] = 0;
@@ -583,27 +543,6 @@ for ($i = 1; $i < $n; ++$i) {
   }
 }
 
-exit;
-
-vdli(array_column($ms, 0)); // Tableau borné nickel
-
-// Tri et sélection des données
-$profs = array_column($ms, 'prof');
-$noms  = array_column($ms, 0);
-$ages  = array_column($ms, 2);
-$sexs  = array_column($ms, 5);
-$mst   = array_multisort($profs, $sexs, SORT_DESC, $ages, $ms);
-
-for ($i = 0; $i < $n; ++$i) {
-  // echo $i.' '.$ms[$i][0].'('.$ms[$i]['bg'].'-'.$ms[$i]['bd'].'-'.$ms[$i]['prof'].")\n<br>";
-  echo $ms[$i][0]."\n";
-}
-vdli($noms);
-// $nasp($ms);
-
-// exit;
-
-// vdli($ms);
 //////////////////////////////////////////////////////////////
 /*
 Solution dans codding : Même code
