@@ -475,37 +475,67 @@ $n = count($ms);
 
 $ms[0][6] = 0; // id
 $ms[0][7] = 0; // prof
+$ms[0][8] = null; // prof
 
-$noms          = array_column($ms, 0);
-$u0 = array_shift($ms);
-foreach ($ms as $k => $v) {
+$noms = array_column($ms, 0);
+// $u0   = array_shift($ms);
+
+// echo phpinfo();
+// require('Var_Dump.php'); // make sure the pear package path is set in php.ini
+// Var_Dump::displayInit(array('display_mode' => 'HTML4_Text'), array('mode' => 'normal','offset' => 4));
+
+vdli($ms[1]);
+
+for($k=1; $k<$n; $k++) {
   // $ms['parents'][] = $ms[$k][1];
   // $ms['noms'][] = $v[0];
-  $ms[$k][] = $k; // Champs 7: id
-  
-  $ms[$k][] = ($k > 0) ? array_keys(
-    $noms,
+  $ms[$k][] = $k; // Champs 6: id
+  $ms[$k][] = null; // Champs 7 Prof (Ini)
+
+  // $ms[$k][] = ($k >= 0) ? array_keys(
+  //   $noms,
+  //   $ms[$k][1],
+  //   true
+  // )[0] : '-';
+  $ms[$k][] = array_search(
     $ms[$k][1],
+    $noms,
     true
-  )[0] : '-';
+  );
   // Champs 8: idP
-  if ($k<$n+1 && $k>0) {
-    $idp            = $ms[$k][7];
-    $ms[$k][6] = $ms[$idp][6] + 1;
+
+  // vdli($noms);
+
+  // if (0 === $k) {
+  //   echo'<pre>';
+  //   var_dump($ms[$k]);
+  //   echo'</pre>';
+  // }
+
+  // foreach ($ms as $k => $v) {
+  $idp       = $ms[$k][8];
+  $ms[$k][7] = (0 !== $k) ? $ms[$idp][7] + 1 : 1;
+  // }
+
+  if (3 === $k) {
+    echo'<pre>';
+    var_dump($ms[$k]);
+    echo'</pre>';
   }
 }
-array_unshift($ms, $u0);
+// array_unshift($ms, $u0);
 
 include '011_affHierarchieSimple.php';
+exit;
 $profs = array_column($ms, 6);
 sort($profs);
 vdli($profs);
-$ages  = array_column($ms, 2);
+$ages = array_column($ms, 2);
 // vdli($ages);
 $genres = array_column($ms, 5);
 // vdli($genres);
 
-array_multisort($ms,SORT_ASC, $profs);
+array_multisort($ms, SORT_ASC, $profs);
 echo '<hr>';
 include '011_affHierarchieSimple.php';
 // foreach ($ms as $k => $vs) {
