@@ -2,7 +2,7 @@
 <?php
 
 $rens=function($u){
-return ($u[6].' '.$u[0] . ' ('.$u['bg'].'-'.$u['bd'].' | '.$u['prof'].' )');
+return ($u[6].' '.$u[0] . ' ('.$u['bg'].'-'.$u['bd'].' | '.$u[2].' - '.$u['prof'].' )');
 };
 
 foreach ($ms as $k => $v) {

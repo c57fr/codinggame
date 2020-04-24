@@ -88,7 +88,7 @@ $ms = [ // Test 1
   [
     0 => 'Henry',
     1 => 'Charles',
-    2 => 1980,
+    2 => 1980, // 1984
     3 => '-',
     4 => 'Anglican',
     5 => 'M',
@@ -485,15 +485,32 @@ foreach ($ms as $k => $v) {
   // Champs 7: idP
 }
 
-foreach ($ms as $k => $vs) {
-  // vdli(array_search('Andrew', $vs, true));
-}
+// foreach ($ms as $k => $vs) {
+//   vdli(array_search('Andrew', $vs, true));
+// }
 
 $ms[0]['bg']   = 1;
 $ms[0]['bd']   = 2;
 $ms[0]['prof'] = 0;
 
-// $c = 4;
+for ($i = 1; $i < $n; ++$i) {
+  $idp            = $ms[$i][7];
+  $ms[$i]['prof'] = $ms[$idp]['prof'] + 1;
+}
+
+// Tri // Age & Genre
+
+$p     = 2;
+$profs = array_column($ms, 'prof');
+vdli($profs);
+
+vdli(array_keys($profs, 2, true));
+
+$ages = array_column($ms, 2);
+vdli($ages);
+$genres = array_column($ms, 5);
+// vdli(array_values(2, $profs));
+$mstri = array_multisort($profs, $genres, SORT_DESC, $ages, $ms);
 
 for ($i = 1; $i < $n; ++$i) {
   $idp            = $ms[$i][7];
