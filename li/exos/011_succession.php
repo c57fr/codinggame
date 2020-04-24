@@ -471,32 +471,56 @@ $n = count($ms);
 // };
 
 // $nasp($ms);
+// $ms[0]['prof'] = 0;
 
-$noms = array_column($ms, 0);
+$ms[0][6] = 0; // id
+$ms[0][7] = 0; // prof
+
+$noms          = array_column($ms, 0);
+$u0 = array_shift($ms);
 foreach ($ms as $k => $v) {
   // $ms['parents'][] = $ms[$k][1];
   // $ms['noms'][] = $v[0];
-  $ms[$k][] = $k; // Champs 6: id
+  $ms[$k][] = $k; // Champs 7: id
+  
   $ms[$k][] = ($k > 0) ? array_keys(
     $noms,
     $ms[$k][1],
     true
   )[0] : '-';
-  // Champs 7: idP
+  // Champs 8: idP
+  if ($k<$n+1 && $k>0) {
+    $idp            = $ms[$k][7];
+    $ms[$k][6] = $ms[$idp][6] + 1;
+  }
 }
+array_unshift($ms, $u0);
 
+include '011_affHierarchieSimple.php';
+$profs = array_column($ms, 6);
+sort($profs);
+vdli($profs);
+$ages  = array_column($ms, 2);
+// vdli($ages);
+$genres = array_column($ms, 5);
+// vdli($genres);
+
+array_multisort($ms,SORT_ASC, $profs);
+echo '<hr>';
+include '011_affHierarchieSimple.php';
 // foreach ($ms as $k => $vs) {
-//   vdli(array_search('Andrew', $vs, true));
-// }
-
+  //   vdli(array_search('Andrew', $vs, true));
+  // }
+  // vdli($ms);
+  exit;
 $ms[0]['bg']   = 1;
 $ms[0]['bd']   = 2;
 $ms[0]['prof'] = 0;
 
-for ($i = 1; $i < $n; ++$i) {
-  $idp            = $ms[$i][7];
-  $ms[$i]['prof'] = $ms[$idp]['prof'] + 1;
-}
+// for ($i = 1; $i < $n; ++$i) {
+//   $idp            = $ms[$i][7];
+//   $ms[$i]['prof'] = $ms[$idp]['prof'] + 1;
+// }
 
 // Tri // Age & Genre
 
@@ -504,7 +528,8 @@ $p     = 2;
 $profs = array_column($ms, 'prof');
 vdli($profs);
 
-vdli(array_keys($profs, 2, true));
+$p2 = array_keys($profs, 2, true);
+vdli($p2);
 
 $ages = array_column($ms, 2);
 vdli($ages);
@@ -524,8 +549,6 @@ for ($i = 1; $i < $n; ++$i) {
     $ms[$idp]['bd'] += 2;
   }
 }
-
-include '011_affHierarchie.php';
 
 exit;
 
