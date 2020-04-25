@@ -70,7 +70,7 @@ $ms = [ // Test 1
     2 => 1982,
     3 => '-',
     4 => 'Anglican',
-    5 => 'F', // M
+    5 => 'M', // M
   ],
   [
     0 => 'George',
@@ -89,9 +89,9 @@ $ms = [ // Test 1
     5 => 'F',
   ],
   [
-    0 => 'YHenry', // Henry
+    0 => 'Henry', // Henry
     1 => 'Charles',
-    2 => 1982, // 1984
+    2 => 1984, // 1984
     3 => '-',
     4 => 'Anglican',
     5 => 'M',
@@ -465,13 +465,17 @@ $ms3 = [ // Test 3
 ];
 $n = count($ms);
 
+// Init id, prof et idp pour Elizabeth
+
 $ms[0][6] = 0; // id
 $ms[0][7] = 0; // prof
-$ms[0][8] = null; // prof
+$ms[0][8] = null; // idp
 
 $noms = array_column($ms, 0);
 
 // vdli($ms[1]);
+
+// Init id, prof et idp pour chaque descendant
 
 for ($k = 1; $k < $n; ++$k) {
   $ms[$k][] = $k; // Champs 6: id
@@ -491,12 +495,21 @@ for ($k = 1; $k < $n; ++$k) {
 include '011_affHierarchieSimple.php';
 
 echo '<hr>';
+// ---------------------------------------------------------------
+
+$msnt = $ms;
+// vdli($msnt);
 
 $profs  = array_column($ms, 7);
 $ages   = array_column($ms, 2);
 $genres = array_column($ms, 5);
 
 array_multisort($profs, $ages, $genres, SORT_DESC, $ms);
+
+
+// Ressource intéressante: https://lucidar.me/fr/web-dev/how-to-sort-multidimensional-array-in-php/
+
+// vdli($ms);
 
 echo '<hr>';
 
@@ -505,7 +518,14 @@ include '011_affHierarchieSimple.php';
   //   vdli(array_search('Andrew', $vs, true));
   // }
   // vdli($ms);
+// ---------------------------------------------------------------
+
 exit;
+
+//////////////////////////////////////////////////////////////
+// Transposition en système de représentation intervallaire //
+//////////////////////////////////////////////////////////////
+
 $ms[0]['bg']   = 1;
 $ms[0]['bd']   = 2;
 $ms[0]['prof'] = 0;
