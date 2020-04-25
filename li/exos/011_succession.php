@@ -96,6 +96,14 @@ $ms = [ // Test 1
     4 => 'Anglican',
     5 => 'M',
   ],
+  [
+    0 => 'Nine',
+    1 => 'Henry',
+    2 => 2014,
+    3 => '-',
+    4 => 'Anglican',
+    5 => 'F',
+  ],
 ];
 
 $ms2 = [ // Test 2
@@ -492,11 +500,12 @@ for ($k = 1; $k < $n; ++$k) {
   $ms[$k][7] = (0 !== $k) ? $ms[$idp][7] + 1 : 1;
 }
 
-include '011_affHierarchieSimple.php';
+// include '011_affHierarchieSimple.php';
+// echo '<hr>';
 
-echo '<hr>';
 // ---------------------------------------------------------------
 
+// exit;
 $msnt = $ms;
 // vdli($msnt);
 
@@ -504,23 +513,42 @@ $profs  = array_column($ms, 7);
 $ages   = array_column($ms, 2);
 $genres = array_column($ms, 5);
 
+$noms1 = array_column($ms, 0);
 array_multisort($profs, $ages, $genres, SORT_DESC, $ms);
-
+$noms2 = array_column($ms, 0);
 
 // Ressource intéressante: https://lucidar.me/fr/web-dev/how-to-sort-multidimensional-array-in-php/
 
 // vdli($ms);
 
-echo '<hr>';
-
 include '011_affHierarchieSimple.php';
+echo '<hr>';
 // foreach ($ms as $k => $vs) {
   //   vdli(array_search('Andrew', $vs, true));
   // }
   // vdli($ms);
-// ---------------------------------------------------------------
-
-exit;
+  // ---------------------------------------------------------------
+  
+  // Nouvos ids
+  echo '<h4>New Ids</h4>';
+  
+  foreach ($ms as $k => $v) {
+    $ms[$k][6] = $k;
+    $noms      = array_column($ms, 0);
+    $ms[$k][8] = array_search(
+      $ms[$k][1],
+      $noms,
+      true
+    );
+  }
+  include '011_affHierarchieSimple.php';
+  echo '<hr>';
+  // Nouvelle hiérarchie
+  echo '<h4>New Hierarchy</h4>';
+  
+  include '011_affHierarchieRecursive.php';
+  
+  exit;
 
 //////////////////////////////////////////////////////////////
 // Transposition en système de représentation intervallaire //

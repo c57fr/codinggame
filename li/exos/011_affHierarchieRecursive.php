@@ -11,6 +11,7 @@ $rens = function ($u) {
 
 echo '<table border=0><tr>';
 for ($i = 0; $i < $n; ++$i) {
+  //TODO Moulinette pour gérer filleuls
   echo '<tr><td>'.$i.'</td>'.$rens($ms[$i]).'</tr>';
 }
 echo '</table>';
