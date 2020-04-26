@@ -528,26 +528,26 @@ echo '<hr>';
   // }
   // vdli($ms);
   // ---------------------------------------------------------------
-  
+
   // Nouvos ids
   echo '<h4>New Ids</h4>';
-  
+
   foreach ($ms as $k => $v) {
     $ms[$k][6] = $k;
     $noms      = array_column($ms, 0);
     $ms[$k][8] = array_search(
-      $ms[$k][1],
-      $noms,
-      true
-    );
+    $ms[$k][1],
+    $noms,
+    true
+  );
   }
   include '011_affHierarchieSimple.php';
   echo '<hr>';
   // Nouvelle hiérarchie
   echo '<h4>New Hierarchy</h4>';
-  
+
   include '011_affHierarchieRecursive.php';
-  
+
   exit;
 
 //////////////////////////////////////////////////////////////
