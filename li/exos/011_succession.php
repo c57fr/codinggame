@@ -11,7 +11,7 @@ if (!function_exists('vdli')) {
 
 // Reconstitution des données du test 1
 
-$msttt = [
+$mst = [
   [
     0 => 'Elizabeth',
     1 => '-',
@@ -47,7 +47,7 @@ $msttt = [
   ],
 ];
 
-$ms = [ // Test 1
+$ms1 = [ // Test 1
   [
     0 => 'Elizabeth',
     1 => '-',
@@ -106,7 +106,7 @@ $ms = [ // Test 1
   ],
 ];
 
-$ms2 = [ // Test 2
+$ms = [ // Test 2
   [
     0 => 'Elizabeth',
     1 => '-',
@@ -500,8 +500,8 @@ for ($k = 1; $k < $n; ++$k) {
   $ms[$k][7] = (0 !== $k) ? $ms[$idp][7] + 1 : 1;
 }
 
-// include '011_affHierarchieSimple.php';
-// echo '<hr>';
+include '011_affHierarchieSimple.php';
+echo '<hr>';
 
 // ---------------------------------------------------------------
 
@@ -521,8 +521,10 @@ $noms2 = array_column($ms, 0);
 
 // vdli($ms);
 
+  echo '<h4>Tri (Âge, puis genre)</h4>';
 include '011_affHierarchieSimple.php';
 echo '<hr>';
+
 // foreach ($ms as $k => $vs) {
   //   vdli(array_search('Andrew', $vs, true));
   // }
@@ -530,7 +532,6 @@ echo '<hr>';
   // ---------------------------------------------------------------
 
   // Nouvos ids
-  echo '<h4>New Ids</h4>';
 
   foreach ($ms as $k => $v) {
     $ms[$k][6] = $k;
@@ -541,8 +542,8 @@ echo '<hr>';
     true
   );
   }
-  include '011_affHierarchieSimple.php';
-  echo '<hr>';
+//   include '011_affHierarchieSimple.php';
+//   echo '<hr>';
   // Nouvelle hiérarchie
   echo '<h4>New Hierarchy</h4>';
 
@@ -593,11 +594,35 @@ for ($i = 1; $i < $n; ++$i) {
 
 //////////////////////////////////////////////////////////////
 /*
-Solution dans codding : Même code
+Solution dans codding :
 
 <?php
 
-
+fscanf(STDIN, "%d", $n);
+$tree = [];
+for ($i = 0; $i < $n; $i++)
+{
+    $t = fscanf(STDIN, "%s %s %d %s %s %s");
+    $tree[$t[1]][] = $t;
+}
+foreach($tree as $k => $t) {
+    usort($tree[$k],function($a,$b) { 
+        if($a[5] == $b[5])
+            return $a[2] < $b[2] ? -1 : 1;
+        else
+            return $a[5] == "M" ? -1 : 1;
+    });
+}
+function loop($p) {
+    global $tree;
+    if(isset($tree[$p]))
+        foreach($tree[$p] as $t) {
+            if($t[4] != "Catholic" && $t[3] == "-")
+                echo $t[0],"\n";
+            loop($t[0]);
+        }
+}
+loop("-");
 
 
 */

@@ -22,13 +22,13 @@ function filleuls($id, $idps, $lignee)
   $enfants = array_keys($idps, $id, true); // get enfants de id
   foreach ($enfants as $k => $enfant) {
     $lignee[] = $enfant;
-    $lignee = filleuls($enfant, $idps, $lignee);
+    $lignee   = filleuls($enfant, $idps, $lignee);
   }
 
   return $lignee;
 }
 
-$lignee = filleuls(0, $idps,[]);
+$lignee = filleuls(0, $idps, []);
 
 //   $groupe[] = $filleuls[$enfant];
 // vdli($enfants);
@@ -36,7 +36,17 @@ $lignee = filleuls(0, $idps,[]);
 // foreach ($enfants as $k => $enfant) {
 //   $groupe[] = $ms[$enfant][0];
 // }
-vdli($lignee);
+
+array_unshift($lignee, 0);
+// vdli($lignee);
+
+
+
+ foreach ($lignee as $k=>$kid) {
+    echo '<tr><td>'.$k.'</td>'.$rens($ms[$kid]).'</tr>';
+//    echo $ms[$kid][0].'<br>';
+ }
+
 // $enfants = array_keys($idps, 3, true); // get enfants de id 0
 // vdli($enfants);
 
