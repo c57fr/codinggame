@@ -14,9 +14,32 @@ echo '<table border=0><tr>';
   //TODO Moulinette pour gérer filleuls
   $i = 0;
 //   echo '<tr><td>'.$i.'</td>'.$rens($ms[$i]).'</tr>';
-  $idps         = array_column($ms, 8);
-  vdli(array_keys($idps, 0, true)); // get enfants de id 0
-  
+
+$idps = array_column($ms, 8);
+
+function filleuls($id, $idps, $lignee)
+{
+  $enfants = array_keys($idps, $id, true); // get enfants de id
+  foreach ($enfants as $k => $enfant) {
+    $lignee[] = $enfant;
+    $lignee = filleuls($enfant, $idps, $lignee);
+  }
+
+  return $lignee;
+}
+
+$lignee = filleuls(0, $idps,[]);
+
+//   $groupe[] = $filleuls[$enfant];
+// vdli($enfants);
+// $enfants = array_keys($idps, 1, true); // get enfants de id 0
+// foreach ($enfants as $k => $enfant) {
+//   $groupe[] = $ms[$enfant][0];
+// }
+vdli($lignee);
+// $enfants = array_keys($idps, 3, true); // get enfants de id 0
+// vdli($enfants);
+
 // }
 echo '</table>';
 
