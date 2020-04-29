@@ -39,26 +39,59 @@ Solution dans codding :
 <?php
 
 
-
-function compute($index)
+public class Solution
 {
-  global $database;
-  list($line, $result) = $database[$index];
-  if ($result !== false) return $result;
+  public static void Main()
+  {
+    //Read diagram size.
+    string[] line = Console.ReadLine().Split();
+    int W = int.Parse(line[0]);
+    int H = int.Parse(line[1]);
 
-  list($op, $a, $b) = $line;
-  $a = $a[0] == '$' ? compute((int)substr($a, 1)) : (int)$a;
-  $b = $b[0] == '$' ? compute((int)substr($b, 1)) : (int)$b;
+    //Read top labels and create start indices.
+    string[] T = Console.ReadLine().Split(new [] { "  " }, StringSplitOptions.None);
+    int[] Ti = new int[T.Length];
 
-  $result = $a;
-  if ($op == 'ADD') $result += $b;
-  if ($op == 'SUB') $result -= $b;
-  if ($op == 'MULT') $result *= $b;
+    for (int i = 0; i < Ti.Length; i++)
+    {
+      Ti[i] = i;
+    }
 
-  $database[$index][1] = $result;
-  return $result;
+    //Read diagram lines.
+    for (int i = 0; i < H - 2; i++)
+    {
+      line = Console.ReadLine().Split('|');
+
+      //Search for horizontal lines.
+      for (int j = 0; j < line.Length; j++)
+      {
+        if (line[j] == "--")
+        {
+          //Check where the horizontal line is and change indices.
+          for (int k = 0; k < Ti.Length; k++)
+          {
+            if (Ti[k] == j - 1)
+            {
+              Ti[k] += 1;
+            }
+            else if (Ti[k] == j)
+            {
+              Ti[k] -= 1;
+            }
+          }
+        }
+      }
+    }
+
+    //Read bottom labels.
+    string[] B = Console.ReadLine().Split(new [] { "  " }, StringSplitOptions.None);
+
+    //Print result.
+    for (int i = 0; i < T.Length; i++)
+    {
+      Console.WriteLine(T[i] + B[Ti[i]]);
+    }
+  }
 }
 
-foreach ($database as $i => $line)
-  echo compute($i)."\n";
-  */
+*/
