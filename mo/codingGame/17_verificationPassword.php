@@ -22,7 +22,16 @@ function verificationPassword($str)
 {
   return (bool) (strlen($str) > 7);
 }
+  ob_implicit_flush(); // Pour actu xdebug ds chrome
 
+function verificationPassword($motDePasse)
+{
+    if((strlen($motDePasse)) >= 8)
+    {
+        return (bool) true;
+    }
+    return (bool) false;
+}
 $mdp1 = 'mine';
 $mdp2 = 'mouhamadou';
 var_dump(verificationPassword($mdp1));
