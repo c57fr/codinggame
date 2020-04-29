@@ -17,7 +17,7 @@ var_dump(verificationPassword($mdp2));*/
 
 function verificationPassword($motDePasse)
 {
-    if(strlen($motDePasse >= 8))
+    if((strlen($motDePasse)) >= 8)
     {
         return (bool) true;
     }
