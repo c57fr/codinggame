@@ -8,12 +8,7 @@ ob_implicit_flush(); // Pour actu xdebug ds chrome
 
 // https://www.codingame.com/training/easy/rock-paper-scissors-lizard-spock
 
-// $arr = [1, 2];
-// vdli($arr);
 
-// echo min($arr);
-
-// exit;
 // Reconstitution des données du test
 // t 1
 $js = [
@@ -50,16 +45,7 @@ $js = [
     1 => 'L',
   ],
 ];
-// $js = [
-//   0 => [
-//     0 => 1,
-//     1 => 'S',
-//   ],
-//   1 => [
-//     0 => 2,
-//     1 => 'S',
-//   ],
-// ];
+
 $N = count($js);
 
 // foreach ($js as $i => $rpc) {
@@ -71,21 +57,7 @@ $N = count($js);
 $js_ori = $js;
 $vs     = ['CP', 'PR', 'RL', 'LS', 'SC', 'CL', 'LP', 'PS', 'SR', 'RC'];
 
-// if ($ms[$i/2][0][1] == $ms[$i/2][1][1])  echo 'Same arme';
-
-// vdli($match);
-
-// vdli($ms[0]);
-
-// matches
-
-// vdli(array_column($js, 0));
-
-// $j = 3; // sqrt($N);
 do {
-//   if (1 === $j) {
-//     // echo '<h1>Manche '.(3 - $j).'</h1>';
-//   } // Numéro de la manche
 
   $ms = [];
   // ##############################    Calcul des matches
@@ -95,39 +67,18 @@ do {
   $rpc = array_column($js, 1);
 
   foreach ($ids as $k => $v) {
-    // echo $k.' '.$v.'<br>';
     $ms[$k / 2][] = [$ids[$k], $rpc[$k]];
   }
-//   vdli($ms);
-
-//   exit;
-//     $uuu= [$id , $sfm, $js]; // Id,  ShiFuMi, Js
-//     // vdli($js);
-//     $ms[floor($i/2)] = [
-//         [$id, $sfm]
-//       ];
-
-//   exit;
-//   }
-
-//   for ($c = count($js), $i = 0; $i < $c; $i += 2) {
-//     $ms[] = [
-//       [$js[$i][0], $js[$i][1]], [$js[$i + 1][0], $js[$i + 1][1]],
-//     ];
-//   }
-
+  
   foreach ($ms as $num => $m) {
     // Gestion du combat
-    // $combat = $m[0][1].$m[1][1];
-    // echo '<h2>Match Num. '.$num.' ('.$combat.')</h2>';
     $joueurs = array_column($m, 0);
     $armes   = array_column($m, 1);
 
     // Détermination du vainqueur
     if ($armes[0] === $armes[1]) {
-//   echo 'Mêmes armes';
+    // echo 'Mêmes armes';
       $v = min($joueurs);
-    // $p = max($joueurs);
     } else {
       $v = $m[(int) !in_array($armes[0].$armes[1], $vs, true)][0]; // Id ds $m[]
     }
@@ -136,39 +87,20 @@ do {
 
     $p = $joueurs[$kp];
 
-    // vdli($v);
-    // vdli($p);
-    // echo '<hr>';
-    // $v   = $ids[0]; // Id dans $js[]
-    // $idP = (int) !$v;
-    // echo '<br>'.$num.' : Perdant =  '.$idP.'<br>';
-    // echo $num.' : Vainqueur =  '.$v.'<br>';
-
-//   vdli(array_column($js, 0));
-//   vdli(array_column($js_ori, 0));
-// $p               = array_search($idP, $ac, true);
 $victoires[$v][] = $p; // Id du perdant
 
 unset($js[array_search($p, array_column($js_ori, 0), true)]);         // Kill perdant de $js[]
 
-    // var_dump(array_column($js, 0));
+$finalistes = array_column($js, 0);
+echo '<strong>$js[] = '.implode(' ', $finalistes).'</strong><br>';
 
-    $finalistes = array_column($js, 0);
-    echo '<strong>$js[] = '.implode(' ', $finalistes).'</strong><br>';
-    // vdli(array_column($js_ori, 0));
-
-// echo '<br>ooo<br>';
-
-//   vdli($victoires);
-  }
+}
   $nbjs = count($js);
 } while ($nbjs > 1);
 
 echo $v."\n".'<br>';
 echo implode(' ', $victoires[$v])."\n";
 
-// vdli(array_column($js, 0));
-exit;
 /*
 Solution dans codding :
 
