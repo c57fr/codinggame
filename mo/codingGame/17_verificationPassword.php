@@ -1,7 +1,7 @@
 <?php
 
 function verificationPassword ($str){
-    return strlen($str)>7 ? true:false;
+    return (bool) (strlen($str)>7);
 }
 
 $mdp1 = 'mine';
