@@ -6,8 +6,6 @@ if (!function_exists('vdli')) {
 }
 ob_implicit_flush(); // Pour actu xdebug ds chrome
 
-// https://www.codingame.com/training/easy/ghost-legs
-
 // Reconstitution des données du test
 // t 1
 $lines = [
