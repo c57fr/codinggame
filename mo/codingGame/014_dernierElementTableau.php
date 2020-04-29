@@ -21,7 +21,11 @@ function dernierElementTableau(array $notes): ?string
 function dernierElementTableau(array $notes): ?int
 >>>>>>> devMomo:mo/codingGame/014_dernierElementTableau copy.php
 {
-  return 'der element ou null'; // Change ICI :-)
+  if(!empty($notes))
+      {
+        return array_pop($notes);
+      }
+        return null;
 }
 
 $arr = [78, 9, 77];
