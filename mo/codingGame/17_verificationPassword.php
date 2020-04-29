@@ -19,9 +19,9 @@ function verificationPassword($motDePasse)
 {
     if(strlen($motDePasse >= 8))
     {
-        return true;
+        return (bool) true;
     }
-    return false;
+    return (bool) false;
 }
 $mdp1 = 'mine';
 $mdp2 = 'mouhamadou';
