@@ -4,7 +4,7 @@ $dev = time();
 for ($i = 1e7, $ii = $i; --$i;) {
 }
 $fin = time();
-echo 'G compté jusqu\'à '.number_format($ii, 2, ',', ' ').' en '.($fin - $dev).' s.<hr>';
+echo 'Test Chrono: G compté jusqu\'à <strong>'.number_format($ii, 2, ',', ' ').'</strong> en '.($fin - $dev).' s !</strong>.<hr>';
 
 // 2fix Fibo Récursif
 
