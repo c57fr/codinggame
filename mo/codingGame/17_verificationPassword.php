@@ -24,14 +24,14 @@ function verificationPassword($str)
 }
   ob_implicit_flush(); // Pour actu xdebug ds chrome
 
-function verificationPassword($motDePasse)
+/*function verificationPassword($motDePasse)
 {
     if((strlen($motDePasse)) >= 8)
     {
         return (bool) true;
     }
     return (bool) false;
-}
+}*/
 $mdp1 = 'mine';
 $mdp2 = 'mouhamadou';
 var_dump(verificationPassword($mdp1));
