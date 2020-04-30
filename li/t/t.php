@@ -5,7 +5,11 @@ if (!function_exists('vdli')) {
 }
 ob_implicit_flush(); // Pour actu xdebug ds chrome
 
-include 'nonogram.php';
+include './fiboRecursifEtDyn.php';
+exit;
+
+
+// include 'nonogram.php'; // 2do À dev nonogram solver en HTML56/CSS/Bootstrap/JS
 
 $str = 'Lionel456ok';
 
@@ -18,3 +22,5 @@ foreach ($n as $k => $v) {
 
 vdli(preg_match('/[A-Z a-z 0-9]/', $str));
 // vdli($n);
+
+//2do Vérif ds doc c57.fr si ext VSC Path autocomplete indiquée comme recommandée' .

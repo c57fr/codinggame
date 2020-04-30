@@ -5,11 +5,12 @@ if (!function_exists('vdli')) {
 }
 ob_implicit_flush(); // Pour actu xdebug ds chrome
 
-
-// @q  Script pour saisie rapide des datas pour http://a.teall.info/nonogram/ (Load)
-// Dans une chaine $ver (verticale), $hor (horizontale)
-// + pour ajouter valeur dans la même liste
-// ESP pour changer de ligne
+/**
+ * @q  Script pour saisie rapide des datas pour http://a.teall.info/nonogram/ (Load)
+ * Dans une chaine $ver (verticale), $hor (horizontale)
+ * + pour ajouter valeur dans la même liste
+ * ESP pour changer de ligne
+ */
 
 // Exemple de https://picross.relaxweb.fr/picross/32004
 
@@ -26,12 +27,30 @@ $hor = '8 2+2 1+2+1 4+5 3+5 0 1+2+3 1+4 1+4 3+2';
 // $e = preg_replace('/\s/', '+', $e);
 // $e = preg_replace('/e/', ' ', $e);
 
-
-
 // echo $liste     = $e;
 // exit;
 
-// 2do Étude de Advanced Stategies
+
+/**
+ * 
+ 2ar Avant d'attaquer, réviserr(et appliquer) exemple de programmation dynamique
+ 2ar https://www.supinfo.com/cours/2ADS/chapitres/05-programmation-dynamique
+ * 
+ * @v Pour dev, pratir de ce code:
+ * https://codepen.io/ssipak/pen/yjNyJQ (Bonne base jS/jQ - Juste algo à améliorer)
+ * et https://codepen.io/artemisart/pen/ORRLKP (Moins abouti)
+ * 
+ * NB: 
+ 2dbug Réparer https://codepen.io/GrCOTE7/pen/Imlhf?editors=1111
+ Erreur sur codepenio programmation dynamique
+ * Utilise: <script src='http://go7p.com/sys/lib/fct_li-0.0.1.js'></script>    
+ * qui n'est, plus en ligne et donc: 
+ * 
+ * => Uncaught ReferenceError: number_format is not defined at pen.js:52
+ * @n ok
+ */
+
+//2do Étude de Advanced Stategies
 // Exemple résolution Advanced Stategies
 // Exemple de https://www.youtube.com/watch?v=LWn3Mh21tM8
 // $ver = '2 1 1 1 + 1 3 3 3 +4 7 2 + 9 3 1 + 5 2 8 + 4 2 9 + 2 2 9 + 3 5 + 6 + 3 7 + 10 + 3 5 1 + 3 1 1 1+ 1 1 1+1 1';
@@ -99,13 +118,12 @@ vdli(preg_match('/[A-Z a-z 0-9]/', $str));
 
 // Pas parce que c’est le meilleur langage de programmation (ça n’a pas de sens de parler d’un meilleur langage sans contexte) mais parce qu’il sera plus rentable pour une entreprise d’embaucher uniquement des développeurs JavaScript qui pourront travailler aussi bien sur le côté serveur que sur l’interface graphique.
 
-// Pour JS, utiliser: https://jsfiddle.net/
+// Pour JS, utiliser: https://jsfiddle.net/grcote7/pc5reyhx/39/
+// ou https://codepen.io/GrCOTE7/pen/LGwAF
 
 // https://www.fil.univ-lille1.fr/~levaire/ap1/nonogram/
 
 // HRTML5 / CSS / JS: https://beardsley-james.github.io/blog/javascript/2016/03/19/nonogram-generator/
-
-
 
 // Assez concis + Nouvelle façon de crypter les datas (Lettres au lieu de chiffres)
 // Algorithme de Solver en plusieurs langage (Pas PHP ni JS - Mais Java et code très courts)
@@ -114,4 +132,5 @@ vdli(preg_match('/[A-Z a-z 0-9]/', $str));
 // @v Analyse mathéméatique:
 // Voir nanogram_algo.pdf
 // @v modelisation_nonogram.pdp
-// (Approche algorythmique dajns le cahier des charges)
+// (Approche algorythmique dajns le cahier des charges)' .
+                                '
