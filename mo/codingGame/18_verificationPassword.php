@@ -10,7 +10,7 @@ function verificationPassword($motDePasse){
     $error = [];
     if((strlen($motDePasse)) >= 8)
     {
-        if(preg_match('/^[0-9]{1}$/'), $motDePasse)
+        if(preg_match('/^[A-Za-z0-9]$/', $motDePasse))
         {
             return 'ok';
         }else{
@@ -20,6 +20,6 @@ function verificationPassword($motDePasse){
         return $error = "Votre mot de passe doit avoir plus de 7 chiffres";
     }
 }
-$mdp1 = 'mineiouio8uo';
-$mdp2 = 'mouhamadou';
-var_dump(verificationPassword($mdp1));
+$mdp1 = 'mine';
+$mdp2 = 'mouhamadou6';
+var_dump(verificationPassword($mdp2));
