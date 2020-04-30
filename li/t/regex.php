@@ -1,12 +1,12 @@
 <?php
 
-$host='www.ss-dmn.boosteur.com';
+$host = 'www.ss-dmn.boosteur.com';
 preg_match('/[^.]+\.[^.]+$/', $host, $matches);
 echo "Le nom de domaine est : {$matches[0]}\n";
 
 echo '<hr>';
 
-$ch='Le soleil brille.';
+$ch = 'Le soleil brille.';
 echo $ch.'<br>';
 $ch = preg_replace('/\bbrille\b/', 'est caché', $ch);
 echo $ch.'<br>';
@@ -66,9 +66,45 @@ function double($v)
   // vdli($v);
   return ($v[0] * 2).' ';
 }
+
+echo '$values = ['.implode(',', $values).'] => '.preg_replace_callback('@([^,]+)@', 'double', implode(',', $values));
+// https://regex101.com/r/94TnZp/1
+
 // vdli($values);
+
+// Outil pour regex :
+//
+// http://www.gethifi.com/tools/regex
+
+// Outil + puissant :
+// https://regex101.com/r/94TnZp/1
+
+// Très bons exemples
+// https://sodocumentation.net/fr/regex/topic/343/modeles-simples-assortis
+
+// 2do 1) Super Tuto 1ers pas
+// https://buzut.net/la-puissance-des-regex/
+
+// 2do 2) Super Tuto complet
+// https://sodocumentation.net/fr/regex/topic/259/demarrer-avec-les-expressions-regulieres
+
+// 2do 3) Super Tuto notions approfondies
+// Lookahead , + et -lookbehind et lookaround atomic
+// http://www.regular-expressions.info/lookaround.html
+
+// 2do 4= Quizz Regex
+// Quizz de Regex
+// https://regex101.com/quiz
 
 // Doc: https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285
 
-// https://regex101.com/r/94TnZp/1
-echo '$values = ['.implode(',', $values).'] => '.preg_replace_callback('@([^,]+)@', 'double', implode(',', $values));
+// Stylesheet avec exemples
+// https://www.rexegg.com/regex-quickstart.html
+
+/*
+
+
+
+
+If faut 1+ maj + 1+ min + 1+ nbr et + de 8 car
+preg_match('/(?=.*[A-Z]+).(?=.*[a-z]+).(?=.*[0-9]+).{6,}/',$ch);
