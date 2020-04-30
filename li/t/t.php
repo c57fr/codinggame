@@ -6,15 +6,35 @@ if (!function_exists('vdli')) {
 ob_implicit_flush(); // Pour actu xdebug ds chrome
 
 // Saisie rapide des datas pour http://a.teall.info/nonogram/ (Load)
+// Dans une chaine $ver (verticale), $hor (horizontale)
+// + pour ajouter valeur dans la même liste
+// ESP pour changer de ligne
 
 // Exemple de https://picross.relaxweb.fr/picross/32004
-$ver = '';
-$hor = '';
 
+$ver = '3+4 2+2+1 1+2+2 1+2+1 1+4 1+3+4 1+3+1 1+2+2 2+2+1 4+1';
+$hor = '8 2+2 1+2+1 4+5 3+5 0 1+2+3 1+4 1+4 3+2';
+
+/* GC7
+{"ver":[[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]],"hor":[[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]]}
+*/
+
+// $e = $ver = '1 2 1+1+1+1 1+1+1 1+1 1+1+1+1+1+3';
+
+// $e = preg_replace('/\+/', 'e', $e);
+// $e = preg_replace('/\s/', '+', $e);
+// $e = preg_replace('/e/', ' ', $e);
+
+
+
+// echo $liste     = $e;
+// exit;
+
+// 2do Étude de Advanced Stategies
 // Exemple résolution Advanced Stategies
 // Exemple de https://www.youtube.com/watch?v=LWn3Mh21tM8
-$ver = '2 1 1 1 + 1 3 3 3 +4 7 2 + 9 3 1 + 5 2 8 + 4 2 9 + 2 2 9 + 3 5 + 6 + 3 7 + 10 + 3 5 1 + 3 1 1 1+ 1 1 1+1 1';
-$hor = '2 + 1 2 1 + 4 1 2 + 6 5 + 6 3 + 4 3 + 2 9 + 1 7 + 4 5 + 4 4 + 4 7 +2 2 2 +1 3 3 + 5+7+2 5+2 4+1 4+5+3';
+// $ver = '2 1 1 1 + 1 3 3 3 +4 7 2 + 9 3 1 + 5 2 8 + 4 2 9 + 2 2 9 + 3 5 + 6 + 3 7 + 10 + 3 5 1 + 3 1 1 1+ 1 1 1+1 1';
+// $hor = '2+ +1+2+1+ +4+1+2+ +6+5+ +6+3+ +4+3+ +2+9+ +1+7+ +4+5+ +4+4+ +4+7+ 2+2+2+ 1+3+3+ +5 7 2+5 2+4 1+4 5 3';
 
 $ds = ['ver' => $ver, 'hor' => $hor];
 
@@ -22,12 +42,12 @@ $out = '';
 foreach ($ds as $ks => $vs) {
 //   vdli($vs);
 
-  $ent = array_map('trim', explode('+', $vs)); // Suppr espaces inutile suite saisie rapide
+  $ent = array_map('trim', explode(' ', $vs)); // Suppr espaces inutile suite saisie rapide
 
   // $nbv = count($ent);
 
   foreach ($ent as $k => $v) {
-    $ent[$ks][$k] = array_map('intval', explode(' ', $v));
+    $ent[$ks][$k] = array_map('intval', explode('+', $v));
   }
 
   // echo $nbv.' entrées ver_ticales:<br><br>';
@@ -63,5 +83,6 @@ vdli(preg_match('/[A-Z a-z 0-9]/', $str));
 
 // Et: https://fr.goobix.com/jeux-en-ligne/nonograms/?s=0 (Best designlook
 
-// http://scc-forge.lancaster.ac.uk/open/nonogram/build (Reqssouyrce dont convertisseur image.png => data nonogram)' .
-                                
+// http://scc-forge.lancaster.ac.uk/open/nonogram/build (Reqssouyrce dont convertisseur image.png => data nonogram)
+
+// Autre générateur: https://picross.relaxweb.fr/picross/32067
