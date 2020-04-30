@@ -82,6 +82,9 @@ echo '$values = ['.implode(',', $values).'] => '.preg_replace_callback('@([^,]+)
 // Très bons exemples
 // https://sodocumentation.net/fr/regex/topic/343/modeles-simples-assortis
 
+// 2do 1) Super Tuto Initiation
+// https://www.lucaswillems.com/fr/articles/25/tutoriel-pour-maitriser-les-expressions-regulieres
+
 // 2do 1) Super Tuto 1ers pas
 // https://buzut.net/la-puissance-des-regex/
 
