@@ -106,28 +106,31 @@ Solution dans codding :
 
 <?php
 
-
-function compute($index)
+fscanf(STDIN, "%d", $N);
+for ($i = 0; $i < $N; $i++) $p[] = explode(' ', trim(fgets(STDIN)));
+$rules = ['a', 'C', 'P', 'R', 'L', 'S', 'C', 'L', 'P', 'S', 'R', 'C'];
+while (count($p) > 1)
 {
-  global $database;
-  list($line, $result) = $database[$index];
-  if ($result !== false) return $result;
-
-  list($op, $a, $b) = $line;
-  $a = $a[0] == '$' ? compute((int)substr($a, 1)) : (int)$a;
-  $b = $b[0] == '$' ? compute((int)substr($b, 1)) : (int)$b;
-
-  $result = $a;
-  if ($op == 'ADD') $result += $b;
-  if ($op == 'SUB') $result -= $b;
-  if ($op == 'MULT') $result *= $b;
-
-  $database[$index][1] = $result;
-  return $result;
+    $p2 = array_pop($p);
+    $p1 = array_pop($p);
+    if ($p1[1] == $p2[1]) $a = $p1[0] < $p2[0];
+    else
+        for ($i = 1; $i < 12; $i++)
+            if ($rules[$i - 1] == $p1[1] and $rules[$i] == $p2[1]) $a = 1;
+            elseif ($rules[$i - 1] == $p2[1] and $rules[$i] == $p1[1]) $a = 0;
+    if ($a)
+    {
+        array_unshift($p, $p1);
+        @$w[$p1[0]] .=  $p2[0] . ' ';
+    }
+    else
+    {
+        array_unshift($p, $p2);
+        @$w[$p2[0]] .=  $p1[0] . ' ';
+    }      
 }
-
-foreach ($database as $i => $line)
-  echo compute($i)."\n";
+echo $p[0][0] . "\n" . trim($w[$p[0][0]]) . "\n";
+?>
 
 
 */

@@ -85,17 +85,17 @@ echo '$values = ['.implode(',', $values).'] => '.preg_replace_callback('@([^,]+)
 // 2do 1) Super Tuto Initiation
 // https://www.lucaswillems.com/fr/articles/25/tutoriel-pour-maitriser-les-expressions-regulieres
 
-// 2do 1) Super Tuto 1ers pas
+// 2do 2) Super Tuto 1ers pas
 // https://buzut.net/la-puissance-des-regex/
 
-// 2do 2) Super Tuto complet
+// 2do 3) Super Tuto complet
 // https://sodocumentation.net/fr/regex/topic/259/demarrer-avec-les-expressions-regulieres
 
-// 2do 3) Super Tuto notions approfondies
+// 2do 4) Super Tuto notions approfondies
 // Lookahead , + et -lookbehind et lookaround atomic
 // http://www.regular-expressions.info/lookaround.html
 
-// 2do 4= Quizz Regex
+// 2do 5) Quizz Regex
 // Quizz de Regex
 // https://regex101.com/quiz
 
