@@ -17,7 +17,7 @@ echo 'Définition des couleurs de l\'éditeur VSC (Todo Tree)';
 //        À revoir
 // dès que plus de 2do
 
-// Ceux qui n'entraînes pas d'action nécessaire
+// Ceux qui n'entraînent pas d'action nécessaire
 
 // Simple commentaire :
 // !      Très important, danger, impératif

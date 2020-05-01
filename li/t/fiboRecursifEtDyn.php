@@ -3,29 +3,7 @@
 $n    = 15;
 $plur = ($n) ? 's' : '';
 echo '<h2>'.$n.' premier'.$plur.' terme'.$plur.' de la suite de Fibonacci :'.'</h2>';
-// 474747
-// ! f00
-// *** hhh
-// sdfsdf
-// @bug jjj
-// ** ppp
-// ? sdfs
-// @f llll
-// @s kkk
-// @q ok
-// 2do kkk
-// @do dsffsqd
-// 2dbug fdgd
-// 2fix à régler
-// 2ar gggg
-// 2do à faire
-/*
-* 2do ppppp  
-* dqdsqsdq
-* @q ok
-* @v Fibo Récursif
- @not not
-*/
+
 echo '<h3>De façon récursive:</h3>';
 $fibR = [];
 
