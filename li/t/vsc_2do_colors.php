@@ -156,6 +156,12 @@ echo 'Définition des couleurs de l\'éditeur VSC (Todo Tree)';
   "backgroundColor": "transparent"
   },
   {
+  "tag": "/***",
+  "color": "#7ff",
+  "strikethrough": false,
+  "backgroundColor": "transparent"
+  },
+  {
   "tag": "@v",
   "color": "#FF8C00",
   "strikethrough": false,
