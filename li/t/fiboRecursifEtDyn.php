@@ -1,30 +1,73 @@
 <?php
-
-testChrono(0); // Si arg (Ex.: 1), compte au lieu d\'attendre.
-
-$n    = 25;
+// 
+$n    = 15;
 $plur = ($n) ? 's' : '';
-echo '<strong>'.$n.'</strong> premier'.$plur.' terme'.$plur.' de la suite de <strong>Fibonacci</strong> :'.'<br><br>';
-
+echo '<h2>'.$n.' premier'.$plur.' terme'.$plur.' de la suite de Fibonacci :'.'</h2>';
+// 474747
+// ! f00
+// *** hhh
+// sdfsdf
+// @bug jjj
+// ** ppp
+// ? sdfs
+// @f llll
+// @s kkk
+// @q ok
+// 2do kkk
+// @do dsffsqd
+// 2dbug fdgd
+// 2fix à régler
+// 2ar gggg
+// 2do à faire
+/*
+* 2do ppppp  
+* dqdsqsdq
+* @q ok
+* @v Fibo Récursif
+ @not not
+*/
+echo '<h3>De façon récursive:</h3>';
 $fibR = [];
-$dev  = microtime(1);
+
+$deb  = microtime(1);
 for ($i = 0; $i < $n; ++$i) {
   $fibR[] = number_format(fiboR($i), 0, ',', ' ');
 }
 $fin = microtime(1);
+// vdli($fibR);
 echo implode(', ', $fibR);
-echo '<br><br>Chrono: <strong>'.round($fin - $dev, 1).' s </strong><hr>';
+echo '<br><br>Chrono: <strong>'.round($fin - $deb, 1).' s </strong><hr>';
 
-// 2fix Fibo Récursif
-function fiboR($n)
+function fiboR($n) // Fibo Récursive
 {
   return ($n < 2) ? $n : fiboR($n - 1) + fiboR($n - 2);
 }
 
-// 2fix Fibo Dynamique par récursivité
+// ############################################################################
 
-// 2fix Fibo Dynamique par itérationé' .
 
+
+echo '<h3>De façon dynamique par récursivité:</h3><p>Forme récursive "Top down" dite de mémoïsation</p>';
+$fibDR = [];
+
+$deb  = microtime(1);
+for ($i = 0; $i < $n; ++$i) {
+  $fibDR[] = number_format(fiboDR($i), 0, ',', ' ');
+}
+$fin = microtime(1);
+
+echo implode(', ', $fibDR);
+echo '<br><br>Chrono: <strong>'.round($fin - $deb, 1).' s </strong><hr>';
+
+function DPTDfiboDR($n) // Dynamic Programation Top Down Fibo Récurve
+{
+  return ($n < 2) ? $n : fiboR($n - 1) + fiboR($n - 2);
+}
+
+// ############################################################################
+
+// 2fix Fibo Dynamique par itération'
+echo '<h3>De façon dynamique par itération:</h3><p>forme itérative "Bottom Up"</p>';
 // ################################################################################
 //      https://www.supinfo.com/cours/2ADS/chapitres/05-programmation-dynamique
 // ################################################################################
