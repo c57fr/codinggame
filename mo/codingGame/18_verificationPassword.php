@@ -1,28 +1,43 @@
 <?php
 
-$verificationPasswordMo = function ($mp) { // Soluce Mo
-  $errs = [];
+ob_implicit_flush(); // Pour xdebug
+if (!function_exists('vdli')) {
+  include '../../dev/vdli.php';
+}
 
-  $err = 'Votre mot de passe doit avoir au ';
+$verificationPasswordMo = function ($mp) { // Soluce Mo
+  $err  = 'Votre mot de passe doit avoir au moins';
+  $errs = [];
+  $esp  = function ($n = 1) {
+    return str_repeat('&nbsp;', $n);
+  };
+  $implodeLi = function ($arr) {
+    if (count($arr) > 1) {
+      $der = array_pop($arr);
+
+      return implode(', ', $arr).' et '.$der;
+    }
+
+    return $arr[0];
+  };
+
   if (strlen($mp) < 8) {
-    $errs[] = 'Votre mot de passe doit avoir au moins 8 caractères';
+    $errs[] = '8 caractères';
   }
 
   if (!preg_match('/[0-9]/', $mp)) {
-    $errs[] = 'Votre mot de passe doit avoir au moins un chiffre';
+    $errs[] = 'un chiffre';
   }
 
   if (!preg_match('/[A-Z]/', $mp)) {
-    $errs[] = 'Votre mot de passe doit avoir au moins 1 majuscule';
+    $errs[] = 'une majuscule';
   }
 
   if (!preg_match('/[a-z]/', $mp)) {
-    $errs[] = 'Votre mot de passe doit avoir au moins 1 minuscule';
+    $errs[] = 'une minuscule';
   }
-  // [%10s]\n
-  $sps = str_repeat('&nbsp;', 3);
 
-  return  (count($errs)) ? (sprintf('%s %s %s', '<p>', $sps.'- '.implode((',<br>'.$sps.' - '), $errs), '.</p>')) : 'Correct.';
+  return  ((count($errs)) ? (sprintf('%s %s', $err.$esp().$implodeLi($errs), '')) : 'Correct').'.<br>';
 };
 
 $verificationPasswordLi = function ($mp) { // Soluce GC7
@@ -59,9 +74,9 @@ foreach ($codeurs as $k => $codeur) {
   echo (!$k) ? '<br><hr>' : ''; // (!$k) = Après le premier codeur
 }
 
+// @n Créer une fonction from scratch qui s'appelle verificationPassword().
 /*
-Créer une fonction from scratch qui s'appelle verificationPassword(). Elle prendra un argument de type string. Elle devra retourner un boolean qui vaut true si le password respecte les règles suivantes :
-
+Elle prendra un argument de type string. Elle devra retourner un boolean qui vaut true si le password respecte les règles suivantes :
 Faire au moins 8 caractères
 Avoir au moins 1 chiffre
 Avoir au moins une majuscule et une minuscule

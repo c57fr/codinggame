@@ -23,7 +23,7 @@ echo 'Définition des couleurs de l\'éditeur VSC (Todo Tree)';
 // !      Très important, danger, impératif
 // @bug   Bug, défaillance sans gravité
 //        (Arranger à l'occase)
-// @not   À noter (Important)
+// @n     À noter (Important)
 // @i     Info, précision (Majeure)
 // ***    Info
 // @q ok  Question importante
