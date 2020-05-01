@@ -133,4 +133,4 @@ vdli(preg_match('/[A-Z a-z 0-9]/', $str));
 // Voir nanogram_algo.pdf
 // @v modelisation_nonogram.pdp
 // (Approche algorythmique dajns le cahier des charges)' .
-                                '
+                                
