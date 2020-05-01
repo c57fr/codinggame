@@ -119,6 +119,7 @@ vdli(preg_match('/[A-Z a-z 0-9]/', $str));
 // Pas parce que c’est le meilleur langage de programmation (ça n’a pas de sens de parler d’un meilleur langage sans contexte) mais parce qu’il sera plus rentable pour une entreprise d’embaucher uniquement des développeurs JavaScript qui pourront travailler aussi bien sur le côté serveur que sur l’interface graphique.
 
 // Pour JS, utiliser: https://jsfiddle.net/grcote7/pc5reyhx/39/
+// @2do Faire diagramme du code ci-dessous + poser image en base64 ds codepen
 // ou https://codepen.io/GrCOTE7/pen/LGwAF
 
 // https://www.fil.univ-lille1.fr/~levaire/ap1/nonogram/
