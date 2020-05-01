@@ -10,7 +10,7 @@ function verificationPassword($motDePasse){
     $error = [];
     if((strlen($motDePasse)) >= 8)
     {
-        if (preg_match('/^([-a-zA-Z0-9])$/', $motDePasse))
+        if(preg_match('/[0-9]/', $motDePasse))
         {
             return 'ok';
         }else{
@@ -21,5 +21,5 @@ function verificationPassword($motDePasse){
     }
 }
 $mdp1 = 'mine';
-$mdp2 = 'mouhamadou';
-var_dump(verificationPassword($mdp1));
+$mdp2 = 'mouhamadou1';
+var_dump(verificationPassword($mdp2));
