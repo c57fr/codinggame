@@ -10,9 +10,19 @@ function verificationPassword($motDePasse){
     $error = [];
     if((strlen($motDePasse)) >= 8)
     {
-        if(preg_match('/[0-9]/', $motDePasse))
+        if(preg_match('/(?=.*[0-9])/', $motDePasse))
         {
-            return 'ok';
+            if(preg_match('/(?=.*[a-z])/', $motDePasse))
+            {
+                if(preg_match('/(?=.*[A-Z])/', $motDePasse))
+                {
+                    return true;
+                }else{
+                    return $error = "Votre mot de passe doit avoir au moins 1 majuscule";
+                }
+            }else {
+                return $error = "Votre mot de passe doit avoir au moins 1 minuscule";
+            }
         }else{
             return $error = "Votre mot de passe doit avoir au moins un chiffre";
         }
@@ -21,5 +31,5 @@ function verificationPassword($motDePasse){
     }
 }
 $mdp1 = 'mine';
-$mdp2 = 'mouhamadou1';
+$mdp2 = 'mouhaMadou1';
 var_dump(verificationPassword($mdp2));
