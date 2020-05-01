@@ -26,10 +26,13 @@ $verificationPasswordMo = function ($mp) { // Soluce Mo
 };
 
 $verificationPasswordLi = function ($mp) { // Soluce GC7
-  return preg_match('/(?=.*[A-Z]+).(?=.*[a-z]+).(?=.*[0-9]+).{6,}/', $mp);
+  return (bool) preg_match('/(?=.*[A-Z]+).(?=.*[a-z]+).(?=.*[0-9]+).{6,}/', $mp);
 };
 
-// @i Moins précise que ta fonction, elle a le mérite d'être concise, et de retourner précisément ce que demande l'exo... ;-)... Mais BRAVO: Le principe est dans la tienne aussi :-)
+/**
+ * @i Précision:
+ * Moins précise que ta fonction, elle a le mérite d'être concise, et de retourner précisément ce que demande l'exo... ;-)... Mais BRAVO: Le principe est dans la tienne aussi :-)
+ */
 
 // Différents mp pour tests
 $mps = [
