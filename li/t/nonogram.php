@@ -50,7 +50,7 @@ $hor = '8 2+2 1+2+1 4+5 3+5 0 1+2+3 1+4 1+4 3+2';
  * @n ok
  */
 
-//2do Étude de Advanced Stategies
+// 2do Étude de Advanced Strategies
 // Exemple résolution Advanced Stategies
 // Exemple de https://www.youtube.com/watch?v=LWn3Mh21tM8
 // $ver = '2 1 1 1 + 1 3 3 3 +4 7 2 + 9 3 1 + 5 2 8 + 4 2 9 + 2 2 9 + 3 5 + 6 + 3 7 + 10 + 3 5 1 + 3 1 1 1+ 1 1 1+1 1';

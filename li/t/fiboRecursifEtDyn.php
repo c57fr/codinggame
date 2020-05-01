@@ -52,14 +52,14 @@ $fibDR = [];
 
 $deb  = microtime(1);
 for ($i = 0; $i < $n; ++$i) {
-  $fibDR[] = number_format(fiboDR($i), 0, ',', ' ');
+  $fibDR[] = number_format(DPTDfiboR($i), 0, ',', ' ');
 }
 $fin = microtime(1);
 
 echo implode(', ', $fibDR);
 echo '<br><br>Chrono: <strong>'.round($fin - $deb, 1).' s </strong><hr>';
 
-function DPTDfiboDR($n) // Dynamic Programation Top Down Fibo Récurve
+function DPTDfiboR($n) // Dynamic Programation Top Down Fibo Récurve
 {
   return ($n < 2) ? $n : fiboR($n - 1) + fiboR($n - 2);
 }
