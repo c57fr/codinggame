@@ -1,45 +1,61 @@
 <?php
-// 
-$n    = 15;
+
+$n    = 20;
 $plur = ($n) ? 's' : '';
 echo '<h2>'.$n.' premier'.$plur.' terme'.$plur.' de la suite de Fibonacci :'.'</h2>';
 
 echo '<h3>De façon récursive:</h3>';
-$fibR = [];
 
 $deb  = microtime(1);
+$fibR = [];
+$iter = 0;
 for ($i = 0; $i < $n; ++$i) {
   $fibR[] = number_format(fiboR($i), 0, ',', ' ');
 }
 $fin = microtime(1);
 // vdli($fibR);
 echo implode(', ', $fibR);
-echo '<br><br>Chrono: <strong>'.round($fin - $deb, 1).' s </strong><hr>';
+echo '<br><br><strong>'.nf($iter).'</strong> itérations en <strong>'.round($fin - $deb, 1).' s </strong><hr>';
 
 function fiboR($n) // Fibo Récursive
 {
+  global $iter;
+  ++$iter;
+
   return ($n < 2) ? $n : fiboR($n - 1) + fiboR($n - 2);
 }
 
 // ############################################################################
 
-
-
 echo '<h3>De façon dynamique par récursivité:</h3><p>Forme récursive "Top down" dite de mémoïsation</p>';
-$fibDR = [];
 
-$deb  = microtime(1);
+$deb   = microtime(1);
+$fibDR = [];
+$iter  = 0;
+$fibs  = []; // Les valeurs calculées sont stockées
 for ($i = 0; $i < $n; ++$i) {
-  $fibDR[] = number_format(DPTDfiboR($i), 0, ',', ' ');
+  $fibDR[] = number_format(DPTDfiboR($i, $fibs), 0, ',', ' ');
 }
 $fin = microtime(1);
 
 echo implode(', ', $fibDR);
-echo '<br><br>Chrono: <strong>'.round($fin - $deb, 1).' s </strong><hr>';
+echo '<br><br><strong>'.nf($iter).'</strong> itérations en <strong>'.round($fin - $deb, 1).' s </strong><hr>';
 
-function DPTDfiboR($n) // Dynamic Programation Top Down Fibo Récurve
+function DPTDfiboR($n, $fibs) // Dynamic Programation Top Down Fibo Récursive
 {
-  return ($n < 2) ? $n : fiboR($n - 1) + fiboR($n - 2);
+  global $fibs,$iter;
+  ++$iter;
+  if ($n < 2) {
+    $fibs[$n] = $n;
+
+    return $n;
+  }
+  if (array_key_exists($n, $fibs)) {
+    return $fibs[$n];
+  }
+  $fibs[$n] = DPTDfiboR($n - 1, $fibs) + DPTDfiboR($n - 2, $fibs);
+
+  return $fibs[$n];
 }
 
 // ############################################################################
@@ -63,6 +79,9 @@ function testChrono($action = 0)
   usleep(1e6); // 1e6: Env. 1s.
   $fin = microtime(1);
   // Bilan
-  $action = ($ii ?? 0) ? ('compté jusqu\'à <strong>'.number_format($ii, 0, ',', ' ').'</strong> en') : 'attendu pendant ';
+  $action = ($ii ?? 0) ? ('compté jusqu\'à <strong>'.nf($ii, 0, ',', ' ').'</strong> en') : 'attendu pendant ';
   echo 'Test Chrono: G '.$action.' <strong>'.round($fin - $dev, 1).' s </strong>!<hr>';
+}function nf($n, $dec = 0)
+{
+  return number_format($n, $dec, ',', ' ');
 }
