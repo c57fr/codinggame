@@ -1,34 +1,42 @@
 <?php
 
-$depGlobal = microtime();
-
+$depGlobal = microtime(1);
+$iter      = 0;
 // $vaft           = [1, 2, 3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
 // Les 3 (n max = 25 pour petite attente - Env. 10 s)
 // $vaft           = [1, 2, 3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
 // $n   = 25; // 25
 
-$n    = 19; // 25
+$n    = 30; // 30 - Env 2'
 $vaft = [1, 2, 3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
 
 // Formes récursives: Attention:
 // Temps exécution simple récursivité: Temps d'exécution env. 3H pour n = 40 !
 // Limite des nested de php.ini à 256 // Max ici: 252
-$plur = ($n) ? 's' : '';
-echo '<h2>'.$n.' premier'.$plur.' terme'.$plur.' de la suite de Fibonacci :'.'</h2><hr>';
 
-/**
- * @i ############################################################################
- * @i                               Fibo Récursive
- * @i ############################################################################
- */
-$deb = microtime(1);
-for ($i = 0; $i < $n; ++$i) {
-  $fibR[] = nf(fiboR($i), 0);
+// $n    = 100; // 100 - Env
+// $vaft = [2, 3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
+
+$plur    = ($n > 1) ? 's' : '';
+$premier = ($n > 1) ? ' premier'.$plur : '';
+
+echo '<h2>'.$n.$premier.' terme'.$plur.' de la suite de Fibonacci&nbsp;:'.'</h2><hr>';
+
+// @i ############################################################################
+// @i                               Fibo Récursive
+// @i ############################################################################
+
+if (in_array(1, $vaft, true)) {
+  $deb = microtime(1);
+  for ($i = 2; $i < $n; ++$i) {
+    $fibR[] = nf(fiboR($i), 0);
+  }
+  $fin = microtime(1);
+
+  echo '<h3>De façon récursive:</h3><br><br><strong>'.nf($iter).'</strong> itérations en <strong>'.round($fin - $deb, 3).' " </strong><hr>';
+
+  $iter = 0;
 }
-$fin = microtime(1);
-
-echo '<h3>De façon récursive:</h3>'.implode(', ', $fibR).'<br><br><strong>'.nf($iter).'</strong> itérations en <strong>'.round($fin - $deb, 1).' " </strong><hr>';
-
 function fiboR($n) // Fibo Récursive
 {
   global $iter;
@@ -36,21 +44,23 @@ function fiboR($n) // Fibo Récursive
 
   return ($n < 2) ? $n : fiboR($n - 1) + fiboR($n - 2);
 }
-$iter = 0;
+// @i ############################################################################
+// @i                 Fibo DYNAMIQUE par Récursivité (Top Down)
+// @i ############################################################################
 
-/**
- * @i ############################################################################
- * @i                 Fibo DYNAMIQUE par Récursivité (Top Down)
- * @i ############################################################################
- */
-$deb = microtime(1);
-$fs  = [0, 1];
-DPTDfiboR($n - 1, $fs);
-$fs =array_map('nf', $fs);
-$fin = microtime(1);
+if (in_array(2, $vaft, true)) {
+  $deb = microtime(1);
+  $fs  = [0, 1];
+  if ($n > 1) {
+    DPTDfiboR($n - 1, $fs);
+  }
+  $fs  = array_map('nf', $fs);
+  $fin = microtime(1);
 
-echo '<h3>De façon dynamique par Récursivité:</h3><p>Forme récursive "Top down" dite de mémoïsation</p>'.implode(', ', $fs).'<br><br><strong>'.nf($iter).'</strong> itérations en <strong>'.round($fin - $deb, 1).' " </strong><hr>';
+  echo '<h3>De façon dynamique par Récursivité:</h3><p>Forme récursive "Top down" dite de mémoïsation</p><strong>'.nf($iter).'</strong> itérations en <strong>'.round($fin - $deb, 3).' " </strong><hr>';
 
+  $iter = 0;
+}
 function DPTDfiboR($n) // Dynamic Programation Top Down Fibo Récursive
 {
   global $fs, $iter;
@@ -62,27 +72,26 @@ function DPTDfiboR($n) // Dynamic Programation Top Down Fibo Récursive
 
   return $fs[$n];
 }
-$iter = 0;
 
-/**
- * @i ############################################################################
- * @i                  Fibo DYNAMIQUE par Itération (Buttom Up)
- * @i ############################################################################
- */
-$deb = microtime(1);
-DPBUfibo($n - 1);
-$fs =array_map('nf', $fs);
-$fin = microtime(1);
+// @i ############################################################################
+// @i                  Fibo DYNAMIQUE par Itération (Buttom Up)
+// @i ############################################################################
 
-echo '<h3>De façon dynamique par Itération:</h3><p>Forme itérative "Bottom Up"</p>'.implode(', ', $fs).'<br><br><strong>'.$iter.'</strong> itérations en <strong>'.round($fin - $deb, 1).' " </strong>';
+if (in_array(3, $vaft, true)) {
+  $deb = microtime(1);
+  DPBUfibo($n - 1);
+  $fs  = array_map('nf', $fs);
+  $fin = microtime(1);
 
+  echo '<h3>De façon dynamique par Itération:</h3><p>Forme itérative "Bottom Up"</p><strong>'.$iter.'</strong> itérations en <strong>'.round($fin - $deb, 3).' " </strong><hr>';
+}
 function DPBUfibo($n, $fs = [0, 1])
 {
   global $fs, $iter;
-  
+
   if ($n > 1) {
-      for ($i = 2; $i < $n + 1; ++$i) {
-        ++$iter;
+    for ($i = 2; $i < $n + 1; ++$i) {
+      ++$iter;
       $fs[$i] = $fs[$i - 1] + $fs[$i - 2];
     }
   }
@@ -90,7 +99,26 @@ function DPBUfibo($n, $fs = [0, 1])
   return $fs;
 }
 
-// echo implode(', ', $fibo(1e6));
+switch ($n) {
+  case 0:
+  echo 'NULL';
+  $fs = [];
+
+  break;
+  case 1:
+  array_pop($fs);
+  // no break
+  default:
+  // code...
+  break;
+}
+
+echo 'Temps Global: <strong>'.nf(microtime(1) - $depGlobal, 2).' "</strong><hr>';
+
+if (!$n) {
+  array_pop($fs);
+}
+echo implode(', ', $fs);
 // $fibo(1e6);
 /*
 var n, rep, f;
