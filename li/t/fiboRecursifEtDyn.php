@@ -1,21 +1,17 @@
 <?php
 
-$n    = 20;
-$plur = ($n) ? 's' : '';
-echo '<h2>'.$n.' premier'.$plur.' terme'.$plur.' de la suite de Fibonacci :'.'</h2>';
+$nf   = 27; // 25
+$plur = ($nf) ? 's' : '';
 
-echo '<h3>De façon récursive:</h3>';
+echo '<h2>'.$nf.' premier'.$plur.' terme'.$plur.' de la suite de Fibonacci :'.'</h2>';
 
-$deb  = microtime(1);
-$fibR = [0];
-$iter = 0;
-for ($i = 1; $i < $n; ++$i) {
-  $fibR[] = nf(fiboR($i));
+$deb = microtime(1);
+for ($i = 0; $i < $nf; ++$i) {
+//  $fibR[] = nf(fiboR($i), 0);
 }
 $fin = microtime(1);
-// vdli($fibR);
-echo implode(', ', $fibR);
-echo '<br><br><strong>'.nf($iter).'</strong> itérations en <strong>'.round($fin - $deb, 1).' s </strong><hr>';
+
+// echo '<h3>De façon récursive:</h3>'.implode(', ', $fibR).'<br><br>Chrono: <strong>'.nf($fin - $deb, 2).' s </strong><hr>';
 
 function fiboR($n) // Fibo Récursive
 {
@@ -27,57 +23,58 @@ function fiboR($n) // Fibo Récursive
 
 // ############################################################################
 
-echo '<h3>De façon dynamique par récursivité:</h3><p>Forme récursive "Top down" dite de mémoïsation</p>';
-
+$fs    = [];
 $deb   = microtime(1);
-$fibDR = [0];
-$iter  = 0;
-$fibs  = []; // Les valeurs calculées sont stockées
-for ($i = 1; $i < $n; ++$i) {
-  $fibDR[] = nf(DPTDfiboR($i, $fibs));
-}
-$fin = microtime(1);
+$fibDR = DPTDfiboR($nf);
+$fin   = microtime(1);
+exit;
+echo '<h3>De façon dynamique par récursivité:</h3><p>Forme récursive "Top down" dite de mémoïsation</p>'.implode(', ', DPTDfiboR($nf)).'<br><br>Chrono: <strong>'.nf($fin - $deb, 2).' s </strong><hr>';
 
-echo implode(', ', $fibDR);
-echo '<br><br><strong>'.nf($iter).'</strong> itérations en <strong>'.round($fin - $deb, 1).' s </strong><hr>';
-
-function DPTDfiboR($n, $fibs) // Dynamic Programation Top Down Fibo Récursive
+function DPTDfiboR($n) // Dynamic Programation Top Down Fibo Récurve
 {
-  global $fibs,$iter;
-  ++$iter;
-  if ($n < 2) {
-    $fibs[$n] = $n;
-
-    return $n;
+  $f = [0, 1];
+  if ($n > 1) {
+    for ($i = 2; $i < $n + 1; ++$i) {
+      $f[$i] = fiboR($i - 1) + fiboR($i - 2);
+    }
   }
-  if (array_key_exists($n, $fibs)) {
-    return $fibs[$n];
-  }
-  $fibs[$n] = DPTDfiboR($n - 1, $fibs) + DPTDfiboR($n - 2, $fibs);
 
-  return $fibs[$n];
+  return $f;
 }
 
 // ############################################################################
 
-echo '<h3>De façon dynamique par itération:</h3><p>forme itérative "Bottom Up"</p>';
+// 2fix Fibo Dynamique par itération'
+echo '<h3>De façon dynamique par itération:</h3><p>Forme itérative "Bottom Up"</p>';
 
-function DPBUfibo($n) // Dynamic Programation Top Down Fibo Récursive
-{
-  global $fibs,$iter;
-  ++$iter;
-  if ($n < 2) {
-    $fibs[$n] = $n;
-
-    return $n;
+$fibo = function ($n, $f = [0, 1]) {
+  if ($n > 1) {
+    for ($i = 2; $i < $n + 1; ++$i) {
+      $f[$i] = $f[$i - 1] + $f[$i - 2];
+    }
   }
-  if (array_key_exists($n, $fibs)) {
-    return $fibs[$n];
-  }
-  $fibs[$n] = DPTDfiboR($n - 1, $fibs) + DPTDfiboR($n - 2, $fibs);
 
-  return $fibs[$n];
-}
+  return $f;
+};
+echo implode(', ', $fibo(25));
+// echo implode(', ', $fibo(1e6));
+// $fibo(1e6);
+/*
+var n, rep, f;
+
+var fibo = function (n, f = [0, 1]) {
+  if (n > 1)
+  for (i = 2; i < n + 1; i++) {
+  f[i] = f[i - 1] + f[i - 2];
+  }
+  //  return i;
+  myP.innerHTML = rep;
+  return f[n];
+};
+var m;
+//rep = fibo(14760); // maxi 1476
+rep = fibo(1009);
+*/
 
 // ################################################################################
 //      https://www.supinfo.com/cours/2ADS/chapitres/05-programmation-dynamique
@@ -99,6 +96,10 @@ function testChrono($action = 0)
   $action = ($ii ?? 0) ? ('compté jusqu\'à <strong>'.nf($ii, 0, ',', ' ').'</strong> en') : 'attendu pendant ';
   echo 'Test Chrono: G '.$action.' <strong>'.round($fin - $dev, 1).' s </strong>!<hr>';
 }function nf($n, $dec = 0)
+{
+  return number_format($n, $dec, ',', ' ');
+}
+function nf($n, $dec = 2)
 {
   return number_format($n, $dec, ',', ' ');
 }
