@@ -5,23 +5,23 @@
 // exit;
 $depGlobal = microtime(1);
 $iter      = 0;
-// $vaft           = [1, 2, 3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
+
 // Les 3 (n max = 25 pour petite attente - Env. 10 s)
 // $vaft           = [1, 2, 3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
 // $n   = 25; // 25
 
-// $n    = 30; // 30 - Env 2'
-// $vaft = [1, 2, 3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
+$n    = 25; // 30 - Env 2'
+$vaft = [1, 2, 3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
 
 // Formes récursives: Attention:
 // Temps exécution simple récursivité: Temps d'exécution env. 3H pour n = 40 !
 // Limite des nested de php.ini à 256 // Max ici: 252
 
-// $n    = 250; // Max 250 - Env 0.05"
 // $vaft = [2, 3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
+// $n    = 250; // Max 250 - Env 0.05"
 
-$n    = 1e3 + 2; // 1e6 - Env 1,2"
-$vaft = [3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
+// $vaft = [3]; // 1 = Récursive - 2 : DPTDR  - 3 : BU
+// $n    = 1e3 + 2; // 1e6 - Env 1,2"
 
 $plur    = ($n > 1) ? 's' : '';
 $premier = ($n > 1) ? ' premier'.$plur : '';
@@ -127,7 +127,7 @@ break;
 
   break;
 }
-// echo implode(', ', $fs);
+echo implode(', ', $fs);
 
 // ################################################################################
 //      https://www.supinfo.com/cours/2ADS/chapitres/05-programmation-dynamique
