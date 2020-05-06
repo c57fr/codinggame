@@ -5,8 +5,9 @@ if (!function_exists('vdli')) {
 }
 ob_implicit_flush(); // Pour actu xdebug ds chrome
 
-include './fiboRecursifEtDyn.php';
+include './bin.php';
 exit;
+include './fiboRecursifEtDyn.php';
 
 
 // include 'nonogram.php'; // 2do À dev nonogram solver en HTML56/CSS/Bootstrap/JS
