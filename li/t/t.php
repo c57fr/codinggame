@@ -5,8 +5,9 @@ if (!function_exists('vdli')) {
 }
 ob_implicit_flush(); // Pour actu xdebug ds chrome
 
-include './bin.php';
+include './pieces.php';
 exit;
+include './bin.php';
 include './fiboRecursifEtDyn.php';
 
 
