@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	// var piece = [5, 9, 3, 8, 2, 5],
-	var piece = [1,2,3,4,5,6,7,8,77,9],
+	var piece = [1,2,3,4,5,6,7,8,7,9],
 		somme = arraySum(piece),
 		miSomme = Math.floor(somme / 2),
 		M = [];
