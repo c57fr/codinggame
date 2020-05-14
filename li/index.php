@@ -33,8 +33,9 @@ include 'exos/014_ghostLegs.php';
 
 // include 'exos/1xx_shadowsKnight.php';
 
-// 2ar
-// url2img
+// 2do Faire fonction 1a2/questions au mlieu de la racine + page index avec liens
+
+// 2ar url2img
 // =======
 //
 // Simple, lightweight jQuery plugin - uses Google Page Insights API to get website screenshots
