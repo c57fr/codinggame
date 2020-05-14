@@ -32,6 +32,12 @@ include '../dev/vdli.php';
 include 'exos/014_ghostLegs.php';
 
 // include 'exos/1xx_shadowsKnight.php';
+
+// 2ar
+// url2img
+// =======
+//
+// Simple, lightweight jQuery plugin - uses Google Page Insights API to get website screenshots
   ?>
 </body>
 
