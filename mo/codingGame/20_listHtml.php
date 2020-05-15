@@ -1,9 +1,8 @@
 <?php
 
-function listHTML($titre, $capital)
+function listHTML($titre, $capital, $p = 0) // Si ∃ p => ponctuation
 {
-
-  return (empty($titre) || empty($capital)) ? null : '<h3>'.$titre.'</h3><ul><li>'.implode('</li><li>', $capital).'</li></ul>';
+  return (empty($titre) || empty($capital)) ? null : '<h3>'.$titre.'</h3><ul><li>'.implode(($p ? ',' : '').'</li><li>', $capital).($p ? ',' : '').'</li></ul>';
 }
 
 /*function listHTML(string $titre, array $capital){
@@ -24,13 +23,14 @@ function listHTML($titre, $capital)
             }
         return "</ul>";*/
 
-$capital = array_reverse(array_map(function($v){return ucfirst($v);
-}
-,['moi', 'toi', 'lui']));
+$capital = array_reverse(array_map(function ($v) {
+  return ucfirst($v);
+}, ['moi', 'toi', 'lui']));
 // Vu ta liste... Les autres en premier, c'est + poli ;-)...
 // Et une majuscule, en début de phrase ! ;-)
 
-echo listHTML($titre = 'SENEGAL', $capital);
+echo listHTML($titre = 'SENEGAL', $capital, 1);
+// Le 3ème param optionnel: Si présent ou <> 0: Affiche la ponctuation
 
 // https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
 
