@@ -1,15 +1,10 @@
 <?php
-// solution de lio
+
 function listHTML($titre, $capital)
 {
-  if (empty($titre) || empty($capital)) {
-    return null;
-  }
-  return '<h3>'.$titre.'</h3><ul><li>'.implode('</li><li>', $capital).'</li></ul>';
+
+  return (empty($titre) || empty($capital)) ? null : '<h3>'.$titre.'</h3><ul><li>'.implode('</li><li>', $capital).'</li></ul>';
 }
-
-
-
 
 /*function listHTML(string $titre, array $capital){
     //$titre = '';
@@ -28,12 +23,16 @@ function listHTML($titre, $capital)
                 return "<li>".$capitale."<li/>";
             }
         return "</ul>";*/
-    
 
-var_dump(listHTML($titre = "SENEGAL", $capital=["moi", "toi", "lui"]));
+$capital = array_reverse(array_map(function($v){return ucfirst($v);
+}
+,['moi', 'toi', 'lui']));
+// Vu ta liste... Les autres en premier, c'est + poli ;-)...
+// Et une majuscule, en début de phrase ! ;-)
 
-https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
+echo listHTML($titre = 'SENEGAL', $capital);
 
+// https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
 
 /*
  if(is_null($titre) && empty($titre) || empty($capital))
