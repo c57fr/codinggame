@@ -2,7 +2,7 @@
 
 function listHTML($titre, $capital, $p = 0) // Si ∃ p => ponctuation
 {
-  return (empty($titre) || empty($capital)) ? null : '<h3>'.$titre.'</h3><ul><li>'.implode(($p ? ',' : '').'</li><li>', $capital).($p ? ',' : '').'</li></ul>';
+  return (empty($titre) || empty($capital)) ? null : '<h3>'.$titre.'</h3><ul><li>'.implode(($p ? ',' : '').'</li><li>', $capital).($p ? '.' : '').'</li></ul>';
 }
 
 /*function listHTML(string $titre, array $capital){
