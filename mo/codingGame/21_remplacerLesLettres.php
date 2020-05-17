@@ -2,17 +2,16 @@
 // Créer une fonction from scratch qui s'appelle remplacerLesLettres(). Elle prendra un argument de type string. Elle devra retourner cette même string mais en remplacant les e par des 3, les i par des 1 et les o par des 0 Exemple :
 
 
-function remplacerLesLettres($search, $phrase){
+function remplacerLesLettres($search, $trouve, $phrase){
     
-    return strtr($phrase, $search);
-    //$phrase doit etre un string et doit etre devant 
+    return strtr($phrase, array_combine($search, $trouve));
 
 }
-$ph = "L3s c0urs d3 pr0grammat10n W3b s0nt tr0ps c00ls";
-$se = array("e" => "3", "i" => "1", "o" => "0");
-//$tr = array("3", "1", "0");
+$phrase = "L3s c0urs d3 pr0grammat10n W3b s0nt tr0ps c00ls";
+$search = array("e", "i", "o");
+$trouve = array("3", "1", "0");
 
-print_r (remplacerLesLettres($se, $ph));
+print_r (remplacerLesLettres($search, $trouve, $phrase));
 
 
 
