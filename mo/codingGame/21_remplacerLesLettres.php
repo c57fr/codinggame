@@ -14,7 +14,7 @@ $phrase = 'L3s c0urs d3 pr0grammat10n W3b s0nt tr0ps c00ls';
 $search = ['e', 'i', 'o'];
 $trouve = ['3', '1', '0'];
 
-print_r(remplacerLesLettres($search, $trouve, $phrase));
+print_r(remplacerLesLettresLi($phrase));
 
 // Créer une fonction from scratch qui s'appelle remplacerLesLettres(). Elle prendra un argument de type string. Elle devra retourner cette même string mais en remplacant les e par des 3, les i par des 1 et les o par des 0 Exemple :
 
