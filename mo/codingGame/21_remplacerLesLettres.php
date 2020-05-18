@@ -7,7 +7,7 @@ function remplacerLesLettres($search, $trouve, $phrase)
 
 function remplacerLesLettresLi($str)
 {
-  return str_ireplace('o','0', str_ireplace('e','3', str_ireplace('i','1', $str)));
+  return str_ireplace('o', '0', str_ireplace('e', '3', str_ireplace('i', '1', $str)));
 }
 
 $phrase = 'L3s c0urs d3 pr0grammat10n W3b s0nt tr0ps c00ls';
@@ -16,10 +16,10 @@ $trouve = ['3', '1', '0'];
 
 print_r(remplacerLesLettresLi($phrase));
 
-echo "<hr>";
+echo '<hr>';
 
-$va='momo a dit bonjour tout le monde';
-echo str_ireplace('o', '0', str_ireplace("m", "M", str_ireplace("d", "D", $va)));
+$var = 'momo a dit bonjour tout le monde';
+echo str_ireplace('o', '0', str_ireplace('m', 'M', str_ireplace('d', 'D', $var)));
 
 // Créer une fonction from scratch qui s'appelle remplacerLesLettres(). Elle prendra un argument de type string. Elle devra retourner cette même string mais en remplacant les e par des 3, les i par des 1 et les o par des 0 Exemple :
 

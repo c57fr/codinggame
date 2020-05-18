@@ -1,17 +1,11 @@
 <?php
-//Créer une fonction from scratch qui s'appelle quelleAnnee(). Elle devra retourner un integer representant l'année actuelle.
 
-function quelleAnnee($annee){
-    return date("Y");
+function quelleAnnee()
+{
+  return date('Y');
 }
-echo "Nous sommes en ".quelleAnnee("Y");
+echo 'Nous sommes en '.quelleAnnee('Y');
 
-//https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
+// Créer une fonction from scratch qui s'appelle quelleAnnee(). Elle devra retourner un integer representant l'année actuelle.
 
-/*
-Dans codingame; il faut mettre le code ci-dessous
-function quelleAnnee(){
-    return date("Y");
-}
-var_dump(quelleAnnee());
-*/
+// https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
