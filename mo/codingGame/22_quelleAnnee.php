@@ -7,3 +7,11 @@ function quelleAnnee($annee){
 echo "Nous sommes en ".quelleAnnee("Y");
 
 //https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
+
+/*
+Dans codingame; il faut mettre le code ci-dessous
+function quelleAnnee(){
+    return date("Y");
+}
+var_dump(quelleAnnee());
+*/
