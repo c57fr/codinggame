@@ -27,14 +27,8 @@ function getAllUtilisateurs()
 
   return $users;
 }
-//var_dump(getAllUtilisateurs());
 
-//include './libraryToInclude.php';
 
-/*
-Observe bien comment g reconstitué le tableau allUsers...
-... Car c'est exactement ainsi que tu dois organiser ta function qui selectionnera 'les bons'...
-*/
 
 function getUtilisateursAutorises(): array
 {
@@ -42,10 +36,10 @@ function getUtilisateursAutorises(): array
   $autorised = [];
 
   foreach ($users as $user) {
-    // Exemple avec une modif....
-    if ($user->age>17) // À toi de trouver les bons tests
+    if ($user->age>17 && !empty($user->email && !$user->blocked)) 
+
     $autorised[] = $user;
-    //   Ta function ne doit laisser passer que Jack ;-)...
+
   }
 
   return $autorised;
@@ -58,19 +52,3 @@ function getUtilisateursAutorises(): array
 
 vdli(getUtilisateursAutorises());
 
-//https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
-
-/*
-Créer une fonction from scratch qui s'appelle getUtilisateursAutorises(). Il faut intégrer la librairie ./libraryToInclude.php
-
-La fonction retournera un array d'utilisateur autorisés.
-
-Il faut d'abord récupérer la liste de tous les utilisateurs. Cette liste se trouvera en appellant la fonction getAllUtilisateurs()
-
-Une fois tous les utilisateur récuperés, faire les opérations suivantes :
-
-Supprimer les utilisateurs bloqués.
-Supprimer les utilisateurs qui n'ont pas d'adresse email
-Supprimer les utilisateurs qui ont moins de 18 ans.
-Enfin retourner la nouvelle liste propre.
-*/
