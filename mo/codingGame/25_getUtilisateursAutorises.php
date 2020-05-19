@@ -42,7 +42,7 @@ function getUtilisateursAutorises(): array
   $autorised = [];
 
   foreach ($users as $user) {
-    // echo $user;
+    // Exemple avec une modif....
     //   if ($user a tout ok) // À toi de trouver les bons tests
     //   Ta function ne doit laisser passer que Jack ;-)...
     $autorised[] = $user;
