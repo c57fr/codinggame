@@ -27,6 +27,7 @@ function getAllUtilisateurs()
 
   return $users;
 }
+//var_dump(getAllUtilisateurs());
 
 //include './libraryToInclude.php';
 
@@ -40,7 +41,8 @@ function getUtilisateursAutorises(): array
   $users     = getAllUtilisateurs();
   $autorised = [];
 
-  // foreach ($users as $user) {
+  foreach ($users as $user) {
+      echo $user;
   //   if ($user a tout ok) // À toi de trouver les bons tests
   //   Ta function ne doit laisser passer que Jack ;-)...
   //   $autorised[] = $u;
@@ -55,7 +57,7 @@ function getUtilisateursAutorises(): array
            // NB: On ne demande pas de tester la validité du email, juste si il existe ou pas... ;-)
    */
 
-vdli(getUtilisateursAutorises());
+//vdli(getUtilisateursAutorises());
 
 //https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
 
