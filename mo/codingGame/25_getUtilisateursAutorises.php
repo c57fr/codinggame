@@ -42,22 +42,21 @@ function getUtilisateursAutorises(): array
   $autorised = [];
 
   foreach ($users as $user) {
-      echo $user;
-  //   if ($user a tout ok) // À toi de trouver les bons tests
-  //   Ta function ne doit laisser passer que Jack ;-)...
-  //   $autorised[] = $u;
-  // }
-  
+    // echo $user;
+    //   if ($user a tout ok) // À toi de trouver les bons tests
+    //   Ta function ne doit laisser passer que Jack ;-)...
+    $autorised[] = $user;
+  }
+
   return $autorised;
 }
-
 
   /*
            return (unset) ($user < 18) OR filter_var($email, !FILTER_VALIDATE_EMAIL);
            // NB: On ne demande pas de tester la validité du email, juste si il existe ou pas... ;-)
    */
 
-//vdli(getUtilisateursAutorises());
+vdli(getUtilisateursAutorises());
 
 //https://www.codingame.com/playgrounds/32339/exercices-de-php-pour-debutant
 
