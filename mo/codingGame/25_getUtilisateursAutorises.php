@@ -5,55 +5,55 @@ if (!function_exists('vdli')) {
 } // vdli()
 
 /**
- * Juste pour simuler la function du test dans codingame.
+ * Juste pour simuler cette function du test dans codingame.
  */
 function getAllUtilisateurs()
 {
-  $user1          = new StdClass();
-  $user1->age     = 9;
-  $user1->email   = 'Pier@ici.com';
-  $user1->blocked = false;
-
-  $user2          = new StdClass();
-  $user2->age     = 19;
-  $user2->email   = 'Pol@la.com';
-  $user2->blocked = true;
-
-  $user3          = new StdClass();
-  $user3->age     = 19;
-  $user3->email   = 'Jack@ailleurs.com';
-  $user3->blocked = false;
-
-  $user4          = new StdClass();
-  $user4->age     = 789;
-  $user4->email   = '';
-  $user4->blocked = true;
-
-  return [
-    $user1, $user2, $user3, $user4,
+  $allUsers = [
+    [9,   'Pier@ici.com',      false],
+    [19,  'Pol@la.com',        true],
+    [99,  'Jack@ailleurs.com', false],
+    [789, '',                  false],
   ];
+
+  $users = [];
+  foreach ($allUsers as $oneUser) {
+    $user          = new StdClass();
+    $user->age     = $oneUser[0];
+    $user->email   = $oneUser[1];
+    $user->blocked = $oneUser[2];
+    $users[]       = $user;
+  }
+
+  return $users;
 }
 
 //include './libraryToInclude.php';
+
+/*
+Observe bien comment g reconstitué le tableau allUsers...
+... Car c'est exactement ainsi que tu dois organiser ta function qui selectionnera 'les bons'...
+*/
 
 function getUtilisateursAutorises(): array
 {
   $users     = getAllUtilisateurs();
   $autorised = [];
-  
+
   // foreach ($users as $user) {
   //   if ($user a tout ok) // À toi de trouver les bons tests
   //   Ta function ne doit laisser passer que Jack ;-)...
   //   $autorised[] = $u;
   // }
+  
+  return $autorised;
+}
+
 
   /*
            return (unset) ($user < 18) OR filter_var($email, !FILTER_VALIDATE_EMAIL);
            // NB: On ne demande pas de tester la validité du email, juste si il existe ou pas... ;-)
    */
-
-  return $autorised;
-}
 
 vdli(getUtilisateursAutorises());
 
