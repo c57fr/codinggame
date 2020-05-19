@@ -38,9 +38,9 @@ function getAllUtilisateurs()
 
 function getUtilisateursAutorises(): array
 {
-  $users = getAllUtilisateurs();
-
-  return [];
+  $users     = getAllUtilisateurs();
+  $autorised = [];
+  
   // foreach ($users as $user) {
   //   if ($user a tout ok) // À toi de trouver les bons tests
   //   Ta function ne doit laisser passer que Jack ;-)...
@@ -51,6 +51,8 @@ function getUtilisateursAutorises(): array
            return (unset) ($user < 18) OR filter_var($email, !FILTER_VALIDATE_EMAIL);
            // NB: On ne demande pas de tester la validité du email, juste si il existe ou pas... ;-)
    */
+
+  return $autorised;
 }
 
 vdli(getUtilisateursAutorises());
