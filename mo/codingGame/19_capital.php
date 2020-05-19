@@ -1,7 +1,5 @@
 <?php
 
-
-
 function capital($str)
 {
   switch ($str) {
