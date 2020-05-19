@@ -9,7 +9,7 @@ if (!function_exists('vdli')) {
  */
 function getAllUtilisateurs()
 {
-  $allUsers = [
+  $allUsers =  [ // age, email, blocked
     [9,   'Pier@ici.com',      false],
     [19,  'Pol@la.com',        true],
     [99,  'Jack@ailleurs.com', false],
@@ -43,9 +43,9 @@ function getUtilisateursAutorises(): array
 
   foreach ($users as $user) {
     // Exemple avec une modif....
-    //   if ($user a tout ok) // À toi de trouver les bons tests
-    //   Ta function ne doit laisser passer que Jack ;-)...
+    if ($user->age>17) // À toi de trouver les bons tests
     $autorised[] = $user;
+    //   Ta function ne doit laisser passer que Jack ;-)...
   }
 
   return $autorised;
