@@ -15,6 +15,9 @@ if (empty($var)) {
 // Sol GC7
 $var = (empty($var)) ? 10 : $var;
 
+// Sol GC7 après réflexion... :
+$var = $var ?: 10;
+
 // https://www.codingame.com/playgrounds/41820/exercice-php---base/exercice-3
 
 // Il faut affecter la valeur 10 à la variable $var si celle-ci est vide et conserve la valeur de $var sinon.
