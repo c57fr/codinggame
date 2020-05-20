@@ -6,15 +6,15 @@ if (!function_exists('vdli')) {
 } // vdli()
 
 $var;
-    if (empty($var)) {
-      echo $var = 10;
-    } else {
-      echo $var;
-    }
+if (empty($var)) {
+  echo $var = 10;
+} else {
+  echo $var;
+}
 
 // Sol GC7
 $var = (empty($var)) ? 10 : $var;
 
-//https://www.codingame.com/playgrounds/41820/exercice-php---base/exercice-3
+// https://www.codingame.com/playgrounds/41820/exercice-php---base/exercice-3
 
-//Il faut affecter la valeur 10 à la variable $var si celle-ci est vide et conserve la valeur de $var sinon.
+// Il faut affecter la valeur 10 à la variable $var si celle-ci est vide et conserve la valeur de $var sinon.
