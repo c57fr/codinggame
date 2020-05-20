@@ -35,6 +35,8 @@ include 'exos/014_ghostLegs.php';
 
 // 2do Faire fonction 1a2/questions au mlieu de la racine + page index avec liens
 
+// 2fix Retrouver doc.manudon.com
+
 // 2ar url2img
 // =======
 //
