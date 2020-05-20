@@ -17,9 +17,12 @@ function carre($n){
 $d = array_map('carre', range(0,5));
 vdli($d);
 
-// Aide: Pour $d, tu as besoin de: array_map avec callback() + range()
-
-// Ici ton code solution
+// Sol. GC7
+$a='42';
+$b=42;
+$c='Hello World!';
+$d = array_map(function ($v) {return $v**2; }, range(0, 5));
+vdli($d);
 
 /*
 Pour cette exercice, il faut créer et initialiser les variables suivantes :
@@ -44,3 +47,5 @@ echo "<pre>";
 echo "<hr>";
 vdli($b);
 */
+
+// https://www.codingame.com/playgrounds/41820/exercice-php---base/exercice-1
