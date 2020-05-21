@@ -7,7 +7,7 @@ if (!function_exists('vdli')) {
 
 $jour  = date('d');
 $mois  = date('m');
-$annee = date('Y');
+$annee = ''; // = date('Y');
 //echo $jour.'/'.$mois.'/'.$annee;
 $res = date($jour.'/'.$mois.'/'.$annee);
 if ($res = date('d/m/Y')) {
@@ -22,7 +22,8 @@ if ($res = date('d/m/Y') ? true : false) {
 }
 
 // Sol GC7
-$res = checkdate($mois, $jour, $annee);
+$res = checkdate((int) $mois, (int) $jour, (int) $annee);
+vdli($res);
 
 //Il faut tester la validité d'une date fournie grâce aux variables $jour, $mois et $annee. Si la date est valide la variable $res sera TRUE sinon FALSE.
 
