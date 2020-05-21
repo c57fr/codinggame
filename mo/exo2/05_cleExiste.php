@@ -5,15 +5,15 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
-$search_array = array('premier' => 1, 'second' => 4);
+$search_array = ['premier' => 1, 'second' => 4];
 
 /*foreach($search_array as $ks => $v)(
   vdli($v)
 );*/
 
-if(key($search_array)){
+if (key($search_array)) {
   echo true;
-}else{
+} else {
   echo false;
 }
 /*
@@ -34,11 +34,9 @@ if (array_key_exists('premier', $search_array)) {
     echo "L'élément 'premier' existe dans le tableau";
 }*/
 
-
-
-
+// Sol GC7
+$res = array_key_exists($cle, $tableau);
 
 // https://www.codingame.com/playgrounds/41820/exercice-php---base/exercice-5
 
 // Il faut vérifier qu'une clé existe dans le tableau associatif $tableau. Si la clé $cle existe la variable $res sera TRUE sinon FALSE
-?>
