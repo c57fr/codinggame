@@ -10,10 +10,6 @@ $rens = function ($u) {
 };
 
 echo '<table border=0><tr>';
-// for ($i = 0; $i < $n; ++$i) {
-  //TODO Moulinette pour gérer filleuls
-  $i = 0;
-//   echo '<tr><td>'.$i.'</td>'.$rens($ms[$i]).'</tr>';
 
 $idps = array_column($ms, 8);
 
