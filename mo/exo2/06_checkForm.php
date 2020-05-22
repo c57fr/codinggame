@@ -7,7 +7,7 @@ if (!function_exists('vdli')) {
 
 $datas = [
   'valide'    => true,
-  'nom'       => 'SECK',
+  'nom'       => 'SECK7',
   'prenom'    => 'Momo',
   'CP'        => '[1000, 9999]',
   'naissance' => 29 / 07 / 1986,
@@ -24,7 +24,7 @@ function check_form($data)
     $valide  = [];
     $message = [];
     if ('nom' === $k) {
-      if (preg_match('#^[A-Za-z -]*$#', in_array($k, $data, true))) {
+      if (preg_match('#^[A-Za-z -]*$#', $dat)) {
         echo $dat;
       } else {
         echo 'no';
