@@ -20,7 +20,15 @@ function check_form($data){
    
     foreach($data as $k => $dat)
     {
-        echo $k. " : " .$dat."<br/>";
+        //echo $k. " : " .$dat."<br/>";
+        $valide = [];
+        $message = [];
+        if(preg_match('#^[A-Za-z -]*$#', in_array($k=='nom', $data)))
+        {
+            echo $dat;
+        }else{
+            echo 'no';
+        }
     }
 
 }
