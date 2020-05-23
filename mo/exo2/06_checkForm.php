@@ -9,7 +9,7 @@ $datas = [
   'valide'    => false,
   'nom'       => 'SECK10',
   'prenom'    => 'Momo3',
-  'CP'        => '[1000, 9999]',
+  'CP'        => '999',
   'naissance' => 29/07/1986,
   'banque'    => 'BE15 1234 5678 9012',
 ];
@@ -59,13 +59,9 @@ function check_form($data)
 
     // condition pour CP
     if('CP' === $k)
-    {
-        if(array_diff($data, $data))//si je mets array_diff($k, $data) ou array_diff($k, $dat) ca marche pas
-        {
-            echo $dat."<br/>";
-        }else{
-            echo $message = "Votre CP : '$dat' n'est pas valide <br/>";
-        }
+    { // Essaie plutôt ce genre de solution + simple... :
+        $v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 1e4);
+        $v['CP']['message'] = ($v['CP']['valide']) ? false : $data['CP'].' est un CP invalide';
     }
 
     //condition pour naissance
