@@ -9,10 +9,10 @@ $datas = [
   'valide'    => false,
   'nom'       => 'SECK10',
   'prenom'    => 'Momo3',
-  'CP'        => '999',
+  'CP'        => '1000',
   'naissance' => 29/07/1986,
   'banque'    => 'BE15 1234 5678 9012',
-];
+];                                                                                                                                                                                                                                                                                           
 //vdli($data);
 
 function check_form($data)
@@ -60,23 +60,15 @@ function check_form($data)
     // condition pour CP
     if('CP' === $k)
     { // Essaie plutôt ce genre de solution + simple... :
-        $v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 1e4);
+        $v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 9999);
         $v['CP']['message'] = ($v['CP']['valide']) ? false : $data['CP'].' est un CP invalide';
     }
 
     //condition pour naissance
     if('naissance' === $k)
     {
-        if(preg_match('#^[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,4}$#', $dat))
-        {
-            if(strtotime($dat))
-            {
-                echo $dat;
-            }
-            
-        }else{
-            echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
-        }
+        echo $k.' ==> '.date("d/m/Y");
+        //echo date("d/m/Y", strtotime("2008-04-09"));
     }
   }
 }
