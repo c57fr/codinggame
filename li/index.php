@@ -29,8 +29,11 @@ include '../dev/vdli.php';
 // include 'exos/011_succession.php';
 // include 'exos/012_spreadsheet.php';
 // include 'exos/013_rockPaperScissors.php';
-include 'exos/014_ghostLegs.php';
-include 'exos/divers.php';
+
+// include 'exos/014_ghostLegs.php';
+
+// include 'exos/divers.php';
+include 'exos/prems.php';
 
 // include 'exos/1xx_shadowsKnight.php';
 
