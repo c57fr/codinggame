@@ -6,11 +6,11 @@ if (!function_exists('vdli')) {
 }
 
 $datas = [
-  'valide'    => true,
-  'nom'       => 'SECK7',
-  'prenom'    => 'Momo',
-  'CP'        => '[1000, 9999]',
-  'naissance' => 29 / 07 / 1986,
+  'valide'    => false,
+  'nom'       => 'SECK10',
+  'prenom'    => 'Momo3',
+  'CP'        => '[1000, 9999]jk',
+  'naissance' => 29/07/1986,
   'banque'    => 'BE15 1234 5678 9012',
 ];
 //vdli($data);
@@ -19,16 +19,67 @@ function check_form($data)
 {
   //$datas = [];
 
-  foreach ($data as $k => $dat) {
+  foreach ($data as $k => $dat) 
+  {
     //echo $k. " : " .$dat."<br/>";
-    $valide  = [];
+    $valide  = true;
     $message = [];
-    if ('nom' === $k) {
+
+    // condition pour le valide  ==> ca  ne marche pas
+    if('valide' === $k)
+    {
+        if(is_bool($dat))
+        {
+            echo $dat;
+        }else{
+            echo $message = "Ceci n'est pas un boolen<br/>";
+        }
+    }else{
+        $message = "Ceci n'est pas un boolen<br/>";
+    }
+    // condition pour le nom
+    if ('nom' === $k) 
+    {
       if (preg_match('#^[A-Za-z -]*$#', $dat)) {
-        echo $dat;
+        echo $dat = true;
       } else {
-        echo 'no';
+        echo $message = "Votre nom : '$dat' n'est pas valide<br/>";
       }
+    }
+    //condition pour le prenom
+    if('prenom' === $k)
+    {
+        if(preg_match('#^[A-Za-z -]*$#', $dat))
+        {
+            echo $dat = true;
+        }else{
+            echo $message = "Votre prenom : '$dat' n'est pas valide <br/>";
+        }
+    }
+
+    // condition pour CP
+    if('CP' === $k)
+    {
+        if(in_array($dat, $data))
+        {
+            echo $dat = true."<br/>";
+        }else{
+            echo $message = "Votre CP : '$dat' n'est pas valide <br/>";
+        }
+    }
+
+    //condition pour naissance
+    if('naissance' === $k)
+    {
+        if(preg_match('#^[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,4}$#', $dat))
+        {
+            if(checkdate($dat))
+            {
+                echo $dat;
+            }
+        }else{
+            echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
+        }
     }
   }
 }
