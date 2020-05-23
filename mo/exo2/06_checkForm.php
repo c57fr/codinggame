@@ -69,10 +69,11 @@ function check_form($data)
     {
         if(preg_match('#^[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,4}$#', $dat))
         {
-            if(checkdate($dat))
+            if(strtotime($dat))
             {
                 echo $dat;
             }
+            
         }else{
             echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
         }
