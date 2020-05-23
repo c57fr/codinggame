@@ -9,8 +9,8 @@ $datas = [
   'valide'    => false,
   'nom'       => 'SECK10',
   'prenom'    => 'Momo3',
-  'CP'        => '[1000, 9999]',
-  'naissance' => 29/07/1986,
+  'CP'        => '[1000, 9999]u',
+  'naissance' => 29 /07 / 1986,
   'banque'    => 'BE15 1234 5678 9012',
 ];
 //vdli($data);
@@ -60,9 +60,9 @@ function check_form($data)
     // condition pour CP
     if('CP' === $k)
     {
-        if(array_diff($data, $data))//si je mets array_diff($k, $data) ou array_diff($k, $dat) ca marche pas
+        if(in_array('CP' === $k, $data))//si je mets array_diff($k, $data) ou array_diff($k, $dat) ca marche pas
         {
-            echo $dat."<br/>";
+            echo $dat.'<br/>';
         }else{
             echo $message = "Votre CP : '$dat' n'est pas valide <br/>";
         }
@@ -73,10 +73,11 @@ function check_form($data)
     {
         if(preg_match('#^[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,4}$#', $dat))
         {
-            if(checkdate($dat))
+            if(strtotime($dat))
             {
                 echo $dat;
             }
+            
         }else{
             echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
         }
