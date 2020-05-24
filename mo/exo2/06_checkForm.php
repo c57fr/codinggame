@@ -10,94 +10,106 @@ $datas = [
   'nom'       => 'SECK',
   'prenom'    => 'Momo',
   'CP'        => '1000',
-  'naissance' => 29/07/1986,
+  'naissance' => 29 / 07 / 1986,
   'banque'    => 'BE15 1234 5678 9012',
-];                                                                                                                                                                                                                                                                                           
+]; $form = [
+  [
+    'nom'       => 'Dupond',
+    'prenom'    => 'Jean',
+    'CP'        => 4020,
+    'naissance' => '29/02/2020',
+    'banque'    => 'BE40 1235 2255 8889',
+  ],
+  [
+    'nom'       => 'Dupond',
+    'prenom'    => 'Jean',
+    'CP'        => '4020',
+    'naissance' => '3/03/1979',
+    'banque'    => 'BE40 1235 2255 8889',
+  ],
+  [
+    'nom'       => 'Dupond5',
+    'prenom'    => 'Jean$',
+    'CP'        => 999,
+    'naissance' => '28/02/1979',
+    'banque'    => 'BE40 ABCS 2255 8889',
+  ],
+];
 //vdli($data);
 
 function check_form($data)
 {
   //$datas = [];
 
-  foreach ($data as $k => $dat) 
-  {
+  foreach ($data as $k => $dat) {
     //echo $k. " : " .$dat."<br/>";
     $valide  = true;
     $message = [];
 
     // condition pour le valide  ==> ca  ne marche pas
-    if('valide' === $k)
-    {
-        if(is_bool($dat))
-        {
-            echo $dat = true." == > $k<br/>";
-        }else{
-            echo $message = "Ceci n'est pas un boolen<br/>";
-        }
-    }else{
-        $message = "Ceci n'est pas un boolen<br/>";
+    if ('valide' === $k) {
+      if (is_bool($dat)) {
+        echo $dat = true." == > ${k}<br/>";
+      } else {
+        echo $message = "Ceci n'est pas un boolen<br/>";
+      }
+    } else {
+      $message = "Ceci n'est pas un boolen<br/>";
     }
     // condition pour le nom
-    if ('nom' === $k) 
-    {
+    if ('nom' === $k) {
       if (preg_match('#^[A-Za-z -]*$#', $dat)) {
-        echo $dat = true." == > $k<br/>";
+        echo $dat = true." == > ${k}<br/>";
       } else {
-        echo $message = "Votre nom : '$dat' n'est pas valide<br/>";
+        echo $message = "Votre nom : '${dat}' n'est pas valide<br/>";
       }
     }
     //condition pour le prenom
-    if('prenom' === $k)
-    {
-        if(preg_match('#^[A-Za-z -]*$#', $dat))
-        {
-            echo $dat = true." == > $k<br/>";
-        }else{
-            echo $message = "Votre prenom : '$dat' n'est pas valide <br/>";
-        }
+    if ('prenom' === $k) {
+      if (preg_match('#^[A-Za-z -]*$#', $dat)) {
+        echo $dat = true." == > ${k}<br/>";
+      } else {
+        echo $message = "Votre prenom : '${dat}' n'est pas valide <br/>";
+      }
     }
 
     // condition pour CP   || j'essaie avec get_between
-    if('CP' === $k)
-    { // Essaie plutôt ce genre de solution + simple... :
+    if ('CP' === $k) { // Essaie plutôt ce genre de solution + simple... :
         //$v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 9999);
         //$v['CP']['message'] = ($v['CP']['valide']) ? false : $data['CP'].' est un CP invalide';
-        if($dat > 999 && $dat < 9999)
-        {
-            echo $dat =true." == > $k<br/>";
-        }else{
-            echo $message = "Votre CP : '$dat' n'est pas valide <br/>";
+        if ($dat > 999 && $dat < 9999) {
+          echo $dat = true." == > ${k}<br/>";
+        } else {
+          echo $message = "Votre CP : '${dat}' n'est pas valide <br/>";
         }
     }
 
     //condition pour naissance
-    if('naissance' === $k)
-    {
-        /*if(preg_match('#^[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,4}$#', $dat))
-        {
-            echo $dat = true;
-        }else{
-            echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
-        }*/
-        //avec la fonction substr le booleen est verifie
-        if(substr(substr($dat,6,2) .'/'.  substr($dat, 4,2)  .'/'.  substr($dat, 0, 4), $dat)){
-            echo $dat = true." == > $k<br/>";
-        }else{
-            echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
-        }
-        //echo date($dat, date("d-m-Y"))."<br/>";
+    if ('naissance' === $k) {
+      /*if(preg_match('#^[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,4}$#', $dat))
+      {
+          echo $dat = true;
+      }else{
+          echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
+      }*/
+      //avec la fonction substr le booleen est verifie
+      if (substr(substr($dat, 6, 2).'/'.substr($dat, 4, 2).'/'.substr($dat, 0, 4), $dat)) {
+        echo $dat = true." == > ${k}<br/>";
+      } else {
+        echo $message = "Votre naissance : '${dat}' n'est pas valide <br/>";
+      }
+      //echo date($dat, date("d-m-Y"))."<br/>";
         //echo $k.' ==> '.date("d/m/Y");
         //echo date("d/m/Y", strtotime("2008-04-09"));
     }
 
     //condition pour banque
-    if('banque' === $k){
-        if(preg_match('#^BE[0-9]{2}( ?[0-9]{4}){3}$#', $dat))
-        {
-            echo $dat = true." == > $k<br/>";
-        }else{
-            echo $message = "Votre banque : '$dat' n'est pas valide <br/>";
-        }
+    if ('banque' === $k) {
+      if (preg_match('#^BE[0-9]{2}( ?[0-9]{4}){3}$#', $dat)) {
+        echo $dat = true." == > ${k}<br/>";
+      } else {
+        echo $message = "Votre banque : '${dat}' n'est pas valide <br/>";
+      }
     }
   }
 }
