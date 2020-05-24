@@ -28,10 +28,10 @@ https://www.supinfo.com/cours/
 
 ```mermaid
 graph TD;
-  1ADS-->1ARI
-  1ADS-->1CPA;
-  1ADS-->etc...;
-  1ADS-->1WEB;
+  C57-->Doc
+  C57-->Cloner;
+  C57-->etc...;
+  C57-->1WEB;
   1ARI-->etc....
 ```
 
