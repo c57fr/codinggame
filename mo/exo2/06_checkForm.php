@@ -60,8 +60,14 @@ function check_form($data)
     // condition pour CP   || j'essaie avec get_between
     if('CP' === $k)
     { // Essaie plutôt ce genre de solution + simple... :
-        $v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 9999);
-        $v['CP']['message'] = ($v['CP']['valide']) ? false : $data['CP'].' est un CP invalide';
+        //$v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 9999);
+        //$v['CP']['message'] = ($v['CP']['valide']) ? false : $data['CP'].' est un CP invalide';
+        if($dat > 999 && $dat < 9999)
+        {
+            echo $dat =true." == > $k<br/>";
+        }else{
+            echo $message = "Votre CP : '$dat' n'est pas valide <br/>";
+        }
     }
 
     //condition pour naissance
