@@ -30,7 +30,7 @@ function check_form($data)
     {
         if(is_bool($dat))
         {
-            echo $dat = true."<br/>";
+            echo $dat = true." == > $k<br/>";
         }else{
             echo $message = "Ceci n'est pas un boolen<br/>";
         }
@@ -41,7 +41,7 @@ function check_form($data)
     if ('nom' === $k) 
     {
       if (preg_match('#^[A-Za-z -]*$#', $dat)) {
-        echo $dat = true."<br/>";
+        echo $dat = true." == > $k<br/>";
       } else {
         echo $message = "Votre nom : '$dat' n'est pas valide<br/>";
       }
@@ -51,13 +51,13 @@ function check_form($data)
     {
         if(preg_match('#^[A-Za-z -]*$#', $dat))
         {
-            echo $dat = true."<br/>";
+            echo $dat = true." == > $k<br/>";
         }else{
             echo $message = "Votre prenom : '$dat' n'est pas valide <br/>";
         }
     }
 
-    // condition pour CP
+    // condition pour CP   || j'essaie avec get_between
     if('CP' === $k)
     { // Essaie plutôt ce genre de solution + simple... :
         $v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 9999);
@@ -67,12 +67,19 @@ function check_form($data)
     //condition pour naissance
     if('naissance' === $k)
     {
-        if(preg_match('#^[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,4}$#', $dat))
+        /*if(preg_match('#^[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,4}$#', $dat))
         {
-            echo $dat."<br/>";
+            echo $dat = true;
+        }else{
+            echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
+        }*/
+        //avec la fonction substr le booleen est verifie
+        if(substr(substr($dat,6,2) .'/'.  substr($dat, 4,2)  .'/'.  substr($dat, 0, 4), $dat)){
+            echo $dat = true." == > $k<br/>";
         }else{
             echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
         }
+        //echo date($dat, date("d-m-Y"))."<br/>";
         //echo $k.' ==> '.date("d/m/Y");
         //echo date("d/m/Y", strtotime("2008-04-09"));
     }
@@ -81,7 +88,7 @@ function check_form($data)
     if('banque' === $k){
         if(preg_match('#^BE[0-9]{2}( ?[0-9]{4}){3}$#', $dat))
         {
-            echo $dat = true."<br/>";
+            echo $dat = true." == > $k<br/>";
         }else{
             echo $message = "Votre banque : '$dat' n'est pas valide <br/>";
         }
