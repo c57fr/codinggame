@@ -7,8 +7,8 @@ if (!function_exists('vdli')) {
 
 $datas = [
   'valide'    => false,
-  'nom'       => 'SECK10',
-  'prenom'    => 'Momo3',
+  'nom'       => 'SECK',
+  'prenom'    => 'Momo',
   'CP'        => '1000',
   'naissance' => 29/07/1986,
   'banque'    => 'BE15 1234 5678 9012',
@@ -30,7 +30,7 @@ function check_form($data)
     {
         if(is_bool($dat))
         {
-            echo $dat;
+            echo $dat = true."<br/>";
         }else{
             echo $message = "Ceci n'est pas un boolen<br/>";
         }
@@ -41,7 +41,7 @@ function check_form($data)
     if ('nom' === $k) 
     {
       if (preg_match('#^[A-Za-z -]*$#', $dat)) {
-        echo $dat = true;
+        echo $dat = true."<br/>";
       } else {
         echo $message = "Votre nom : '$dat' n'est pas valide<br/>";
       }
@@ -51,7 +51,7 @@ function check_form($data)
     {
         if(preg_match('#^[A-Za-z -]*$#', $dat))
         {
-            echo $dat = true;
+            echo $dat = true."<br/>";
         }else{
             echo $message = "Votre prenom : '$dat' n'est pas valide <br/>";
         }
@@ -67,8 +67,24 @@ function check_form($data)
     //condition pour naissance
     if('naissance' === $k)
     {
-        echo $k.' ==> '.date("d/m/Y");
+        if(preg_match('#^[0-9]{1,2}/[0-9]{1,2}/[0-9]{1,4}$#', $dat))
+        {
+            echo $dat."<br/>";
+        }else{
+            echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
+        }
+        //echo $k.' ==> '.date("d/m/Y");
         //echo date("d/m/Y", strtotime("2008-04-09"));
+    }
+
+    //condition pour banque
+    if('banque' === $k){
+        if(preg_match('#^BE[0-9]{2}( ?[0-9]{4}){3}$#', $dat))
+        {
+            echo $dat = true."<br/>";
+        }else{
+            echo $message = "Votre banque : '$dat' n'est pas valide <br/>";
+        }
     }
   }
 }
