@@ -12,7 +12,9 @@ $datas = [
   'CP'        => '1000',
   'naissance' => 29 / 07 / 1986,
   'banque'    => 'BE15 1234 5678 9012',
-]; $form = [
+];
+
+$form = [
   [
     'nom'       => 'Dupond',
     'prenom'    => 'Jean',
