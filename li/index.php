@@ -30,14 +30,14 @@ include '../dev/vdli.php';
 // include 'exos/012_spreadsheet.php';
 // include 'exos/013_rockPaperScissors.php';
 
-// include 'exos/014_ghostLegs.php';
+include 'exos/014_ghostLegs.php';
 
 // include 'exos/divers.php';
-include 'exos/prems.php';
+// include 'exos/prems.php';
 
 // include 'exos/1xx_shadowsKnight.php';
 
-// 2do Faire fonction 1a2/questions au mlieu de la racine + page index avec liens
+// 2do Faire fonction 1a2/questions au lieu de la racine + page index avec liens
 
 // 2fix Retrouver doc.manudon.com
 

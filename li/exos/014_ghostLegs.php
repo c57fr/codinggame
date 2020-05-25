@@ -19,17 +19,103 @@ $lines = [
   '|  |  |',
   '1  2  3',
 ];
+$depsstr = $lines[0];
+$depsstr = preg_replace('/ /', '', $depsstr);
+$lr      = strlen($lines[0]);
+$l       = strlen($depsstr);
+$h       = count($lines);
+// echo $l.' x '.$h.'<hr>';
+// var_dump($depsstr);
+// echo $lr;
+
+for ($i = 0; $i < $l; ++$i) {
+  $deps[] = $depsstr[$i];
+}
+// vdli($deps);
+//
+// echo '<br>'.$deps[0].'<br>';
+// echo strlen($lines[2]).'<br>';
 // vdli($lines);
 
 // echo count($lines); // H
 // echo strlen($lines[0]); // W
 // echo strlen($lines[1]);
 
+// echo '<pre>';
+// foreach ($lines as $k => $l) {
+//   echo $l.'<br>';
+// }
+// echo '</pre>';
+
+echo '<pre>'.implode('<br>', $lines).'</pre>';
+
+// Création matrice
+
+foreach ($lines as $y => $l) {
+  for ($x = 0; $x < $lr; ++$x) {
+    if ('|' === $lines[$y][$x]) {
+      $m[$x][] = 2;
+    // if (array_key_exists($x - 1, $m) && $m[$x - 1][$y]=='-') {
+      //   $m[$x][] = 1;
+      // }
+    } else {
+      $m[$x][] = $lines[$y][$x];
+    }
+    // if (array_key_exists($i + 1, $m) && $m[$i + 1][$k]=='-') {
+    //   $m[$i][] = 3;
+    // }
+  }
+}
+
+for ($x = 1; $x < $lr; $x += 3) {
+  foreach ($lines as $y => $v) {
+    if ('-' === $m[$x][$y]) {
+      ++$m[$x - 1][$y];
+    }
+  }
+}
+
+for ($x = 2; $x < $lr; $x += 3) {
+  foreach ($lines as $y => $v) {
+    if ('-' === $m[$x][$y]) {
+      --$m[$x + 1][$y];
+    }
+  }
+}
+
 echo '<pre>';
-foreach ($lines as $k => $l) {
-  echo $l.'<br>';
+for ($y = 0; $y < $h; ++$y) {
+  for ($x = 0; $x < $lr; $x += 3) {
+    echo $m[$x][$y];
+  }
+  echo '<br>';
 }
 echo '</pre>';
+
+foreach ($deps as $k => $v) {
+  $x = $k*3;
+  $y = 0;
+
+  // echo $m[$x][$y];
+
+  // var_dump(3 <=> 2);
+
+  // $x = $m[$x][$y]<>2;
+
+  for ($y = 1; $y < $h - 1; ++$y) {
+    $x += (((int) $m[$x][$y]) <=> 2) * 3;
+    echo $x.','.$y.'<br>';
+  }
+  echo $m[$k*3][0].$m[$x][$y].'<hr>';
+}
+
+// echo $m[$x][$y];
+// ++$y;
+// echo $m[$x][$y];
+
+// vdli($m);
+
+// echo $m[3][0];
 
 // S1 Procédural
 
@@ -95,7 +181,7 @@ public class Solution
   }
 }
 
-##############################################################################
+###################################################################
 
 Solution dans codding :
 
