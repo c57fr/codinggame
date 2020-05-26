@@ -13,9 +13,10 @@ ob_implicit_flush(); // Pour actu xd.ebug ds chrome
 
 // $message         : AAA => KQF - ABCD => KFDI
 $operaton           = 'ENCODE';
-$pseudoRandomNumber = 7;
-$message            = 'WEATHERREPORTWINDYTODAY'; // AAA => KQF - ABCD => KFDI
 $message            = 'AAA'; // AAA => KQF - ABCD => KFDI
+$pseudoRandomNumber = 4;
+// $message            = 'WEATHERREPORTWINDYTODAY'; // => ALWAURKQEQQWLRAWZHUYKVN
+// $pseudoRandomNumber = 7;
 $rotors             = [
   'BDFHJLCPRTXVZNYEIWGAKMUSQO',
   'AJDKSIRUXBLHWTMCQGZNPYFVOE',
@@ -28,14 +29,18 @@ $rotors             = [
 
 // $abc = range('A', 'Z');
 // vdli(28%26);
-// exit;
 
+// Sol Encode
 for ($i = 0, $c = strlen($message); $i < $c; ++$i) {
-  $let[$i] = chr((ord($message[$i]) + $i + $pseudoRandomNumber % 26));
+  vdli(ord($message[$i]) + $i + $pseudoRandomNumber);
+  $let[$i] = chr(((ord($message[$i])-64 + $i + $pseudoRandomNumber) % 26 +64));
+  vdli($let[$i]);
+  vdli(ord($let[$i])-64);
   for ($j = 0; $j < 3; ++$j) {
-    $let[$i] = $rotors[$j][ord($let[$i]) - 65];
+    $let[$i] = $rotors[$j][ord($let[$i])-65];
   }
 }
+
 // vdli($let);
 echo implode('', $let)."\n";
 //##################################################################

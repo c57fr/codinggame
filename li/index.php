@@ -33,7 +33,6 @@ include '../dev/vdli.php';
 // include 'exos/015_rectangle_partition.php';
 include 'exos/016_enigmaMachine.php';
 
-
 // include 'exos/divers.php';
 // include 'exos/prems.php';
 

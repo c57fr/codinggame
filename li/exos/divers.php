@@ -91,7 +91,7 @@ function check_form($data)
 
   $v['valide'] = 1;
   foreach ($cvs as $kcv => $cv) {
-    var_dump($data[$kcv].': '.$v[$kcv]['valide']);
+    // var_dump($data[$kcv].': '.$v[$kcv]['valide']);
     $v['valide'] *= $v[$kcv]['valide'];
   }
 
