@@ -94,8 +94,9 @@ function check_form($data)
       }else{
           echo $message = "Votre naissance : '$dat' n'est pas valide <br/>";
       }*/
+      
       //avec la fonction substr le booleen est verifie
-      if (substr(substr($dat, 6, 2).'/'.substr($dat, 4, 2).'/'.substr($dat, 0, 4), $dat)) {
+      if (substr($dat,0,2) ."/".substr($dat,3,2)."/".substr($dat,6,4)) { // je dois approfondir lq fonction susbtr
         echo $dat = true." == > ${k}<br/>";
       } else {
         echo $message = "Votre naissance : '${dat}' n'est pas valide <br/>";
@@ -118,7 +119,14 @@ function check_form($data)
 
 vdli($datas);
 echo '<hr>';
-vdli(check_form($form));
+
+vdli(check_form($form[2]));
+
+echo '<hr>';
+
+foreach ($form as $k => $val) {
+    vdli($val);
+}
 
 /*
 foreach ($datas as $key => $valeur) {
