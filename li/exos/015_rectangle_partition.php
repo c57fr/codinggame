@@ -39,7 +39,9 @@ for ($i = 0; $i <= $cX; ++$i) {
 }
 for ($c = $j = 0; $j <= $cY; ++$j) {
   for ($l = $j + 1; $l < $cY + 2; ++$l) {
-    if (array_key_exists($Y[$l] - $Y[$j], $sw)) $c += $sw[$Y[$l] - $Y[$j]];
+    if (array_key_exists($Y[$l] - $Y[$j], $sw)) {
+      $c += $sw[$Y[$l] - $Y[$j]];
+    }
   }
 }
 echo $c;

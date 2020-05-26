@@ -30,8 +30,9 @@ include '../dev/vdli.php';
 // include 'exos/012_spreadsheet.php';
 // include 'exos/013_rockPaperScissors.php';
 // include 'exos/014_ghostLegs.php';
+// include 'exos/015_rectangle_partition.php';
+include 'exos/016_enigmaMachine.php';
 
-include 'exos/015_rectangle_partition.php';
 
 // include 'exos/divers.php';
 // include 'exos/prems.php';
