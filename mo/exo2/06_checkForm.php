@@ -7,9 +7,9 @@ if (!function_exists('vdli')) {
 
 $datas = [
   'valide'    => false,
-  'nom'       => 'SECK',
-  'prenom'    => 'Momo',
-  'CP'        => '1000',
+  'nom'       => 'SECK&',
+  'prenom'    => 'Momo_',
+  'CP'        => '10009',
   'naissance' => 29 / 07 / 1986,
   'banque'    => 'BE15 1234 5678 9012',
 ];
@@ -118,7 +118,7 @@ function check_form($data)
 
 vdli($datas);
 echo '<hr>';
-vdli(check_form($datas));
+vdli(check_form($form));
 
 /*
 foreach ($datas as $key => $valeur) {
