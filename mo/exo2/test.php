@@ -7,32 +7,52 @@ if (!function_exists('vdli')) {
 
 
 $form = [
-    [
-      'nom'       => 'Dupond',
-      'prenom'    => 'Jean',
-      'CP'        => 4020,
-      'naissance' => '29/02/2020',
-      'banque'    => 'BE40 1235 2255 8889',
-    ],
-    [
-      'nom'       => 'Dupond',
-      'prenom'    => 'Jean',
-      'CP'        => '4020',
-      'naissance' => '3/03/1979',
-      'banque'    => 'BE40 1235 2255 8889',
-    ],
-    [
-      'nom'       => 'Dupond5',
-      'prenom'    => 'Jean$',
-      'CP'        => 999,
-      'naissance' => '28/02/1979',
-      'banque'    => 'BE40 ABCS 2255 8889',
-    ],
+    
+  [
+    'valide'    => true,
+    'nom'       => 'Dupond',
+    'prenom'    => 'Jean',
+    'CP'        => 4020,
+    'naissance' => '29/02/2020',
+    'banque'    => 'BE40 1235 2255 8889',
+  ],
+  [
+    'valide'    => false,
+    'nom'       => 'Dupond',
+    'prenom'    => 'Jean',
+    'CP'        => '4020',
+    'naissance' => '3/03/1979',
+    'banque'    => 'BE40 1235 2255 8889',
+  ],
+  [
+    'valide'    => true,
+    'nom'       => 'Dupond5',
+    'prenom'    => 'Jean$',
+    'CP'        => 999,
+    'naissance' => '28/02/1979',
+    'banque'    => 'BE40 ABCS 2255 8889',
+  ],
   ];
 
   function check_form($data): array{
       //message d'erreur
       $mess = ["est fau"];
+
+      // infos pour valide
+      if($v['valide']['valide'] = (bool) $data['valide'])
+      {
+        echo $data['valide']." est valide<br/>";
+      }else{
+        echo "Le valide ${data['valide']} est invalide<br/>";
+      }
+
+      /*if($v['valide']['message'] !=  (bool) $data['valide'])
+      {
+           echo "Votre valide est ${data['valide']}<br/>";
+      }*/
+
+
+
     // infos pour le nom
       if($v['nom']['valide'] = (bool) preg_match('#^[A-Za-z -]*$#', $data['nom']))
       {
@@ -61,8 +81,10 @@ $form = [
 
 
       //infos pour le CP
+      $v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 1e4);
+      $v['CP']['message'] = ($v['CP']['valide']) ? false : $data['CP'].' est un CP invalide';
       //if($v['CP ']['valide'] = (bool) $data['CP'] > 999 && $data['CP'] < 1e4)
-      if($v['CP']['valide']  = (bool) preg_match($v['CP'] > 999 && $data['CP'] < 100000))
+      /*if($v['CP']['valide']  = (bool) preg_match($v['CP'] > 999 && $data['CP'] < 100000))
       {
         echo $data['CP']."est valide";
       }else{
@@ -72,17 +94,27 @@ $form = [
       if($v['CP']['message'] = (bool) !preg_match($data['CP'] < 999 OR $data['CP'] > 10000))
       {
         echo "Votre CP est {$data['CP']}<br/>";
-      }
+      }*/
 
       // infos pour naissance
-      if($v['naissance']['valide'] = preg_match('#^([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,4})$#', $data['naissance'], $vs))
+
+      $res = preg_match('#^([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,4})$#', $data['naissance'], $vs);
+
+      $v['naissance']['valide']  = checkdate($vs[2], $vs[1], $vs[3]);
+      $v['naissance']['message'] = ($v['naissance']['valide']) ? false : $data['naissance'].' est une date invalide';
+
+      // infos pour bqnaue
+      if($v['banque']['valide'] = (bool) preg_match('#^BE[0-9]{2}( ?[0-9]{4}){3}$#', $data['banque']))
       {
-        echo $data['naissance']."est valide";
+        echo "Votre banque ${data['banque']}<br/>";
       }else{
-        echo "Le naissance ${data['naissance']} est invalide";
+        echo "Le nom ${data['banque']} est invalide <br/>";
       }
 
-
+      if($v['banque']['message'] = (bool) !preg_match('#^BE[0-9]{2}( ?[0-9]{4}){3}$#', $data['banque']))
+      {
+        echo "Votre banque ${data['banque']} <br/>";
+      }
 
       /*$res = preg_match('#^([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,4})$#', $data['naissance'], $vs);
     var_dump($data);*/
