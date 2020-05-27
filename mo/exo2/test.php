@@ -62,17 +62,26 @@ $form = [
 
       //infos pour le CP
       //if($v['CP ']['valide'] = (bool) $data['CP'] > 999 && $data['CP'] < 1e4)
-      if($v['CP']['valide']  = (bool) preg_match($v['CP'] > 999 && $data['CP'] < 10000))
+      if($v['CP']['valide']  = (bool) preg_match($v['CP'] > 999 && $data['CP'] < 100000))
       {
         echo $data['CP']."est valide";
       }else{
         echo "Le CP ${data['CP']} est invalide";
       }
 
-      if($v['CP']['message'] = (int) !preg_match($data['CP'] < 999 OR $data['CP'] > 10000))
+      if($v['CP']['message'] = (bool) !preg_match($data['CP'] < 999 OR $data['CP'] > 10000))
       {
         echo "Votre CP est {$data['CP']}<br/>";
       }
+
+      // infos pour naissance
+      if($v['naissance']['valide'] = preg_match('#^([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,4})$#', $data['naissance'], $vs))
+      {
+        echo $data['naissance']."est valide";
+      }else{
+        echo "Le naissance ${data['naissance']} est invalide";
+      }
+
 
 
       /*$res = preg_match('#^([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,4})$#', $data['naissance'], $vs);
