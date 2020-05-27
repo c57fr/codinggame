@@ -36,9 +36,9 @@ $form = [
     // infos pour le nom
       if($v['nom']['valide'] = (bool) preg_match('#^[A-Za-z -]*$#', $data['nom']))
       {
-          echo $v['nom']." est valide";
+          echo $data['nom']." est valide";
       }else{
-          echo "Votre {$v['nom']} est invalide";
+          echo "Le nom ${data['nom']} est invalide";
       }
       if($v['nom']['message'] =  !preg_match('#^[A-Za-z -]*$#', $data['nom']))
       {
