@@ -14,21 +14,24 @@ $rotors = [
   'EKMFLGDQVZNTOWYHXUSPAIBRCJ',
 ];
 
-
 // 65 -75 = -10 =>
-// 91 -75 - 26  =>
+// 90 -75 - 26  => 67 - C
 
 // 65 => 65
-// 91 => 91
-$v = 91;
+// 90 => 90
+$v = 90;
+echo chr($v).'<br>';
 
-echo ($v) % 26 + 65;
+$v = 90 - 75;
+$s = (($v + 13) % 26) + 65;
+echo chr($s).' -  '.$s.'.<hr>';
+echo ord('E').' -  '.$s.'.<hr>';
 
 // echo $rotors[2].'<br>';
 
 // echo 'Rép: '. chr(strpos($rotors[2], 'J' )+65);
 
-exit;
+// exit;
 // Reconstitution des données du test
 // t 1
 
@@ -47,7 +50,9 @@ $rotors = [
 $operation          = 'DECODE';
 $message            = 'PQSACVVTOISXFXCIAMQEM'; // AAA => KQF - ABCD => KFDI
 $pseudoRandomNumber = 9;
-echo $message.'<hr>';
+// $message            = 'KQF'; // AAA => KQF - ABCD => KFDI
+// $pseudoRandomNumber = 4;
+// echo $message.'<hr>';
 
 switch ($operation) {
   case 'ENCODE':
@@ -61,19 +66,16 @@ switch ($operation) {
     break;
   default:
   for ($i = 0, $c = strlen($message); $i < $c; ++$i) {
-    // vdli($message[$i]);
     $let[$i] = $message[$i];
     for ($j = 2; $j > -1; --$j) {
       $let[$i] = chr(strpos($rotors[$j], $let[$i]) + 65);
-      // vdli($let[$i]);
     }
-    vdli(ord($let[$i])-$i-$pseudoRandomNumber);
-   $let[$i]= chr(ord($let[$i])-$i-$pseudoRandomNumber);
+    $let[$i] = chr((ord($let[$i]) - $i - $pseudoRandomNumber + 13) % 26 + 65);
   }
+
     break;
 }
 
-// vdli($let);
 echo implode('', $let)."\n";
 //##################################################################
 /*
