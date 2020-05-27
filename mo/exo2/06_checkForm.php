@@ -96,6 +96,12 @@ function check_form($data)
       }*/
       
       //avec la fonction substr le booleen est verifie
+      if(checkdate("d/m/Y") === $dat)
+      {
+          echo $dat."<br/>";
+      }else{
+          echo "no";
+      }
       if (substr($dat,0,2) ."/".substr($dat,3,2)."/".substr($dat,6,4)) { // je dois approfondir lq fonction susbtr
         echo $dat = true." == > ${k}<br/>";
       } else {
