@@ -5,7 +5,6 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
-
 $form = [
     
   [
@@ -54,31 +53,30 @@ $form = [
 
 
     // infos pour le nom
-      if($v['nom']['valide'] = (bool) preg_match('#^[A-Za-z -]*$#', $data['nom']))
-      {
-          echo $data['nom']." est valide<br/>";
-      }else{
-          echo "Le nom ${data['nom']} est invalide<br/>";
-      }
+    if ($v['nom']['valide'] = (bool) preg_match('#^[A-Za-z -]*$#', $data['nom'])) {
+      echo $data['nom'].' est valide<br/>';
+    } else {
+      echo "Le nom ${data['nom']} est invalide<br/>";
+    }
 
-      if($v['nom']['message'] =  !preg_match('#^[A-Za-z -]*$#', $data['nom']))
-      {
-           echo "Votre nom est ${data['nom']}<br/>";
-      }
+    if ($v['nom']['message'] = !preg_match('#^[A-Za-z -]*$#', $data['nom'])) {
+      echo "Votre nom est ${data['nom']}<br/>";
+    }
 
-      //infos pour le prenom
-      if($v['prenom']['valide'] = (bool) preg_match('#^[A-Za-z -]*$#', $data['prenom']))
-      {
-          echo $data['prenom']." est valide<br/>";
-      }else{
-        echo "Le nom ${data['prenom']} est invalide<br/>";
-      }
+    //infos pour le prenom
+    if ($v['prenom']['valide'] = (bool) preg_match('#^[A-Za-z -]*$#', $data['prenom'])) {
+      echo $data['prenom'].' est valide<br/>';
+    } else {
+      echo "Le nom ${data['prenom']} est invalide<br/>";
+    }
 
-      if($v['prenom']['message'] =  !preg_match('#^[A-Za-z -]*$#', $data['prenom']))
-      {
-           echo "Votre nom est {$data['prenom']}<br/>";
-      }
+    if ($v['prenom']['message'] = !preg_match('#^[A-Za-z -]*$#', $data['prenom'])) {
+      echo "Votre nom est {$data['prenom']}<br/>";
+    }
 
+    //infos pour le CP
+    $v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 1e4);
+    $v['CP']['message'] = ($v['CP']['valide']) ? false : $data['CP'].' est un CP invalide';
 
       //infos pour le CP
       $v['CP']['valide']  = (bool) ($data['CP'] > 999 && $data['CP'] < 1e4);
@@ -119,11 +117,9 @@ $form = [
       /*$res = preg_match('#^([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,4})$#', $data['naissance'], $vs);
     var_dump($data);*/
 
-      return $v;
+    return $v;
   }
 
   foreach ($form as $v) {
     vdli(check_form($v));
-   
   }
-  
