@@ -36,27 +36,47 @@ $form = [
     // infos pour le nom
       if($v['nom']['valide'] = (bool) preg_match('#^[A-Za-z -]*$#', $data['nom']))
       {
-          echo $data['nom']." est valide";
+          echo $data['nom']." est valide<br/>";
       }else{
-          echo "Le nom ${data['nom']} est invalide";
+          echo "Le nom ${data['nom']} est invalide<br/>";
       }
+
       if($v['nom']['message'] =  !preg_match('#^[A-Za-z -]*$#', $data['nom']))
       {
-           echo "Votre nom est {$v['nom']}";
+           echo "Votre nom est ${data['nom']}<br/>";
       }
 
       //infos pour le prenom
       if($v['prenom']['valide'] = (bool) preg_match('#^[A-Za-z -]*$#', $data['prenom']))
       {
-          echo $v['prenom']." est valide";
+          echo $data['prenom']." est valide<br/>";
       }else{
-          echo "Votre {$v['prenom']} est invalide";
-      }
-      if($v['prenom']['message'] =  !preg_match('#^[A-Za-z -]*$#', $data['prenom']))
-      {
-           echo "Votre nom est {$v['prenom']}";
+        echo "Le nom ${data['prenom']} est invalide<br/>";
       }
 
+      if($v['prenom']['message'] =  !preg_match('#^[A-Za-z -]*$#', $data['prenom']))
+      {
+           echo "Votre nom est {$data['prenom']}<br/>";
+      }
+
+
+      //infos pour le CP
+      //if($v['CP ']['valide'] = (bool) $data['CP'] > 999 && $data['CP'] < 1e4)
+      if($v['CP']['valide']  = (bool) preg_match($v['CP'] > 999 && $data['CP'] < 10000))
+      {
+        echo $data['CP']."est valide";
+      }else{
+        echo "Le CP ${data['CP']} est invalide";
+      }
+
+      if($v['CP']['message'] = (int) !preg_match($data['CP'] < 999 OR $data['CP'] > 10000))
+      {
+        echo "Votre CP est {$data['CP']}<br/>";
+      }
+
+
+      /*$res = preg_match('#^([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,4})$#', $data['naissance'], $vs);
+    var_dump($data);*/
 
       return $v;
   }
