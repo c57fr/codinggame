@@ -10,14 +10,14 @@ ob_implicit_flush(); // Pour actu xd.ebug ds chrome
 
 // Reconstitution test 1
 
-$N=5;
-$L=3;
-$LINES=[
+$N     = 5;
+$L     = 3;
+$LINES = [
   'X X X X X',
   'X C X X X',
   'X X X X X',
   'X X X X X',
-  'X X X X X'
+  'X X X X X',
 ];
 
 vdli($LINES);
