@@ -8,40 +8,21 @@ ob_implicit_flush(); // Pour actu xd.ebug ds chrome
 
 // https://www.codingame.com/training/easy/encryptiondecryption-of-enigma-machine
 
+// Reconstitution des données du test
+
 $rotors = [
   'BDFHJLCPRTXVZNYEIWGAKMUSQO',
   'AJDKSIRUXBLHWTMCQGZNPYFVOE',
   'EKMFLGDQVZNTOWYHXUSPAIBRCJ',
 ];
 
-// 65 -75 = -10 =>
-// 90 -75 - 26  => 67 - C
-
-// 65 => 65
-// 90 => 90
-$v = 90;
-echo chr($v).'<br>';
-
-$v = 90 - 75;
-$s = (($v + 13) % 26) + 65;
-echo chr($s).' -  '.$s.'.<hr>';
-echo ord('E').' -  '.$s.'.<hr>';
-
-// echo $rotors[2].'<br>';
-
-// echo 'Rép: '. chr(strpos($rotors[2], 'J' )+65);
-
-// exit;
-// Reconstitution des données du test
-// t 1
-
 // $message         : AAA => KQF - ABCD => KFDI
 $operation          = 'ENCODE';
 $message            = 'AAA'; // AAA => KQF - ABCD => KFDI
 $pseudoRandomNumber = 4;
-// $message            = 'WEATHERREPORTWINDYTODAY'; // => ALWAURKQEQQWLRAWZHUYKVN
-// $pseudoRandomNumber = 7;
-$rotors = [
+$message            = 'EVERYONEISWELCOMEHERE'; // => ALWAURKQEQQWLRAWZHUYKVN
+$pseudoRandomNumber = 9;
+$rotors             = [
   'BDFHJLCPRTXVZNYEIWGAKMUSQO',
   'AJDKSIRUXBLHWTMCQGZNPYFVOE',
   'EKMFLGDQVZNTOWYHXUSPAIBRCJ',
@@ -52,7 +33,8 @@ $message            = 'PQSACVVTOISXFXCIAMQEM'; // AAA => KQF - ABCD => KFDI
 $pseudoRandomNumber = 9;
 // $message            = 'KQF'; // AAA => KQF - ABCD => KFDI
 // $pseudoRandomNumber = 4;
-// echo $message.'<hr>';
+
+echo $message.'<hr>';
 
 switch ($operation) {
   case 'ENCODE':
