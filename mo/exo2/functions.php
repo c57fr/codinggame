@@ -1,8 +1,9 @@
 <?php
 
-function bonjour($prenom, $role ='abonné(e)'){
-    echo "Bonjour " .$prenom. " Vous etes un " .$role. "<br>";
+function bonjour(...$prenom){
+    foreach($prenom as $p)
+    {
+        echo "Bonjour " .$p. "<br/>";
+    }
 }
-echo bonjour('Mathilde');
-echo bonjour('Pierre', 'administrateur');
-echo bonjour('Nicolas');
+bonjour('Pierre', 'Momo', 'Lio');
