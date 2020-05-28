@@ -1,56 +1,22 @@
 <?php
 
-$prenom = 'Pierre';
-$x = 4;
-$y = 5;
+$x = 0;
 
-function bonjour($p){
-    echo "Bonjour " .$p. "<br/>";
+function plus3($p){
+    $p = $p + 3;
+    echo "Valeur dans la fonction : " .$p. "<br/>";
 }
 
-function addition($p1, $p2){
-    echo $p1 . " + " .$p2 . " = " . ($p1 + $p2) . "<br>";
-}
-bonjour($prenom);
-bonjour("Mathilde");
-addition($x, $y);
-addition(1,1);
-echo '<hr>';
-
-$nom = "SECK";
-$prenom = "Momo";
-
-$c = 40;
-$s =5;
-
-function direBonjour($b){
-    echo "Bonjour " .$b. "<br/>"; 
-}
-
-function multiplication($a, $b){
-    echo $a . " * " . $b . " = ". ($a * $b) . "<br/>";
-}
-
-direBonjour($nom);
-direBonjour($prenom);
-direBonjour("Lio");
-multiplication($c,$s);
-
+plus3($x);
+echo "Valeur dans la fonction : " .$x. "<br/>";
 echo "<hr>";
 
-$prenom = "Aziz";
-$nom = "SECK";
-$n = 33;
-$m = 5;
+$x = 0;
 
-function priere($p){
-    echo "Que la paix soit avec toi " .$p."<br/>";
+function plusTrois(&$p){ // le signe << & >> permet d'indiquer qu’on souhaite passer un argument par référence à une fonction'
+    $p = $p + 3;
+    echo "Valeur dans la fonction de " .$p."<br/>";
 }
 
-function division($d, $o){
-    echo $d. " / " .$o. " = " . ($d / $o) . "<br/>";
-}
-priere($prenom);
-priere($nom);
-priere("Abdoulaye SECK");
-division($n, $m);
+plusTrois($x);
+Echo "Valeur en dehors de la fonction " .$x. "<br/>";
