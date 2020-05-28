@@ -25,15 +25,21 @@ vdli($LINES);
 for ($i = 0; $i < $N; ++$i) {
   $m[$i] = explode(' ', $LINES[$i]);
 }
-
-for ($i=0; $i < $N; $i++) { 
-  for ($j=0; $j < $N; $j++) { 
-    echo $m[$i][$j];
+function affM($m)
+{
+  $N  = count($m);
+  $ch = '<table>';
+  for ($i = 0; $i < $N; ++$i) {
+    $ch .= '<tr>';
+    for ($j = 0; $j < $N; ++$j) {
+      $ch .= '<td>'.$m[$i][$j].'</td>';
+    }
+    $ch .= '</tr>';
   }
-  echo '<br>';
+  echo $ch.'</table>';
 }
 
-
+affM($m);
 //##################################################################
 /*
 
