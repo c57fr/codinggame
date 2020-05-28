@@ -15,7 +15,12 @@ function distance($x1, $x2, $y1, $y2){
     return $x;
 }
 
+$x = [23,38];
+for($x = 0; $x < [23,38]; $x++){
+    echo($x);
+}
 
+$x = 34;
 $a = [3, 45];
 $b = [5, 34];
 //vdli(distance($a - $b));
