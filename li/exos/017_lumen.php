@@ -46,14 +46,16 @@ affM($m);
 
 function recursiveLights($m, $i, $j, $lightPower)
 {
-  $N         = count($m);
-  $m[$i][$j] = $lightPower;
+  global $m;
+  $N = count($m);
 
   if ($i < 0 || $i > $N - 1 || $j < 0 || $j > $N - 1 || $lightPower <= 1) {
-    return $m;
+    return;
   }
+  $m[$i][$j] = $lightPower;
   // if ($m[$i - 1][$j] < $lightPower) {
-    recursiveLights($m, $i - 1, $j, $lightPower - 1);
+  affM($m);
+  recursiveLights($m, $i - 1, $j, $lightPower - 1);
   // }
 
   /*
@@ -63,7 +65,9 @@ function recursiveLights($m, $i, $j, $lightPower)
 
   return $m;
 }
-affM(recursiveLights($m, 1, 3, 3));
+  echo $m[1][3];
+  recursiveLights($m, 1, 3, 3);
+  affM($m);
 
 //##################################################################
 /*
