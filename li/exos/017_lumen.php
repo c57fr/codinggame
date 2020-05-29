@@ -23,10 +23,10 @@ $LINES = [
   'X X X X X',
 ];
 
-// vdli($LINES);
-
 for ($i = 0; $i < $N; ++$i) {
-  $m[$i] = explode(' ', str_replace('X', 0, $LINES[$i]));
+  for ($j = 0; $j < $N; ++$j) {
+    $m[$i][$j] = 0;
+  }
 }
 
 function affM($m)
@@ -84,8 +84,10 @@ function recursiveLights($m, $i, $j, $lightPower)
   return $m;
 }
 //   echo $m[1][3];
-  affM($m);
-  recursiveLights($m, 0, 0, 3);
+//   affM($m);
+  recursiveLights($m, 0, 2, 2);
+  recursiveLights($m, 4, 2, 2);
+
 //   recursiveLights($m, 2, 2, 3);
   affM($m);
   echo get0($m);
