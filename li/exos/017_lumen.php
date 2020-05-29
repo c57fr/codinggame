@@ -17,7 +17,7 @@ $N     = 5;
 $L     = 3;
 $LINES = [
   'X X X X X',
-  'X X X C X',
+  'X X X X X',
   'X X X X X',
   'X X X X X',
   'X X X X X',
@@ -42,6 +42,18 @@ function affM($m)
   echo $ch.'</table><br>';
 }
 
+function get0($m)
+{
+  $c = 0;
+  $N = count($m);
+  for ($i = 0; $i < $N; ++$i) {
+    for ($j = 0; $j < $N; ++$j) {
+      $c += 0 === $m[$i][$j];
+    }
+  }
+
+  return $c;
+}
 // affM($m);
 
 function recursiveLights($m, $i, $j, $lightPower)
@@ -72,9 +84,10 @@ function recursiveLights($m, $i, $j, $lightPower)
   return $m;
 }
 //   echo $m[1][3];
-  affM($m);
-  recursiveLights($m, 1, 3, 3);
-  affM($m);
+//   affM($m);
+  recursiveLights($m, 1, 1, 3);
+//   affM($m);
+  echo get0($m);
 
 //##################################################################
 /*
