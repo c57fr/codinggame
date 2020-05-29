@@ -42,20 +42,21 @@ function affM($m)
   echo $ch.'</table><br>';
 }
 
-affM($m);
+// affM($m);
 
 function recursiveLights($m, $i, $j, $lightPower)
 {
   global $m;
   $N = count($m);
 
-  if ($i < 0 || $i > $N - 1 || $j < 0 || $j > $N - 1 || $lightPower <= 1) {
+  if ($i < 0 || $i > ($N - 1) || $j < 0 || $j > ($N - 1) || $lightPower < $m[$i][$j]) {
     return;
   }
   $m[$i][$j] = $lightPower;
   // if ($m[$i - 1][$j] < $lightPower) {
-  affM($m);
+//   affM($m);
   recursiveLights($m, $i - 1, $j, $lightPower - 1);
+  recursiveLights($m, $i + 1, $j, $lightPower - 1);
   // }
 
   /*
@@ -65,7 +66,8 @@ function recursiveLights($m, $i, $j, $lightPower)
 
   return $m;
 }
-  echo $m[1][3];
+//   echo $m[1][3];
+  affM($m);
   recursiveLights($m, 1, 3, 3);
   affM($m);
 
