@@ -1,14 +1,11 @@
 <?php
+declare(strict_types= 1);
 
-function multecho(float $a, float $b){
-    echo $a. " + " .$b. " = " .($a * $b). "<br/>";
+function multreturn($a, $b) :int{
+    return $a * $b;
 }
 
-function multreturn(float $a, float $b){
-    return $a * $b. "<br/>";
-}
 
-multecho(2, 3);
-
-$res = multreturn(4, 5);
-echo $res += 2;
+echo multreturn(2, 4);
+echo "<br><br>";
+echo multreturn(2, 2.4);
