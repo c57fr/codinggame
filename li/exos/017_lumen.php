@@ -17,17 +17,29 @@ $N     = 5;
 $L     = 3;
 $LINES = [
   'X X X X X',
-  'X X X X X',
+  'X C X X X',
   'X X X X X',
   'X X X X X',
   'X X X X X',
 ];
 
+// Recherche des candles
+for ($i = 0; $i < $N; ++$i) {
+  $m[$i] = explode(' ', str_replace('X', 0, $LINES[$i]));
+}
+// affM($m);
+
+// $cs=[];
 for ($i = 0; $i < $N; ++$i) {
   for ($j = 0; $j < $N; ++$j) {
+    if ($m[$i][$j]) {
+      $cs[] = [$i, $j];
+    }
     $m[$i][$j] = 0;
   }
 }
+
+// vdli($cs);
 
 function affM($m)
 {
@@ -85,11 +97,13 @@ function recursiveLights($m, $i, $j, $lightPower)
 }
 //   echo $m[1][3];
 //   affM($m);
-  recursiveLights($m, 0, 2, 2);
-  recursiveLights($m, 4, 2, 2);
 
-//   recursiveLights($m, 2, 2, 3);
-  affM($m);
+foreach ($cs as $k => $v) {
+//   echo $k.' ('.$v[0].','.$v[1].')';
+  recursiveLights($m, $v[0], $v[1], $L);
+}
+
+//   affM($m);
   echo get0($m);
 
 //##################################################################
