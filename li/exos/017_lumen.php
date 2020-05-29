@@ -53,11 +53,16 @@ function recursiveLights($m, $i, $j, $lightPower)
     return;
   }
   $m[$i][$j] = $lightPower;
-  // if ($m[$i - 1][$j] < $lightPower) {
-//   affM($m);
-  recursiveLights($m, $i - 1, $j, $lightPower - 1);
-  recursiveLights($m, $i + 1, $j, $lightPower - 1);
-  // }
+
+  recursiveLights($m, $i - 1, $j, $lightPower - 1); // N
+  recursiveLights($m, $i + 1, $j, $lightPower - 1); // S
+  recursiveLights($m, $i, $j - 1, $lightPower - 1); // W
+  recursiveLights($m, $i, $j + 1, $lightPower - 1); // E
+
+  recursiveLights($m, $i - 1, $j - 1, $lightPower - 1); // NW
+  recursiveLights($m, $i - 1, $j + 1, $lightPower - 1); // NE
+  recursiveLights($m, $i + 1, $j - 1, $lightPower - 1); // SW
+  recursiveLights($m, $i + 1, $j + 1, $lightPower - 1); // SE
 
   /*
   if i is in cells bounds and if the lightpower in the cell is < than the current light minus one
