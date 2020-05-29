@@ -5,8 +5,10 @@ function multecho(float $a, float $b){
 }
 
 function multreturn(float $a, float $b){
-    return $a. " + " .$b. " = " .($a * $b). "<br/>";
+    return $a * $b. "<br/>";
 }
 
 multecho(2, 3);
-multreturn(4, 5);
+
+$res = multreturn(4, 5);
+echo $res += 2;
