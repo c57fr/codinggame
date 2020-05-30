@@ -10,9 +10,80 @@ ob_implicit_flush(); // Pour actu xd.ebug ds chrome
 
 // Reconstitution test 1
 
-$L  = 10;
-$N  = 2;
-$rs = [[1, 4], [5, 6]];
+$L   = 10;
+$N   = 2;
+$pts = [[1, 4], [5, 6]];
+// vdli($pts);
+
+// Reconstitution test 6
+
+// $L  = 2e9;
+// $N  = 2;
+// $rs = [
+//   [
+//     0 => 6,
+//     1 => 10,
+//   ],
+//   [
+//     0 => 2,
+//     1 => 4,
+//   ],
+//   [
+//     0 => 7,
+//     1 => 8,
+//   ],
+//   [
+//     0 => 3,
+//     1 => 7,
+//   ],
+//   [
+//     0 => 8,
+//     1 => 12,
+//   ],
+// ];
+// foreach ($se as $v) {
+//   echo $v[0].' '.$v[1].'<br>';
+// }
+$m[0] = [0, 10];
+// vdli($m);
+// 1,4
+// $m[0] = $se[0][0];
+// $m[$se[0][1]] = 10;
+
+// $m = array_chunk($m, 1);
+
+// foreach ($pts as $k => $v) {
+//   echo 'Cas de ['.$pts[$k][0].', '.$pts[$k][1].'] :<br>';
+
+// 1 4
+// 5 6
+foreach ($pts as $k => $v) {
+  echo $v[0].', '.$v[1].'<br>';
+}
+foreach ($pts as $k => $v) {
+  if (!$k) {
+    $m[]  = [$v[1], $L];
+    $m[0] = [0, $v[0]];
+  } else {
+    $m[]   = [$v[1], 10];
+    $m[$k] = [$m[$k][0], $v[0]];
+  }
+}
+
+vdli($m);
+
+  // echo $k. ' '.$v[0].'<br>';
+  // $m[$k+1][0] = $v[0];
+  // $m[$k+1][$v[1]] = $m[0][0];
+// }
+
+// echo 'Cas de ['.$se[1][0].', '.$se[1][1].'] :';
+
+// $m[4] = 5;
+// $m[6] = 10;
+
+// vdli($m);
+exit;
 
 // Reconstitution test 2
 // $L  = 12;
@@ -95,22 +166,21 @@ if (count($m)) {
   for ($i = count($m) - 1; $i >= 0; --$i) {
     if ($m[$i] - 1 === @$m[$i - 1]) {
       // echo $m[$i];
-      $nfence++;
+      ++$nfence;
       unset($m[$i]);
-    }
-    else {
+    } else {
       // vdli($m[$i]);
-      $sols[]=[$m[$i], $nfence];
-      $nfence=1;
+      $sols[] = [$m[$i], $nfence];
+      $nfence = 1;
     }
   }
 
-sort($sols);
+  sort($sols);
   // vdli($m);
   // vdli($sols);
 
   foreach ($sols as $k => $v) {
-    echo $v[0].' '.($v[0]+$v[1]).'<br>';
+    echo $v[0].' '.($v[0] + $v[1]).'<br>';
   }
 } else {
   echo 'All painted'."\n";
