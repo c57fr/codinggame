@@ -1,11 +1,15 @@
 <?php
-$x = 10;
-
 function portee(){
-    global $x;
-    echo "La valeur globale de $x est : " . "<br>";
-    $x = $x + 5;
+    $y = 5;
+    echo 'Valeur $y (depuis la fonction) : ' .$y. '<br>';
+}
+
+function portee2(){
+    $z = 5;
+    return $z;
 }
 
 portee();
-echo '$x contient maintenant : ' .$x. "<br>";
+echo 'Valeur de $y (depuis l\'espace global) : ' .$y. '<br>';
+$a = portee2();
+echo '$z contient la valeur : ' .$a;
