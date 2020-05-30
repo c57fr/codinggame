@@ -16,16 +16,42 @@ ob_implicit_flush(); // Pour actu xd.ebug ds chrome
 $N     = 5;
 $L     = 3;
 $LINES = [
-  'C X X X C',
+  'X X X X X',
+  'X C X X X',
   'X X X X X',
   'X X X X X',
   'X X X X X',
-  'C X X X C',
 ];
 
-
-
+// fscanf(STDIN, "%d", $N );
+// fscanf(STDIN, "%d", $L );
+$map = array_fill(0, $N, array_fill(0, $N, 0));
+// vdli($map);
 // exit;
+
+for ($z = $y = 0; $y < $N; ++$y) {
+  $line = explode(' ', $LINES[$y]);
+  foreach ($line as $x => $s) {
+    if ('C' === $s) {
+      for ($i = 0; $i < $L; ++$i) {
+        for ($yy = $y - $i; $yy <= $y + $i; ++$yy) {
+          for ($xx = $x - $i; $xx <= $x + $i; ++$xx) {
+            $map[$xx][$yy] = 1;
+          }
+        }
+      }
+    }
+  }
+}
+// vdli($map);
+$z=0;
+// affM($map);
+foreach ($map as $x) {
+  $z += array_count_values($x)[0] ?? 0;
+}
+echo "${z}\n";
+
+exit;
 // Sol 01
 // Recherche des candles
 for ($i = 0; $i < $N; ++$i) {
