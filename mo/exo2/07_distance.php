@@ -7,9 +7,9 @@ if (!function_exists('vdli')) {
 
 function distance($x1, $x2, $y1, $y2)
 {
-  //$x = A($x1, $y1); $y = B($x2, $y2);
+  //$x = A($x1 $y1); $y = B($x2, $y2);
   
-  $res = ($x2-($x1))2 + ($y2 - $y1)2;
+  $res = ($x2-($x1)) * ($x2+($x1)) + ($y2 - $y1)*($y2 + $y1);
   //$res = sqrt($x2 - $x1)* sqrt($x2 + $x1) + sqrt($y2 - $y1) * sqrt($y2 + $y1);
 
   return sqrt( $res);
