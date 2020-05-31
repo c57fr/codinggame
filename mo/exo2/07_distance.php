@@ -6,23 +6,16 @@ if (!function_exists('vdli')) {
 }
 
 function distance($x1, $x2, $y1, $y2){
-    $myArray = [$x1, $x2, $y1, $y2];
-    $x = [$x1, $y1];
-    $y = [$x2, $y2];
-    for($x = 0; $x < [$x1, $y1]; $x++){
-        vdli($x);
-    }
-    return $x;
+   $res = sqrt($x2 - $x1)($x2 + $x1) + sqrt($y2 - $y1)($y2 + $y1);
+    return count($res);
 }
 
-$x = [23,38];
-for($x = 0; $x < [23,38]; $x++){
-    echo($x);
-}
 
-$x = 34;
-$a = [3, 45];
-$b = [5, 34];
+/*function distance($x1, $x2, $y1, $y2){
+    $res = sqrt($x2 - $x1)2 + sqrt($y2 - $y1)2;
+     return ($res);
+ }*/
+
 //vdli(distance($a - $b));
 
 
