@@ -99,9 +99,15 @@ for ($i = 1; $i < $N; ++$i) { // Chaque SegmentS tour à tour
       } else { // Chevauche
         echo 'Chevauche segment déjà placé '.$k.'<br>';
         $sas[$k] = [min($s[0], $ss[$i][0]), max($s[1], $ss[$i][1])];
-        // 2do Proc vérif si autres sas couverts
-
-        // $tt = 1;
+        foreach ($sas as $m => $v) {
+          if ($m !== $k) {
+            if ($v[0] >= $sas[$k][0] && $v[1] <= $sas[$k][1]) {
+              echo 'oooo'.$m;
+            }
+            unset($sas[$m]);
+          }
+        }
+        $tt = 1;
       }
     }
   }
