@@ -8,43 +8,71 @@ ob_implicit_flush(); // Pour actu xd.ebug ds chrome
 
 // https://www.codingame.com/training/easy/graffiti-on-the-fence
 
+function affM($m)
+{
+  $N  = count($m);
+  $ch = '<table>';
+  for ($i = 0; $i < $N; ++$i) {
+    $ch .= '<tr>';
+    for ($j = 0; $j < $N; ++$j) {
+      $ch .= '<td>'.$m[$i][$j].'</td>';
+    }
+    $ch .= '</tr>';
+  }
+  echo $ch.'</table><br>';
+}
+
+$L  = 10;
+$N  = 2;
+$ss = [[2, 4], [6, 8], [1, 10]];
+
 // Reconstitution test 1
 
-$L   = 10;
-$N   = 2;
-$pts = [[1, 4], [5, 6]];
+// $L   = 10;
+// $N   = 2;
+// $ps = [[1, 4], [5, 6]];
+
+// $m[0] = [0, 10];
+
+//1 4
+
+// exit;
+
 // vdli($pts);
 
 // Reconstitution test 6
 
-// $L  = 2e9;
-// $N  = 2;
-// $rs = [
-//   [
-//     0 => 6,
-//     1 => 10,
-//   ],
-//   [
-//     0 => 2,
-//     1 => 4,
-//   ],
-//   [
-//     0 => 7,
-//     1 => 8,
-//   ],
-//   [
-//     0 => 3,
-//     1 => 7,
-//   ],
-//   [
-//     0 => 8,
-//     1 => 12,
-//   ],
-// ];
+/*
+$L  = 2e9;
+$N  = 2;
+$ss = [
+  [
+    0 => 6,
+    1 => 10,
+  ],
+  [
+    0 => 2,
+    1 => 4,
+  ],
+  [
+    0 => 7,
+    1 => 8,
+  ],
+  [
+    0 => 3,
+    1 => 7,
+  ],
+  [
+    0 => 8,
+    1 => 12,
+  ],
+];
+*/
+
 // foreach ($se as $v) {
 //   echo $v[0].' '.$v[1].'<br>';
 // }
-$m[0] = [0, 10];
+$m[0] = [0, $L];
 // vdli($m);
 // 1,4
 // $m[0] = $se[0][0];
@@ -55,22 +83,43 @@ $m[0] = [0, 10];
 // foreach ($pts as $k => $v) {
 //   echo 'Cas de ['.$pts[$k][0].', '.$pts[$k][1].'] :<br>';
 
+
+
+
 // 1 4
 // 5 6
-foreach ($pts as $k => $v) {
-  echo $v[0].', '.$v[1].'<br>';
-}
-foreach ($pts as $k => $v) {
-  if (!$k) {
-    $m[]  = [$v[1], $L];
-    $m[0] = [0, $v[0]];
-  } else {
-    $m[]   = [$v[1], 10];
-    $m[$k] = [$m[$k][0], $v[0]];
+foreach ($ss as $v) {
+  echo $v[0].', '.$v[1].' :<br>';
+
+  foreach ($m as $b) {
+    echo $b[0].' '.$b[1];
+    if ($b[0] < $v[0] && $b[1] > $v[1]) {
+      echo 'insert';
+      $m[]  = [$v[1], $L];
+      $m[0] = [0, $v[0]];
+      vdli($m);
+    }
   }
 }
 
-vdli($m);
+function insertD($se, $m)
+{
+  return $m;
+}
+
+// foreach ($ss as $k => $v) {
+//   if (!$k) {
+//     $m[]  = [$v[1], $L];
+//     $m[0] = [0, $v[0]];
+//   }
+//   // $m[]   = [$v[1], 10];
+//     // $m[$k] = [$m[$k][0], $v[0]];
+// }
+echo '<hr>';
+
+foreach ($m as $k => $v) {
+  echo $v[0].', '.$v[1].'<br>';
+}
 
   // echo $k. ' '.$v[0].'<br>';
   // $m[$k+1][0] = $v[0];

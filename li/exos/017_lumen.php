@@ -71,20 +71,6 @@ for ($i = 0; $i < $N; ++$i) {
 
 // vdli($cs);
 
-function affM($m)
-{
-  $N  = count($m);
-  $ch = '<table>';
-  for ($i = 0; $i < $N; ++$i) {
-    $ch .= '<tr>';
-    for ($j = 0; $j < $N; ++$j) {
-      $ch .= '<td>'.$m[$i][$j].'</td>';
-    }
-    $ch .= '</tr>';
-  }
-  echo $ch.'</table><br>';
-}
-
 function get0($m)
 {
   $c = 0;

@@ -1,5 +1,19 @@
 <?php
 
+function affM($m)
+{
+  $N  = count($m);
+  $ch = '<table>';
+  for ($i = 0; $i < $N; ++$i) {
+    $ch .= '<tr>';
+    for ($j = 0; $j < $N; ++$j) {
+      $ch .= '<td>'.$m[$i][$j].'</td>';
+    }
+    $ch .= '</tr>';
+  }
+  echo $ch.'</table><br>';
+}
+
 function vname()
 {
   // read backtrace
