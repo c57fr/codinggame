@@ -11,8 +11,8 @@ ob_implicit_flush(); // Pour actu x.debug ds chrome
 $L = 10;
 
 // $ss = [[2, 4], [6, 8], [3, 10]];
-// $ss = [[1, 3], [5, 7], [9, 10]];
-$ss = [[5, 7], [9, 10], [1, 3]];
+$ss = [[5, 7], [9, 10], [1, 3]]; // 3 ss juxtaposés
+// $ss = [[2, 5], [4, 8]];
 
 $N = count($ss);
 // affMM($ss);
@@ -80,17 +80,38 @@ $ms[0] = [0, $L];
 
 // vdli(affMM($ms));
 
-$ps = [$ss[0]]; // pEINTs
-// array_shift($ss); // dONEs
+// array_shift($ss); // SegmentS
 
-for ($i=1; $i<$N; $i++){
-  echo $i;
+$sas = [$ss[0]]; // Segments AgglutinéS
+affMM($ss);
+
+for ($i = 1; $i < $N; ++$i) { // Chaque SegmentS tour à tour
+  echo '<hr>';
+  $tt=0;
+  foreach ($sas as $k => $s) { // pour chaque Morceau déjà agglutiné
+    while(!$tt){
+ 
+    echo '<br>Cas [ '.$ss[$i][0].', '.$ss[$i][1].' ] // [ '.$s[0].', '.$s[1].' ] :<br>';
+
+    if ($ss[$i][0] > $s[1] || $ss[$i][1] < $s[0]) { // Juxtaposé
+      echo 'À côté du segment déjà placé '.$k.'<br>';
+      $sas[] = $ss[$i];
+      $tt=1;
+    } else { // Chevauche
+      $tt=1;
+      echo 'Chevauche segment déjà placé '.$k.'<br>';
+      $sas[$k] = [min($s[0], $ss[$i][0]), max(
+        $s[1],
+        $ss[$i][1]
+      )];
+    }}
+  }
+  // echo implode(' ', $sas[$k]).'<br><br>';
+  echo affMM($sas);
 }
 
-
-
-sort($ps);
-affMM($ps);
+// sort($ps);
+affMM($sas);
 exit;
 
 foreach ($ds as $s) {
