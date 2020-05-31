@@ -45,7 +45,7 @@ for ($z = $y = 0; $y < $N; ++$y) {
 }
 // vdli($map);
 $z=0;
-// affM($map);
+// affMij($map);
 foreach ($map as $x) {
   $z += array_count_values($x)[0] ?? 0;
 }

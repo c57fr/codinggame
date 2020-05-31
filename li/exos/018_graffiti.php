@@ -4,28 +4,18 @@ Exo 018: Graffiti.
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
-ob_implicit_flush(); // Pour actu xd.ebug ds chrome
+ob_implicit_flush(); // Pour actu x.debug ds chrome
 
 // https://www.codingame.com/training/easy/graffiti-on-the-fence
 
-function affM($m)
-{
-  $N  = count($m);
-  $ch = '<table>';
-  for ($i = 0; $i < $N; ++$i) {
-    $ch .= '<tr>';
-    for ($j = 0; $j < $N; ++$j) {
-      $ch .= '<td>'.$m[$i][$j].'</td>';
-    }
-    $ch .= '</tr>';
-  }
-  echo $ch.'</table><br>';
-}
+$L = 10;
 
-$L  = 10;
-$N  = 2;
-$ss = [[2, 4], [6, 8], [1, 10]];
+// $ss = [[2, 4], [6, 8], [3, 10]];
+// $ss = [[1, 3], [5, 7], [9, 10]];
+$ss = [[5, 7], [9, 10], [1, 3]];
 
+$N = count($ss);
+// affMM($ss);
 // Reconstitution test 1
 
 // $L   = 10;
@@ -72,7 +62,7 @@ $ss = [
 // foreach ($se as $v) {
 //   echo $v[0].' '.$v[1].'<br>';
 // }
-$m[0] = [0, $L];
+$ms[0] = [0, $L];
 // vdli($m);
 // 1,4
 // $m[0] = $se[0][0];
@@ -83,21 +73,48 @@ $m[0] = [0, $L];
 // foreach ($pts as $k => $v) {
 //   echo 'Cas de ['.$pts[$k][0].', '.$pts[$k][1].'] :<br>';
 
-
-
-
 // 1 4
 // 5 6
-foreach ($ss as $v) {
-  echo $v[0].', '.$v[1].' :<br>';
+// unset($ss[2]);
+// affMM($ss);
 
-  foreach ($m as $b) {
-    echo $b[0].' '.$b[1];
-    if ($b[0] < $v[0] && $b[1] > $v[1]) {
-      echo 'insert';
-      $m[]  = [$v[1], $L];
-      $m[0] = [0, $v[0]];
-      vdli($m);
+// vdli(affMM($ms));
+
+$ps = [$ss[0]]; // pEINTs
+// array_shift($ss); // dONEs
+
+for ($i=1; $i<$N; $i++){
+  echo $i;
+}
+
+
+
+sort($ps);
+affMM($ps);
+exit;
+
+foreach ($ds as $s) {
+  echo 'Segment '.$s[0].', '.$s[1].' :<br>';
+  // echo affM2x2($ss).' :<br>';
+
+  foreach ($ms as $i => $m) {
+    if ($m[0] <= $s[0] && $m[1] >= $s[1]) {
+      echo 'Insert dans : '.$m[0].' '.$m[1].' possible.';
+      if ($s[1] !== $m[1]) {
+        $ms[] = [$s[1], $m[1]];
+      }
+      $ms[$i] = [$m[0], $s[0]];
+      affMM($ms);
+    // vdli($m);
+    } elseif ($m[0] >= $s[0] && $m[1] <= $s[1]) {
+      $ecr = [];
+      echo 'Ecrasement du morceau '.$i.' : '.$m[0].', '.$m[1].'<br>';
+      $ecr[] = $i;
+      // unset($ms[$i]);
+
+      echo implode(', ', $ecr);
+      // vdli($ecr);
+      // affMM($ecr);
     }
   }
 }
@@ -117,9 +134,7 @@ function insertD($se, $m)
 // }
 echo '<hr>';
 
-foreach ($m as $k => $v) {
-  echo $v[0].', '.$v[1].'<br>';
-}
+affMM($ms);
 
   // echo $k. ' '.$v[0].'<br>';
   // $m[$k+1][0] = $v[0];

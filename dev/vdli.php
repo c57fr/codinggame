@@ -1,6 +1,6 @@
 <?php
 
-function affM($m)
+function affMij($m)
 {
   $N  = count($m);
   $ch = '<table>';
@@ -11,6 +11,25 @@ function affM($m)
     }
     $ch .= '</tr>';
   }
+  echo $ch.'</table><br>';
+}
+
+function affMM($mm)
+{
+  $N  = count($mm);
+  $ch = '<table>';
+
+  foreach ($mm as $m) {
+    $ch .= '<tr>';
+    $ch .= '<td style = "text-align:right">[ '.$m[0].'</td><td>, </td><td style = "text-align:right">'.$m[1].' ]</td>';
+  }
+  /*
+  for ($i = 0; $i < $N; ++$i) {
+    for ($j = 0; $j < $N; ++$j) {
+    }
+  }
+  */
+  $ch .= '</tr>';
   echo $ch.'</table><br>';
 }
 
