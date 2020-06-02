@@ -7,15 +7,15 @@ if (!function_exists('vdli')) {
 
 function distance($x1, $x2, $y1, $y2)
 {
-  //$x = A($x1 $y1); $y = B($x2, $y2);
+  //$x = A($x1,$y1); $y = B($x2, $y2);
   
-  $res = ($x2-($x1)) * ($x2+($x1)) + ($y2 - $y1)*($y2 + $y1);
+  return sqrt( ($x2-$x1)**2 + ($y2-$y1)**2 );
   //$res = sqrt($x2 - $x1)* sqrt($x2 + $x1) + sqrt($y2 - $y1) * sqrt($y2 + $y1);
 
-  return sqrt( $res);
+  //return sqrt($res);
 }
 
-vdli(distance(0, 1, 0, 1));
+vdli(distance(-5, 2, 4, -3));
 
 // https://www.codingame.com/playgrounds/41820/exercice-php---base/exercice-7
 
