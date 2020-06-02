@@ -7,7 +7,7 @@ if (!function_exists('vdli')) {
 function init_table($n, $m, $min, $max){
     $tableau = [$n * $m];      //range($n * $m <= $min && $n * $m >= $max);
 
-    return range($min, $max);
+    return mt_rand($min, $max);
 }
 
 /*
