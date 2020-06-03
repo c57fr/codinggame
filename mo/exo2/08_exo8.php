@@ -56,4 +56,4 @@ function rand_permute($size, $min, $max)
 
 }*/
 
-
+// https://www.codingame.com/playgrounds/41820/exercice-php---base/exercice-8
