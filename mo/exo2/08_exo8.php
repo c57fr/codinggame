@@ -5,11 +5,35 @@ if (!function_exists('vdli')) {
 }
 
 function init_table($n, $m, $min, $max){
-    $tableau = [$n * $m];      //range($n * $m <= $min && $n * $m >= $max);
+    $tableau = [];      //range($n * $m <= $min && $n * $m >= $max);
+    for($i = 0; $i <= $min; $i++)
+    {
+        return rand($n[$i]);
+    }
 
-    return mt_rand($min, $max);
+    for($i = 0; $i <= $max; $i++)
+    {
+        return rand($m[$i]);
+    }
+    return $tableau[] = $n * $m;
 }
 
+vdli(init_table(4,5,0,20));
+echo "<hr>";
+
+
+// pour le deuxieme tableau
+$tab = ['negative', 'positive', 'nulles'];
+foreach($tab as $ta)
+{
+    echo $ta. "<br>";
+    
+}
+
+
+
+
+//$re = [];
 /*
 $re = [4, 5];
 vdli(init_table(4,5));
@@ -33,4 +57,3 @@ function rand_permute($size, $min, $max)
 }*/
 
 
-vdli(init_table(4,6,2,12));
