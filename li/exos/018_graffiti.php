@@ -40,7 +40,29 @@ $ss = [[1, 4], [5, 6]];
 // Reconstitution test 12
 // $L  = 7;
 // $ss = [[1, 5], [3, 6], [0, 2]];
+$N = count($ss);
+affMM($ss);
+foreach ($ss as $k => $v) {
+  $st[]=$v[0];
+  $ed[]=$v[1];
+}
+vdli($st);
+vdli($ed);
 
+asort($st); 
+vdli($st);
+
+$m = ''; $s=0;
+foreach($st as $k => $v)
+{
+    if ($s < $v) $m .= "$s $v\n" ;
+    if ($s < $ed[$k]) $s = $ed[$k];
+}
+if ($s != $L) $m .= "$s $L\n";
+echo $m == '' ? "All painted\n" : $m;
+
+
+exit;
 sort($ss);
 // $allss = array_chunk($ss, 6);
 // $ss    = $allss[0];
