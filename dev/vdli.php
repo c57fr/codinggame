@@ -19,9 +19,9 @@ function affMM($mm)
   $N  = count($mm);
   $ch = '<table>';
 
-  foreach ($mm as $m) {
+  foreach ($mm as $k=>$m) {
     $ch .= '<tr>';
-    $ch .= '<td style = "text-align:right">[ '.$m[0].'</td><td>, </td><td style = "text-align:right">'.$m[1].' ]</td>';
+    $ch .= '<td style = "text-align:right">'.$k.'</td><td style = "text-align:right">[ '.$m[0].'</td><td>, </td><td style = "text-align:right">'.$m[1].' ]</td>';
   }
   /*
   for ($i = 0; $i < $N; ++$i) {
