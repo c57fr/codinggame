@@ -33,7 +33,8 @@ include '../dev/vdli.php';
 // include 'exos/015_rectangle_partition.php';
 // include 'exos/016_enigmaMachine.php';
 // include 'exos/017_lumen.php';
-include 'exos/018_graffiti.php';
+// include 'exos/018_graffiti.php';
+include 'exos/019_pikaptcha.php';
 
 // include 'exos/divers.php';
 // include 'exos/prems.php';
