@@ -6,30 +6,30 @@ if (!function_exists('vdli')) {
 
 function init_table($n, $m, $min, $max){
 
-    /*if($n >= $min)
+    if($n >= $min)
     {
-        echo "Le min est ${min}". " : ". rand($min, $n). "<br>";
-        /*for($n = 0; $n > $min; $n++)  
+        //echo "Le min est ${min}". " : ". rand($min, $n). "<br>";
+        for($n = 0; $n > $min; $n++)  
         {
             echo rand($min,$n);
         }
     }
     if($m <= $max)
     {
-        echo "Le max est ${max}"." : ".  rand($max, $m). "<br>";
-        /*for($m = 0; $m < $max; $m++)
+        //echo "Le max est ${max}"." : ".  rand($max, $m). "<br>";
+        for($m = 0; $m < $max; $m++)
         {
             echo rand($max,$m);
         }
     }
-    echo ($n * $m)."<br>";*/
+    echo ($n * $m)."<br>";
 
 
 
-    if($n >= $min && $m <= $max)
+    /*if($n >= $min && $m <= $max)
     {
         echo  "${n}".rand($min, $n) *  "${m}".rand($max, $m);
-    }
+    }*/
 
 
 
