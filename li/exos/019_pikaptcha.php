@@ -8,6 +8,8 @@ ob_implicit_flush(); // Pour actu x.debug ds chrome
 
 // https://www.codingame.com/ide/puzzle/detective-pikaptcha-ep2
 
+// Étude : https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_profondeur
+
 // Reconstitution test 1
 
 //##################################################################
