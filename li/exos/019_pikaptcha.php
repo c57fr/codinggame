@@ -8,7 +8,6 @@ ob_implicit_flush(); // Pour actu x.debug ds chrome
 
 // https://www.codingame.com/ide/puzzle/detective-pikaptcha-ep2
 
-
 // Reconstitution test 1
 
 //##################################################################
