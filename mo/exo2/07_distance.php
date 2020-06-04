@@ -5,7 +5,7 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
-function distance($x1, $x2, $y1, $y2)
+function distance($x1, $y1, $x2, $y2)
 {
   //$x = A($x1,$y1); $y = B($x2, $y2);
   
