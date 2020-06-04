@@ -40,6 +40,11 @@ $ss = [[1, 4], [5, 6]];
 // Reconstitution test 12
 // $L  = 7;
 // $ss = [[1, 5], [3, 6], [0, 2]];
+
+// fscanf(STDIN, "%d", $L);
+// fscanf(STDIN, "%d", $N);
+// for ($s = $i = 0; $i < $N; $i++) fscanf(STDIN, "%d %d", $st[], $ed[]);
+
 $N = count($ss);
 affMM($ss);
 foreach ($ss as $k => $v) {
