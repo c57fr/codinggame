@@ -1,37 +1,20 @@
-Exo 019: DETECTIVE PIKAPTCHA EP2.
-<hr>
 <?php
-if (!function_exists('vdli')) {
-  include '../../dev/vdli.php';
+
+fscanf(STDIN, '%d %d', $width, $height);
+error_log(var_export($width.' '.$height, true));
+for ($i = 0; $i < $height; ++$i) {
+  fscanf(STDIN, '%s', $line[]);
 }
-ob_implicit_flush(); // Pour actu x.debug ds chrome
+error_log(var_export($line, true));
+$l = implode('', $line);
+error_log(var_export($l, true));
+fscanf(STDIN, '%s', $side);
+error_log(var_export($side, true));
 
-// https://www.codingame.com/ide/puzzle/detective-pikaptcha-ep2
-
-// Étude : https://fr.wikipedia.org/wiki/Algorithme_de_parcours_en_profondeur
-
-// Reconstitution test 1
-
-// 5 3
-// >000#
-// #0#00
-// 00#0#
-// L
-
-$width=5;
-$height=3;
-$line='>000##0#0000#0#';
-$side='L';
-
-echo 'ok';
-
-//##################################################################
-/*
-
-Solution dans codding :
-
-<?php
-
-
-
-*/
+for ($i = 0; $i < $height; ++$i) {
+  // Write an action using echo(). DON'T FORGET THE TRAILING \n
+  // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
+}
+echo "0#0\n";
+echo "#0#\n";
+echo "0#0\n";
