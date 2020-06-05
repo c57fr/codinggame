@@ -25,35 +25,17 @@ $l      = '>000##0#0000#0#';
 $side = 'L';
 
 $s = ['^', '>', 'v', '<'];
-$d = [-$width,1,$width,-1];
+$d = [-$width, 1, $width, -1];
 vdli($s);
 vdli($d);
 
 preg_match('/[^0+|#+]/', $l, $pos, PREG_OFFSET_CAPTURE);
-exit;
 echo 'Pos départ ( '.$pos[0][0].' ) est '.$pos[0][1];
+// exit;
 $p = $pos[0][1];
 // Calcul du sens
-$s = $sens[$pos[0][0]];
+$s = $d[array_search($pos[0][0], $s, true)];
 
-if ('#' !== $l[$p]) {
-  $p += $s;
-}
-if ('#' !== $l[$p]) {
-  $p += $s;
-}
-if ('#' !== $l[$p]) {
-  $p += $s;
-}
-if ('#' !== $l[$p]) {
-  $p += $s;
-}
-if ('#' !== $l[$p]) {
-  $p += $s;
-}
-if ('#' !== $l[$p]) {
-  $p += $s;
-}
 if ('#' !== $l[$p]) {
   $p += $s;
 }
