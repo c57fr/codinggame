@@ -18,19 +18,35 @@ ob_implicit_flush(); // Pour actu x.debug ds chrome
 // 00#0#
 // L
 
-$width=5;
-$height=3;
-$l='>000##0#0000#0#';
-$side='L';
-$sens[1]='>';
+$width  = 5;
+$height = 3;
+$l      = '>000##0#0000#0#';
+// $l      = '000^##0#0000#0#';
+$side   = 'L';
 
-preg_match('/[^0+|#+]/', $l, $p, PREG_OFFSET_CAPTURE);
+$sens['^'] = -$width;
+$sens['>'] = 1;
+$sens['<'] = -1;
+$sens['v'] = $width;
+vdli($sens);
 
-echo 'Pos départ ( '.$p[0][0]. ' ) est '.$p[0][1];
+preg_match('/[^0+|#+]/', $l, $pos, PREG_OFFSET_CAPTURE);
 
+echo 'Pos départ ( '.$pos[0][0].' ) est '.$pos[0][1];
+$p = $pos[0][1];
+// Calcul du sens
+$s= $sens[$pos[0][0]];
 
+if ($l[$p]<>'#') $p += $s;
+if ($l[$p]<>'#') $p += $s;
+if ($l[$p]<>'#') $p += $s;
+if ($l[$p]<>'#') $p += $s;
+if ($l[$p]<>'#') $p += $s;
+if ($l[$p]<>'#') $p += $s;
+if ($l[$p]<>'#') $p += $s;
 
-// vdli($pos);
+vdli($s);
+vdli($p);
 //##################################################################
 /*
 
