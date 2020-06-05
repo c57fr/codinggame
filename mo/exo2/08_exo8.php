@@ -6,23 +6,17 @@ if (!function_exists('vdli')) {
 
 function init_table($n, $m, $min, $max){
 
-    if($n >= $min)
+    $tab = [];
+
+    for($y = 0; $y < $m; ++$y)
     {
-        //echo "Le min est ${min}". " : ". rand($min, $n). "<br>";
-        for($n = 0; $n > $min; $n++)  
+        for($x = 0; $x < $n; ++$x)
         {
-            echo rand($min,$n);
+            $tab[$x][$y] = rand($min,$n); // la fonction range permet de ranger et rand c'est pour les valeurs aleatoires
+            $tab[$x][$y] = rand($max,$m);
+            return ($n * $m);       
         }
     }
-    if($m <= $max)
-    {
-        //echo "Le max est ${max}"." : ".  rand($max, $m). "<br>";
-        for($m = 0; $m < $max; $m++)
-        {
-            echo rand($max,$m);
-        }
-    }
-    echo ($n * $m)."<br>";
 
 
 
