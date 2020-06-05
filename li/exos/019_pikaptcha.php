@@ -12,6 +12,19 @@ ob_implicit_flush(); // Pour actu x.debug ds chrome
 
 // Reconstitution test 1
 
+// 5 3
+// >000#
+// #0#00
+// 00#0#
+// L
+
+$width=5;
+$height=3;
+$line='>000##0#0000#0#';
+$side='L';
+
+echo 'ok';
+
 //##################################################################
 /*
 
