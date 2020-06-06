@@ -9,7 +9,7 @@ echo 'Voyons un tablo de 3 lignes de 5 cases...<hr>';
 
 for ($y = 0; $y < 3; ++$y) {
   for ($x = 0; $x < 5; ++$x) {
-    echo $y.'<br>';
+    echo $y.$x.'<br>';
   }
 }
 
