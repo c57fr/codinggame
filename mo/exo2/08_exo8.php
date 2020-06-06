@@ -1,24 +1,5 @@
 <?php
 
-// Salut Momo, enfin te voilà dans le code
-// Lol: Dans MAtrix, ils disent dans la matrice... ;-)...
-
-// lol c'était chaud pour moi
-
-// Yep :-)
-
-// Bah disons juste que tu as mis le temps ... ;-)...
-
-// oui effectivement
-
-// Mais peu importe car seul compte le résultat que l'on obtient
-
-//oui tu as raison
-
-// Et tout cela est gitté !!! Look ton GK ! ;-)
-
-
-
 ob_implicit_flush(); // Pour actu xdebug ds chrome
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
