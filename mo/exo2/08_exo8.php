@@ -13,6 +13,8 @@ echo 'Voyons un tablo de 3 lignes de 5 cases...<hr>';
 // oui, là, ça affiche 012
 // comment je dois faire pour afficher dans mon nav en local ?
 // Pull the commit ! (reset local here dans GK)
+// j'ai pas trouve le pull?
+// Le commit est: der change (et tu dois le voir dans GK automatiquement)
 
 
 for ($y=0; $y < 3; $y++) { 
