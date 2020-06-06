@@ -13,7 +13,7 @@ function init_table($n, $m, $min, $max){
     $tab = [];
     if(($n >= $min) && ($m <= $max))
     {
-        echo rand($min, $n)."<br>";
+        echo rand($min, $n) * rand($m, $max)."<br>";
 
     }
     if($m <= $max)
