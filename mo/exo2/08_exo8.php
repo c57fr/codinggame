@@ -13,9 +13,9 @@ if (!function_exists('vdli')) {
 
 // et toi non plus, tu verras pas le mien
 
-//// mais grâce au git, tu as en 1 clic la possibilité de mettre à nivo to dépot local, et donc de voir sur ton navigateur, ce que je vois sur le mien, et éciproquement
+//// mais grâce au git, tu as en 1 clic la possibilité de mettre à nivo to dépot local, et donc de voir sur ton navigateur, ce que je vois sur le mien, et réciproquement
 
-
+// ok
 echo 'Voyons un tablo';
 
 exit;
