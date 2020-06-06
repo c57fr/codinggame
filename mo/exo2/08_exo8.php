@@ -5,7 +5,36 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
+<<<<<<< master
 echo 'Voyons un tablo de 3 lignes de 5 cases...<hr>';
+=======
+function init_table($n, $m, $min, $max){
+
+    $tab = [];
+    if(($n >= $min) && ($m <= $max))
+    {
+        echo rand($min, $n)."<br>";
+
+    }
+    if($m <= $max)
+    {
+        echo rand($m, $max)."<br>";
+    }
+
+    //echo $tab= $n * $m;
+    /*for($y = 0; $y < $m; ++$y)
+    {
+        for($x = 0; $x < $n; ++$x)
+        {
+            echo $tab[$x][$y] = rand($min,$n); // la fonction range permet de ranger et rand c'est pour les valeurs aleatoires
+            ///$tab[$x][$y] = rand($max,$m);
+            //$range = range();
+            //$me = r 
+                 
+        }
+    }*/
+    //echo ($n * $m);  
+>>>>>>> verif des donnees comprises entre $min et $max
 
 for ($y = 0; $y < 3; ++$y) {
   for ($x = 0; $x < 5; ++$x) {
