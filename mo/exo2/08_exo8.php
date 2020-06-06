@@ -8,10 +8,13 @@ if (!function_exists('vdli')) {
 echo 'Voyons un tablo de 3 lignes de 5 cases...<hr>';
 
 for ($y = 0; $y < 3; ++$y) {
+  echo '<br>';
   for ($x = 0; $x < 5; ++$x) {
-    echo $y.$x.'<br>';
+    echo $y.$x.' ';
   }
 }
+
+// Là, tu vois un tableau de 3 lignes sur 5 colonnes
 
 exit;
 
