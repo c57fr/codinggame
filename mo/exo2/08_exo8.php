@@ -10,6 +10,10 @@ echo 'Voyons un tablo de 3 lignes de 5 cases...<hr>';
 
 // oki, continue le code ci-dessous alors...
 //c'est ca ?
+// oui, là, ça affiche 012
+// comment je dois faire pour afficher dans mon nav en local ?
+// Pull the commit ! (reset local here dans GK)
+
 
 for ($y=0; $y < 3; $y++) { 
     echo $y;
