@@ -1,9 +1,25 @@
 <?php
 
+// bien maintrenant revenons en à ton problème de tablo
+
+
 ob_implicit_flush(); // Pour actu xdebug ds chrome
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
+// pourras tu voir mon navigateur?
+
+// non
+
+// et toi non plus, tu verras pas le mien
+
+//// mais grâce au git, tu as en 1 clic la possibilité de mettre à nivo to dépot local, et donc de voir sur ton navigateur, ce que je vois sur le mien, et éciproquement
+
+
+echo 'Voyons un tablo';
+
+exit;
+
 
 function init_table($n, $m, $min, $max){
 
