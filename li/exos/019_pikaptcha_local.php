@@ -49,25 +49,44 @@ vdli($ss);
 vdli($ds);
 
 preg_match('/[^0+|#+]/', $l, $pos, PREG_OFFSET_CAPTURE);
-echo 'Pos départ ( '.$pos[0][0].' ) est '.$pos[0][1].'<br>';
 // exit;
 $p = $pos[0][1];
 // Calcul du sens
-$s = $ds[array_search($pos[0][0], $ss, true)];
+$s = array_search($pos[0][0], $ss, true);
 
+// case à gauche
+for ($i = 0; $i < 4; ++$i) {
+  echo $i.' '.$ds[($i + 5) % 4].'<br>';
+}
+
+echo '<hr>';
+echo 'Pos dé part ( '.$pos[0][0].' ) est '.$pos[0][1].'<br>';
 $i = 0;
-while ($i <= 10) {
-  echo $p.' ('.$ss[array_search($s, $ds, true)].') ';
+while ($i <= 30) {
+  echo $p.' ('.$ss[$s].$s.' - '.$l[$p + $ds[($s - 1 + 4) % 4]].')<br>';
 
-  if ('#' !== $l[$p + $s]) {
-    $p += $s;
+  if ('#' === $l[$p + $ds[($s - 1 + 4) % 4]]) {
+    if ('#' !== $l[$p + $ds[$s]]) {
+      echo 'avance en ';
+      $p += $ds[$s];
+    } else {
+      echo 'tourne à droite dans ';
+      $s = ($s + 5) % 4;
+    }
+  }else {
+    echo 'tourne à gauche et avance en ';
+    $s = ($s +3) % 4;
+    $p+=$ds[$s];
   }
+  // if ('#' !== $l[$p + $s]) {
+  //   $p += $s;
+  // }
 
   ++$i;
 }
 
-vdli($s);
-vdli($p);
+// vdli($s);
+// vdli($p);
 
 //##################################################################
 /*
