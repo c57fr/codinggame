@@ -5,7 +5,48 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
-echo 'Voyons un tablo de 3 lignes de 5 cases...<hr>';
+//$tab = ["12", "-34", "0"];
+$tab = [-500, 34, 0];
+foreach ($tab as $ta) {
+  /*if($ta < 0)
+  {
+    echo $ta.' est un nombre negative<br>';
+  }
+  if($ta > 1)
+  {
+    echo $ta.' est un nombre positive<br>';
+  }
+  if($ta == 0)
+  {
+    echo $ta.' est nul<br>';
+  }*/
+echo $ta.'<br>';
+  
+}
+echo "<hr>";
+
+foreach($tab as $k => $val)
+{
+  if($val > 0)
+  {
+    echo "nb_pos => $val<br>"; 
+  }
+  if($val < 0)
+  {
+    echo "nb_neg => $val<br>"; 
+  }
+  if($val == 0)
+  {
+    echo "nb_zero => $val<br>"; 
+  }
+   //echo "nb_neg => $val<br>";
+}
+
+
+exit;
+echo 'PHP version is '.phpversion();
+
+echo '<hr>Voyons un tablo de 3 lignes de 5 cases...<hr>';
 
 for ($y = 0; $y < 3; ++$y) {
   echo '<br>';
@@ -14,9 +55,10 @@ for ($y = 0; $y < 3; ++$y) {
   }
 }
 
+
 // Là, tu vois un tableau de 3 lignes sur 5 colonnes
 
-exit;
+
 
 function init_table($n, $m, $min, $max)
 {
@@ -30,34 +72,24 @@ function init_table($n, $m, $min, $max)
       return $n * $m;
     }
   }
+  }
 
-  /*if($n >= $min && $m <= $max)
-  {
-      echo  "${n}".rand($min, $n) *  "${m}".rand($max, $m);
-  }*/
 
-    /*$tableau = [];      //range($n * $m <= $min && $n * $m >= $max);
-    for($i = 0; $i <= $min; $i++)
-    {
-        return rand($n[$i]);
-    }
 
-    for($i = 0; $i <= $max; $i++)
-    {
-        return rand($m[$i]);
-    }
-    return $tableau[] = $n * $m;*/
-}
 
+
+
+  
 vdli(init_table(2, 4, 0, 20));
 
 echo '<br>';
 
 // pour le deuxieme tableau
-$tab = ['negative', 'positive', 'nulles'];
+/*$tab = ['negative', 'positive', 'nulles'];
 foreach ($tab as $ta) {
   echo $ta.'<br>';
-}
+}*/
+
 
 //$re = [];
 /*
