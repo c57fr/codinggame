@@ -57,7 +57,7 @@ exit;
 for ($i = 0; $i < $N; ++$i) {
   $m[$i] = explode(' ', str_replace('X', 0, $LINES[$i]));
 }
-affM($m);
+affMij($m);
 
 // $cs=[];
 for ($i = 0; $i < $N; ++$i) {
@@ -120,7 +120,7 @@ foreach ($cs as $k => $v) {
 }
 echo '<br>';
 
-  affM($m);
+  affMij($m);
   echo get0($m);
 
 //##################################################################
