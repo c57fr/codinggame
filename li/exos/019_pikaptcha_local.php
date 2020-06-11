@@ -26,20 +26,21 @@ $LINE   = ['>000#', '#0#00', '00#0#'];
 // #>#
 // 0#0
 // L
-$width  = 3;
-$height = 3;
-$LINE   = ['0#0', '#>#', '0#0'];
+// $width  = 3;
+// $height = 3;
+// $LINE   = ['0#0', '#>#', '0#0'];
 
 $w   = $width + 2;
 $h   = $height + 2;
 $arr = array_fill(0, $width, '#');
+$l   = '';
 array_unshift($LINE, implode('', $arr));
 array_push($LINE, implode('', $arr));
-$l = '';
 foreach ($LINE as $ligne) {
+  echo  '#'.$ligne.'#<br>';
   $l .= '#'.$ligne.'#';
 }
-echo $l;
+echo '<br>'.$l;
 
 $side = 'L';
 
@@ -73,10 +74,10 @@ while ($i <= 30) {
       echo 'tourne à droite dans ';
       $s = ($s + 5) % 4;
     }
-  }else {
+  } else {
     echo 'tourne à gauche et avance en ';
-    $s = ($s +3) % 4;
-    $p+=$ds[$s];
+    $s = ($s + 3) % 4;
+    $p += $ds[$s];
   }
   // if ('#' !== $l[$p + $s]) {
   //   $p += $s;
