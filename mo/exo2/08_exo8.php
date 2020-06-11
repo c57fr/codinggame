@@ -6,42 +6,29 @@ if (!function_exists('vdli')) {
 }
 
 //$tab = ["12", "-34", "0"];
-$tab = [-500, 34, 0];
-foreach ($tab as $ta) {
-  /*if($ta < 0)
+function search_val(){
+  $vars = [-500, 34, 0];
+  foreach($vars as $k => $var)
   {
-    echo $ta.' est un nombre negative<br>';
+    echo $k ." : " .$var."<br>";
   }
-  if($ta > 1)
-  {
-    echo $ta.' est un nombre positive<br>';
-  }
-  if($ta == 0)
-  {
-    echo $ta.' est nul<br>';
-  }*/
-echo $ta.'<br>';
-  
+  $signes = ['nb_neg', 'nb_pos', 'nb_zero'];
+  return array_combine($vars, [
+    $signes[0],
+    $signes[1],
+    $signes[2]
+  ]);
+
 }
+
+vdli(search_val());
+exit;
+$signes = ['nb_neg', 'nb_pos', 'nb_zero'];
+ 
+vdli($var);
 echo "<hr>";
-
-foreach($tab as $k => $val)
-{
-  if($val > 0)
-  {
-    echo "nb_pos => $val<br>"; 
-  }
-  if($val < 0)
-  {
-    echo "nb_neg => $val<br>"; 
-  }
-  if($val == 0)
-  {
-    echo "nb_zero => $val<br>"; 
-  }
-   //echo "nb_neg => $val<br>";
-}
-
+$tabVar = array_combine($tab,$var);
+vdli($tabVar);
 
 exit;
 echo 'PHP version is '.phpversion();
@@ -84,34 +71,6 @@ vdli(init_table(2, 4, 0, 20));
 
 echo '<br>';
 
-// pour le deuxieme tableau
-/*$tab = ['negative', 'positive', 'nulles'];
-foreach ($tab as $ta) {
-  echo $ta.'<br>';
-}*/
 
-
-//$re = [];
-/*
-$re = [4, 5];
-vdli(init_table(4,5));
-echo "<hr/>";
-
-$r = 5;
-$e = 15;
-echo mt_rand($r,$e);
-
-echo "<hr/>";
-
-function rand_permute($size, $min, $max)
-{
-    $retval = array();
-    //initialize an array of integers from $min to $max
-    for($i = $min;$i <= $max;$i++)
-    {
-        $retval[$i] = $i;
-    }
-
-}*/
 
 // https://www.codingame.com/playgrounds/41820/exercice-php---base/exercice-8

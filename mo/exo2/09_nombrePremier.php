@@ -5,6 +5,7 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
+
 function premiers($n){
     for($i = 2; $i < $n; $i++)
     {
