@@ -55,21 +55,27 @@ $p = $pos[0][1];
 // Calcul du sens
 $s = array_search($pos[0][0], $ss, true);
 
-// case à gauche
+// case à gauche // sens
 for ($i = 0; $i < 4; ++$i) {
-  echo $i.' '.$ds[($i + 5) % 4].'<br>';
+  // echo $i.' '.$ds[($i + 3) % 4].'<br>';
 }
-
+// case à droite // sens
+for ($i = 0; $i < 4; ++$i) {
+  // echo $i.' '.$ds[($i + 5) % 4].'<br>';
+}
+// exit;
+$l[$pos[0][1]] = 0;
+echo $l;
 echo '<hr>';
 echo 'Pos dé part ( '.$pos[0][0].' ) est '.$pos[0][1].'<br>';
-$i = 0;
-while ($i <= 30) {
-  echo $p.' ('.$ss[$s].$s.' - '.$l[$p + $ds[($s - 1 + 4) % 4]].')<br>';
-
+$i = $mvt = 0;
+do {
+  ++$mvt;
   if ('#' === $l[$p + $ds[($s - 1 + 4) % 4]]) {
     if ('#' !== $l[$p + $ds[$s]]) {
       echo 'avance en ';
       $p += $ds[$s];
+      $l[$p] = (int) $l[$p] + 1;
     } else {
       echo 'tourne à droite dans ';
       $s = ($s + 5) % 4;
@@ -78,17 +84,22 @@ while ($i <= 30) {
     echo 'tourne à gauche et avance en ';
     $s = ($s + 3) % 4;
     $p += $ds[$s];
+    $l[$p] = (int) $l[$p] + 1;
   }
   // if ('#' !== $l[$p + $s]) {
   //   $p += $s;
   // }
 
   ++$i;
-}
+  if ($i > 35) {
+    break;
+  }
+  echo $p.' ('.$ss[$s].$s.' - '.$l[$p + $ds[($s - 1 + 4) % 4]].')<br>';
+} while (($p !== $pos[0][1] || $mvt < 4));
 
-// vdli($s);
+// vdli($mvt);
 // vdli($p);
-
+echo $l;
 //##################################################################
 /*
 
