@@ -6,7 +6,7 @@ if (!function_exists('vdli')) {
 }
 
 
-/*
+
 function init_tableMomo($n, $m, $min, $max){
   $arr = [];
 
@@ -22,7 +22,7 @@ function init_tableMomo($n, $m, $min, $max){
     }
   }
 }
-vdli(init_tableMomo(5,3,3,7));*/
+vdli(init_tableMomo(5,3,3,7));
 
 
 
@@ -33,8 +33,8 @@ vdli(init_tableMomo(5,3,3,7));*/
 
 
 
-//exit;
-/*
+exit;
+
 echo 'PHP version is '.phpversion();
 
 echo '<hr>Voyons un tablo de 3 lignes de 5 cases...<hr>';
@@ -44,7 +44,7 @@ for ($y = 0; $y < 3; ++$y) {
   for ($x = 0; $x < 5; ++$x) {
     echo $y.$x.' ';
   }
-}*/
+}
 
 
 // Là, tu vois un tableau de 3 lignes sur 5 colonnes
