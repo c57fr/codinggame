@@ -5,8 +5,18 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
+function tableDe3(){
+  $t = 3;
+  for($x =0; $x < 13; $x++)
+  {
+    echo $t * $x."<br>";
+    
+  }
+  //return $v;
+}
 
-
+vdli(tableDe3(3,12));
+exit;
 function init_tableMomo($n, $m, $min, $max){
   $arr = [];
 
@@ -19,6 +29,8 @@ function init_tableMomo($n, $m, $min, $max){
   }
   return $arr;
 }
+
+
 vdli(init_tableMomo(5,3,3,7));
 
 
