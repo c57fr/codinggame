@@ -12,13 +12,13 @@ function init_tableMomo($n, $m, $min, $max){
 
   for($i = 0; $i < $m; ++$i)
   {
-    echo "<br>";
+    echo "<br>"; // Non, une fonction de traitement en général n'affiche rien
     for($j = 0; $j < $n; ++$j)
     {
-      $arr[$i][$j] = rand($min, $n);
+      $arr[$i][$j] = rand($min, $n); // Pk ça vu que ligne suivante, tu redonne une valeur à la même case mémoire ?
       $arr[$i][$j] = rand($max, $m);
 
-      return $n * $m;
+      return $n * $m; // la var de ta matrice n'est-elle pas $arr ? Alors, c'est elle qu'il faut renvoyer !
     }
   }
 }
