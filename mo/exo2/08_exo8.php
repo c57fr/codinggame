@@ -5,30 +5,53 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
-//$tab = ["12", "-34", "0"];
-function search_val(){
-  $vars = [-500, 34, 0];
-  foreach($vars as $k => $var)
+
+
+
+
+function init_tableG7($n, $m, $min, $max){
+  $arr = [];
+
+  for($i = 0; $i < $n; ++$i)
   {
-    echo $k ." : " .$var."<br>";
+    //echo $i."<br>";
+    echo "<br>";
+    for($j = 0; $j < $m; ++$j)
+    {
+      echo " ";
+      //echo $arr[$i][$j] = rand($min, $n);
+      echo $arr[$i][$j] = rand($m, $max);
+    }
   }
-  $signes = ['nb_neg', 'nb_pos', 'nb_zero'];
-  return array_combine($vars, [
-    $signes[0],
-    $signes[1],
-    $signes[2]
-  ]);
 
 }
-
-vdli(search_val());
-exit;
-$signes = ['nb_neg', 'nb_pos', 'nb_zero'];
- 
-vdli($var);
+vdli(init_tableG7(5,3,3,7));
 echo "<hr>";
-$tabVar = array_combine($tab,$var);
-vdli($tabVar);
+
+function init_tableMomo($n, $m, $min, $max){
+  $arr = [];
+
+  for($i = 0; $i < $m; ++$i)
+  {
+    echo "<br>";
+    for($j = 0; $j < $n; ++$j)
+    {
+      echo " ";
+      //echo $arr[$i][$j] = rand($min, $n);
+      echo $arr[$i][$j] = rand($m, $max);
+    }
+  }
+}
+vdli(init_tableMomo(5,3,3,7));
+
+
+
+
+
+
+
+
+
 
 exit;
 echo 'PHP version is '.phpversion();
