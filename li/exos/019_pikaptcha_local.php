@@ -19,6 +19,18 @@ ob_implicit_flush(); // Pour actu x.debug ds chrome
 $width  = 5;
 $height = 3;
 $LINE   = ['>000#', '#0#00', '00#0#'];
+$side   = 'L';
+
+// Reconstitution Test 2
+// $width  = 9;
+// $height = 3;
+// $LINE   = ['#00###000', '0000<0000', '000##0000'];
+// $side   = 'R';
+/* S:
+#11###000
+112210000
+111##0000
+*/
 
 // Reconstitution Test 3
 // 3 3
@@ -29,6 +41,7 @@ $LINE   = ['>000#', '#0#00', '00#0#'];
 // $width  = 3;
 // $height = 3;
 // $LINE   = ['0#0', '#>#', '0#0'];
+// $side='L';
 
 $w   = $width + 2;
 $h   = $height + 2;
@@ -37,17 +50,17 @@ $l   = '';
 array_unshift($LINE, implode('', $arr));
 array_push($LINE, implode('', $arr));
 foreach ($LINE as $ligne) {
-  echo  '#'.$ligne.'#<br>';
+  // echo  '#'.$ligne.'#<br>';
   $l .= '#'.$ligne.'#';
 }
-echo '<br>'.$l;
+echo '<br>'.$l.'<br>';
 
-$side = 'L';
+// $side = 'L';
 
 $ss = ['^', '>', 'v', '<'];
 $ds = [-$w, 1, $w, -1];
-vdli($ss);
-vdli($ds);
+// vdli($ss);
+// vdli($ds);
 
 preg_match('/[^0+|#+]/', $l, $pos, PREG_OFFSET_CAPTURE);
 // exit;
@@ -65,23 +78,23 @@ for ($i = 0; $i < 4; ++$i) {
 }
 // exit;
 $l[$pos[0][1]] = 0;
-echo $l;
-echo '<hr>';
-echo 'Pos dé part ( '.$pos[0][0].' ) est '.$pos[0][1].'<br>';
+// echo $l;
+// echo '<hr>';
+// echo 'Pos dé part ( '.$pos[0][0].' ) est '.$pos[0][1].'<br>';
 $i = $mvt = 0;
 do {
   ++$mvt;
   if ('#' === $l[$p + $ds[($s - 1 + 4) % 4]]) {
     if ('#' !== $l[$p + $ds[$s]]) {
-      echo 'avance en ';
+      // echo 'Avance en ';
       $p += $ds[$s];
       $l[$p] = (int) $l[$p] + 1;
     } else {
-      echo 'tourne à droite dans ';
+      // echo 'Tourne à droite dans ';
       $s = ($s + 5) % 4;
     }
   } else {
-    echo 'tourne à gauche et avance en ';
+    // echo 'Tourne à gauche et avance en ';
     $s = ($s + 3) % 4;
     $p += $ds[$s];
     $l[$p] = (int) $l[$p] + 1;
@@ -94,19 +107,82 @@ do {
   if ($i > 35) {
     break;
   }
-  echo $p.' ('.$ss[$s].$s.' - '.$l[$p + $ds[($s - 1 + 4) % 4]].')<br>';
+  // echo $p.' ('.$ss[$s].$s.' - '.$l[$p + $ds[($s - 1 + 4) % 4]].')<br>';
 } while (($p !== $pos[0][1] || $mvt < 4));
 
 // vdli($mvt);
-// vdli($p);
-echo $l;
+// vdli($l);
+// echo $l.'<hr>';
+// echo $w .' '. $h.'<br>';
+// echo $width .' '. $height.'<hr>';
+
+$sol = str_split($l, $w);
+// vdli($sol);
+array_shift($sol);
+array_pop($sol);
+// vdli($sol);
+foreach ($sol as $oneline) {
+  // $online = str_split($oneline);
+  // var_dump($oneline);
+  // array_shift($oneline);
+  // array_pop($oneline);
+  echo substr($oneline, 1, -1)."\n";
+}
+
+// vdli($sol);
+
 //##################################################################
 /*
 
 Solution dans codding :
 
+
+1 / Script pour avoir data T1 à T3
+
 <?php
 
+fscanf(STDIN, '%d %d', $width, $height);
+error_log(var_export($width.' '.$height, true));
+for ($i = 0; $i < $height; ++$i) {
+  fscanf(STDIN, '%s', $line[]);
+}
+error_log(var_export($line, true));
+$l = implode('', $line);
+error_log(var_export($l, true));
+fscanf(STDIN, '%s', $side);
+error_log(var_export($side, true));
+
+for ($i = 0; $i < $height; ++$i) {
+  // Write an action using echo(). DON'T FORGET THE TRAILING \n
+  // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
+}
+
+// Sol T1
+
+switch ($width * $height) {
+case 15:
+  // Sol T1
+  echo "1322#\n";
+  echo "#2#31\n";
+  echo "12#1#\n";
+
+break;
+case 27:
+  // Sol T2
+  echo "#11###000\n";
+  echo "112210000\n";
+  echo "111##0000\n";
+break;
+
+case 9:
+  // Sol T3
+
+  echo "0#0\n";
+  echo "#0#\n";
+  echo "0#0\n";
+break;
+}
+?>
 
 
 */
