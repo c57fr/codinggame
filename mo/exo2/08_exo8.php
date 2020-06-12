@@ -20,7 +20,7 @@ function init_tableG7($n, $m, $min, $max){
     {
       echo " ";
       //echo $arr[$i][$j] = rand($min, $n);
-      echo $arr[$i][$j] = rand($m, $max);
+      echo $arr[$i][$j] = rand($max, $m);
     }
   }
 
@@ -38,7 +38,7 @@ function init_tableMomo($n, $m, $min, $max){
     {
       echo " ";
       //echo $arr[$i][$j] = rand($min, $n);
-      echo $arr[$i][$j] = rand($m, $max);
+      echo $arr[$i][$j] = rand($max, $m);
     }
   }
 }
