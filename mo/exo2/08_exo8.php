@@ -6,16 +6,21 @@ if (!function_exists('vdli')) {
 }
 
 function tableDe3(){
-  $t = 3;
-  for($x =0; $x < 13; $x++)
-  {
-    echo $t * $x."<br>";
+  $t = [1,12];
+  //$d = 13;
+  for($x = 1; $x < 13; $x++)
+  { echo '<hr>';
+    for($y = 1; $y <= 12; $y++)
+    {
+      echo $x ." * ".$y . " = ". $x * $y."<br>";
+    }
     
   }
-  //return $v;
+  
+  //return $t * $x;
 }
 
-vdli(tableDe3(3,12));
+vdli(tableDe3());
 exit;
 function init_tableMomo($n, $m, $min, $max){
   $arr = [];
