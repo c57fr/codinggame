@@ -5,6 +5,28 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
+function search_val(){
+$valeurs = ['negatives', 'positive', 'nulles'];
+$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
+  foreach($valeurs as $k => $valeur)
+  {
+      //$valeur."<br>";
+    foreach($vars as $k => $var)
+    {
+      echo $valeur. '  '. $var."<br>";
+    }
+  }
+  
+/*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
+  foreach($vars as $k => $var)
+  {
+    echo $valeur. '  '. $var."<br>";
+    
+  }*/
+}
+vdli(search_val());
+exit;
+
 function tables()
 {
   for ($x = 1; $x < 13; ++$x) {
