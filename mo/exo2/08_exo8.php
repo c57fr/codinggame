@@ -71,7 +71,10 @@ function affTables(){
 
   </style>
   <?php
+  
+
   $l = 0; // per;et d4initiqliser le nombre de lignes
+
   for ($x = 1; $x < 13; ++$x) {
     for ($y = 1; $y <= 12; ++$y) {
       $l++; // permet d'afficher le nombre de lignes
@@ -84,6 +87,15 @@ function affTables(){
       }else{
         $coul = 'rouge';
       }
+      for($i = 0; $i < 99; $i++)
+      {
+        echo ($i%3);
+      }
+      $couls = ['bleu', 'blanc', 'rouge'];
+      for ($i = 0; $i < 99; ++$i) {
+        echo $coul[$i % 3].'<br>';
+      }
+      
       echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
     }
     echo '<hr>';
