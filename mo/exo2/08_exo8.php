@@ -5,39 +5,46 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
-function search_val(){
-$valeurs = ['negatives', 'positive', 'nulles'];
-$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
-  foreach($valeurs as $k => $valeur)
-  {
-      //$valeur."<br>";
+function search_val()
+{
+  $valeurs = ['negatives', 'positive', 'nulles'];
+  $vars    = ['$nb_neg', '$nb_pos', '$nb_zero'];
+  foreach ($valeurs as $k => $valeur) {
+    //$valeur."<br>";
+    foreach ($vars as $k => $var) {
+      echo $valeur.'  '.$var.'<br>';
+    }
+  }
+
+  /*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
     foreach($vars as $k => $var)
     {
       echo $valeur. '  '. $var."<br>";
-    }
-  }
-  
-/*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
-  foreach($vars as $k => $var)
-  {
-    echo $valeur. '  '. $var."<br>";
-    
-  }*/
-}
-vdli(search_val());
-exit;
 
-function tables()
+    }*/
+}
+// vdli(search_val());
+// exit;
+
+function affTables()
 {
+  ?>
+  <style>
+  .gras{
+    font-weight:bold;
+  }
+  </style>
+  <?php
   for ($x = 1; $x < 13; ++$x) {
     for ($y = 1; $y <= 12; ++$y) {
-      echo $x.' x '.$y.' = '.$x * $y.'<br>';
+      $coul = (7 === $y) ? 'gras' : '';
+      echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."\n";
     }
     echo '<hr>';
   }
 }
 
-tables();
+affTables();
 
 exit;
 function init_tableMomo($n, $m, $min, $max)
