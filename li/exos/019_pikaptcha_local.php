@@ -109,21 +109,24 @@ foreach ($line as $ligne) {
   $l .= '#'.$ligne.'#';
 }
 
-echo '<table border="1"><tr>';
-for ($nmax = strlen($l), $i = 0; $i < $nmax; ++$i) {
-  $nl = '';
-  if (!($i % $w) && $i > 0) {
-    $nl = '</tr><tr>';
-  }
-  $aff = ('#' === $l[$i]) ? '#000000' : '#ffffff';
-  echo $nl.'<td align="right" style="padding:5px;" bgcolor="'.$aff.'">'.$i.'</td>';
-}
-echo '</tr></table>';
+// echo '<table border="1"><tr>';
+// for ($nmax = strlen($l), $i = 0; $i < $nmax; ++$i) {
+//   $nl = '';
+//   if (!($i % $w) && $i > 0) {
+//     $nl = '</tr><tr>';
+//   }
+//   $aff = ('#' === $l[$i]) ? '#000000' : '#ffffff';
+//   echo $nl.'<td align="right" style="padding:5px;" bgcolor="'.$aff.'">'.$i.'</td>';
+// }
+// echo '</tr></table>';
 
 $ss = ['^', '>', 'v', '<'];
 $ds = [-$w, 1, $w, -1];
-// vdli($ss);
-// vdli($ds);
+
+if ($side=='R'){
+  $ss = array_reverse($ss);
+  $ds = array_reverse($ds);
+}
 
 preg_match('/[^0+|#+]/', $l, $pos, PREG_OFFSET_CAPTURE);
 // exit;
@@ -131,22 +134,13 @@ $p = $pos[0][1];
 // Calcul du sens
 $s = array_search($pos[0][0], $ss, true);
 
-// case à gauche // sens
-for ($i = 0; $i < 4; ++$i) {
-  // echo $i.' '.$ds[($i + 3) % 4].'<br>';
-}
-// case à droite // sens
-for ($i = 0; $i < 4; ++$i) {
-  // echo $i.' '.$ds[($i + 5) % 4].'<br>';
-}
-// exit;
 $l[$pos[0][1]] = 0;
 // echo $l;
 // echo '<hr>';
 // echo 'Pos dé part ( '.$pos[0][0].' ) est '.$pos[0][1].'<br>';
 $i = $mvt = 0;
 
-echo $pos[0][0].$pos[0][1].' ';
+// echo $pos[0][0].$pos[0][1].' ';
 
 do {
   ++$mvt;
@@ -176,10 +170,10 @@ do {
     break;
   }
   // echo $p.' ('.$ss[$s].$s.' - '.$l[$p + $ds[($s - 1 + 4) % 4]].')<br>';
-  echo $p.' ';
+  // echo $p.' ';
 } while (($p !== $pos[0][1] || $mvt < 4));
 
-vdli($mvt);
+// vdli($mvt);
 // vdli($l);
 // echo $l.'<hr>';
 // echo $w .' '. $h.'<br>';
