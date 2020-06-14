@@ -52,7 +52,40 @@ $vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
 //exit;
 >>>>>>> rendu du gras de la table de multiplication
 
-function affTables()
+
+function affTables(){
+  ?>
+  <style>
+    .gras{
+      font-weight : bold;
+    }
+    .rouge{
+      color : red;
+    }
+    .bleu{
+      color: blue;
+    }
+
+  </style>
+  <?php
+  $l = 0; // per;et d4initiqliser le nombre de lignes
+  for ($x = 1; $x < 13; ++$x) {
+    for ($y = 1; $y <= 12; ++$y) {
+      $l++; // permet d'afficher le nombre de lignes
+      $coul = ($l== $y) ? 'bleu' : 'rouge';
+      echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
+    }
+    echo '<hr>';
+    
+  }
+}
+
+affTables();
+
+
+exit;
+
+function tables()
 {
   ?>
 <<<<<<< devGC7
