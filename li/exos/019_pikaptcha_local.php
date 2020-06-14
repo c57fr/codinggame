@@ -16,16 +16,21 @@ ob_implicit_flush(); // Pour actu x.debug ds chrome
 // #0#00
 // 00#0#
 // L
+/*
+1322#
+#2#31
+12#1#
+*/
 $width  = 5;
 $height = 3;
 $LINE   = ['>000#', '#0#00', '00#0#'];
 $side   = 'L';
 
 // Reconstitution Test 2
-// $width  = 9;
-// $height = 3;
-// $LINE   = ['#00###000', '0000<0000', '000##0000'];
-// $side   = 'R';
+$width  = 9;
+$height = 3;
+$LINE   = ['#00###000', '0000<0000', '000##0000'];
+$side   = 'R';
 /* S:
 #11###000
 112210000
@@ -38,10 +43,35 @@ $side   = 'L';
 // #>#
 // 0#0
 // L
-// $width  = 3;
-// $height = 3;
-// $LINE   = ['0#0', '#>#', '0#0'];
-// $side='L';
+$width  = 3;
+$height = 3;
+$LINE   = ['0#0', '#>#', '0#0'];
+$side='L';
+/*
+0#0
+#0#
+0#0
+*/
+
+
+// Reconstitution Test 4
+// 10 6
+// 0#0
+// #>#
+// 0#0
+// L
+$width  = 10;
+$height = 6;
+$LINE   = ['#0#####000', '#0#000#000', '#0##0##0#0','#000000000','####0##000','00000#<000'];
+$side='R';
+/*
+
+
+*/
+
+
+
+
 
 $w   = $width + 2;
 $h   = $height + 2;
@@ -126,7 +156,7 @@ foreach ($sol as $oneline) {
   // var_dump($oneline);
   // array_shift($oneline);
   // array_pop($oneline);
-  echo substr($oneline, 1, -1)."\n";
+  echo substr($oneline, 1, -1)."\n".'<br>';
 }
 
 // vdli($sol);
