@@ -50,8 +50,17 @@ $vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
 //}
 //vdli(search_val());
 //exit;
->>>>>>> rendu du gras de la table de multiplication
+for($i = 0; $i < 99; $i++)
+{
+  echo ($i%3)."  ";
+}
+$couls = ['bleu','blanc', 'rouge'];
+for($i = 0; $i < 99; $i++)
+{
+  echo $couls[$i%3]."<br>";
+}
 
+/*
 function affTables(){
   ?>
   <style>
@@ -71,7 +80,7 @@ function affTables(){
 
   </style>
   <?php
-  
+
 
   $l = 0; // per;et d4initiqliser le nombre de lignes
 
@@ -91,20 +100,21 @@ function affTables(){
       
       echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
     }
-    for($i = 0; $i < count($l); $i++)
-      {
-        echo ($i%3);
-      }
-      $coul = ['bleu', 'blanc', 'rouge'];
-      for ($i = 1; $i < count($l); $i++) {
-        echo $coul[$i % 3].'<br>';
-      }
+
     echo '<hr>';
     
   }
+  for($i = 0; $i < $l; $i++)
+  {
+    echo ($i%3);
+  }
+  $coul = ['bleu', 'blanc', 'rouge'];
+  for ($i = 1; $i < $l; $i++) {
+    echo $coul[$i % 3].'<br>';
+  }
 }
 
-affTables();
+affTables();*/
 
 
 exit;
