@@ -75,6 +75,29 @@ $side   = 'R';
   echo "12222#1211\n";
 */
 
+// Reconstitution Test 5
+// 7 6
+// 0 => '00000#0',
+// 1 => '0#0#000',
+// 2 => '00#0^##',
+// 3 => '000#000',
+// 4 => '#0#00#0',
+// 5 => '0#00#00'
+// R
+
+$width  = 7;
+$height = 6;
+$line   = ['00000#0', '0#0#000', '00#0^##', '000#000', '#0#00#0', '0#00#00'];
+$side   = 'R';
+/*
+  echo "#1#####111\n";
+  echo "#2#131#101\n";
+  echo "#2##2##1#1\n";
+  echo "#222422201\n";
+  echo "####2##101\n";
+  echo "12222#1211\n";
+*/
+
 $w   = $width + 2;
 $h   = $height + 2;
 $arr = array_fill(0, $width, '#');
@@ -86,20 +109,16 @@ foreach ($line as $ligne) {
   $l .= '#'.$ligne.'#';
 }
 
-// echo '<table border="1"><tr>';
+echo '<table border="1"><tr>';
 for ($nmax = strlen($l), $i = 0; $i < $nmax; ++$i) {
   $nl = '';
   if (!($i % $w) && $i > 0) {
     $nl = '</tr><tr>';
   }
   $aff = ('#' === $l[$i]) ? '#000000' : '#ffffff';
-  // echo $nl.'<td align="right" style="padding:5px;" bgcolor="'.$aff.'">'.$i.'</td>';
+  echo $nl.'<td align="right" style="padding:5px;" bgcolor="'.$aff.'">'.$i.'</td>';
 }
-// echo '</tr></table>';
-
-// echo '<br>'.$l.'<br>';
-
-// $side = 'L';
+echo '</tr></table>';
 
 $ss = ['^', '>', 'v', '<'];
 $ds = [-$w, 1, $w, -1];
@@ -127,7 +146,7 @@ $l[$pos[0][1]] = 0;
 // echo 'Pos dé part ( '.$pos[0][0].' ) est '.$pos[0][1].'<br>';
 $i = $mvt = 0;
 
-// echo $pos[0][0].$pos[0][1].' ';
+echo $pos[0][0].$pos[0][1].' ';
 
 do {
   ++$mvt;
@@ -157,10 +176,10 @@ do {
     break;
   }
   // echo $p.' ('.$ss[$s].$s.' - '.$l[$p + $ds[($s - 1 + 4) % 4]].')<br>';
-  // echo $p.' ';
+  echo $p.' ';
 } while (($p !== $pos[0][1] || $mvt < 4));
 
-// vdli($mvt);
+vdli($mvt);
 // vdli($l);
 // echo $l.'<hr>';
 // echo $w .' '. $h.'<br>';
@@ -207,7 +226,6 @@ for ($i = 0; $i < $height; ++$i) {
   // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
 }
 
-
 // Sol T1
 
 switch ($width * $height) {
@@ -223,16 +241,16 @@ case 27:
   echo "#11###000\n";
   echo "112210000\n";
   echo "111##0000\n";
-break;
 
+break;
 case 9:
   // Sol T3
 
   echo "0#0\n";
   echo "#0#\n";
   echo "0#0\n";
-break;
 
+break;
 case 60:
   // Sol T4
 
@@ -242,6 +260,17 @@ case 60:
   echo "#222422201\n";
   echo "####2##101\n";
   echo "12222#1211\n";
+
+break;
+case 42:
+  // Sol T5
+
+  echo "22322#1\n";
+  echo "2#1#322\n";
+  echo "21#01##\n";
+  echo "131#000\n";
+  echo "#1#00#0\n";
+  echo "0#00#00\n";
 
 break;
 }
