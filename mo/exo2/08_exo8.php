@@ -85,7 +85,7 @@ function affTables()
       $coul = '';
       if(7===$y)
       {
-        echo $coul = 'gras';
+        $coul = 'gras'; // si on fait echo $coul = gras; alors il va sùafficher au dessus de chaue ligne 7 le mot gras
       }
       else{
         //echo $coul;
