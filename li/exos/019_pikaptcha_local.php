@@ -27,10 +27,10 @@ $LINE   = ['>000#', '#0#00', '00#0#'];
 $side   = 'L';
 
 // Reconstitution Test 2
-// $width  = 9;
-// $height = 3;
-// $LINE   = ['#00###000', '0000<0000', '000##0000'];
-// $side   = 'R';
+$width  = 9;
+$height = 3;
+$LINE   = ['#00###000', '0000<0000', '000##0000'];
+$side   = 'R';
 
 /* S:
 #11###000
@@ -45,16 +45,15 @@ $side   = 'L';
 // 0#0
 // L
 
-// $width  = 3;
-// $height = 3;
-// $LINE   = ['0#0', '#>#', '0#0'];
-// $side='L';
+$width  = 3;
+$height = 3;
+$LINE   = ['0#0', '#>#', '0#0'];
+$side   = 'L';
 /*
 0#0
 #0#
 0#0
 */
-
 
 // Reconstitution Test 4
 // 10 6
@@ -63,10 +62,10 @@ $side   = 'L';
 // 0#0
 // L
 
-// $width  = 10;
-// $height = 6;
-// $LINE   = ['#0#####000', '#0#000#000', '#0##0##0#0','#000000000','####0##000','00000#<000'];
-// $side='R';
+$width  = 10;
+$height = 6;
+$line   = ['#0#####000', '#0#000#000', '#0##0##0#0', '#000000000', '####0##000', '00000#<000'];
+$side   = 'R';
 /*
   echo "#1#####111\n";
   echo "#2#131#101\n";
@@ -76,26 +75,27 @@ $side   = 'L';
   echo "12222#1211\n";
 */
 
-
-
-
-
 $w   = $width + 2;
 $h   = $height + 2;
 $arr = array_fill(0, $width, '#');
 $l   = '';
-array_unshift($LINE, implode('', $arr));
-array_push($LINE, implode('', $arr));
-foreach ($LINE as $ligne) {
-  echo  '#'.$ligne.'#<br>';
+array_unshift($line, implode('', $arr));
+array_push($line, implode('', $arr));
+foreach ($line as $ligne) {
+  // echo  '#'.$ligne.'#<br>';
   $l .= '#'.$ligne.'#';
 }
 
-// 2do table n° des cases
-
-// 2do Cases parcourues
-
-
+// echo '<table border="1"><tr>';
+for ($nmax = strlen($l), $i = 0; $i < $nmax; ++$i) {
+  $nl = '';
+  if (!($i % $w) && $i > 0) {
+    $nl = '</tr><tr>';
+  }
+  $aff = ('#' === $l[$i]) ? '#000000' : '#ffffff';
+  // echo $nl.'<td align="right" style="padding:5px;" bgcolor="'.$aff.'">'.$i.'</td>';
+}
+// echo '</tr></table>';
 
 // echo '<br>'.$l.'<br>';
 
@@ -126,8 +126,12 @@ $l[$pos[0][1]] = 0;
 // echo '<hr>';
 // echo 'Pos dé part ( '.$pos[0][0].' ) est '.$pos[0][1].'<br>';
 $i = $mvt = 0;
+
+// echo $pos[0][0].$pos[0][1].' ';
+
 do {
   ++$mvt;
+
   if ('#' === $l[$p + $ds[($s - 1 + 4) % 4]]) {
     if ('#' !== $l[$p + $ds[$s]]) {
       // echo 'Avance en ';
@@ -142,16 +146,18 @@ do {
     $s = ($s + 3) % 4;
     $p += $ds[$s];
     $l[$p] = (int) $l[$p] + 1;
+    // echo $p.' ';
   }
   // if ('#' !== $l[$p + $s]) {
   //   $p += $s;
   // }
 
   ++$i;
-  if ($i > 35) {
+  if ($i > 9999) {
     break;
   }
   // echo $p.' ('.$ss[$s].$s.' - '.$l[$p + $ds[($s - 1 + 4) % 4]].')<br>';
+  // echo $p.' ';
 } while (($p !== $pos[0][1] || $mvt < 4));
 
 // vdli($mvt);
@@ -161,7 +167,7 @@ do {
 // echo $width .' '. $height.'<hr>';
 
 $sol = str_split($l, $w);
-vdli($sol);
+// vdli($sol);
 array_shift($sol);
 array_pop($sol);
 // vdli($sol);
@@ -201,6 +207,7 @@ for ($i = 0; $i < $height; ++$i) {
   // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
 }
 
+
 // Sol T1
 
 switch ($width * $height) {
@@ -224,6 +231,18 @@ case 9:
   echo "0#0\n";
   echo "#0#\n";
   echo "0#0\n";
+break;
+
+case 60:
+  // Sol T4
+
+  echo "#1#####111\n";
+  echo "#2#131#101\n";
+  echo "#2##2##1#1\n";
+  echo "#222422201\n";
+  echo "####2##101\n";
+  echo "12222#1211\n";
+
 break;
 }
 ?>
