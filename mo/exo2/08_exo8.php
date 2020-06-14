@@ -5,6 +5,7 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
+<<<<<<< devGC7
 function search_val()
 {
   $valeurs = ['negatives', 'positive', 'nulles'];
@@ -25,6 +26,31 @@ function search_val()
 }
 // vdli(search_val());
 // exit;
+=======
+/*function search_val(){
+$valeurs = ['negatives', 'positive', 'nulles'];
+$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
+  foreach($valeurs as $k => $valeur)
+  {
+      //$valeur."<br>";
+    foreach($vars as $k => $var)
+    {
+      echo $valeur. '  '. $var."<br>";
+    }
+  }
+ 
+  //$results = array_combine($valeurs, $vars);
+  //vdli($results);
+/*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
+  foreach($vars as $k => $var)
+  {
+    echo $valeur. '  '. $var."<br>";
+    
+  }*/
+//}
+//vdli(search_val());
+//exit;
+>>>>>>> rendu du gras de la table de multiplication
 
 function affTables()
 {
@@ -36,11 +62,16 @@ function affTables()
   </style>
   <?php
   for ($x = 1; $x < 13; ++$x) {
+    if($x===7)
+    {
+      echo "<strong> ";
+    }
     for ($y = 1; $y <= 12; ++$y) {
       $coul = (7 === $y) ? 'gras' : '';
       echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."\n";
     }
     echo '<hr>';
+    
   }
 }
 
