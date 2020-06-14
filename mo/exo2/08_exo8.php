@@ -50,16 +50,43 @@ $vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
 //}
 //vdli(search_val());
 //exit;
-for($i = 0; $i < 99; $i++)
+?>
+  <style>
+    body{
+      background-color : black;
+    }
+    
+    .rouge{
+      color : red;
+    }
+    .bleu{
+      color: blue;
+    }
+    .blanc{
+      color : white;
+    }
+
+  </style>
+  <?php
+for($i = 0; $i < 6; $i++)
 {
-  echo ($i%3)."  ";
+  //echo ($i%3)."  ";
 }
 $couls = ['bleu','blanc', 'rouge'];
-for($i = 0; $i < 99; $i++)
+for($i = 0; $i < 6; $i++)
 {
-  echo $couls[$i%3]."<br>";
+  $couls[$i%3]."<br>";
+  //echo $couls(7 ===$i) ? 'couls' : ' ';
+  
 }
-
+  echo '<div style = "color : blue">0<div/>';
+  echo '<div style = "color : white">1<div/>';
+  echo '<div style = "color : red">2<div/>';
+  echo '<div style = "color : blue">3<div/>';
+  echo '<div style = "color : white">4<div/>';
+  echo '<div style = "color : red">5<div/>';
+  echo '<div style = "color : blue">6<div/>';
+  echo '<div style = "color : white">7<div/>';
 /*
 function affTables(){
   ?>
