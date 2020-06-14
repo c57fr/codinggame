@@ -40,4 +40,16 @@ case 9:
   echo "#0#\n";
   echo "0#0\n";
 break;
+
+case 60:
+  // Sol T4
+
+  echo "#1#####111\n";
+  echo "#2#131#101\n";
+  echo "#2##2##1#1\n";
+  echo "#222422201\n";
+  echo "####2##101\n";
+  echo "12222#1211\n";
+  
+break;
 }

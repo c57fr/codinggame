@@ -27,10 +27,11 @@ $LINE   = ['>000#', '#0#00', '00#0#'];
 $side   = 'L';
 
 // Reconstitution Test 2
-$width  = 9;
-$height = 3;
-$LINE   = ['#00###000', '0000<0000', '000##0000'];
-$side   = 'R';
+// $width  = 9;
+// $height = 3;
+// $LINE   = ['#00###000', '0000<0000', '000##0000'];
+// $side   = 'R';
+
 /* S:
 #11###000
 112210000
@@ -43,10 +44,11 @@ $side   = 'R';
 // #>#
 // 0#0
 // L
-$width  = 3;
-$height = 3;
-$LINE   = ['0#0', '#>#', '0#0'];
-$side='L';
+
+// $width  = 3;
+// $height = 3;
+// $LINE   = ['0#0', '#>#', '0#0'];
+// $side='L';
 /*
 0#0
 #0#
@@ -60,13 +62,18 @@ $side='L';
 // #>#
 // 0#0
 // L
-$width  = 10;
-$height = 6;
-$LINE   = ['#0#####000', '#0#000#000', '#0##0##0#0','#000000000','####0##000','00000#<000'];
-$side='R';
+
+// $width  = 10;
+// $height = 6;
+// $LINE   = ['#0#####000', '#0#000#000', '#0##0##0#0','#000000000','####0##000','00000#<000'];
+// $side='R';
 /*
-
-
+  echo "#1#####111\n";
+  echo "#2#131#101\n";
+  echo "#2##2##1#1\n";
+  echo "#222422201\n";
+  echo "####2##101\n";
+  echo "12222#1211\n";
 */
 
 
@@ -80,10 +87,17 @@ $l   = '';
 array_unshift($LINE, implode('', $arr));
 array_push($LINE, implode('', $arr));
 foreach ($LINE as $ligne) {
-  // echo  '#'.$ligne.'#<br>';
+  echo  '#'.$ligne.'#<br>';
   $l .= '#'.$ligne.'#';
 }
-echo '<br>'.$l.'<br>';
+
+// 2do table n° des cases
+
+// 2do Cases parcourues
+
+
+
+// echo '<br>'.$l.'<br>';
 
 // $side = 'L';
 
@@ -147,7 +161,7 @@ do {
 // echo $width .' '. $height.'<hr>';
 
 $sol = str_split($l, $w);
-// vdli($sol);
+vdli($sol);
 array_shift($sol);
 array_pop($sol);
 // vdli($sol);
