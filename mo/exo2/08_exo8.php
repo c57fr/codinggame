@@ -52,18 +52,21 @@ $vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
 //exit;
 >>>>>>> rendu du gras de la table de multiplication
 
-
 function affTables(){
   ?>
   <style>
-    .gras{
-      font-weight : bold;
+    body{
+      background-color : black;
     }
+    
     .rouge{
       color : red;
     }
     .bleu{
       color: blue;
+    }
+    .blanc{
+      color : white;
     }
 
   </style>
@@ -72,8 +75,15 @@ function affTables(){
   for ($x = 1; $x < 13; ++$x) {
     for ($y = 1; $y <= 12; ++$y) {
       $l++; // permet d'afficher le nombre de lignes
-      $coul = ($l%2 != 0) ? 'bleu' : 'rouge'; // si on divise 4l par 2 et que c'est pas égal à zéro et que c'est impair alors la couleur sera bleu sinon rouge
-
+      //$coul = ($l % 2) ? 'bleu' : 'rouge'; // si on divise 4l par 2 et que c'est pas égal à zéro et que c'est impair alors la couleur sera bleu sinon rouge
+      if($l%2)
+      {
+        $coul = 'bleu'; // si on fait echo $coul = gras; alors il va sùafficher au dessus de chaue ligne 7 le mot gras
+      }elseif($l%3){
+        $coul = 'blanc';
+      }elseif($l%3 != 3){
+        $coul = 'rouge';
+      }
       echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
     }
     echo '<hr>';
