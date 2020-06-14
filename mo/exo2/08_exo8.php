@@ -73,20 +73,18 @@ for($i = 0; $i < 6; $i++)
   //echo ($i%3)."  ";
 }
 $couls = ['bleu','blanc', 'rouge'];
-for($i = 0; $i < 6; $i++)
+for($i = 0; $i < 8; $i++)
 {
-  $couls[$i%3]."<br>";
-  //echo $couls(7 ===$i) ? 'couls' : ' ';
-  
+  echo '<div style = "color : '.$couls[$i%3].'">'.$i.'</div>'."<\n>";  
 }
-  echo '<div style = "color : blue">0<div/>';
-  echo '<div style = "color : white">1<div/>';
+  //echo '<div style = "color : blue">0<div/>';
+  /*echo '<div style = "color : white">1<div/>';
   echo '<div style = "color : red">2<div/>';
   echo '<div style = "color : blue">3<div/>';
   echo '<div style = "color : white">4<div/>';
   echo '<div style = "color : red">5<div/>';
   echo '<div style = "color : blue">6<div/>';
-  echo '<div style = "color : white">7<div/>';
+  echo '<div style = "color : white">7<div/>';*/
 /*
 function affTables(){
   ?>
