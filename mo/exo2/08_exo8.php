@@ -50,6 +50,7 @@ $vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
 //}
 //vdli(search_val());
 //exit;
+/*
 ?>
   <style>
     body{
@@ -72,11 +73,11 @@ for($i = 0; $i < 6; $i++)
 {
   //echo ($i%3)."  ";
 }
-$couls = ['bleu','blanc', 'rouge'];
+$couls = ['blue','white', 'red'];
 for($i = 0; $i < 8; $i++)
 {
   echo '<div style = "color : '.$couls[$i%3].'">'.$i.'</div>'."<\n>";  
-}
+}*/
   //echo '<div style = "color : blue">0<div/>';
   /*echo '<div style = "color : white">1<div/>';
   echo '<div style = "color : red">2<div/>';
@@ -85,7 +86,7 @@ for($i = 0; $i < 8; $i++)
   echo '<div style = "color : red">5<div/>';
   echo '<div style = "color : blue">6<div/>';
   echo '<div style = "color : white">7<div/>';*/
-/*
+
 function affTables(){
   ?>
   <style>
@@ -113,33 +114,31 @@ function affTables(){
     for ($y = 1; $y <= 12; ++$y) {
       $l++; // permet d'afficher le nombre de lignes
       //$coul = ($l % 2) ? 'bleu' : 'rouge'; // si on divise 4l par 2 et que c'est pas égal à zéro et que c'est impair alors la couleur sera bleu sinon rouge
-      if($l%3 ==0)
+      $couls = ['blue','white', 'red'];
+      for($i = 0; $i < $l ; $i++)
       {
-        $coul = 'bleu'; // si on fait echo $coul = gras; alors il va sùafficher au dessus de chaue ligne 7 le mot gras
-      }elseif($l%3 ==1){
-        $coul = 'blanc';
-      }else{
-        $coul = 'rouge';
+        echo '<div style = "color : '.$couls[$i%3].'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."<\n>";
       }
+    echo '<hr>';
       
       
-      echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
+      
+      //echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
     }
 
-    echo '<hr>';
     
   }
-  for($i = 0; $i < $l; $i++)
+  /*for($i = 0; $i < $l; $i++)
   {
     echo ($i%3);
   }
   $coul = ['bleu', 'blanc', 'rouge'];
   for ($i = 1; $i < $l; $i++) {
     echo $coul[$i % 3].'<br>';
-  }
+  }*/
 }
 
-affTables();*/
+affTables();
 
 
 exit;
