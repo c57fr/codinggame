@@ -72,24 +72,8 @@ function affTables()
 >>>>>>> error au niveau de l'affichage du gras
   <?php
   for ($x = 1; $x < 13; ++$x) {
-    /*if($x===7)
-    {
-      echo "<strong> ";
-    }*/
     for ($y = 1; $y <= 12; ++$y) {
-<<<<<<< devGC7
       $coul = (7 === $y) ? 'gras' : '';
-      echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."\n";
-=======
-      //$coul = (7 === $y) ? 'gras' : '';
-      $coul = '';
-      if(7===$y)
-      {
-        $coul = 'gras'; // si on fait echo $coul = gras; alors il va sùafficher au dessus de chaue ligne 7 le mot gras
-      }
-      else{
-        //echo $coul;
-      }
       echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
 >>>>>>> error au niveau de l'affichage du gras
     }
