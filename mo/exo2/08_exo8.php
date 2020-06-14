@@ -87,17 +87,18 @@ function affTables(){
       }else{
         $coul = 'rouge';
       }
-      for($i = 0; $i < 99; $i++)
-      {
-        echo ($i%3);
-      }
-      $couls = ['bleu', 'blanc', 'rouge'];
-      for ($i = 0; $i < 99; ++$i) {
-        echo $coul[$i % 3].'<br>';
-      }
+      
       
       echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
     }
+    for($i = 0; $i < count($l); $i++)
+      {
+        echo ($i%3);
+      }
+      $coul = ['bleu', 'blanc', 'rouge'];
+      for ($i = 1; $i < count($l); $i++) {
+        echo $coul[$i % 3].'<br>';
+      }
     echo '<hr>';
     
   }
