@@ -9,8 +9,8 @@ ob_implicit_flush(); // Pour actu x.debug ds chrome
 function ve1()
 {
   define('MAX', 5);
-  $a = array_fill(0, MAX, 0);
-  $a[0]=7;
+  $a    = array_fill(0, MAX, 0);
+  $a[0] = 7;
 
   for ($n = 0; $n < MAX; ++$n) {
     for ($m = $n - 1; $m >= 0; --$m) {
@@ -24,30 +24,9 @@ function ve1()
   vdli($a);
 }
 
-ve1();
-/*
+// ve1();
 
-
-func main() {
-    const max = 1000
-    a := make([]int, max) // all zero by default
-    for n := 0; n < max-1; n++ {
-        for m := n - 1;  m >= 0; m-- {
-            if a[m] == a[n] {
-                a[n+1] = n - m
-                break
-            }
-        }
-    }
-    fmt.Println("The first ten terms of the Van Eck sequence are:")
-    fmt.Println(a[:10])
-    fmt.Println("\nTerms 991 to 1000 of the sequence are:")
-    fmt.Println(a[990:])
-}
-
-*/
-
-exit;
+// exit;
 // https://www.codingame.com/training/easy/van-ecks-sequence
 
 // // Reconstitution Test 1
@@ -69,7 +48,7 @@ function affE()
 }
 
 // Init
-echo '0 / <strong>'.$A1.'</strong><hr>';
+// echo '0 / <strong>'.$A1.'</strong><hr>';
 $e = [$A1 => 0, 0 => 1];
 $i = 1;
 $v = 0;
@@ -80,26 +59,92 @@ $v = 0;
  *
  * @param mixed $seq
  */
-function ve2($seq)
+function ve2($seq) // Méthode Dictionnaire
 {
-  $next = 0;
-  $l    = count($seq);
-  for ($i = 0; $i < $l - 1; ++$i) {
-    if ($seq[$i] === $seqs[$i - 1]) {
-      $next = $l - $i - 1;
+  define('MAX2', 15);
+  $a = array_fill(0, MAX2, 0);
+  // $a[0]=7;
+  $seen = [];
+  for ($n = 0; $n < MAX2 - 1; ++$n) {
+    if ($seq[$n] === $seqs[$n - 1]) {
+      $next = $l - $n - 1;
     }
+    $seen[$a[$n]] = $n;
   }
 
   return $seq;
 }
+/*
+func main() {
+  const max = 1000
+  a := make([]int, max) // all zero by default
+  seen := make(map[int]int)
+  for n := 0; n < max-1; n++ {
+      if m, ok := seen[a[n]]; ok {
+          a[n+1] = n - m
+      }
+      seen[a[n]] = n
+  }
+  fmt.Println("The first ten terms of the Van Eck sequence are:")
+  fmt.Println(a[:10])
+  fmt.Println("\nTerms 991 to 1000 of the sequence are:")
+  fmt.Println(a[990:])
+}
+*/
 
 $seq = [0];
 
-for ($i = 0; $i < 11; ++$i) {
-  ve($seq);
+// for ($i = 0; $i < 11; ++$i) {
+  // ve2($seq);
+// }
+
+// vdli($seq);
+
+function ve3()
+{
+  $n    = 0;
+  $seen = [0];
+  $val  = 0;
+  while (true) {
+    yield $val;
+    if (in_array($val, $seen, true)) {
+      $val = $seen[$val];
+    break;
+    } else {
+      $val    = 0;
+      $seen[] = $val;
+      ++$n;
+
+      break;
+    }
+  }
 }
 
-vdli($seq);
+$gen = ve3();
+vdli($gen);
+foreach ($gen as $v) {
+  echo $v;
+}
+
+
+// vdli(ve3());
+/*
+https://rosettacode.org/wiki/Van_Eck_sequence
+
+def van_eck():
+    n = 0
+    seen = [0]
+    val = 0
+    while True:
+        yield val
+        if val in seen[1:]:
+            val = seen.index(val, 1)
+        else:
+            val = 0
+        seen.insert(0, val)
+        n += 1
+
+*/
 
 exit;
 affE();
