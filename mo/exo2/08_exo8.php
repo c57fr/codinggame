@@ -38,14 +38,14 @@ $vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
       echo $valeur. '  '. $var."<br>";
     }
   }
- 
+
   //$results = array_combine($valeurs, $vars);
   //vdli($results);
 /*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
   foreach($vars as $k => $var)
   {
     echo $valeur. '  '. $var."<br>";
-    
+
   }*/
 //}
 //vdli(search_val());
@@ -56,7 +56,7 @@ $vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
     body{
       background-color : black;
     }
-    
+
     .rouge{
       color : red;
     }
@@ -76,7 +76,7 @@ for($i = 0; $i < 6; $i++)
 $couls = ['blue','white', 'red'];
 for($i = 0; $i < 8; $i++)
 {
-  echo '<div style = "color : '.$couls[$i%3].'">'.$i.'</div>'."<\n>";  
+  echo '<div style = "color : '.$couls[$i%3].'">'.$i.'</div>'."<\n>";
 }*/
   //echo '<div style = "color : blue">0<div/>';
   /*echo '<div style = "color : white">1<div/>';
@@ -87,26 +87,16 @@ for($i = 0; $i < 8; $i++)
   echo '<div style = "color : blue">6<div/>';
   echo '<div style = "color : white">7<div/>';*/
 
-function affTables(){
+function affTables()
+{
   ?>
   <style>
     body{
       background-color : black;
+      font-family: arial;
     }
-    
-    .rouge{
-      color : red;
-    }
-    .bleu{
-      color: blue;
-    }
-    .blanc{
-      color : white;
-    }
-
-  </style>
+</style>
   <?php
-
 
   $l = 0; // per;et d4initiqliser le nombre de lignes
 
@@ -114,20 +104,17 @@ function affTables(){
     for ($y = 1; $y <= 12; ++$y) {
       echo $l++; // permet d'afficher le nombre de lignes
       //$coul = ($l % 2) ? 'bleu' : 'rouge'; // si on divise 4l par 2 et que c'est pas égal à zéro et que c'est impair alors la couleur sera bleu sinon rouge
-      $couls = ['blue','white', 'red'];
+      $couls = ['cyan', 'white', 'red'];
       /*for($y = 1; $y <= 12; ++$y)
       {*/
-        echo '<div style = "color : '.$couls[$y%3].'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."<\n>";
-        //echo '<div class="'.$couls[$y%3].'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
+      echo '<div style = "color : '.$couls[($y - 1) % 3].'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."<\n>";
+      //echo '<div class="'.$couls[$y%3].'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
       //}
     //echo '<hr>';
-      
-      
-      
+
       //echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
     }
     echo '<hr>';
-    
   }
   /*for($i = 0; $i < $l; $i++)
   {
@@ -140,7 +127,6 @@ function affTables(){
 }
 
 affTables();
-
 
 exit;
 
@@ -166,11 +152,9 @@ function tables()
   for ($x = 1; $x < 13; ++$x) {
     for ($y = 1; $y <= 12; ++$y) {
       $coul = (7 === $y) ? 'gras' : '';
-      echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
->>>>>>> error au niveau de l'affichage du gras
+      echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'.'</n>';
     }
     echo '<hr>';
-    
   }
 }
 
