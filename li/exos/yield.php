@@ -5,9 +5,28 @@ if (!function_exists('vdli')) {
 }
 ob_implicit_flush(); // Pour actu x.debug ds chrome
 
-$exemple = 2; // 1 to ...
+$exemple = 3; // 1 to ... See juste above !
 
-if (2 === $exemple) {
+if (3 === $exemple) {
+  function fibonacci($item)
+  {
+    $a = 0;
+    $b = 1;
+    for ($i = 0; $i < $item; ++$i) {
+      yield $a;
+      $b = $a + $b;
+      $a = $b - $a;
+    }
+  }
+
+  // give me the first ten fibonacci numbers
+  $fibo = fibonacci(7);
+  foreach ($fibo as $value) {
+    echo "${value}\n";
+  }
+}
+
+if (2 === $exemple) { // Fibo avec While (true)
   function getFibonacci()
   {
     $i = 0;
@@ -21,7 +40,6 @@ if (2 === $exemple) {
   }
 
   $y = 0;
-
   foreach (getFibonacci() as $fibonacci) {
     echo $fibonacci."\n";
     ++$y;
