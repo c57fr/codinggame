@@ -13,8 +13,8 @@ ob_implicit_flush(); // Pour actu x.debug ds chrome
 $A1 = 0;
 $N  = 1;
 
-$arr = array_fill(0, 1000001, 555);
-vdli($arr);
+// $arr = array_fill(0, 1000001, 555); Test des limites o cas où
+// vdli($arr);
 
 //##################################################################
 /*
