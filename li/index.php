@@ -36,11 +36,11 @@ include '../dev/vdli.php';
 // include 'exos/018_graffiti.php';
 // include 'exos/019_pikaptcha_local.php';
 // include 'exos/020_sudoku_local.php';
-// include 'exos/021_van_eck.php';
-include 'exos/yield.php';
+include 'exos/021_van_eck.php';
 
 // include 'exos/divers.php';
 // include 'exos/prems.php';
+// include 'exos/yield.php';
 
 // include 'exos/1xx_shadowsKnight.php';
 

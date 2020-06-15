@@ -103,29 +103,30 @@ $seq = [0];
 function ve3()
 {
   $n    = 0;
-  $seen = [0];
+  $seen = [7 => 0];
   $val  = 0;
   while (true) {
     yield $val;
-    if (in_array($val, $seen, true)) {
+    if (array_key_exists($val, $seen)) {
       $val = $seen[$val];
-    break;
     } else {
-      $val    = 0;
-      $seen[] = $val;
+      $val        = 0;
+      $seen[$val] = $n;
       ++$n;
-
-      break;
     }
   }
 }
 
-$gen = ve3();
-vdli($gen);
-foreach ($gen as $v) {
-  echo $v;
-}
+// $gen = ve3(); // 2do test $gen = la function()
 
+$y = 7;
+foreach (ve3() as $v) {
+  echo $v.' ';
+  --$y;
+  if ($y <= 0) {
+    break; // infinite loop prevent
+  }
+}
 
 // vdli(ve3());
 /*
