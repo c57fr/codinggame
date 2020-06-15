@@ -6,18 +6,28 @@ if (!function_exists('vdli')) {
 }
 ob_implicit_flush(); // Pour actu x.debug ds chrome
 
+function ve1()
+{
+  define('MAX', 5);
+  $a = array_fill(0, MAX, 0);
+  $a[0]=7;
 
+  for ($n = 0; $n < MAX; ++$n) {
+    for ($m = $n - 1; $m >= 0; --$m) {
+      if ($a[$m] === $a[$n]) {
+        $a[$n + 1] = $n - $m;
 
+        break;
+      }
+    }
+  }
+  vdli($a);
+}
 
-
-
+ve1();
 /*
 
-Go
-package main
- 
-import "fmt"
- 
+
 func main() {
     const max = 1000
     a := make([]int, max) // all zero by default
@@ -26,7 +36,7 @@ func main() {
             if a[m] == a[n] {
                 a[n+1] = n - m
                 break
-            }    
+            }
         }
     }
     fmt.Println("The first ten terms of the Van Eck sequence are:")
@@ -36,11 +46,6 @@ func main() {
 }
 
 */
-
-
-
-
-
 
 exit;
 // https://www.codingame.com/training/easy/van-ecks-sequence
@@ -71,10 +76,11 @@ $v = 0;
 /**
  * Van Eck
  * //2do Van Eck méthode Python
- * https://www.youtube.com/watch?v=Cd5Nmyz8ISI
- * 
+ * https://www.youtube.com/watch?v=Cd5Nmyz8ISI.
+ *
+ * @param mixed $seq
  */
-function ve($seq)
+function ve2($seq)
 {
   $next = 0;
   $l    = count($seq);
