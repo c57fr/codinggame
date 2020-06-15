@@ -6,6 +6,43 @@ if (!function_exists('vdli')) {
 }
 ob_implicit_flush(); // Pour actu x.debug ds chrome
 
+
+
+
+
+
+/*
+
+Go
+package main
+ 
+import "fmt"
+ 
+func main() {
+    const max = 1000
+    a := make([]int, max) // all zero by default
+    for n := 0; n < max-1; n++ {
+        for m := n - 1;  m >= 0; m-- {
+            if a[m] == a[n] {
+                a[n+1] = n - m
+                break
+            }    
+        }
+    }
+    fmt.Println("The first ten terms of the Van Eck sequence are:")
+    fmt.Println(a[:10])
+    fmt.Println("\nTerms 991 to 1000 of the sequence are:")
+    fmt.Println(a[990:])
+}
+
+*/
+
+
+
+
+
+
+exit;
 // https://www.codingame.com/training/easy/van-ecks-sequence
 
 // // Reconstitution Test 1
@@ -31,6 +68,34 @@ echo '0 / <strong>'.$A1.'</strong><hr>';
 $e = [$A1 => 0, 0 => 1];
 $i = 1;
 $v = 0;
+/**
+ * Van Eck
+ * //2do Van Eck méthode Python
+ * https://www.youtube.com/watch?v=Cd5Nmyz8ISI
+ * 
+ */
+function ve($seq)
+{
+  $next = 0;
+  $l    = count($seq);
+  for ($i = 0; $i < $l - 1; ++$i) {
+    if ($seq[$i] === $seqs[$i - 1]) {
+      $next = $l - $i - 1;
+    }
+  }
+
+  return $seq;
+}
+
+$seq = [0];
+
+for ($i = 0; $i < 11; ++$i) {
+  ve($seq);
+}
+
+vdli($seq);
+
+exit;
 affE();
 
 for ($i = 2; $i < $N; ++$i) {
