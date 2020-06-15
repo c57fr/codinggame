@@ -18,6 +18,18 @@ for ($i = 0; $i < 9; ++$i) { // Juste pour afficher grid de départ
 }
 vdli($ls);
 
+function affH()
+{
+  global $h;
+  for ($i = 1; $i < 27; ++$i) {
+    echo 'Chiffre '.$i.' : ';
+    foreach ($h[$i] as $k => $v) {
+      echo $v;
+    }
+    echo '<br>';
+  }
+  echo '<hr>';
+}
 
 $h = array_fill(0, 27, array_fill(1, 9, 0));
 
@@ -30,6 +42,7 @@ for ($i = 0; $i < 9; ++$i) {
     // echo $i.' - '.$j.' => '.$row[$j].' ('.intdiv($j, 3).' - '.intdiv($i, 3).')<hr>';
   }
 }
+affH();
 // vdli($h);
 echo array_sum(array_map('array_sum', $h)) < 27 * 9 ? 'false' : 'true';
 
