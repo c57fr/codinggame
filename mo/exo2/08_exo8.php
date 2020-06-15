@@ -112,20 +112,21 @@ function affTables(){
 
   for ($x = 1; $x < 13; ++$x) {
     for ($y = 1; $y <= 12; ++$y) {
-      $l++; // permet d'afficher le nombre de lignes
+      echo $l++; // permet d'afficher le nombre de lignes
       //$coul = ($l % 2) ? 'bleu' : 'rouge'; // si on divise 4l par 2 et que c'est pas égal à zéro et que c'est impair alors la couleur sera bleu sinon rouge
       $couls = ['blue','white', 'red'];
-      for($i = 0; $i < $l ; $i++)
-      {
-        echo '<div style = "color : '.$couls[$i%3].'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."<\n>";
-      }
-    echo '<hr>';
+      /*for($y = 1; $y <= 12; ++$y)
+      {*/
+        echo '<div style = "color : '.$couls[$y%3].'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."<\n>";
+        //echo '<div class="'.$couls[$y%3].'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
+      //}
+    //echo '<hr>';
       
       
       
       //echo '<div class="'.$coul.'">'.$x.' x '.$y.' = '.$x * $y.'</div>'."</n>";
     }
-
+    echo '<hr>';
     
   }
   /*for($i = 0; $i < $l; $i++)
