@@ -36,7 +36,9 @@ foreach (ve3() as $v) {
 }
 
 /*
+Partie Python
 https://rosettacode.org/wiki/Van_Eck_sequence
+
 
 def van_eck():
   n = 0
