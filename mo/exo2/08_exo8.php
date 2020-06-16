@@ -28,7 +28,8 @@ foreach ($arr as $k => $ar) {
   //echo $k ." = ".$ar."<br>";
   if($ar < 0)
   {
-    echo $ar."<br>";
+    echo $ar++."<br>";
+    $neg++;
     //echo count($ar)."<br>";
   }
 
@@ -38,7 +39,7 @@ foreach ($arr as $k => $ar) {
     //echo count($ar)."<br>";
   }
 }
-
+echo $neg;
 exit;
 for($i = 0; $i <= $arr; ++$i)
 {
