@@ -62,7 +62,7 @@ function search_val()
 
   $arr = [];
   $valeurs = ['negatives', 'positive', 'nulles'];
-  $vars    = ['$nb_neg', '$nb_pos', '$nb_zero'];
+  $vars    = [2,0-1];
   /*foreach($valeurs as $k => $valeur) {
     echo $valeur."<br>";
     foreach ($vars as $k => $var) {
