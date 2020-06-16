@@ -4,19 +4,86 @@ ob_implicit_flush(); // Pour actu xdebug ds chrome
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
-gh
-<<<<<<< devGC7
-function search_val()
+
+
+$arr=[-7, -3, 0, 3, 5, -5];
+//echo count($arr);
+/*if($arr < 0)
 {
-  $valeurs = ['negatives', 'positive', 'nulles'];
-  $vars    = ['$nb_neg', '$nb_pos', '$nb_zero'];
-  foreach ($valeurs as $k => $valeur) {
-    //$valeur."<br>";
-    foreach ($vars as $k => $var) {
-      echo $valeur.'  '.$var.'<br>';
-    }
+  echo count($arr);
+}
+exit;*/
+$v = [];
+/*if($arr < 0)
+  {
+    echo array_count_values($arr)."<br>";
+  }
+  if($arr == 0)
+  {
+    echo array_count_values($arr)."<br>";
+  }*/
+
+  //exit;
+foreach ($arr as $k => $ar) {
+  //echo $k ." = ".$ar."<br>";
+  if($ar < 0)
+  {
+    echo $ar."<br>";
+    //echo count($ar)."<br>";
   }
 
+  if($ar == 0)
+  {
+    echo $ar."<br>";
+    //echo count($ar)."<br>";
+  }
+}
+
+exit;
+for($i = 0; $i <= $arr; ++$i)
+{
+  echo $i."<br>";
+  exit;
+  if($i === 0)
+{
+  echo $i."<br>";
+}
+elseif($i < 0)
+{
+  echo $i."<br>";
+}
+  /*for($x = 0; $x < count($arr); ++$x)
+  {
+    echo $x."<br>";
+  }*/
+}
+
+exit;
+//<<<<<<< devGC7
+function search_val()
+{
+
+  $arr = [];
+  $valeurs = ['negatives', 'positive', 'nulles'];
+  $vars    = ['$nb_neg', '$nb_pos', '$nb_zero'];
+  foreach($valeurs as $k => $valeur) {
+    //echo $valeur."<br>";
+    foreach ($vars as $k => $var) {
+     $valeur.'  '.$var.'<br>';
+    }
+  }
+  echo $valeur.'  '.$var.'<br>';
+  //echo array_unique($valeur, $var);
+
+  /*for($y = 0; $y < $valeurs; ++$y)
+  {
+    //echo $y."<br>";
+    for($x = 0; $x < $vars; ++$x)
+    {
+      echo $x[$y]."<br>";
+    }
+  }*/
+  //return $arr;
   /*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
     foreach($vars as $k => $var)
     {
@@ -24,9 +91,9 @@ function search_val()
 
     }*/
 }
-// vdli(search_val());
-// exit;
-=======
+vdli(search_val());
+exit;
+//=======
 /*function search_val(){
 $valeurs = ['negatives', 'positive', 'nulles'];
 $vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
