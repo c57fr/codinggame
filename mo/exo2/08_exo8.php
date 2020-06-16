@@ -4,62 +4,57 @@ ob_implicit_flush(); // Pour actu xdebug ds chrome
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
+/*
+Dans le tableau ci-dessus, il y a des valeurs négatives, positives et nulles. 
+Pour afficher les éléments du tableau, on utilise la boucle foreach.
+Mais pour compter le nombre d'éléments négatifs, positifs et nuls, il faut créer des conditions pour déterminer le signe de chaque valeure dans la boucle.
+Dans chaque condtion il faut incrémenter une variable(nouvelle variable). Exemple :
+$neg++ pour déterminer le nombre d'éléments négatifs dans la contion pour les valeurs néégatives
+$pos++ pour déterminer le nombre d'éléments positifs dans la contion pour les valeurs positivess
+$nulles++ pour déterminer le nombre d'éléments nuls dans la contion pour les valeurs nulles
+Il faudra affecter les 3 variables incrémentées dehors de la fonctions pour éviter l'erreur dans le navigateur. Exemple :
+$pos = 0;
+$neg = 0;
+$nulles = 0;
+*/
 
+  $arr=[-7, -3, 0, 3, 5, -5];
 
-$arr=[-7, -3, 0, 3, 5, -5];
-//echo count($arr);
-/*if($arr < 0)
-{
-  echo count($arr);
-}
-exit;*/
-$v = [];
-/*if($arr < 0)
-  {
-    echo array_count_values($arr)."<br>";
-  }
-  if($arr == 0)
-  {
-    echo array_count_values($arr)."<br>";
-  }*/
-
-  //exit;
+  $neg = 0;
+  $pos = 0;
+  $nulle = 0;
 foreach ($arr as $k => $ar) {
   //echo $k ." = ".$ar."<br>";
   if($ar < 0)
   {
-    echo $ar++."<br>";
+    //echo $ar."<br>";
     $neg++;
     //echo count($ar)."<br>";
   }
 
   if($ar == 0)
   {
-    echo $ar."<br>";
+    //echo $ar."<br>";
+    //echo count($ar)."<br>";
+    $nulle++;
+  }
+
+  if($ar > 0)
+  {
+    //echo $ar."<br>";
+    $pos++;
     //echo count($ar)."<br>";
   }
 }
-echo $neg;
-exit;
-for($i = 0; $i <= $arr; ++$i)
-{
-  echo $i."<br>";
-  exit;
-  if($i === 0)
-{
-  echo $i."<br>";
-}
-elseif($i < 0)
-{
-  echo $i."<br>";
-}
-  /*for($x = 0; $x < count($arr); ++$x)
-  {
-    echo $x."<br>";
-  }*/
-}
+echo $neg."<br>";
+echo "<hr>";
+echo $nulle."<br>";
+echo "<hr>";
+echo $pos."<br>";
+echo "<hr>";
 
 exit;
+
 //<<<<<<< devGC7
 function search_val()
 {
