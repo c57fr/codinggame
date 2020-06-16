@@ -1,0 +1,21 @@
+<?php
+
+$methode[1] = 'Méthode <strong>Double Boucle for()</strong>';
+
+$ve[1] = function () {
+  global $A1, $N;
+  $a    = array_fill(0, $N, 0);
+  $a[0] = $A1;
+
+  for ($n = 0; $n < $N - 1; ++$n) {
+    for ($m = $n - 1; $m >= 0; --$m) {
+      if ($a[$m] === $a[$n]) {
+        $a[$n + 1] = $n - $m;
+
+        break;
+      }
+    }
+  }
+
+  return $a;
+};

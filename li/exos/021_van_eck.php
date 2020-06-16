@@ -1,30 +1,37 @@
-Exo 021: Van Eck's.
-<hr>
+Exo 021: Van Eck's. | 
 <?php
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 ob_implicit_flush(); // Pour actu x.debug ds chrome
 
-function ve1()
-{
-  define('MAX', 5);
-  $a    = array_fill(0, MAX, 0);
-  $a[0] = 7;
+$affArr = function ($arr) {
+  echo implode(', ', $arr).'<hr>';
+};
 
-  for ($n = 0; $n < MAX; ++$n) {
-    for ($m = $n - 1; $m >= 0; --$m) {
-      if ($a[$m] === $a[$n]) {
-        $a[$n + 1] = $n - $m;
+include '021_ve1.php'; // Double boucle
+include '021_ve2.php'; // Avec Manipulations Array
+// include '021_ve3.php'; // Avec Yield
+// echo $methode.'<hr>';
 
-        break;
-      }
-    }
-  }
-  vdli($a);
+$A1 = 77;
+$N  = 50;
+echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.$N.'</strong> premiers éléments en partant de <strong>'.$A1.'</strong></font></p><hr>';
+
+// 2fix microtime() pour + de précisions => xx' ss" xxx
+foreach ($methode as $k => $m) {
+  $deb = time();
+  $ve[$k]();
+  $fin = time();
+  echo $methode[$k].' - Chrono: <strong>'.number_format(($fin - $deb), 0, ',', ' ').' s</strong>.<hr>';
 }
 
-// ve1();
+$affArr($ve[1]());
+function affArr()
+{
+  global $arr;
+  echo implode(', ', $arr).'<br>';
+}
 
 // exit;
 // https://www.codingame.com/training/easy/van-ecks-sequence
@@ -110,20 +117,14 @@ function seen($arr)
   affArr();
   if (in_array($v, $arr, true)) {
     echo 'Oui: '.$v.' présent ds $arr<br>';
-    $n=3; // 2fix calcul index
+    $n = 3; // 2fix calcul index
   } else {
     echo 'Non: '.$v.' pas déjà vu ds $arr<br>';
-    $n=0;
+    $n = 0;
   }
   array_push($arr, $v, $n);
   // return $arr
   affArr();
-}
-
-function affArr()
-{
-  global $arr;
-  echo implode(', ', $arr).'<br>';
 }
 
 $arr = [1, 777,  2, 3, 777];
