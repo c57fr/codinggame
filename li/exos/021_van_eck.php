@@ -64,9 +64,10 @@ function ve2($seq) // Méthode Dictionnaire
   define('MAX2', 15);
   $a = array_fill(0, MAX2, 0);
   // $a[0]=7;
+  $l    = 7; // 2fix value here
   $seen = [];
   for ($n = 0; $n < MAX2 - 1; ++$n) {
-    if ($seq[$n] === $seqs[$n - 1]) {
+    if ($seq[$n] === $seq[$n - 1]) {
       $next = $l - $n - 1;
     }
     $seen[$a[$n]] = $n;
@@ -80,10 +81,10 @@ func main() {
   a := make([]int, max) // all zero by default
   seen := make(map[int]int)
   for n := 0; n < max-1; n++ {
-      if m, ok := seen[a[n]]; ok {
-          a[n+1] = n - m
-      }
-      seen[a[n]] = n
+  if m, ok := seen[a[n]]; ok {
+    a[n+1] = n - m
+  }
+  seen[a[n]] = n
   }
   fmt.Println("The first ten terms of the Van Eck sequence are:")
   fmt.Println(a[:10])
@@ -128,22 +129,21 @@ foreach (ve3() as $v) {
   }
 }
 
-// vdli(ve3());
 /*
 https://rosettacode.org/wiki/Van_Eck_sequence
 
 def van_eck():
-    n = 0
-    seen = [0]
+  n = 0
+  seen = [0]
+  val = 0
+  while True:
+  yield val
+  if val in seen[1:]:
+    val = seen.index(val, 1)
+  else:
     val = 0
-    while True:
-        yield val
-        if val in seen[1:]:
-            val = seen.index(val, 1)
-        else:
-            val = 0
-        seen.insert(0, val)
-        n += 1
+  seen.insert(0, val)
+  n += 1
 
 */
 
