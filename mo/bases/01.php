@@ -6,7 +6,7 @@ if (!function_exists('vdli')) {
 }
 
 // http://phpdebutant.org/article14.php
-// 1 fichier par leçon complètement LUE (Total 24- Liens sur la droite)
+// 1 fichier par leçon complètement LUE (Total 24 - Liens sur la droite)
 
 // Tu fais marcher chaque exemple recontré dans le texte lu  (copier/coller interdit)
 echo 'Bonjour le monde !';
