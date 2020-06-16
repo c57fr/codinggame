@@ -101,6 +101,29 @@ $seq = [0];
 
 // vdli($seq);
 
+function seen($arr)
+{
+  global $arr;
+  $v=end($arr);
+  if (in_array($v, $arr)) echo 'Oui: '.$v. ' présent ds $arr<br>';
+}
+
+function affArr()
+{
+  global $arr;
+  echo implode(', ', $arr).'<br>';
+}
+
+$arr = [1, 2, 3, 777];
+affArr();
+// array_pop($arr);
+affArr();
+seen($arr);
+exit;
+echo end($arr);
+
+echo '<hr>';
+exit;
 function ve3()
 {
   $n    = 0;
