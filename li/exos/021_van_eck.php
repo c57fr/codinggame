@@ -104,8 +104,20 @@ $seq = [0];
 function seen($arr)
 {
   global $arr;
-  $v=end($arr);
-  if (in_array($v, $arr)) echo 'Oui: '.$v. ' présent ds $arr<br>';
+  $v = end($arr);
+  affArr();
+  array_pop($arr);
+  affArr();
+  if (in_array($v, $arr, true)) {
+    echo 'Oui: '.$v.' présent ds $arr<br>';
+    $n=3; // 2fix calcul index
+  } else {
+    echo 'Non: '.$v.' pas déjà vu ds $arr<br>';
+    $n=0;
+  }
+  array_push($arr, $v, $n);
+  // return $arr
+  affArr();
 }
 
 function affArr()
@@ -114,7 +126,7 @@ function affArr()
   echo implode(', ', $arr).'<br>';
 }
 
-$arr = [1, 2, 3, 777];
+$arr = [1, 777,  2, 3, 777];
 affArr();
 // array_pop($arr);
 affArr();
