@@ -18,7 +18,7 @@ $neg = 0;
 $nulles = 0;
 */
 
-  $arr=[-7, -3, 0, 3, 5, -5];
+  /*$arr=[-7, -3, 0, 3, 5, -5];
 
   $neg = 0;
   $pos = 0;
@@ -52,8 +52,9 @@ echo $nulle."<br>";
 echo "<hr>";
 echo $pos."<br>";
 echo "<hr>";
-
-exit;
+echo "<hr>";
+echo "<hr>";*/
+//exit;
 
 //<<<<<<< devGC7
 function search_val()
@@ -62,30 +63,37 @@ function search_val()
   $arr = [];
   $valeurs = ['negatives', 'positive', 'nulles'];
   $vars    = ['$nb_neg', '$nb_pos', '$nb_zero'];
-  foreach($valeurs as $k => $valeur) {
-    //echo $valeur."<br>";
+  /*foreach($valeurs as $k => $valeur) {
+    echo $valeur."<br>";
     foreach ($vars as $k => $var) {
-     $valeur.'  '.$var.'<br>';
-    }
-  }
-  echo $valeur.'  '.$var.'<br>';
-  //echo array_unique($valeur, $var);
-
-  /*for($y = 0; $y < $valeurs; ++$y)
-  {
-    //echo $y."<br>";
-    for($x = 0; $x < $vars; ++$x)
-    {
-      echo $x[$y]."<br>";
+     //echo $valeur.'  '.$var.'<br>';
     }
   }*/
-  //return $arr;
-  /*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
-    foreach($vars as $k => $var)
-    {
-      echo $valeur. '  '. $var."<br>";
 
-    }*/
+  $neg = 'nb_neg';
+  $pos = 'nb_pos';
+  $nulle = 'nb_zero';
+
+  foreach($vars as $k => $var){
+    //echo $var."<br>";
+    if($var < 0)
+    {
+      $neg;
+    }
+    if($var == 0)
+    {
+      $nulle;
+    }
+    if($var > 0)
+    {
+      $pos;
+    }
+  }
+
+ echo $neg. " ". $valeurs[0]."<br>";
+ echo $pos. " ". $valeurs[1]."<br>";
+ echo $nulle. " ". $valeurs[2]."<br>";
+
 }
 vdli(search_val());
 exit;
