@@ -85,3 +85,12 @@ function chrono($deb, $fin, $arr = 10)
 
   return $env.date('H:i:s ', $hmn).($t * $arr - $hmn * 1e3).' &micro;s.';
 }
+
+function mf($size)
+{
+  $unit = ['b', 'kb', 'mb', 'gb', 'tb', 'pb'];
+
+  return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2).' '.$unit[$i];
+}
+
+// echo mf(memory_get_usage(true)).'<br>'; //Ex.:  123 k

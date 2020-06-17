@@ -37,7 +37,7 @@ if (isset($methode) && is_array($methode) && 0) {
   }
 }
 
-if ($N < 1e3+1) {
+if ($N < 1e3) {
   $affArr($ve[0]($A1, $N));
 }
 
