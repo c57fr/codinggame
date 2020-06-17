@@ -4,12 +4,16 @@ $methode[2] = 'Manipulations Array';
 
 function ve2($A1 = 0, $N = 7)
 {
+  $arr= [$A1];
   $m_ini = memory_get_usage();
-  $n     = str_repeat('45645df56456456', 100);
+  for ($i = 1; $i < $N; ++$i) {
+    $arr=seen($arr);
+  }
+  // $n     = str_repeat('45645df56456456', 100);
   $m_fin = memory_get_usage();
-  $a[]   = mf($m_fin - $m_ini);
+  $arr[] = mf($m_fin - $m_ini);
 
-  return $a;
+  return $arr;
 }
 
 // 2do Organigramme
@@ -19,23 +23,27 @@ function seen($arr)
   // global $arr;
   // $v = end($arr);
   affArr();
-  echo 'xxx: '.($v = array_pop($arr)).'<br>';
-  affArr();
-  if (in_array($v, $arr, true)) {
-    echo 'Oui: '.$v.' présent ds $arr<br>';
-    $n = 333; // 2fix calcul index
+  // echo 'xxx: '.($v = array_pop($arr)).'<br>';
+  // affArr();
+  $v = end($arr);
+  if (in_array($v, array_slice($arr, 0, -1), true)) {
+    // echo 'Oui: '.$v.' présent ds $arr :-1<br>';
+    $is = array_flip(array_slice($arr, 0, -1));
+    $n  = count($arr) - 1 - $is[$v];
   } else {
     echo 'Non: '.$v.' pas déjà vu ds $arr<br>';
     $n = 0;
   }
-  array_push($arr, $v, $n);
-  // return $arr
-  affArr();
+  array_push($arr, $n);
+  affArr2($arr);
+  return $arr;
 }
 
 $arr = [777, 0, 0,  1, 0, 2, 0, 2, 2, 1];
 // $arr = [7, 8, 9];
-// seen($arr);
+$arr = [7];
+
+seen($arr);
 // next = 6 au lieu du 333
 // = trouver l'index du 1 (der elt) sans lui
 
@@ -62,16 +70,22 @@ if (!function_exists('array_key_last')) {
     return array_key_first(array_slice($array, -1));
   }
 }
-affArr();
-$affArr(array_slice($arr, 0, -1)); // Tout le tablo sauf dernier
-// $arr = array_flip($arr);
-// echo array_key_last(array_slice($arr, -1));
+// affArr();
+// $affArr(array_slice($arr, 0, -1)); // Tout le tablo sauf dernier
+// // $arr = array_flip($arr);
+// // echo array_key_last(array_slice($arr, -1));
+// vdli($arr);
 
-exit;
-array_pop($arr);
-affArr();
-affArr($arr = array_flip($arr));
-vdli($arr);
+// // echo array_key_first($arr);
+// echo $vi=count($arr)-1; // = v index
+// vdli(array_flip($arr));
+// vdli($is=array_flip(array_slice($arr, 0, -1)));
+// echo count($arr)-1-$is[end($arr)];
+// exit;
+// array_pop($arr);
+// affArr();
+// affArr($arr = array_flip($arr));
+// vdli($arr);
 // array_flip($arr);
 // affArr();
 

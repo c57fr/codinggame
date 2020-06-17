@@ -51,6 +51,11 @@ function affArr()
   echo implode(', ', $arr).'<br>';
 }
 
+function affArr2($arr)
+{
+  echo implode(', ', $arr).'<br>';
+}
+
 // https://www.codingame.com/training/easy/van-ecks-sequence
 
 //##################################################################
