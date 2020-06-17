@@ -15,34 +15,29 @@ $affArr = function ($arr) {
 // 0
 
 $A1 = 7; // 77
-$N  = 1e2; //5e1
+$N  = 1e4; //5e1
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premiers éléments en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
 include '021_ve.php'; // 2do Meilleure actuelle  méthode (Suppr à terme)
-include '021_ve1.php'; // Double boucle
+// include '021_ve1.php'; // Double boucle
 // include '021_ve2.php'; // 2do Avec Manipulations Array
 // include '021_ve3.php'; // 2do  Dictionnaire  ([N, lastIndex])
 // include '021_ve4.php'; // 2do Avec Yield
 // 2do Meilleure méthode -> Renvoie que le Nième elmt
 // include '021_ve5.php';
+include 'test.php';
 
 // 2do Chrono + précis :
 // 2fix microtime() pour + de précisions => xx' ss" xxx
-foreach ($methode as $k => $m) {
-  $memtot = memory_get_peak_usage();
-  echo $memtot.'<br>';
-  $memdeb = memory_get_usage();
-  echo $memdeb.'<br>';
-  $deb = time();
-  $ve[$k]($A1, $N);
-  $memfin = memory_get_usage();
-  echo $memfin.'<br>';
-  $memtot = memory_get_peak_usage();
-  echo $memtot.'<br>';
-  $fin = time();
-  // 2do table méthode | Mémory Used (Ko ou o) | Chrono
-//   echo $methode[$k].' - Chrono: <strong>'.number_format(($fin - $deb), 0, ',', ' ').' s</strong>.<hr>';
-  echo $methode[$k].' - Chrono: <strong>'.chrono($deb, $fin).'</strong>.<hr>';
+
+if (isset($methode) && is_array($methode)) {
+  foreach ($methode as $k => $m) {
+    $deb = time();
+    $ve[$k]($A1, $N);
+    $fin = time();
+    // 2do table méthode | Mémory Used (Ko ou o) | Chrono
+    echo $methode[$k].' - Chrono: <strong>'.chrono($deb, $fin, 10).'</strong><hr>';
+  }
 }
 
 // $affArr($ve[0]($A1, $N));

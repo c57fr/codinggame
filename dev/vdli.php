@@ -83,5 +83,5 @@ function chrono($deb, $fin, $arr = 10)
   $t   = floor(($fin - $deb) / $arr);
   $hmn = floor($t / (1e3 / $arr));
 
-  return $env.date('H:i:s ', $hmn).($t * $arr - $hmn * 1e3).' &micro;s<hr>';
+  return $env.date('H:i:s ', $hmn).($t * $arr - $hmn * 1e3).' &micro;s.';
 }
