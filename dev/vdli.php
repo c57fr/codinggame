@@ -92,7 +92,6 @@ function nf($n, $dec = 1)
   return number_format($n, $dec, ',', ' ');
 }
 
-// 2do analys
 function mf($size)
 {
   $unit = ['b', 'kb', 'mb', 'gb', 'tb', 'pb'];

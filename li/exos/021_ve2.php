@@ -20,30 +20,22 @@ function ve2($A1 = 0, $N = 7)
 
 function seen($arr)
 {
-  // global $arr;
-  // $v = end($arr);
-  affArr();
-  // echo 'xxx: '.($v = array_pop($arr)).'<br>';
-  // affArr();
   $v = end($arr);
   if (in_array($v, array_slice($arr, 0, -1), true)) {
-    // echo 'Oui: '.$v.' présent ds $arr :-1<br>';
     $is = array_flip(array_slice($arr, 0, -1));
     $n  = count($arr) - 1 - $is[$v];
   } else {
-    echo 'Non: '.$v.' pas déjà vu ds $arr<br>';
     $n = 0;
   }
   array_push($arr, $n);
-  affArr2($arr);
   return $arr;
 }
 
-$arr = [777, 0, 0,  1, 0, 2, 0, 2, 2, 1];
-// $arr = [7, 8, 9];
-$arr = [7];
+// $arr = [777, 0, 0,  1, 0, 2, 0, 2, 2, 1];
+// // $arr = [7, 8, 9];
+// $arr = [7];
 
-seen($arr);
+// seen($arr);
 // next = 6 au lieu du 333
 // = trouver l'index du 1 (der elt) sans lui
 

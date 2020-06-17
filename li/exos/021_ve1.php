@@ -55,6 +55,6 @@ function ve1cdg($A1 = 0, $N = 7)
 
   return end($a);
 }
-echo ve1cdg($A1, $N)."\n";
+// echo ve1cdg($A1, $N)."\n";
 
 // => Pass 4/6 des Tests
