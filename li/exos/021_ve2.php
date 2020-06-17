@@ -1,6 +1,6 @@
 <?php
 
-$methode[2] = 'Méthode <strong>Manipulations Array</strong>';
+$methode[2] = 'Manipulations Array';
 
 function ve2($A1 = 0, $N = 7)
 {

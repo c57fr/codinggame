@@ -1,6 +1,6 @@
 <?php
 
-$methode[1] = 'Méthode <strong>Double Boucle for()</strong>';
+$methode[1] = 'Double Boucle for()';
 
 function ve1($A1 = 0, $N = 7)
 {

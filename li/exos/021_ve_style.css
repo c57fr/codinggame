@@ -1,0 +1,46 @@
+th {
+    font-size: 1.2em;
+    font-weight: bold;
+    background-color: rgb(0, 247, 255);
+}
+
+th[scope="col"] {
+    text-align: center;
+    background-color: #696969;
+    color: #fff;
+}
+
+tr, td {
+    font-size: 1em;
+    text-align: right;
+}
+
+td[scope="lg"] {
+    background-color: rgba(200, 200, 200, 0.801);
+    text-align-last: left;
+    /* color: #00f; */
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    border-radius: 7px;
+}
+
+.tc {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ar {
+    text-align: right;
+}
+
+tr:nth-child(odd) {
+    background-color: #eee;
+}
