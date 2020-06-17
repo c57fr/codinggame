@@ -2,9 +2,15 @@
 
 $methode[2] = 'Méthode <strong>Manipulations Array</strong>';
 
-function ve2 ($A1 = 0, $N = 7) {
-  return [];
-};
+function ve2($A1 = 0, $N = 7)
+{
+  $m_ini = memory_get_usage();
+  $n     = str_repeat('45645df56456456',100);
+  $m_fin = memory_get_usage();
+  $a[]   = mf($m_fin - $m_ini);
+
+  return $a;
+}
 
 // 2do Organigramme
 
