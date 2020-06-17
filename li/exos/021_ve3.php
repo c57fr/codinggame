@@ -31,7 +31,7 @@ function ve2($seq) // Méthode Dictionnaire
   define('MAX2', 15);
   $a = array_fill(0, MAX2, 0);
   // $a[0]=7;
-  $l    = 7; // 2fix value here
+  $l    = count($seq);
   $seen = [];
   for ($n = 0; $n < MAX2 - 1; ++$n) {
     if ($seq[$n] === $seq[$n - 1]) {
@@ -49,7 +49,7 @@ func main() {
   seen := make(map[int]int)
   for n := 0; n < max-1; n++ {
   if m, ok := seen[a[n]]; ok {
-    a[n+1] = n - m
+  a[n+1] = n - m
   }
   seen[a[n]] = n
   }
