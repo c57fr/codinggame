@@ -8,7 +8,6 @@ $ve[2] = function ($A1 = 0, $N = 7) {
 
 // 2do Organigramme
 
-
 function seen($arr)
 {
   global $arr;
