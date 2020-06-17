@@ -37,7 +37,7 @@ foreach (ve4_v1() as $v) {
 
 /*
 Partie Python
-https://rosettacode.org/wiki/Van_Eck_sequence
+https://rosettacode.org/wiki/Van_Eck_sequence#Python
 
 
 def van_eck():

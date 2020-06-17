@@ -16,7 +16,7 @@ $affArr = function ($arr) {
 // 0
 
 $A1 = 7; // 77
-$N  = 5e3; //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
+$N  = 1e3; //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premiers éléments en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
 include '021_ve1.php'; // Double boucle

@@ -21,7 +21,8 @@ $i = 1;
 $v = 0;
 /**
  * Van Eck
- * //2do Van Eck méthode Python
+ * //2do Van Eck méthode Python 
+ * Env 5'20 dans
  * https://www.youtube.com/watch?v=Cd5Nmyz8ISI.
  *
  * @param mixed $seq
