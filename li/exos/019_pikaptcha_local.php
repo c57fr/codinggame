@@ -123,7 +123,7 @@ foreach ($line as $ligne) {
 $ss = ['^', '>', 'v', '<'];
 $ds = [-$w, 1, $w, -1];
 
-if ($side=='R'){
+if ('R' === $side) {
   $ss = array_reverse($ss);
   $ds = array_reverse($ds);
 }
@@ -144,18 +144,23 @@ $i = $mvt = 0;
 
 do {
   ++$mvt;
-
+  /*
+  ↑ ALT + 24
+  → ALT + 26
+  ↓ ALT + 25
+  ← ALT + 27
+  */
   if ('#' === $l[$p + $ds[($s - 1 + 4) % 4]]) {
     if ('#' !== $l[$p + $ds[$s]]) {
       // echo 'Avance en ';
       $p += $ds[$s];
       $l[$p] = (int) $l[$p] + 1;
     } else {
-      // echo 'Tourne à droite dans ';
+      // echo 'Tourne à droite dans '; (ALT + 26)
       $s = ($s + 5) % 4;
     }
   } else {
-    // echo 'Tourne à gauche et avance en ';
+    // echo 'Tourne à gauche et avance en '; ←  (ALT + 27)
     $s = ($s + 3) % 4;
     $p += $ds[$s];
     $l[$p] = (int) $l[$p] + 1;
