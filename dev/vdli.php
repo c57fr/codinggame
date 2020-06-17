@@ -79,7 +79,9 @@ function vdt(array $tab)
  */
 function chrono($deb, $fin, $arr = 10)
 {
+  $env = (10 === $arr) ? '≃ ' : '';
   $t   = floor(($fin - $deb) / $arr);
   $hmn = floor($t / (1e3 / $arr));
-  return date('H:i:s ', $hmn).($t * $arr - $hmn * 1e3).' &micro;s<hr>';
+
+  return $env.date('H:i:s ', $hmn).($t * $arr - $hmn * 1e3).' &micro;s<hr>';
 }
