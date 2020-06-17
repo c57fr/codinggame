@@ -19,14 +19,14 @@ function affMM($mm)
   $N  = count($mm);
   $ch = '<table>';
 
-  foreach ($mm as $k=>$m) {
+  foreach ($mm as $k => $m) {
     $ch .= '<tr>';
     $ch .= '<td style = "text-align:right">'.$k.'</td><td style = "text-align:right">[ '.$m[0].'</td><td>, </td><td style = "text-align:right">'.$m[1].' ]</td>';
   }
   /*
   for ($i = 0; $i < $N; ++$i) {
-    for ($j = 0; $j < $N; ++$j) {
-    }
+  for ($j = 0; $j < $N; ++$j) {
+  }
   }
   */
   $ch .= '</tr>';
@@ -68,4 +68,18 @@ function vdt(array $tab)
   echo vname($tab);
   echo var_dump($tab, true);
   echo '</pre>';
+}
+
+/**
+ * Arrondit par défaut au 1/100ème de seconde, sinon, indiquer 1 en dernier param.
+ *
+ * @param mixed $deb
+ * @param mixed $fin
+ * @param mixed $arr
+ */
+function chrono($deb, $fin, $arr = 10)
+{
+  $t   = floor(($fin - $deb) / $arr);
+  $hmn = floor($t / (1e3 / $arr));
+  return date('H:i:s ', $hmn).($t * $arr - $hmn * 1e3).' &micro;s<hr>';
 }
