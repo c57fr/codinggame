@@ -18,7 +18,7 @@ $A1 = 7; // 77
 $N  = 1e3; //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premiers éléments en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
-include '021_ve1.php'; // Double boucle
+// include '021_ve1.php'; // Double boucle
 include '021_ve2.php'; // 2do Avec Manipulations Array
 // include '021_ve3.php'; // 2do  Dictionnaire  ([N, lastIndex])
 // include '021_ve4.php'; // 2do Avec Yield
@@ -27,15 +27,15 @@ include '021_ve2.php'; // 2do Avec Manipulations Array
 // include 'test.php';
 
 if (isset($methode) && is_array($methode) && 1) {
-    echo '<table align="center"><tr><td align="center">Méthode</td><td align="center">Mémoire</td><td align="center">Chrono</td></tr>';
+  echo '<table align="center"><tr><td align="center">Méthode</td><td align="center">Mémoire</td><td align="center">Chrono</td></tr>';
   foreach ($methode as $k => $m) {
-    $fct   = 've'.$k;
-    $deb   = microtime(true);
-    $seq   = $fct($A1, $N);
+    $fct = 've'.$k;
+    $deb = microtime(true);
+    $seq = $fct($A1, $N);
 
-    echo '<tr><td style="padding-right:20px">'.$methode[$k].'</td><td style="padding-left:20px"><strong>'.end($seq).'</strong></td><td style="padding-left:20px"><strong>' .chrono($deb, 0).'</strong></td></tr>';
-}
-echo '</table>';
+    echo '<tr><td style="padding-right:20px">'.$methode[$k].'</td><td style="padding-left:20px"><strong>'.end($seq).'</strong></td><td style="padding-left:20px"><strong>'.chrono($deb, 0).'</strong></td></tr>';
+  }
+  echo '</table>';
 }
 
 if ($N < 1e3) {
@@ -55,7 +55,7 @@ function affArr()
 //##################################################################
 /*
 
-Solution dans codding :
+Solution validée dans codding : // La meilleure de ci-dessus
 
 
 
