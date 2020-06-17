@@ -1,3 +1,8 @@
+td {
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
 th {
     font-size: 1.2em;
     font-weight: bold;
@@ -18,10 +23,8 @@ tr, td {
 td[scope="lg"] {
     background-color: rgba(200, 200, 200, 0.801);
     text-align-last: left;
-    /* color: #00f; */
-    font-weight: bold;
     padding-left: 10px;
-    padding-right: 10px;
+    font-weight: bold;
 }
 
 table {
@@ -30,6 +33,7 @@ table {
     letter-spacing: 1px;
     font-family: sans-serif;
     border-radius: 7px;
+    margin: 20px;
 }
 
 .tc {
