@@ -5,7 +5,10 @@ if (!function_exists('vdli')) {
 }
 ob_implicit_flush(); // Pour actu xdebug ds chrome
 
-include './pieces.php';
+
+// echo microtime(true);
+
+// include './pieces.php';
 exit;
 include './bin.php';
 include './fiboRecursifEtDyn.php';

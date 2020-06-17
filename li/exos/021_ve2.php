@@ -2,7 +2,7 @@
 
 $methode[2] = 'Méthode <strong>Manipulations Array</strong>';
 
-$ve[2] = function ($A1 = 0, $N = 7) {
+function ve2 ($A1 = 0, $N = 7) {
   return [];
 };
 

@@ -2,9 +2,9 @@
 
 $methode[3] = 'Méthode <strong>Dico [N, lastIndex]</strong>';
 
-$ve[3] = function ($A1 = 0, $N = 7) {
-  return [];
-};
+function ve3 ($A1 = 0, $N = 7) {
+    return [];
+  };
 
 function affE()
 {

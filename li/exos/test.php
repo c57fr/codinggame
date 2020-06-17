@@ -1,14 +1,31 @@
 <?php
 
-// echo memory_get_usage() . "<br>"; // 36640
-// $a = str_repeat("Hello", 1);
-// echo memory_get_usage() . "<br>"; // 57960
-// unset($a);
-// echo memory_get_usage() . "<br>"; // 36744
+$startMemory = memory_get_usage();
+// $array = range(1, 100000);
+$arr = implode(',',$ve[1](0, 3000));
+echo mf(memory_get_usage() - $startMemory);
 
-$memtot = memory_get_peak_usage();
-$memdeb = memory_get_usage();
-$deb    = time();
-echo mf(memory_get_usage(true)).'<br>'; // 123 k
-$ve[1]($A1, $N);
-echo mf(memory_get_usage(true)).'<br>'; // 123 k
+// echo nf(memory_get_usage()).' initial<br>'; // 57960
+// $a = str_repeat("Hello", 1);
+// $a = '12345123123123123123123123';
+// $a = '1';
+// $seq=$ve[1](0,5);
+// $m_ini = memory_get_usage();
+// unset($seq);
+// $m_fin = memory_get_peak_usage();
+
+// echo mf($m_fin - $m_ini);
+
+// echo '<hr>';
+
+// echo nf(memory_get_peak_usage()).' final<br>'; // 57960
+
+// $N      = 1e4;
+// $memdeb = memory_get_usage();
+// $deb    = time();
+// echo nf(memory_get_peak_usage(true)).'<br>';
+// echo nf(memory_get_usage(true)).'<br>';
+// $ve[1]($A1, $N);
+// echo '<hr>';
+// echo nf(memory_get_usage(true)).'<br>';
+// echo nf(memory_get_peak_usage(true)).'<br>';

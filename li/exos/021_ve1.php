@@ -2,7 +2,7 @@
 
 $methode[1] = 'Méthode <strong>Double Boucle for()</strong>';
 
-$ve[1] = function ($A1 = 0, $N = 7) {
+function ve1 ($A1 = 0, $N = 7) {
   $a    = array_fill(0, $N, 0);
   $a[0] = $A1;
 

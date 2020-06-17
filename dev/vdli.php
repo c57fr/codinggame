@@ -71,26 +71,33 @@ function vdt(array $tab)
 }
 
 /**
- * Arrondit par défaut au 1/100ème de seconde, sinon, indiquer 1 en dernier param.
+ * Arrondit à la seconde par défaut, sinon, lever flag $precis.
  *
- * @param mixed $deb
- * @param mixed $fin
- * @param mixed $arr
+ * @param $deb str (microtime(true); du top départ)
+ * @param mixed $precis
  */
-function chrono($deb, $fin, $arr = 10)
+function chrono($deb, $precis = 0)
 {
-  $env = (10 === $arr) ? '≃ ' : '';
-  $t   = floor(($fin - $deb) / $arr);
-  $hmn = floor($t / (1e3 / $arr));
-
-  return $env.date('H:i:s ', $hmn).($t * $arr - $hmn * 1e3).' &micro;s.';
+  $fin     = microtime(true);
+  $precis = ($precis) ? 1 : 0;
+  $t       = $fin - $deb;
+  $hms     = (int) ($t);
+  $ms      = round(($t - $hms) * 1e3);
+  $soms    = [['≃ ', ''], ['', $ms.' &micro;s.']]; // Secondes Ou MS
+  return $soms[$precis][0].date('H:i:s ', $hms).$soms[$precis][1];
 }
 
+function nf($n, $dec = 1)
+{
+  return number_format($n, $dec, ',', ' ');
+}
+
+// 2do analys
 function mf($size)
 {
   $unit = ['b', 'kb', 'mb', 'gb', 'tb', 'pb'];
 
-  return @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2).' '.$unit[$i];
+  return ($size) ? @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2).' '.$unit[$i] : 0;
 }
 
 // echo mf(memory_get_usage(true)).'<br>'; //Ex.:  123 k

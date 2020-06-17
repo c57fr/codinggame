@@ -2,12 +2,12 @@
 
 $methode[4] = 'Méthode <strong>Avec Yield</strong>';
 
-$ve[4] = function ($A1 = 0, $N = 7) {
-  return [];
-};
+function ve4 ($A1 = 0, $N = 7) {
+    return [];
+  };
 
 
-function ve3()
+function ve4_v1()
 {
   $n    = 0;
   $seen = [7 => 0];
@@ -27,7 +27,7 @@ function ve3()
 // $gen = ve3(); // 2do test $gen = la function()
 
 $y = 7;
-foreach (ve3() as $v) {
+foreach (ve4_v1() as $v) {
   echo $v.' ';
   --$y;
   if ($y <= 0) {
