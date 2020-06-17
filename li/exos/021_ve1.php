@@ -22,3 +22,4 @@ $ve[1] = function ($A1 = 0, $N = 7) {
 // Bilan:
 // ++ : Traduit colmportement humain natu
 // -- : On stocke (dans $a) toute la séquence...
+// ==>: Sans doute rapide, mais gourmande si $N élevé 

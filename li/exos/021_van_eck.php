@@ -32,7 +32,7 @@ foreach ($methode as $k => $m) {
   $deb = time();
   $ve[$k]($A1, $N);
   $fin = time();
-  // 2do table méthode | Chrono
+  // 2do table méthode | Mémory Used (Ko ou o) | Chrono
   echo $methode[$k].' - Chrono: <strong>'.number_format(($fin - $deb), 0, ',', ' ').' s</strong>.<hr>';
 }
 
