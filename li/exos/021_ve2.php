@@ -34,5 +34,45 @@ function seen($arr)
 }
 
 $arr = [777, 0, 0,  1, 0, 2, 0, 2, 2, 1];
+// $arr = [7, 8, 9];
 // seen($arr);
 // next = 6 au lieu du 333
+// = trouver l'index du 1 (der elt) sans lui
+
+// Pour compatibilité php < 7.3
+if (!function_exists('array_key_first')) {
+  function array_key_first(array $array)
+  {
+    if ($array === []) {
+      return null;
+    }
+    foreach ($array as $key => $_) {
+      return $key;
+    }
+  }
+}
+
+if (!function_exists('array_key_last')) {
+  function array_key_last(array $array)
+  {
+    if ($array === []) {
+      return null;
+    }
+
+    return array_key_first(array_slice($array, -1));
+  }
+}
+affArr();
+$affArr(array_slice($arr, 0, -1)); // Tout le tablo sauf dernier
+// $arr = array_flip($arr);
+// echo array_key_last(array_slice($arr, -1));
+
+exit;
+array_pop($arr);
+affArr();
+affArr($arr = array_flip($arr));
+vdli($arr);
+// array_flip($arr);
+// affArr();
+
+// echo (array_key_last(array_flip($arr)));
