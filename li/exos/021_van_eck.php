@@ -38,11 +38,11 @@ if (isset($methode) && is_array($methode) && 1) {
   echo '</table>';
 }
 
-if ($N < 1e3) {
+// if ($N < 1e3) {
   include '021_ve.php'; // 2do Meilleure actuelle  méthode (Suppr à terme)
   echo '<hr>';
-  $affArr($ve[0]($A1, $N));
-}
+  $affArr($ve[0]($A1, 30));
+// }
 
 function affArr()
 {
