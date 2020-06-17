@@ -78,12 +78,12 @@ function vdt(array $tab)
  */
 function chrono($deb, $precis = 0)
 {
-  $fin     = microtime(true);
+  $fin    = microtime(true);
   $precis = ($precis) ? 1 : 0;
-  $t       = $fin - $deb;
-  $hms     = (int) ($t);
-  $ms      = round(($t - $hms) * 1e3);
-  $soms    = [['≃ ', ''], ['', $ms.' &micro;s.']]; // Secondes Ou MS
+  $t      = $fin - $deb;
+  $hms    = (int) ($t);
+  $ms     = round(($t - $hms) * 1e3);
+  $soms   = [['≃ ', '+'], ['', $ms.' &micro;s.']]; // Secondes Ou MS
   return $soms[$precis][0].date('H:i:s ', $hms).$soms[$precis][1];
 }
 
