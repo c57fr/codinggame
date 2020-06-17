@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="./exos/021_ve_style.css">
-Exo 021: Van Eck's. |
+Exo 021: Van Eck's Sequence.
 <?php
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';

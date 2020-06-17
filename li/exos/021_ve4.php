@@ -1,6 +1,6 @@
 <?php
 
-$methode[4] = 'Méthode <strong>Avec Yield</strong>';
+$methode[4] = 'Avec Yield';
 
 function ve4 ($A1 = 0, $N = 7) {
     return [];

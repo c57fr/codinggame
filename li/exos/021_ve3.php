@@ -1,10 +1,12 @@
 <?php
 
-$methode[3] = 'Méthode <strong>Dico [N, lastIndex]</strong>';
+$methode[3] = 'Dico [N, lastIndex]';
+// 2do Penser Arrays
 
-function ve3 ($A1 = 0, $N = 7) {
-    return [];
-  };
+function ve3($A1 = 0, $N = 7)
+{
+  return [];
+}
 
 function affE()
 {
@@ -21,7 +23,7 @@ $i = 1;
 $v = 0;
 /**
  * Van Eck
- * //2do Van Eck méthode Python 
+ * //2do Van Eck méthode Python
  * Env 5'20 dans
  * https://www.youtube.com/watch?v=Cd5Nmyz8ISI.
  *
