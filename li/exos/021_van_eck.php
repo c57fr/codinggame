@@ -21,8 +21,8 @@ $N  = 1e4; //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premiers éléments en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
 // 2do EC test 1 & 2 désordre(1e4)
+// include '021_ve1.php'; // Double boucle
 include '021_ve2.php'; // Avec Manipulations Array // 2do Vesrsion coding + opti
-include '021_ve1.php'; // Double boucle
 // include '021_ve3.php'; // 2do  Dictionnaire  ([N, lastIndex])
 // include '021_ve4.php'; // 2do Avec Yield
 // 2do Meilleure méthode -> Pour coding, ne renvoie que le Nième elmt
