@@ -16,8 +16,9 @@ $affArr = function ($arr) {
 // 0
 
 // 2do Test 1e5 (Env. 30 mn (ve 1 & ve2) ?)
-$A1 = 0; // 77
-$N  = 1e1/2; //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
+$A1 = 7; // 0 ≤ A1 ≤ 200
+$N  = 11; // 1 ≤ N ≤ 1000000
+ //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premiers éléments en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
 // 2do EC test 1 & 2 désordre(1e4)
