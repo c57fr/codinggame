@@ -30,13 +30,17 @@ include '021_ve2.php'; // Avec Manipulations Array // 2do Vesrsion coding
 // include 'test.php';
 
 if (isset($methode) && is_array($methode) && 1) {
-  echo '<table class="tc"><tr><th scope="col">Méthode</th><th scope="col">Mémoire</th><th scope="col">Chrono</th></tr>';
+  echo '<table class="tc"><tr><th scope="col">Méthode</th><th scope="col">Der</th><th scope="col">Mémoire</th><th scope="col">Chrono</th></tr>';
   foreach ($methode as $k => $m) {
     $fct = 've'.$k;
     $deb = microtime(true);
     $seq = $fct($A1, $N);
+    // vdli($seq);
+$charge=array_pop($seq);
+// vdli($seq);
+$der=end($seq);
 
-    echo '<tr><td scope="lg">'.$methode[$k].'</td><td>'.end($seq).'</td><td>'.chrono($deb, 0).'</td></tr>';
+    echo '<tr><td scope="lg">'.$methode[$k].'</td><td>'.$der.'</td><td>'.$charge.'</td><td>'.chrono($deb, 0).'</td></tr>';
   }
   echo '</table>';
 }
