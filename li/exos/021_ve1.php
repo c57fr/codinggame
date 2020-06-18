@@ -18,9 +18,7 @@ function ve1($A1 = 0, $N = 7)
     }
   }
   echo end($a).' - '.($n + 1).' - '.$m;
-  // array_pop($a);
   $m_fin = memory_get_usage();
-  // echo mf($m_fin - $m_ini);
   $a[] = mf($m_fin - $m_ini);
 
   return $a;

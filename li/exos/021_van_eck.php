@@ -17,7 +17,7 @@ $affArr = function ($arr) {
 
 // 2do Test 1e5 (Env. 30 mn (ve 1 & ve2) ?)
 $A1 = 7; // 0 ≤ A1 ≤ 200
-$N  = 11; // 1 ≤ N ≤ 1000000
+$N  = 1e1; // 1 ≤ N ≤ 1000000
  //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premiers éléments en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
@@ -36,7 +36,7 @@ if (isset($methode) && is_array($methode) && 1) {
     $fct = 've'.$k;
     $deb = microtime(true);
     $seq = $fct($A1, $N);
-    vdli($seq);
+    // vdli($seq);
     $charge = array_pop($seq);
     // vdli($seq);
     $der = end($seq);
