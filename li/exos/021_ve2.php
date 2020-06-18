@@ -10,6 +10,7 @@ function ve2($A1 = 0, $N = 7)
     $arr = seen($arr);
   }
   $m_fin = memory_get_usage();
+  array_pop($arr);
   $arr[] = mf($m_fin - $m_ini);
 
   return $arr;

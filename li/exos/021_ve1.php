@@ -8,7 +8,7 @@ function ve1($A1 = 0, $N = 7)
   $a     = array_fill(0, $N, 0);
   $a[0]  = $A1;
 
-  for ($n = 0; $n < $N - 1; ++$n) { // On ballaye tous les elts
+  for ($n = 0; $n < $N; ++$n) { // On ballaye tous les elts
   for ($m = $n - 1; $m >= 0; --$m) { // on ballaye à l'envers de la clé précédente au début tant que clé >=0 ( = clé existe)
     if ($a[$m] === $a[$n]) { // Si la dernière clé étudiée ($n) == 1 des clés précédente (== on l'a déjà vu)
     $a[$n + 1] = $n - $m; // on passe de 0 à la valeur de l'écart des indexes
@@ -17,6 +17,8 @@ function ve1($A1 = 0, $N = 7)
     }
   }
   }
+  echo end($a).' - '.($n + 1).' - '.$m;
+  array_pop($a);
   $m_fin = memory_get_usage();
   // echo mf($m_fin - $m_ini);
   $a[] = mf($m_fin - $m_ini);
