@@ -13,9 +13,9 @@ function affE()
 
 // Init
 // echo '0 / <strong>'.$A1.'</strong><hr>';
-$e = [$A1 => 0, 0 => 1];
-$i = 1;
-$v = 0;
+// $e = [$A1 => 0, 0 => 1];
+// $i = 1;
+// $v = 0;
 /**
  * Van Eck
  * //2do Van Eck méthode Python
@@ -28,25 +28,79 @@ $v = 0;
  */
 function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
-  $a = [$A1 => 0, 0 => 1, 0 => 2]; // [N => lastIndex]
+  $i = 0; // for - Index (N = i +1)
+  echo '$i = '.$i;
+  // $a = [$A1 => 0, 0 => 1, 0 => 2]; // [N => lastIndex]
+  $m = [$A1 => 0]; // [N => lastIndex]
+  $a = [];
   vdli($a);
+  vdli($m);
 
+  $der = array_flip($m)[0];
+  vdli($der);
 
-// vdli($a[max($a)]);
-vdli(array_flip($a));
+  if (in_array($der, $a)) {
+  } else {
+    echo 'NON';
+    $n = 0;
+  }
+  $a[$der] = $m[$der];
+  $m = [$n, $i+1];
 
-  echo '<hr>';
-  for ($n = 0; $n < $N - 1; ++$n) {
+  for ($i = 0; $i < $N - 1; ++$i) {
     // if m, ok := seen[a[n]]; ok {
-    // a[n+1] = n - m
+    // a[n+1] = i - m
     // }
-    // seen[a[n]] = n
+    // seen[a[n]] = i
   }
 
-  $a = array_flip($a);
+  // $a = array_flip($a);
+  vdli($n);
+  echo '<hr>';
+  
+  /////////////////////////////////////////////////////
+  $i = 1; // for - Index
+  echo '$i = '.$i;
+  
   vdli($a);
+  vdli($m);
+
+
+  // vdli($a[max($a)]);
+  vdli($a);
+  // vdli($a = array_flip($a));
+  $der = array_keys($m);
+  vdli($der);
+  // $a = array_flip($a);
+
+  if (in_array($der, array_slice($a, 0, -1), true)) {
+  } else {
+    echo 'NON';
+    $n = 0;
+  }
+  $m = [$n, $i];
+
+  for ($i = 0; $i < $N - 1; ++$i) {
+    // if m, ok := seen[a[n]]; ok {
+    // a[n+1] = i - m
+    // }
+    // seen[a[n]] = i
+  }
+
+  // $a = array_flip($a);
+  vdli($n);
+  echo '<hr>';
+
+
+
+
+
+
+
+
+
   array_push($a, '123 b');
-$a=[3=>0, 4=>789];
+
   return $a;
 }
 /*
