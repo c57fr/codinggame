@@ -3,11 +3,6 @@
 $methode[3] = 'Dico [N, lastIndex]';
 // 2do Penser Arrays
 
-function ve3($A1 = 0, $N = 7)
-{
-  return [];
-}
-
 function affE()
 {
   global $e, $i, $v;
@@ -28,22 +23,15 @@ $v = 0;
  * https://www.youtube.com/watch?v=Cd5Nmyz8ISI.
  *
  * @param mixed $seq
+ * @param mixed $A1
+ * @param mixed $N
  */
-function ve2($seq) // Méthode Dictionnaire
+function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
-  define('MAX2', 15);
-  $a = array_fill(0, MAX2, 0);
-  // $a[0]=7;
-  $l    = count($seq);
-  $seen = [];
-  for ($n = 0; $n < MAX2 - 1; ++$n) {
-    if ($seq[$n] === $seq[$n - 1]) {
-      $next = $l - $n - 1;
-    }
-    $seen[$a[$n]] = $n;
-  }
+  $a = [$A1, 0]; // [N, lastIndex]
+  array_push($a, '123 b');
 
-  return $seq;
+  return $a;
 }
 /*
 func main() {
@@ -63,10 +51,22 @@ func main() {
 }
 */
 
-$seq = [0];
+// Bilan:
+// ++ : Idem ve1
+// -- : Idem ve1
+// ==>: Env. % + rapide que ve2, mais gourmande si $N élevé
 
-// for ($i = 0; $i < 11; ++$i) {
-  // ve2($seq);
-// }
+// https://www.codingame.com/training/easy/van-ecks-sequence
 
-// vdli($seq);
+//##################################################################
+/*
+
+Solution dans codding :
+
+<?php
+
+...
+
+// => Pass  des Tests
+
+*/
