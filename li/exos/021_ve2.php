@@ -16,8 +16,6 @@ function ve2($A1 = 0, $N = 7)
   return $arr;
 }
 
-// 2do Organigramme
-
 function seen($arr)
 {
   $v = end($arr);
@@ -59,7 +57,7 @@ if (!function_exists('array_key_last')) {
 // Bilan:
 // ++ : Idem ve1
 // -- : Idem ve1
-// ==>: E,v. 30% + rapide que ve1, mais gourmande si $N élevé
+// ==>: Env. 30% + rapide que ve1, mais gourmande si $N élevé
 
 // https://www.codingame.com/training/easy/van-ecks-sequence
 
@@ -69,4 +67,31 @@ if (!function_exists('array_key_last')) {
 Solution dans codding :
 
 <?php
+
+function ve2($A1 = 0, $N = 7)
+{
+  $arr   = [$A1];
+  for ($i = 1; $i < $N + 1; ++$i) {
+    $arr = seen($arr);
+  }
+  array_pop($arr);
+
+  return $arr;
+}
+
+function seen($arr)
+{
+  $v = end($arr);
+  if (in_array($v, array_slice($arr, 0, -1), true)) {
+    $is = array_flip(array_slice($arr, 0, -1));
+    $n  = count($arr) - 1 - $is[$v];
+  } else {
+    $n = 0;
+  }
+  array_push($arr, $n);
+
+  return $arr;
+}
+echo end(ve2($A1, $N))."\n";
+
 */
