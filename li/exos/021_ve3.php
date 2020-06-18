@@ -28,7 +28,10 @@ $v = 0;
  */
 function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
-  $a = [$A1, 0]; // [N, lastIndex]
+  $a = [$A1 => 0, 0=>0]; // [N => lastIndex]
+
+  vdli($a);
+  array_flip($a);
   array_push($a, '123 b');
 
   return $a;
