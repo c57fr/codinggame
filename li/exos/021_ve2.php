@@ -94,4 +94,6 @@ function seen($arr)
 }
 echo end(ve2($A1, $N))."\n";
 
+// => Pass 4/6 des Tests
+
 */
