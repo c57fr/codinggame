@@ -4,6 +4,7 @@ ob_implicit_flush(); // Pour actu xdebug ds chrome
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
+<<<<<<< HEAD
 
 
 $arr=[-7, -3, 0, 3, 5, -5];
@@ -24,17 +25,43 @@ $v = [];
   }*/
 
   //exit;
+=======
+/*
+Dans le tableau ci-dessus, il y a des valeurs négatives, positives et nulles. 
+Pour afficher les éléments du tableau, on utilise la boucle foreach.
+Mais pour compter le nombre d'éléments négatifs, positifs et nuls, il faut créer des conditions pour déterminer le signe de chaque valeure dans la boucle.
+Dans chaque condtion il faut incrémenter une variable(nouvelle variable). Exemple :
+$neg++ pour déterminer le nombre d'éléments négatifs dans la contion pour les valeurs néégatives
+$pos++ pour déterminer le nombre d'éléments positifs dans la contion pour les valeurs positivess
+$nulles++ pour déterminer le nombre d'éléments nuls dans la contion pour les valeurs nulles
+Il faudra affecter les 3 variables incrémentées dehors de la fonctions pour éviter l'erreur dans le navigateur. Exemple :
+$pos = 0;
+$neg = 0;
+$nulles = 0;
+*/
+
+  /*$arr=[-7, -3, 0, 3, 5, -5];
+
+  $neg = 0;
+  $pos = 0;
+  $nulle = 0;
+>>>>>>> devMomo
 foreach ($arr as $k => $ar) {
   //echo $k ." = ".$ar."<br>";
   if($ar < 0)
   {
+<<<<<<< HEAD
     echo $ar++."<br>";
+=======
+    //echo $ar."<br>";
+>>>>>>> devMomo
     $neg++;
     //echo count($ar)."<br>";
   }
 
   if($ar == 0)
   {
+<<<<<<< HEAD
     echo $ar."<br>";
     //echo count($ar)."<br>";
   }
@@ -60,12 +87,37 @@ elseif($i < 0)
 }
 
 exit;
+=======
+    //echo $ar."<br>";
+    //echo count($ar)."<br>";
+    $nulle++;
+  }
+
+  if($ar > 0)
+  {
+    //echo $ar."<br>";
+    $pos++;
+    //echo count($ar)."<br>";
+  }
+}
+echo $neg."<br>";
+echo "<hr>";
+echo $nulle."<br>";
+echo "<hr>";
+echo $pos."<br>";
+echo "<hr>";
+echo "<hr>";
+echo "<hr>";*/
+//exit;
+
+>>>>>>> devMomo
 //<<<<<<< devGC7
 function search_val()
 {
 
   $arr = [];
   $valeurs = ['negatives', 'positive', 'nulles'];
+<<<<<<< HEAD
   $vars    = ['$nb_neg', '$nb_pos', '$nb_zero'];
   foreach($valeurs as $k => $valeur) {
     //echo $valeur."<br>";
@@ -87,10 +139,40 @@ function search_val()
   //return $arr;
   /*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
     foreach($vars as $k => $var)
-    {
-      echo $valeur. '  '. $var."<br>";
+=======
+  $vars    = [2,0-1];
+  /*foreach($valeurs as $k => $valeur) {
+    echo $valeur."<br>";
+    foreach ($vars as $k => $var) {
+     //echo $valeur.'  '.$var.'<br>';
+    }
+  }*/
 
-    }*/
+  $neg = 'nb_neg';
+  $pos = 'nb_pos';
+  $nulle = 'nb_zero';
+
+  foreach($vars as $k => $var){
+    //echo $var."<br>";
+    if($var < 0)
+>>>>>>> devMomo
+    {
+      $neg;
+    }
+    if($var == 0)
+    {
+      $nulle;
+    }
+    if($var > 0)
+    {
+      $pos;
+    }
+  }
+
+ echo $neg. " ". $valeurs[0]."<br>";
+ echo $pos. " ". $valeurs[1]."<br>";
+ echo $nulle. " ". $valeurs[2]."<br>";
+
 }
 vdli(search_val());
 exit;
