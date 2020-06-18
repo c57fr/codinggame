@@ -28,12 +28,25 @@ $v = 0;
  */
 function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
-  $a = [$A1 => 0, 0=>0]; // [N => lastIndex]
-
+  $a = [$A1 => 0, 0 => 1, 0 => 2]; // [N => lastIndex]
   vdli($a);
-  array_flip($a);
-  array_push($a, '123 b');
 
+
+// vdli($a[max($a)]);
+vdli(array_flip($a));
+
+  echo '<hr>';
+  for ($n = 0; $n < $N - 1; ++$n) {
+    // if m, ok := seen[a[n]]; ok {
+    // a[n+1] = n - m
+    // }
+    // seen[a[n]] = n
+  }
+
+  $a = array_flip($a);
+  vdli($a);
+  array_push($a, '123 b');
+$a=[3=>0, 4=>789];
   return $a;
 }
 /*
