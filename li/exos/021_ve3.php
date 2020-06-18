@@ -28,76 +28,46 @@ function affE()
  */
 function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
-  $i = 0; // for - Index (N = i +1)
-  echo '$i = '.$i;
-  // $a = [$A1 => 0, 0 => 1, 0 => 2]; // [N => lastIndex]
-  $m = [$A1 => 0]; // [N => lastIndex]
-  $a = [];
-  vdli($a);
-  vdli($m);
-
-  $der = array_flip($m)[0];
-  vdli($der);
-
-  if (in_array($der, $a)) {
-  } else {
-    echo 'NON';
-    $n = 0;
-  }
-  $a[$der] = $m[$der];
-  $m = [$n, $i+1];
-
+  $a=[];
+  $m=[$A1, 0];
   for ($i = 0; $i < $N - 1; ++$i) {
-    // if m, ok := seen[a[n]]; ok {
-    // a[n+1] = i - m
+    echo '$i = '.$i;
+
+    vdli($a);
+    vdli($m);
+
+    // vdli($a[max($a)]);
+    // vdli($a);
+    // vdli($a = array_flip($a));
+    $der = $m[0];
+    vdli($der);
+    // $a = array_flip($a);
+
+    if (array_key_exists($der, $a)) {
+      $n = $a[$der];
+    } else {
+      echo 'NON';
+      $n = 0;
+      // $a[$n]=$i;
+    }
+    $a[$n] = $m[1];
+    $m[0]  = $n;
+    $m[1]  = $i + 1;
+
+    // for ($i = 0; $i < $N - 1; ++$i) {
+    //   // if m, ok := seen[a[n]]; ok {
+    //   // a[n+1] = i - m
+    //   // }
+    //   // seen[a[n]] = i
     // }
-    // seen[a[n]] = i
-  }
 
-  // $a = array_flip($a);
-  vdli($n);
-  echo '<hr>';
+    // $a = array_flip($a);
+    vdli($n);
+    echo '<hr>';
+  }
+ 
   
-  /////////////////////////////////////////////////////
-  $i = 1; // for - Index
-  echo '$i = '.$i;
   
-  vdli($a);
-  vdli($m);
-
-
-  // vdli($a[max($a)]);
-  vdli($a);
-  // vdli($a = array_flip($a));
-  $der = array_keys($m);
-  vdli($der);
-  // $a = array_flip($a);
-
-  if (in_array($der, array_slice($a, 0, -1), true)) {
-  } else {
-    echo 'NON';
-    $n = 0;
-  }
-  $m = [$n, $i];
-
-  for ($i = 0; $i < $N - 1; ++$i) {
-    // if m, ok := seen[a[n]]; ok {
-    // a[n+1] = i - m
-    // }
-    // seen[a[n]] = i
-  }
-
-  // $a = array_flip($a);
-  vdli($n);
-  echo '<hr>';
-
-
-
-
-
-
-
-
 
   array_push($a, '123 b');
 
