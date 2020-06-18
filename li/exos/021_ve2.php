@@ -55,3 +55,18 @@ if (!function_exists('array_key_last')) {
     return array_key_first(array_slice($array, -1));
   }
 }
+
+// Bilan:
+// ++ : Idem ve1
+// -- : Idem ve1
+// ==>: E,v. 30% + rapide que ve1, mais gourmande si $N élevé
+
+// https://www.codingame.com/training/easy/van-ecks-sequence
+
+//##################################################################
+/*
+
+Solution dans codding :
+
+<?php
+*/

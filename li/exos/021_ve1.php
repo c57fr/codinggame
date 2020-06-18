@@ -24,7 +24,7 @@ function ve1($A1 = 0, $N = 7)
 }
 
 // Bilan:
-// ++ : Traduit colmportement humain natu
+// ++ : Traduit comportement humain naturel de prime abord
 // -- : On stocke (dans $a) toute la séquence...
 // ==>: Sans doute rapide, mais gourmande si $N élevé
 
