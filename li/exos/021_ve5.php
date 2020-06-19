@@ -37,9 +37,9 @@ echo("$t\n");
 */
 
 // Bilan:
-// ++ : Le + rapide (3 x + que ve3 - 70 M en moins de 2')
+// ++ : Le + rapide (5 x + que ve3 - 70 M en moins de 2')
 // -- : Léger + lourd ( 1.5 x) en charge mémoire que ve3
-// ==>: Env. 50 X + rapide que ve2, mais reste gourmande si $N très très élevé et donc limité / charge mémoire ( ex. >1e7 )
+// ==>: Env. 5 X + rapide que ve3, mais reste gourmande si $N très très élevé et donc limité / charge mémoire ( ex. >1e7 )
 
 // https://www.codingame.com/training/easy/van-ecks-sequence
 
