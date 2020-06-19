@@ -28,47 +28,36 @@ function affE()
  */
 function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
-  $a=[];
-  $m=[$A1, 0];
-  for ($i = 0; $i < $N - 1; ++$i) {
-    echo '$i = '.$i;
+  $m   = [$A1,0];
+  $a   = [];
 
-    vdli($a);
-    vdli($m);
+  for ($i = 0; $i < $N; ++$i) {
+    // echo '$i = '.$i.'<br>';
 
-    // vdli($a[max($a)]);
     // vdli($a);
-    // vdli($a = array_flip($a));
+    // affArr2($m);
+
     $der = $m[0];
-    vdli($der);
-    // $a = array_flip($a);
+    // vdli($der);
 
     if (array_key_exists($der, $a)) {
+      // echo 'OUI';
       $n = $a[$der];
     } else {
-      echo 'NON';
+      // echo 'NON';
       $n = 0;
-      // $a[$n]=$i;
     }
-    $a[$n] = $m[1];
-    $m[0]  = $n;
-    $m[1]  = $i + 1;
+    $a[$m[0]]=$m[1];
+    // $a[$der] = $i;
+    $m     = [$n, $i+1];
 
-    // for ($i = 0; $i < $N - 1; ++$i) {
-    //   // if m, ok := seen[a[n]]; ok {
-    //   // a[n+1] = i - m
-    //   // }
-    //   // seen[a[n]] = i
-    // }
-
-    // $a = array_flip($a);
-    vdli($n);
-    echo '<hr>';
+    // vdli($n);
+    // echo '<hr>';
   }
- 
   
-  
-
+  // array_push($a, $der);
+  // $a[$der]=$i;
+  $a = array_flip($a);
   array_push($a, '123 b');
 
   return $a;
