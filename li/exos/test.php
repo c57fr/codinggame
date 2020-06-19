@@ -2,7 +2,7 @@
 
 $deb=microtime(true);
 
-$N  =2e6;
+$N  =1e4;
 $NN = $N;
 $n  = $i  = $A1  = 7;
 
