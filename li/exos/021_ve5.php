@@ -7,7 +7,7 @@ $NN = $N;
 function ve5($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
   $m_ini = memory_get_usage();
-  $n     = $i     = $A1     = 7;
+  $n     = $i     = $A1;
 
   while (--$N) {
     $v = $n;
@@ -24,15 +24,15 @@ function ve5($A1 = 0, $N = 7) // Méthode Dictionnaire
 
 /*
 
-$t = $p = trim(fgets(STDIN));
+$v = $i = trim(fgets(STDIN));
 fscanf(STDIN, "%d", $N);
 while (--$N)
 {
-    $k = $t;
-    $t = isset($$t) ? $p - $$t : 0;
-    $$k = $p++;
+    $v = $n;
+    $n = isset($$n) ? $i - $$n : 0;
+    $$v = $i++;
 }
-echo("$t\n");
+echo("$n\n");
 
 */
 
