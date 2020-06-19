@@ -1,7 +1,7 @@
 <?php
 
 
-$ve[0] = function ($A1 = 0, $N = 7) {
+$ve['best'] = function ($A1 = 0, $N = 7) {
   $a    = array_fill(0, $N, 0);
   $a[0] = $A1;
 

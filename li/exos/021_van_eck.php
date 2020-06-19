@@ -17,15 +17,14 @@ $affArr = function ($arr) {
 
 // 2do Test 1e5 (Env. 30 mn (ve 1 & ve2) ?)
 $A1 = 7; // 0 ≤ A1 ≤ 200
-$N  = 20; // 1 ≤ N ≤ 1000000
+$N  = 10000; // 1 ≤ N ≤ 1000000
  //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
 
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premier'.($plur = ($N > 1) ? 's' : '').' élément'.$plur.' en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
-// 2do EC test 1 & 2 désordre(1e4)
 // include '021_ve1.php'; // Double boucle
+// include '021_ve2.php'; // Avec Manipulations Array
 include '021_ve3.php'; // 2do  Dictionnaire  ([N, lastIndex])
-include '021_ve2.php'; // Avec Manipulations Array
 // include '021_ve4.php'; // 2do Avec Yield
 // 2do Meilleure méthode -> Pour coding, ne renvoie que le Nième elmt
 // include '021_ve5.php';
@@ -50,7 +49,7 @@ if (isset($methode) && is_array($methode) && 1) {
 // if ($N < 1e3) {
   include '021_ve.php'; // 2do Meilleure actuelle  méthode (Suppr à terme)
   echo '<hr>';
-  $affArr($ve[0]($A1, 30));
+  $affArr($ve['best']($A1, 30));
 // }
 
 function affArr()

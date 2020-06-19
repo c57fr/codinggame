@@ -2,20 +2,11 @@
 
 $methode[3] = 'Dico [N, lastIndex]';
 
-/**
- * Van Eck
- * //2do Van Eck méthode Python
- * Env 5'20 dans
- * https://www.youtube.com/watch?v=Cd5Nmyz8ISI.
- *
- * @param mixed $A1
- * @param mixed $N
- */
 function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
   $m_ini = memory_get_usage();
-  $m = [$A1, 1];
-  $a = [];
+  $m     = [$A1, 1];
+  $a     = [];
 
   for ($i = 1; $i < $N + 1; ++$i) {
     $der = $m[0];
@@ -30,13 +21,23 @@ function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 
   $a = array_flip($a);
   ksort($a);
-  array_push($a, '123 b');
 
   $m_fin = memory_get_usage();
-  $a[] = mf($m_fin - $m_ini);
+  $a[]   = mf($m_fin - $m_ini);
 
   return $a;
 }
+
+// 2do transcode this solution
+/*
+ * Van Eck
+ * Env 5'20 dans
+ * https://www.youtube.com/watch?v=Cd5Nmyz8ISI.
+ *
+ * @param mixed $A1
+ * @param mixed $N
+ */
+
 // 2do transcode this solution
 /*
 func main() {
@@ -57,9 +58,9 @@ func main() {
 */
 
 // Bilan:
-// ++ : Idem ve1
-// -- : Idem ve1
-// ==>: Env. % + rapide que ve2, mais gourmande si $N élevé
+// ++ : Le + rapide
+// -- : ∃ tablo de + en + gros => Limite charge mémoire.
+// ==>: Env. 50 X + rapide que ve2, mais reste gourmande si $N très très élevé et donc limité / charge mémoire ( >1e7 )
 
 // https://www.codingame.com/training/easy/van-ecks-sequence
 
