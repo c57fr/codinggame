@@ -1,67 +1,39 @@
 <?php
 
 $methode[3] = 'Dico [N, lastIndex]';
-// 2do Penser Arrays
 
-function affE()
-{
-  global $e, $i, $v;
-  echo $i.' / <strong>'.$v.'</strong>';
-  vdli($e);
-  echo '<hr>';
-}
-
-// Init
-// echo '0 / <strong>'.$A1.'</strong><hr>';
-// $e = [$A1 => 0, 0 => 1];
-// $i = 1;
-// $v = 0;
 /**
  * Van Eck
  * //2do Van Eck méthode Python
  * Env 5'20 dans
  * https://www.youtube.com/watch?v=Cd5Nmyz8ISI.
  *
- * @param mixed $seq
  * @param mixed $A1
  * @param mixed $N
  */
 function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
-  $m   = [$A1,0];
-  $a   = [];
+  $m = [$A1, 1];
+  $a = [];
 
-  for ($i = 0; $i < $N; ++$i) {
-    // echo '$i = '.$i.'<br>';
-
-    // vdli($a);
-    // affArr2($m);
-
+  for ($i = 1; $i < $N + 1; ++$i) {
     $der = $m[0];
-    // vdli($der);
-
     if (array_key_exists($der, $a)) {
-      // echo 'OUI';
-      $n = $a[$der];
+      $n = $i - $a[$der];
     } else {
-      // echo 'NON';
       $n = 0;
     }
-    $a[$m[0]]=$m[1];
-    // $a[$der] = $i;
-    $m     = [$n, $i+1];
-
-    // vdli($n);
-    // echo '<hr>';
+    $a[$m[0]] = $m[1];
+    $m        = [$n, $i + 1];
   }
-  
-  // array_push($a, $der);
-  // $a[$der]=$i;
+
   $a = array_flip($a);
+  ksort($a);
   array_push($a, '123 b');
 
   return $a;
 }
+// 2do transcode this solution
 /*
 func main() {
   const max = 1000

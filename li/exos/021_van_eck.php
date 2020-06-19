@@ -17,7 +17,7 @@ $affArr = function ($arr) {
 
 // 2do Test 1e5 (Env. 30 mn (ve 1 & ve2) ?)
 $A1 = 7; // 0 ≤ A1 ≤ 200
-$N  = 5; // 1 ≤ N ≤ 1000000
+$N  = 4e3; // 1 ≤ N ≤ 1000000
  //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
 
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premier'.($plur = ($N > 1) ? 's' : '').' élément'.$plur.' en partant de <strong>'.$A1.'</strong></font></p><hr>';
@@ -37,12 +37,12 @@ if (isset($methode) && is_array($methode) && 1) {
     $fct = 've'.$k;
     $deb = microtime(true);
     $seq = $fct($A1, $N);
-                                             //vdli($seq);
+    //vdli($seq);
     $charge = array_pop($seq);
     // vdli($seq);
     $der = end($seq);
 
-    echo '<tr><td scope="lg">'.$methode[$k].'</td><td>'.$der.'</td><td>'.$charge.'</td><td>'.chrono($deb, 0).'</td></tr>';
+    echo '<tr><td scope="lg">'.$methode[$k].'</td><td>'.$der.'</td><td>'.$charge.'</td><td>'.chrono($deb, 1).'</td></tr>';
   }
   echo '</table>';
 }
@@ -61,7 +61,7 @@ function affArr()
 
 function affArr2($arr)
 {
-  echo vname().' = '.(count($arr) ? implode(', ', $arr):'[]').'<br>';
+  echo vname().' = '.(count($arr) ? implode(', ', $arr) : '[]').'<br>';
 }
 
 // https://www.codingame.com/training/easy/van-ecks-sequence

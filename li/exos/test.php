@@ -1,8 +1,9 @@
 <?php
 
-$a = [1, 2, 3];
-vdli($a);
-echo (array_pop($a));
-vdli($a);
-echo end($a);
-// vdli(end(array_slice($a, 0, -1)));
+$n = 2122;
+
+echo $n.'<hr>';
+
+$fn=str_pad($n, 3, '0', STR_PAD_LEFT);
+
+echo $fn;
