@@ -100,7 +100,7 @@ function mf($size)
 {
   $unit = ['&nbsp;&nbsp;b', 'kb', 'mb', 'gb', 'tb', 'pb'];
 
-  return ($size) ? @round($size / pow(1024, ($i = floor(log($size, 1024)))), 2).' '.$unit[$i] : '0 &nbsp;&nbsp;b';
+  return ($size) ? @nf(round($size / pow(1024, ($i = floor(log($size, 1024)))), 2),2).' '.$unit[$i] : '0,00 &nbsp;&nbsp;b';
 }
 
 // echo mf(memory_get_usage(true)).'<br>'; //Ex.:  123 k
