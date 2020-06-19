@@ -13,6 +13,7 @@ $methode[3] = 'Dico [N, lastIndex]';
  */
 function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
 {
+  $m_ini = memory_get_usage();
   $m = [$A1, 1];
   $a = [];
 
@@ -30,6 +31,9 @@ function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
   $a = array_flip($a);
   ksort($a);
   array_push($a, '123 b');
+
+  $m_fin = memory_get_usage();
+  $a[] = mf($m_fin - $m_ini);
 
   return $a;
 }

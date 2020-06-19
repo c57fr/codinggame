@@ -4,8 +4,8 @@ $methode[2] = 'Manipulations Array';
 
 function ve2($A1 = 0, $N = 7)
 {
-  $arr   = [$A1];
   $m_ini = memory_get_usage();
+  $arr   = [$A1];
   for ($i = 1; $i < $N + 1; ++$i) {
     $arr = seen($arr);
   }
