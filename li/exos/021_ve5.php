@@ -4,7 +4,7 @@ $methode[5] = 'Vars dynamiques';
 
 $NN = $N;
 
-function ve5($A1 = 0, $N = 7) // Méthode Dictionnaire
+function ve5($A1 = 0, $N = 7) // Méthode Dictionnaire  Vars Dyn.
 {
   $m_ini = memory_get_usage();
   $n     = $i     = $A1;
@@ -52,7 +52,7 @@ Solution dans codding : Idem code local
 
 ...
 
-// => Pass  des Tests
+// => Pass  des Tests!; 6/6
 
 */
 
