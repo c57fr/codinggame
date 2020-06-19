@@ -1,6 +1,6 @@
 <?php
 
-$methode[5] = 'Pneu';
+$methode[5] = 'Vars dynamiques';
 
 $NN = $N;
 
