@@ -73,6 +73,8 @@ function vdt(array $tab)
 }
 
 /**
+ * $deb =microtime(true); au déb du script
+ * 
  * Arrondit à la seconde par défaut, sinon, lever flag $precis.
  *
  * @param $deb str (microtime(true); du top départ)
@@ -89,7 +91,7 @@ function chrono($deb, $precis = 0)
   return $soms[$precis][0].date('H:i:s ', $hms).$soms[$precis][1];
 }
 
-function nf($n, $dec = 1)
+function nf($n, $dec = 0)
 {
   return number_format($n, $dec, ',', ' ');
 }

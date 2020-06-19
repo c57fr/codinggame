@@ -13,7 +13,7 @@ $affArr = function ($arr) {
 
 // 2do Test 1e5 (Env. 30 mn (ve 1 & ve2) ?)
 $A1 = 7; // 0 ≤ A1 ≤ 200
-$N  = 11; // 1 ≤ N ≤ 1000000 - // 1e4
+$N  = 2e6; // 1 ≤ N ≤ 1000000 - // 1e4
  //NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5 pour ve1 & ve2"
 
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premier'.($plur = ($N > 1) ? 's' : '').' élément'.$plur.' en partant de <strong>'.$A1.'</strong></font></p><hr>';
@@ -22,7 +22,7 @@ echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'
 // include '021_ve2.php'; // Avec Manipulations Array
 include '021_ve3.php'; // Dictionnaire  ([N, lastIndex])
 // include '021_ve4.php'; // 2do Avec Yield
-// include '021_ve5.php'; // pneu
+include '021_ve5.php'; // pneu
 // include '021_ve6.php'; // Otpv
 // 2do Meilleure méthode -> Pour coding, ne renvoie que le Nième elmt
 // include '021_ve5.php';
