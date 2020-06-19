@@ -1,21 +1,23 @@
 <?php
 
-
 $ve['best'] = function ($A1 = 0, $N = 7) {
-  $a    = array_fill(0, $N, 0);
-  $a[0] = $A1;
+  $m = [$A1, 1];
+  $a = [];
 
-  for ($n = 0; $n < $N - 1; ++$n) {
-    for ($m = $n - 1; $m >= 0; --$m) {
-      if ($a[$m] === $a[$n]) {
-        $a[$n + 1] = $n - $m;
-
-        break;
-      }
+  for ($i = 1; $i < $N + 1; ++$i) {
+    $der = $m[0];
+    if (array_key_exists($der, $a)) {
+      $n = $i - $a[$der];
+    } else {
+      $n = 0;
     }
+    $a[$m[0]] = $m[1];
+    $m        = [$n, $i + 1];
+    $seq[]    = $der;
   }
 
-  return $a;
-};
+  $a = array_flip($a);
+  ksort($a);
 
-// 2do Organigramme
+  return $seq;
+};
