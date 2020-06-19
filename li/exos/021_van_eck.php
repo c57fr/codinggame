@@ -1,9 +1,6 @@
 <link rel="stylesheet" href="./exos/021_ve_style.css">
 Exo 021: Van Eck's Sequence.<br>
 <?php
-if (!function_exists('vdli')) {
-  include '../../dev/vdli.php';
-}
 
 $affArr = function ($arr) {
   echo implode(', ', $arr).'<hr>';
@@ -23,13 +20,13 @@ echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'
 
 // include '021_ve1.php'; // Double boucle
 // include '021_ve2.php'; // Avec Manipulations Array
-include '021_ve3.php'; // 2do  Dictionnaire  ([N, lastIndex])
+include '021_ve3.php'; // Dictionnaire  ([N, lastIndex])
 // include '021_ve4.php'; // 2do Avec Yield
 // include '021_ve5.php'; // pneu
 // include '021_ve6.php'; // Otpv
 // 2do Meilleure méthode -> Pour coding, ne renvoie que le Nième elmt
 // include '021_ve5.php';
-include 'test.php';
+
 
 if (isset($methode) && is_array($methode) && 1) {
   echo '<table class="tc"><tr><th scope="col">Méthode</th><th scope="col">Der</th><th scope="col">Mémoire</th><th scope="col">Chrono</th></tr>';
