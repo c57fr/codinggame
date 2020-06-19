@@ -1,9 +1,11 @@
 <?php
+$NN=$N;
+$t = $p = $A1;
 
-$n = 2122;
-
-echo $n.'<hr>';
-
-$fn=str_pad($n, 3, '0', STR_PAD_LEFT);
-
-echo $fn;
+while (--$NN)
+{
+    $k = $t;
+    $t = isset($$t) ? $p - $$t : 0;
+    $$k = $p++;
+}
+echo("$t\n");

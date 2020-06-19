@@ -1,5 +1,7 @@
 <?php
 
+ob_implicit_flush(); // Pour actu x.debug ds chrome
+
 function affMij($m)
 {
   $N  = count($m);
@@ -83,7 +85,7 @@ function chrono($deb, $precis = 0)
   $t      = $fin - $deb;
   $hms    = (int) ($t);
   $ms     = round(($t - $hms) * 1e3);
-  $soms   = [['≃ ', '+'], ['', str_pad($ms, 3, '0', STR_PAD_LEFT).' &micro;s.']]; // Secondes Ou MS
+  $soms   = [['≃ ', '+'], ['', str_pad($ms, 3, '0', STR_PAD_LEFT).' ms.']]; // Secondes Ou MS
   return $soms[$precis][0].date('H:i:s ', $hms).$soms[$precis][1];
 }
 

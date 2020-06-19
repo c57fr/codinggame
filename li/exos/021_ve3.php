@@ -9,12 +9,12 @@ function ve3($A1 = 0, $N = 7) // Méthode Dictionnaire
   $a     = [];
 
   for ($i = 1; $i < $N + 1; ++$i) {
-    $der = $m[0];
-    if (array_key_exists($der, $a)) {
-      $n = $i - $a[$der];
+    if (array_key_exists($m[0], $a)) {
+      $n = $i - $a[$m[0]];
     } else {
       $n = 0;
     }
+
     $a[$m[0]] = $m[1];
     $m        = [$n, $i + 1];
   }
@@ -59,8 +59,8 @@ func main() {
 
 // Bilan:
 // ++ : Le + rapide
-// -- : ∃ tablo de + en + gros => Limite charge mémoire.
-// ==>: Env. 50 X + rapide que ve2, mais reste gourmande si $N très très élevé et donc limité / charge mémoire ( >1e7 )
+// -- : ∃ tablo de + en + gros => Limite // charge mémoire.
+// ==>: Env. 50 X + rapide que ve2, mais reste gourmande si $N très très élevé et donc limité / charge mémoire ( ex. >1e7 )
 
 // https://www.codingame.com/training/easy/van-ecks-sequence
 

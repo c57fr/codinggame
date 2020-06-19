@@ -1,10 +1,9 @@
 <link rel="stylesheet" href="./exos/021_ve_style.css">
-Exo 021: Van Eck's Sequence.
+Exo 021: Van Eck's Sequence.<br>
 <?php
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
-ob_implicit_flush(); // Pour actu x.debug ds chrome
 
 $affArr = function ($arr) {
   echo implode(', ', $arr).'<hr>';
@@ -17,8 +16,8 @@ $affArr = function ($arr) {
 
 // 2do Test 1e5 (Env. 30 mn (ve 1 & ve2) ?)
 $A1 = 7; // 0 ≤ A1 ≤ 200
-$N  = 10000; // 1 ≤ N ≤ 1000000
- //5e1 NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5"
+$N  = 11; // 1 ≤ N ≤ 1000000 - // 1e4
+ //NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5 pour ve1 & ve2"
 
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premier'.($plur = ($N > 1) ? 's' : '').' élément'.$plur.' en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
@@ -26,9 +25,11 @@ echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'
 // include '021_ve2.php'; // Avec Manipulations Array
 include '021_ve3.php'; // 2do  Dictionnaire  ([N, lastIndex])
 // include '021_ve4.php'; // 2do Avec Yield
+// include '021_ve5.php'; // pneu
+// include '021_ve6.php'; // Otpv
 // 2do Meilleure méthode -> Pour coding, ne renvoie que le Nième elmt
 // include '021_ve5.php';
-// include 'test.php';
+include 'test.php';
 
 if (isset($methode) && is_array($methode) && 1) {
   echo '<table class="tc"><tr><th scope="col">Méthode</th><th scope="col">Der</th><th scope="col">Mémoire</th><th scope="col">Chrono</th></tr>';
@@ -41,7 +42,7 @@ if (isset($methode) && is_array($methode) && 1) {
     // vdli($seq);
     $der = end($seq);
 
-    echo '<tr><td scope="lg">'.$methode[$k].'</td><td>'.$der.'</td><td>'.$charge.'</td><td>'.chrono($deb, 1).'</td></tr>';
+    echo '<tr><td scope="lg">'.$methode[$k].'</td><td>'.nf($der,0).'</td><td>'.$charge.'</td><td>'.chrono($deb, 1).'</td></tr>';
   }
   echo '</table>';
 }
