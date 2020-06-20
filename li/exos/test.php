@@ -2,8 +2,6 @@
 
 
 // vdli($a);
-// vdli(array_slice($a,0,-1));
-// vdli($a);
 
 $A1 = 7;
 $N  = 11;
@@ -11,31 +9,26 @@ $N  = 11;
 function ve4_1($A1 = 7) // Tableau [N, index] avec yield
 {
   $v = $n = $A1;
-  $s=[];
+  $s = [];
   $v = [$A1, $i = 1];
 
   while (true) {
-    if (array_key_exists($v[0], $s)) {
-      $n = $i - $s[$v[0]];
-    } else {
-      $n = 0;
-    }
-    echo $i.' : ';
+    $n = array_key_exists($v[0], $s) ? $i - $s[$v[0]] : $n = 0;
     yield $v[0];
     ++$i;
     $s[$v[0]] = $v[1];
-    $v=[$n,$i];
+    $v        = [$n, $i];
   }
 }
 
 // ++$N;
 foreach (ve4_1($A1) as $v) {
-  echo $v.'<br>';
+  echo $v.' ';
   if (!--$N) {
     break; // infinite loop prevent
   }
 }
-echo '<hr>Fini avec '.$v;
+echo '<hr>Der: '.$v;
 
 /*
 // Simple yield
