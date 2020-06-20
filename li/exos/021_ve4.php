@@ -2,38 +2,39 @@
 
 $methode[4] = 'Avec Yield';
 
-function ve4 ($A1 = 0, $N = 7) {
-    return [];
-  };
+function ve_yield($A1 = 7) // Tableau [N, index] avec yield
+{ 
+  $v = $n = $A1;
+  $s = [];
+  $v = [$A1, $i = 1];
 
-
-function ve4_v1()
-{
-  $n    = 0;
-  $seen = [7 => 0];
-  $val  = 0;
   while (true) {
-    yield $val;
-    if (array_key_exists($val, $seen)) {
-      $val = $seen[$val];
-    } else {
-      $val        = 0;
-      $seen[$val] = $n;
-      ++$n;
+    $n = array_key_exists($v[0], $s) ? $i - $s[$v[0]] : $n = 0;
+    yield $v[0];
+    ++$i;
+    $s[$v[0]] = $v[1];
+    $v        = [$n, $i];
+  }
+}
+
+// 2fix calcul charge
+function ve4($A1, $N)
+{
+  $m_ini = memory_get_usage();
+  foreach (ve_yield($A1) as $v) {
+    // echo $v.' ';
+    if (!--$N) {
+      break; // infinite loop prevent
     }
   }
-}
+  $a[] = $v;
 
-// $gen = ve3(); // 2do test $gen = la function()
+  $m_fin = memory_get_usage();
+  $a[]   = mf($m_fin - $m_ini);
 
-$y = 7;
-foreach (ve4_v1() as $v) {
-  echo $v.' ';
-  --$y;
-  if ($y <= 0) {
-    break; // infinite loop prevent
-  }
+  return$a;
 }
+// echo '<hr>Der: '.$v;
 
 /*
 Partie Python
@@ -54,6 +55,5 @@ def van_eck():
   n += 1
 
 */
-
 
 // 2do Organigramme
