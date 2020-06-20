@@ -4,28 +4,13 @@ ob_implicit_flush(); // Pour actu xdebug ds chrome
 if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
-<<<<<<< HEAD
+
 
 
 $arr=[-7, -3, 0, 3, 5, -5];
-//echo count($arr);
-/*if($arr < 0)
-{
-  echo count($arr);
-}
-exit;*/
-$v = [];
-/*if($arr < 0)
-  {
-    echo array_count_values($arr)."<br>";
-  }
-  if($arr == 0)
-  {
-    echo array_count_values($arr)."<br>";
-  }*/
 
-  //exit;
-=======
+$v = [];
+
 /*
 Dans le tableau ci-dessus, il y a des valeurs négatives, positives et nulles. 
 Pour afficher les éléments du tableau, on utilise la boucle foreach.
@@ -40,113 +25,11 @@ $neg = 0;
 $nulles = 0;
 */
 
-  /*$arr=[-7, -3, 0, 3, 5, -5];
-
-  $neg = 0;
-  $pos = 0;
-  $nulle = 0;
->>>>>>> devMomo
-foreach ($arr as $k => $ar) {
-  //echo $k ." = ".$ar."<br>";
-  if($ar < 0)
-  {
-<<<<<<< HEAD
-    echo $ar++."<br>";
-=======
-    //echo $ar."<br>";
->>>>>>> devMomo
-    $neg++;
-    //echo count($ar)."<br>";
-  }
-
-  if($ar == 0)
-  {
-<<<<<<< HEAD
-    echo $ar."<br>";
-    //echo count($ar)."<br>";
-  }
-}
-echo $neg;
-exit;
-for($i = 0; $i <= $arr; ++$i)
-{
-  echo $i."<br>";
-  exit;
-  if($i === 0)
-{
-  echo $i."<br>";
-}
-elseif($i < 0)
-{
-  echo $i."<br>";
-}
-  /*for($x = 0; $x < count($arr); ++$x)
-  {
-    echo $x."<br>";
-  }*/
-}
-
-exit;
-=======
-    //echo $ar."<br>";
-    //echo count($ar)."<br>";
-    $nulle++;
-  }
-
-  if($ar > 0)
-  {
-    //echo $ar."<br>";
-    $pos++;
-    //echo count($ar)."<br>";
-  }
-}
-echo $neg."<br>";
-echo "<hr>";
-echo $nulle."<br>";
-echo "<hr>";
-echo $pos."<br>";
-echo "<hr>";
-echo "<hr>";
-echo "<hr>";*/
-//exit;
-
->>>>>>> devMomo
-//<<<<<<< devGC7
 function search_val()
 {
 
-  $arr = [];
   $valeurs = ['negatives', 'positive', 'nulles'];
-<<<<<<< HEAD
-  $vars    = ['$nb_neg', '$nb_pos', '$nb_zero'];
-  foreach($valeurs as $k => $valeur) {
-    //echo $valeur."<br>";
-    foreach ($vars as $k => $var) {
-     $valeur.'  '.$var.'<br>';
-    }
-  }
-  echo $valeur.'  '.$var.'<br>';
-  //echo array_unique($valeur, $var);
-
-  /*for($y = 0; $y < $valeurs; ++$y)
-  {
-    //echo $y."<br>";
-    for($x = 0; $x < $vars; ++$x)
-    {
-      echo $x[$y]."<br>";
-    }
-  }*/
-  //return $arr;
-  /*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
-    foreach($vars as $k => $var)
-=======
   $vars    = [2,0-1];
-  /*foreach($valeurs as $k => $valeur) {
-    echo $valeur."<br>";
-    foreach ($vars as $k => $var) {
-     //echo $valeur.'  '.$var.'<br>';
-    }
-  }*/
 
   $neg = 'nb_neg';
   $pos = 'nb_pos';
@@ -155,7 +38,6 @@ function search_val()
   foreach($vars as $k => $var){
     //echo $var."<br>";
     if($var < 0)
->>>>>>> devMomo
     {
       $neg;
     }
@@ -176,31 +58,7 @@ function search_val()
 }
 vdli(search_val());
 exit;
-//=======
-/*function search_val(){
-$valeurs = ['negatives', 'positive', 'nulles'];
-$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
-  foreach($valeurs as $k => $valeur)
-  {
-      //$valeur."<br>";
-    foreach($vars as $k => $var)
-    {
-      echo $valeur. '  '. $var."<br>";
-    }
-  }
 
-  //$results = array_combine($valeurs, $vars);
-  //vdli($results);
-/*$vars = ['$nb_neg', '$nb_pos', '$nb_zero'];
-  foreach($vars as $k => $var)
-  {
-    echo $valeur. '  '. $var."<br>";
-
-  }*/
-//}
-//vdli(search_val());
-//exit;
-/*
 ?>
   <style>
     body{
@@ -227,7 +85,7 @@ $couls = ['blue','white', 'red'];
 for($i = 0; $i < 8; $i++)
 {
   echo '<div style = "color : '.$couls[$i%3].'">'.$i.'</div>'."<\n>";
-}*/
+}
   //echo '<div style = "color : blue">0<div/>';
   /*echo '<div style = "color : white">1<div/>';
   echo '<div style = "color : red">2<div/>';
