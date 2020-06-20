@@ -12,7 +12,7 @@ function ve4_1($A1 = 7) // Tableau [N, index] avec yield
 {
   $v = $n = $A1;
   $s=[];
-  $v = [7, $i = 1];
+  $v = [$A1, $i = 1];
 
   while (true) {
     if (array_key_exists($v[0], $s)) {
@@ -24,8 +24,7 @@ function ve4_1($A1 = 7) // Tableau [N, index] avec yield
     yield $v[0];
     ++$i;
     $s[$v[0]] = $v[1];
-    $v[0]=$n;
-    $v[1]=$i;
+    $v=[$n,$i];
   }
 }
 
