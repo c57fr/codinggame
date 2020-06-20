@@ -4,8 +4,7 @@ function compte()
 {
   $i = 1;
   while (true) {
-    yield $i;
-    ++$i;
+    yield $i++;
   }
 }
 
