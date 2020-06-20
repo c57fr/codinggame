@@ -44,6 +44,7 @@ echo "$valeurs[1]: $pos";
 echo "<hr>";
 }
 vdli(search_val1());
+exit;
 $arr=[-7, -3, 0, 3, 5, -5];
 
   $neg = 0;
