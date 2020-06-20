@@ -12,7 +12,7 @@ $affArr = function ($arr) {
 // 0
 
 $A1 = 7; // 0 ≤ A1 ≤ 200
-$N  = 1e3; // 1 ≤ N ≤ 1000000 - // 1e4+5 => 2 958
+$N  = 1e4; // 1 ≤ N ≤ 1000000 - // 1e4+5 => 2 958
 //NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5 pour ve1 & ve2"
 
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premier'.($plur = ($N > 1) ? 's' : '').' élément'.$plur.' en partant de <strong>'.$A1.'</strong></font></p><hr>';
@@ -31,7 +31,10 @@ if (isset($methode) && is_array($methode) && 1) {
   foreach ($methode as $k => $m) {
     $fct = 've'.$k;
     $deb = microtime(true);
+    // $m_ini = memory_get_usage();
     $seq = $fct($A1, $N);
+    // $m_fin = memory_get_usage();
+    // $a[]   = mf($m_fin - $m_ini);
     // vdli($seq);
     $charge = array_pop($seq);
     // vdli($seq);

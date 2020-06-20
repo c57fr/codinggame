@@ -3,7 +3,7 @@
 $methode[4] = 'Avec Yield';
 
 function ve_yield($A1 = 7) // Tableau [N, index] avec yield
-{ 
+{
   $v = $n = $A1;
   $s = [];
   $v = [$A1, $i = 1];
@@ -17,7 +17,6 @@ function ve_yield($A1 = 7) // Tableau [N, index] avec yield
   }
 }
 
-// 2fix calcul charge
 function ve4($A1, $N)
 {
   $m_ini = memory_get_usage();
@@ -27,19 +26,25 @@ function ve4($A1, $N)
       break; // infinite loop prevent
     }
   }
-  $a[] = $v;
-
+  $a[]   = $v;
   $m_fin = memory_get_usage();
-  $a[]   = mf($m_fin - $m_ini);
+  // $a[]   = mf($m_fin - $m_ini);
+  $a[] = '<article style = "text-align:center;">-</article>';
 
   return$a;
 }
 // echo '<hr>Der: '.$v;
 
+// Bilan:
+// ++ : Séparation du calcul métier de l'affichage
+// -- : Calcul de charge + compliqué (Nécessiterait de gérer la charge de la sous function() ce qui nuirait à la performance...
+// ... Faire copie pour juste la charge bien gérée..?
+// Pas à faire vu perfomance meilleure d'autres solutions)
+// ==>: Demeurre relativement performant
+
 /*
 Partie Python
 https://rosettacode.org/wiki/Van_Eck_sequence#Python
-
 
 def van_eck():
   n = 0

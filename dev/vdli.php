@@ -87,7 +87,7 @@ function chrono($deb, $precis = 0)
   $t      = $fin - $deb;
   $hms    = (int) ($t);
   $ms     = round(($t - $hms) * 1e3);
-  $soms   = [['≃ ', '+'], ['', str_pad($ms, 3, '0', STR_PAD_LEFT).' ms.']]; // Secondes Ou MS
+  $soms   = [['≃ ', '+'], ['', str_pad($ms, 3, '0', STR_PAD_LEFT).'&nbsp;ms.']]; // Secondes Ou MS
   return $soms[$precis][0].date('H:i:s ', $hms).$soms[$precis][1];
 }
 
@@ -98,7 +98,7 @@ function nf($n, $dec = 0)
 
 function mf($size)
 {
-  $unit = ['&nbsp;&nbsp;b', 'kb', 'mb', 'gb', 'tb', 'pb'];
+  $unit = ['&nbsp;b', 'kb', 'mb', 'gb', 'tb', 'pb'];
 
   return ($size) ? @nf(round($size / pow(1024, ($i = floor(log($size, 1024)))), 2),2).' '.$unit[$i] : '0,00 &nbsp;&nbsp;b';
 }
