@@ -1,5 +1,45 @@
 <?php
 
+
+// vdli($a);
+// vdli(array_slice($a,0,-1));
+// vdli($a);
+
+$A1 = 7;
+$N  = 11;
+
+function ve4_1($A1 = 7) // Tableau [N, index] avec yield
+{
+  $v = $n = $A1;
+  $s=[];
+  $v = [7, $i = 1];
+
+  while (true) {
+    if (array_key_exists($v[0], $s)) {
+      $n = $i - $s[$v[0]];
+    } else {
+      $n = 0;
+    }
+    echo $i.' : ';
+    yield $v[0];
+    ++$i;
+    $s[$v[0]] = $v[1];
+    $v[0]=$n;
+    $v[1]=$i;
+  }
+}
+
+// ++$N;
+foreach (ve4_1($A1) as $v) {
+  echo $v.'<br>';
+  if (!--$N) {
+    break; // infinite loop prevent
+  }
+}
+echo '<hr>Fini avec '.$v;
+
+/*
+// Simple yield
 function compte()
 {
   $i = 1;
@@ -12,8 +52,9 @@ foreach (compte() as $v) {
   echo $v.' ';
   if ($v > 9) {
   break;
+  }
 }
-}
+*/
 
 /*
 function ve4_1() // Tableau [N, index]
