@@ -11,8 +11,8 @@ function compte()
 foreach (compte() as $v) {
   echo $v.' ';
   if ($v > 9) {
-    break;
-  }
+  break;
+}
 }
 
 /*
