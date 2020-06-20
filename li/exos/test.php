@@ -16,8 +16,6 @@ foreach (compte() as $v) {
   }
 }
 
-// $res = compte();
-
 /*
 function ve4_1() // Tableau [N, index]
 {
