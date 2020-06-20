@@ -5,6 +5,57 @@ if (!function_exists('vdli')) {
   include '../../dev/vdli.php';
 }
 
+$arr=[-7, -3, 0, 3, 5, -5];
+//echo count($arr);
+/*if($arr < 0)
+{
+  echo count($arr);
+}
+exit;*/
+$v = [];
+/*if($arr < 0)
+  {
+    echo array_count_values($arr)."<br>";
+  }
+  if($arr == 0)
+  {
+    echo array_count_values($arr)."<br>";
+  }*/
+
+  //exit;
+  $neg = 0;
+  $pos = 0;
+  $nulles = 0;
+foreach ($arr as $k => $ar) {
+  //echo $k ." = ".$ar."<br>";
+  if($ar < 0)
+  {
+    //echo $ar++."<br>";
+    $neg++;
+    //echo count($ar)."<br>";
+  }
+
+  if($ar == 0)
+  {
+    //echo $ar."<br>";
+    //echo count($ar)."<br>";
+    $nulles++;
+  }
+  if($ar > 0)
+  {
+    //echo $ar."<br>";
+    //echo count($ar)."<br>";
+    $pos++;
+  }
+}
+echo "Nombre de valeurs negatives : $neg";
+echo "<hr>";
+echo "Nombre de valeurs nulles : $nulles";
+echo "<hr>";
+echo "Nombre de valeurs positives : $pos";
+echo "<hr>";
+
+exit;
 
 
 $arr=[-7, -3, 0, 3, 5, -5];
