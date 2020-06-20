@@ -1,5 +1,24 @@
 <?php
 
+function compte()
+{
+  $i = 1;
+  while (true) {
+    yield $i;
+    ++$i;
+  }
+}
+
+foreach (compte() as $v) {
+  echo $v.' ';
+  if ($v > 9) {
+    break;
+  }
+}
+
+// $res = compte();
+
+/*
 function ve4_1() // Tableau [N, index]
 {
   $n    = 0;
@@ -25,3 +44,4 @@ foreach (ve4_1() as $v) {
     break; // infinite loop prevent
   }
 }
+*/
