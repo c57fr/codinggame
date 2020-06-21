@@ -12,18 +12,18 @@ $affArr = function ($arr) {
 // 0
 
 $A1 = 7; // 0 ≤ A1 ≤ 200
-$N  = 1e4; // 1 ≤ N ≤ 1000000 - // 1e4+5 => 2 958
+$N  = 5e6; // 1 ≤ N ≤ 1000000 - // 1e4+5 => 2 958
 //NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5 pour ve1 & ve2"
-// ve5: 1e7 en ≃ 17"
+// ve5: 1e7 en ≃ 18" - ve6: 
 
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premier'.($plur = ($N > 1) ? 's' : '').' élément'.$plur.' en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
 include '021_ve5.php'; // Vars dynamiques
-include '021_ve3.php'; // Dictionnaire  ([N, lastIndex])
-include '021_ve4.php'; // Avec Yield
-include '021_ve2.php'; // Avec Manipulations Array
-include '021_ve1.php'; // Double boucle
-// include '021_ve6.php'; // Otpv
+// include '021_ve3.php'; // Dictionnaire  ([N, lastIndex])
+// include '021_ve4.php'; // Avec Yield
+// include '021_ve2.php'; // Avec Manipulations Array
+// include '021_ve1.php'; // Double boucle
+include '021_ve6.php'; // Otpv
 // 2do Meilleure méthode -> Pour coding, ne renvoie que le Nième elmt
 // include '021_ve5.php';
 
@@ -41,7 +41,7 @@ if (isset($methode) && is_array($methode) && 1) {
     // vdli($seq);
     $der = end($seq);
 
-    echo '<tr><td scope="lg">'.$methode[$k].'</td><td>'.nf($der, 0).'</td><td>'.$charge.'</td><td>'.chrono($deb, 1).'</td></tr>';
+    echo '<tr><td scope="lg">'.$methode[$k].'</td><td>'.nf($der, 0).'</td><td>'.$charge.'</td><td>'.chrono($deb, 0).'</td></tr>';
   }
   echo '</table>';
 }
