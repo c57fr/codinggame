@@ -6,72 +6,19 @@
 $A1 = 7;
 $N  = 11;
 
-function ve4_1($A1 = 7) // Tableau [N, index] avec yield
+function ve6($An = 7, $N=11) // Tableau [N, index] avec yield
 {
-  $v = $n = $A1;
-  $s = [];
-  $v = [$A1, $i = 1];
-
-  while (true) {
-    $n = array_key_exists($v[0], $s) ? $i - $s[$v[0]] : $n = 0;
-    yield $v[0];
-    ++$i;
-    $s[$v[0]] = $v[1];
-    $v        = [$n, $i];
-  }
+  foreach (range(1,$N-1) as $ii) [ $last[$An], $An ] = [ $ii, isset($last[$An]) ? $ii - $last[$An] : 0 ];
+echo $An;
+  
+  return [];
 }
-
-// ++$N;
-foreach (ve4_1($A1) as $v) {
-  echo $v.' ';
-  if (!--$N) {
-    break; // infinite loop prevent
-  }
-}
-echo '<hr>Der: '.$v;
+$ve=ve6($A1, $N);
+echo '<hr>Der: '.end($ve);
 
 /*
-// Simple yield
-function compte()
-{
-  $i = 1;
-  while (true) {
-    yield $i++;
-  }
-}
-
-foreach (compte() as $v) {
-  echo $v.' ';
-  if ($v > 9) {
-  break;
-  }
-}
-*/
-
-/*
-function ve4_1() // Tableau [N, index]
-{
-  $n    = 0;
-  $seen = [7 => 0];
-  $val  = 0;
-  while (true) {
-    yield $val;
-    if (array_key_exists($val, $seen)) {
-      $val = $seen[$val];
-    } else {
-      $val        = 0;
-      $seen[$val] = $n;
-      ++$n;
-    }
-  }
-}
-
-$n = 7;
-foreach (ve4_1() as $v) {
-  echo $v.' ';
-  --$n;
-  if ($n >= 0) {
-    break; // infinite loop prevent
-  }
-}
+fscanf(STDIN, "%d", $An);
+fscanf(STDIN, "%d", $N);
+foreach (range(1,$N-1) as $ii) [ $last[$An], $An ] = [ $ii, isset($last[$An]) ? $ii - $last[$An] : 0 ];
+echo $An;
 */
