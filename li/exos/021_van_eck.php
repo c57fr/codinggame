@@ -12,9 +12,10 @@ $affArr = function ($arr) {
 // 0
 
 $A1 = 7; // 0 ≤ A1 ≤ 200
-$N  = 5e6; // 1 ≤ N ≤ 1000000 - // 1e4+5 => 2 958
+$N  = 1e6; // 1 ≤ N ≤ 1000000 - // 1e4+5 => 2 958
 //NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5 pour ve1 & ve2"
-// ve5: 1e7 en ≃ 18" - ve6: 
+// ve5: 1e7 en ≃ 18" - 2e7 en 41"
+// ve6: 1e7 en ≃ 18" - 2e7 en " 
 
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premier'.($plur = ($N > 1) ? 's' : '').' élément'.$plur.' en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
