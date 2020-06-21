@@ -2,7 +2,7 @@
 
 $A1 = 7;
 $N  = 11;
-
+// 2do dico des indexes - 1 boucle + ternaire
 function ve7($An = 7, $N = 11) // Tableau [N, index] avec yield
 {
   // $m_ini = memory_get_usage();
