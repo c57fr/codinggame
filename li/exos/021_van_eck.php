@@ -25,6 +25,7 @@ include '021_ve5.php'; // Vars dynamiques
 // include '021_ve2.php'; // Avec Manipulations Array
 // include '021_ve1.php'; // Double boucle
 include '021_ve6.php'; // Otpv
+include '021_ve7.php'; // Otpv
 // 2do Meilleure méthode -> Pour coding, ne renvoie que le Nième elmt
 // include '021_ve5.php';
 
