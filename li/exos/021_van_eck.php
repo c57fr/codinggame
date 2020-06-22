@@ -19,6 +19,10 @@ $N  = 1e6 - 1; // 1 ≤ N ≤ 1000000 - // 1e4+5 => 2 958
 
 echo '<p style = "text-align:center; font-family:arial"><font size="3"><strong>'.number_format($N, 0, ',', ' ').'</strong> premier'.($plur = ($N > 1) ? 's' : '').' élément'.$plur.' en partant de <strong>'.$A1.'</strong></font></p><hr>';
 
+// Dépôt codingame :
+// github.com/c57fr/codinggame
+// https://prnt.sc/t4dfdd
+
 include '021_ve6.php'; // 1 boucle
 include '021_ve7.php'; // Vars scalaires
 include '021_ve5.php'; // Vars dynamiques
