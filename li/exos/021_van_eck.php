@@ -12,7 +12,7 @@ $affArr = function ($arr) {
 // 0
 
 $A1 = 7; // 0 ≤ A1 ≤ 200
-$N  = 1e6-1; // 1 ≤ N ≤ 1000000 - // 1e4+5 => 2 958
+$N  = 1e5-1; // 1 ≤ N ≤ 1000000 - // 1e4+5 => 2 958
 //NB: 5e3 pour env. 1.25" / 16 kb - 1e4 env 5 pour ve1 & ve2"
 // ve5: 1e7 en ≃ 18" - 2e7 en 41"
 // ve6: 1e7 en ≃ 18" - 2e7 en " 
@@ -24,10 +24,10 @@ include '021_ve7.php'; // Vars scalaires
 include '021_ve5.php'; // Vars dynamiques
 include '021_ve3.php'; // Dictionnaire  ([N, lastIndex])
 include '021_ve4.php'; // Avec Yield
-include '021_ve2.php'; // Avec Manipulations Array
-include '021_ve1.php'; // Double boucle
-// 2do Meilleure méthode -> Pour coding, ne renvoie que le Nième elmt
-// include '021_ve7.php';
+// include '021_ve2.php'; // Avec Manipulations Array
+// include '021_ve1.php'; // Double boucle
+
+include '021_ve.php';
 
 if (isset($methode) && is_array($methode) && 1) {
   echo '<table class="tc"><tr><th scope="col">Méthode</th><th scope="col">Der</th><th scope="col">Mémoire</th><th scope="col">Chrono</th></tr>';
@@ -49,7 +49,6 @@ if (isset($methode) && is_array($methode) && 1) {
 }
 
 // if ($N < 1e3) {
-  include '021_ve.php'; // 2do Meilleure actuelle méthode (Suppr à terme)
   echo '<hr>';
   $affArr($ve['best']($A1, 30));
 // }
