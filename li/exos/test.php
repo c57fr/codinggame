@@ -19,21 +19,26 @@ function ve7($An = 7, $N = 11) // range
   return [$An, $chg, chrono($deb, 1)];
 }
 
-function ve77($An = 7, $N = 11) // for i
+function ve77($vl = 7, $N = 11) // for i
 {
   $deb   = microtime(true);
   $m_ini = memory_get_usage();
+$pl=1;
   foreach (range(1, $N - 1) as $ii) {
-    $n = [$ii, isset($last[$An]) ?
-      $ii - $last[$An] :
+    $n = [$ii, isset($a[$vl]) ?
+      $ii - $a[$v] :
       0, ];
+      $a[$vl]= $ii;
   }
-  list($last[$An], $An) = $n;
+  $vl=$n;
+  // list($last[$v], $v) = $n;
   // echo $An.'<br>';
+vdli($a);
+
   $m_fin = memory_get_usage();
   $chg   = mf($m_fin - $m_ini);
 
-  return [$An, $chg, chrono($deb, 1)];
+  return [$v, $chg, chrono($deb, 1)];
 }
 
 function ve777($An = 7, $N = 11) // for i
@@ -74,7 +79,7 @@ function ve7777($A1 = 7, $N = 11) // Vars Dyn.
   return $a;
 }
 
-// $ve['7 - 1 boucle Range'] = ve7($A1, $N);
+$ve['7 - 1 boucle Range'] = ve7($A1, $N);
 $ve['77 - list() hors boucle'] = ve77($A1, $N);
 $ve['777 - 1 boucle For']      = ve777($A1, $N);
 $ve['7777 - Vars dyn.']        = ve7777($A1, $N);
