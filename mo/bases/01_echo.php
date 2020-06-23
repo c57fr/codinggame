@@ -45,7 +45,7 @@ echo '<img src="images/globe.gif" border="1" /></div>';
 echo '<hr>';
 
 // les guillemets
-echo 'j\'utilise PHP';
+echo 'J\'utilise PHP';
 echo '<br>';
 echo 'Ma passion, c\'est la programmation';
 
