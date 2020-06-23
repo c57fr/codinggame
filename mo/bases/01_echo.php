@@ -21,27 +21,32 @@ echo ' <font face="arial" size="5" color="red">Bonjour le monde !</font> ';
 
 // exemple perso similaire :
 // ... @ toa de jouer ;-) !
-echo "<hr>";
-echo "<h1>Mes debuts</h1>";
-// affichage d'un teste avec du php
-echo 'Bonjour le monde!';
+echo '<hr>';
+echo '<h1>Mes debuts</h1>';
+// affichage d'un test avec du php
+echo 'Bonjour le monde !';
 
-echo "<hr>";
-// utilisqtion de css et avec du html dans du php 
+echo '<hr>';
+// utilisation de css et avec du html dans du php
 echo '<font face="arial" size="2" color="red">Bonjour le monde !</font>';
-echo "<br>";
+echo '<br>';
 echo '<font face="Verdana" size="6" color="orange">Big Up à tous et à toutes</font>';
 
-echo "<hr>";
-// centrage du texte et utilisationd4une div
+echo '<hr>';
+// centrage du texte et utilisation d'une div
 echo '<div align="center"><font face="arial" size="2" color="blue">Bonjour le monde!</font><br/>';
-echo '<img src="images/globe.gif" border="0" /></div>';
-echo "<br>";
-echo '<div align="center"><font face="Verdana" size="9" color="green">Il fait nuit</font><br/>';
-echo '<img src="images/globe.gif" border="1" /></div>';
 
-echo "<hr>";
+// 2do Mo: Une image doit s'afficher
+echo '<img src="images/globe.gif" border="0" /></div>';
+echo '<br>';
+echo '<div align="center"><font face="Verdana" size="9" color="green">Il fait nuit</font><br/>';
+// 2do Mo: Une image doit s'afficher
+echo '<img src="images/globe.gif" border="1" /></div>';
+echo '<hr>';
+
 // les guillemets
 echo 'j\'utilise PHP';
-echo "<br>";
+echo '<br>';
 echo 'Ma passion, c\'est la programmation';
+
+// 2do Mo: Caractères spéciaux (Effet visible dans le code source...)
