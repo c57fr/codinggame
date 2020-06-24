@@ -1,4 +1,7 @@
 <?php
-$date = date("d-m-Y");
-$heure = date("H:i");
-print("Nous sommes le $date et il est $heure");
+
+$date  = date('d-m-Y');
+$heure = date('H:i');
+echo "Nous sommes le ${date} et il est ${heure}";
+
+// Ex perso (Choisir autre option de format) :
