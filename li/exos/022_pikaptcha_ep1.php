@@ -2,8 +2,8 @@
 Exo 022: Pikaptcha Ep1.<hr>
 <?php
 
-// // $a[1]=123;
-// echo $a[1] ?? 'no';
+// $a[1]='lionel';
+// echo $a[-1] ?? 'no';
 
 // exit;
 // Reconstitution T1
@@ -14,9 +14,17 @@ $lines[] = '#0#00';
 $lines[] = '00#7#';
 vdli($lines);
 
-echo $ch = str_repeat('#', $w + 3).implode('##', $lines).str_repeat('#', $w + 3);
+// echo $ch = explode(implode('', $lines), '');
+// echo $ch = implode('', $lines);
+vdli($a=str_split(implode('', $lines)));
+// echo $ch = str_repeat('#', $w + 3).implode('##', $lines).str_repeat('#', $w + 3);
 echo '<hr>';
 
+echo $a[-2] ?? 0;
+
+// vdli($ch);
+
+exit;
 // for ($i = 0; $i < $h + 2; ++$i) {
 //   for ($j = 0; $j < $j + 2; ++$j) {
 //     // echo $j.' '.$i.' ';
@@ -24,12 +32,16 @@ echo '<hr>';
 //   }
 //   echo '<br>';
 // }
-// echo '<hr>';
 
+for ($l = strlen($ch), $i = 0; $i < $l; ++$i) {
+  echo $ch[$i-1] ?? '8';
+}
+
+echo '<hr>';
 for ($l = strlen($ch) - $w - 2, $i = $w + 3; $i < $l; ++$i) {
   echo ('#' !== $ch[$i]) ?
     (('#' !== $ch[$i - 1]) + ('#' !== $ch[$i + 1]) + ('#' !== $ch[$i - 7]) + ('#' !== $ch[$i + 7])) : '#';
-    echo ($i%7) ? '':'<br>';
+  echo ($i % 7) ? '' : '<br>';
   // echo $i.' : '.$ch[$i].'<br>';
 //   if ('#' !== $ch[$i]) {
 //     $ch[$i] = ('#' !== $ch[$i - 1]) + ('#' !== $ch[$i + 1])+ ('#' !== $ch[$i -7])+ ('#' !== $ch[$i + 7]);
