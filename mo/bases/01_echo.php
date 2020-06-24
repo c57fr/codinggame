@@ -36,11 +36,9 @@ echo '<hr>';
 // centrage du texte et utilisation d'une div
 echo '<div align="center"><font face="arial" size="2" color="blue">Bonjour le monde!</font><br/>';
 
-// 2do Mo: Une image doit s'afficher
 echo '<img src="images/daylight.jpg" border="0" width="90px" height="70px"/></div>';
 echo '<br>';
 echo '<div align="center"><font face="Verdana" size="9" color="green">Il fait nuit</font><br/>';
-// 2do Mo: Une image doit s'afficher
 echo '<img src="images/adventure.jpg" border="1" width="50px" height="50px" /></div>';
 echo '<hr>';
 
