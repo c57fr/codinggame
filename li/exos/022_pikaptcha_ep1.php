@@ -20,7 +20,7 @@ vdli($a=str_split(implode('', $lines)));
 // echo $ch = str_repeat('#', $w + 3).implode('##', $lines).str_repeat('#', $w + 3);
 echo '<hr>';
 
-echo $a[-2] ?? 0;
+echo (($a[-0] ?? 0)!='#')+(($a[+2] ?? 0)!='#');
 
 // vdli($ch);
 
