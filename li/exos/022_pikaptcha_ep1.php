@@ -3,8 +3,17 @@ Exo 022: Pikaptcha Ep1.<br>
 <?php
 
 // Reconstitution T1
+$w       = 5;
+$h       = 3;
+$lines[] = '0000#';
+$lines[] = '#0#00';
+$lines[] = '00#0#';
+vdli($lines);
+$ch = implode('', $lines);
 
-
+for ($l = $w * $h, $i = 0; $i < $l; ++$i) {
+  echo $i.' : '.$ch[$i].' ';
+}
 
 // 1322#
 // #2#31
