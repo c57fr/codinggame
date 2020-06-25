@@ -1,39 +1,22 @@
-<link rel="stylesheet" href="./exos/021_ve_style.css">
-Exo 022: Pikaptcha Ep1.<br>
 <?php
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- **/
+fscanf(STDIN, '%d %d', $w, $h);
+error_log(var_export('w: '.$w.' - h:'.$h, true));
 
-fscanf(STDIN, "%d %d", $width, $height);
-for ($i = 0; $i < $height; $i++)
-{
-    fscanf(STDIN, "%s", $line);
+$a = [];
+for ($i = 0; $i < $h; ++$i) {
+  $a = array_merge($a, str_split(trim(fgets(STDIN))));
 }
-for ($i = 0; $i < $height; $i++)
-{
+// error_log(var_export($a, true));
 
-    // Write an action using echo(). DON'T FORGET THE TRAILING \n
-    // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
-
-    echo("#####\n");
+for ($l = $w * $h, $i = 0; $i < $l; ++$i) {
+  echo(('#' !== $a[$i]) ?
+    (
+      ((($i - $w) % $w) && (($a[$i - 1] ?? '#')) !== '#') +
+      (($w - 1 - $i % $w) && (($a[$i + 1] ?? '#')) !== '#') +
+      (($a[$i - $w] ?? '#') !== '#') +
+      (($a[$i + $w] ?? '#') !== '#')
+    )
+     : '#').
+     ((($i + 1) % $w) ? '' : "\n"); // "\n"
 }
-
-// 1322#
-// #2#31
-// 12#1#
-
-// https://www.codingame.com/training/easy/detective-pikaptcha-ep1
-//##################################################################
-/*
-
-Solution validée dans codding : // La meilleure de ci-dessus
-
-
-
-<?php
-
-
-*/
