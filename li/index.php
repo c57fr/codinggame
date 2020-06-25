@@ -38,7 +38,8 @@ include '../dev/vdli.php';
 // include 'exos/020_sudoku_local.php';
 // include 'exos/021_van_eck.php';
 // include 'exos/021_test.php';
-include 'exos/022_pikaptcha_ep1.php';
+// include 'exos/022_pikaptcha_ep1.php';
+include 'exos/023_childsplay.php';
 // include 'exos/test.php';
 
 // include 'exos/divers.php';
