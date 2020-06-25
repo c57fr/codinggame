@@ -24,14 +24,15 @@ echo $chAff.'<hr>imax = '.(strlen($ch) - 1).'<hr>';
 echo($p = strpos($ch, '0')).'<br>'; // Position
 
 var_dump($p);
-$s      = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
-vdli($s);
-$vs = 4%4;
-// echo $vs.' ';
-// echo $ch[11]. ' '.$ch[12];
-$p=$s[$vs];
+$s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
+$vs = 0;
 
-echo $p.'<hr>';
+echo($p = $s[$vs % 4]).'<hr>';
+$s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
+echo($p = $s[$vs % 4]).'<hr>';
+$s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
+vdli($s);
+echo($p = $s[$vs % 4]).'<hr>';
 
 while ($n--) {
   echo($ni - $n).' : <br>';
