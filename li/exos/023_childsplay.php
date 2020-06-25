@@ -6,7 +6,7 @@ Exo 023: Child's play.<hr>
 // exit;
 // Reconstitution T1
 $w  = 12; $h  = 6; $n  = 987;
-$n  = $ni  = 7;
+// $n  = $ni  = 77;
 $ch = <<<'EOD'
 ...#........
 ...........#
@@ -21,21 +21,16 @@ $chAff = str_replace("\r\n", '<br>', $ch);
 $ch    = str_replace("\r\n", '', $ch);
 echo $chAff.'<hr>imax = '.(strlen($ch) - 1).'<hr>';
 
-echo($p = strpos($ch, '0')).'<br>'; // Position
+$p = strpos($ch, '0'); // Position
 
-var_dump($p);
-$s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
+// var_dump($p);
+$s  = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
 $vs = 0;
 
-echo($p = $s[$vs % 4]).'<hr>';
-$s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
-echo($p = $s[$vs % 4]).'<hr>';
-$s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
-vdli($s);
-echo($p = $s[$vs % 4]).'<hr>';
-
-while ($n--) {
-  echo($ni - $n).' : <br>';
+while (--$n) {
+  echo ($p = $s[$vs % 4]).'<br>';
+  $s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
+  echo($vs += '#' === ($ch[$s[$vs % 4]])).'<hr>';
 }
 
 // https://www.codingame.com/ide/puzzle/a-childs-play
