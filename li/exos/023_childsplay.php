@@ -19,19 +19,19 @@ EOD;
 
 $chAff = str_replace("\r\n", '<br>', $ch);
 $ch    = str_replace("\r\n", '', $ch);
-echo $chAff.'<hr>imax = '.(strlen($ch) - 1).'<hr>';
 
 $p = strpos($ch, '0'); // Position
 
-// var_dump($p);
 $s  = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
 $vs = 0;
 
 while (--$n) {
-  echo ($p = $s[$vs % 4]).'<br>';
+  $p = $s[$vs % 4];
   $s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
-  echo($vs += '#' === ($ch[$s[$vs % 4]])).'<hr>';
+  $vs += '#' === ($ch[$s[$vs % 4]]);
 }
+echo ($p%$w+1).' '.intdiv($p, $w)."\n";
+
 
 // https://www.codingame.com/ide/puzzle/a-childs-play
 //##################################################################
