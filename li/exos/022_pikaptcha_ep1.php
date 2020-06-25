@@ -16,15 +16,16 @@ vdli($lines);
 
 // echo $ch = explode(implode('', $lines), '');
 // echo $ch = implode('', $lines);
-vdli($a=str_split(implode('', $lines)));
+vdli($a = str_split(implode('', $lines)));
 // echo $ch = str_repeat('#', $w + 3).implode('##', $lines).str_repeat('#', $w + 3);
 echo '<hr>';
 
-echo (($a[-0] ?? 0)!='#')+(($a[+2] ?? 0)!='#');
+echo(($a[4] ?? '#') !== '#') + 3;
 
+echo '<hr>';
 // vdli($ch);
 
-exit;
+// exit;
 // for ($i = 0; $i < $h + 2; ++$i) {
 //   for ($j = 0; $j < $j + 2; ++$j) {
 //     // echo $j.' '.$i.' ';
@@ -33,22 +34,16 @@ exit;
 //   echo '<br>';
 // }
 
-for ($l = strlen($ch), $i = 0; $i < $l; ++$i) {
-  echo $ch[$i-1] ?? '8';
+for ($l = $w * $h, $i = 0; $i < $l; ++$i) {
+  echo  (('#' !== $a[$i]) ?
+  (($a[$i - 1] ?? '#') !== '#') +
+  (($a[$i + 1] ?? '#') !== '#') +
+  (($a[$i - $w] ?? '#') !== '#') +
+  (($a[$i + $w] ?? '#') !== '#')
+   : '#').
+   ((($i+1)%$w)?'':'<br>'); // "\n"
 }
 
-echo '<hr>';
-for ($l = strlen($ch) - $w - 2, $i = $w + 3; $i < $l; ++$i) {
-  echo ('#' !== $ch[$i]) ?
-    (('#' !== $ch[$i - 1]) + ('#' !== $ch[$i + 1]) + ('#' !== $ch[$i - 7]) + ('#' !== $ch[$i + 7])) : '#';
-  echo ($i % 7) ? '' : '<br>';
-  // echo $i.' : '.$ch[$i].'<br>';
-//   if ('#' !== $ch[$i]) {
-//     $ch[$i] = ('#' !== $ch[$i - 1]) + ('#' !== $ch[$i + 1])+ ('#' !== $ch[$i -7])+ ('#' !== $ch[$i + 7]);
-//     echo $i.' : '.$ch[$i].'<br>';
-}
-
-vdli(str_split($ch, 7));
 
 // 1322#
 // #2#31
