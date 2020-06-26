@@ -40,7 +40,7 @@ $ch    = str_replace("\r\n", '', $ch);
 
 $p = strpos($ch, 'O'); // Position
 
-echo $lf=$loopfound = $w * $h - substr_count($ch, '#');
+$lf = $loopfound = $w * $h - substr_count($ch, '#');
 
 $s  = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
 $vs = 0;
@@ -52,19 +52,13 @@ while (--$lf) {
   $vs += '#' === ($ch[$s[$vs % 4]]);
 
   $r[$p] = ($r[$p] ?? 0) + 1; // Route
-  // $r[$p]=$p;
 }
-vdli($r);
-vdli(count($r));
-vdli($p);
-echo($p % $w).' '.intdiv($p, $w)."\n<hr>";
+$arsum = array_sum($r);
 
-echo 'Décalage : '.($n - $loopfound+1) % count($r);
-echo '<hr>';
-
-// for ($i = 0; $i < 15; ++$i) {
-//   echo $i.' '.($i % 12).'<br>';
-// }
+$nbe=count($r);
+$kr=array_keys($r);
+$p= $kr[(array_flip(array_keys($r))[$p]+(($n - $arsum) % $nbe))%$nbe];
+echo($p % $w).' '.intdiv($p, $w)."\n";
 
 // https://www.codingame.com/ide/puzzle/a-childs-play
 //##################################################################
