@@ -7,26 +7,29 @@ $ch = '';
 for ($i = 0; $i < $h; ++$i) {
   $str = trim(fgets(STDIN));
   $row = $str;
-  $ch.=$str;
+  $ch .= $str;
   error_log(var_export($row, true));
   // $ch .= stream_get_line(STDIN, 500 + 1);
 }
 
-//   error_log(var_export(strlen($ch), true));
-function vd($v)
-{
-  return error_log(var_export($v, true));
-}
+$p = strpos($ch, 'O'); // Position
 
-$p = stripos($ch, 'O'); // Position
-vd($p);
+$lf = $loopfound = $w * $h - substr_count($ch, '#');
 
 $s  = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
 $vs = 0;
+$r  = [];
 
-while ($n--) {
+while (--$lf) {
   $p = $s[$vs % 4];
   $s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
   $vs += '#' === ($ch[$s[$vs % 4]]);
+
+  $r[$p] = ($r[$p] ?? 0) + 1; // Route
 }
+$arsum = array_sum($r);
+
+$nbe = count($r);
+$kr  = array_keys($r);
+$p   = $kr[(array_flip(array_keys($r))[$p] + (($n - $arsum) % $nbe)) % $nbe];
 echo($p % $w).' '.intdiv($p, $w)."\n";
