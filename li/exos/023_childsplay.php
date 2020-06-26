@@ -45,7 +45,7 @@ $ch = <<<'EOD'
 EOD;
 // => 4 2
 
-
+/*
 // Reconstitution T4
 $w = 16; $h = 10; $n = 12321123212397;
 // $n  = $ni  = 77;
@@ -62,6 +62,7 @@ $ch = <<<'EOD'
 ###############.
 EOD;
 // => 6 6
+*/
 
 $chAff = str_replace("\r\n", '<br>', $ch);
 $ch    = str_replace("\r\n", '', $ch);
@@ -70,26 +71,40 @@ $p = strpos($ch, 'O'); // Position
 vdli($p);
 
 $lf = $loopfound = $w * $h - substr_count($ch, '#');
-vdli($lf);
+// vdli($lf);
 $s  = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
 $vs = 0;
 $r  = [];
 
-while (--$lf) {
+while ($lf--) {
+  $i = $loopfound - $lf - 1;
   $p = $s[$vs % 4];
   $s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
   $vs += '#' === ($ch[$s[$vs % 4]]);
 
-  $r[$p] = ($r[$p] ?? 0) + 1; // Route
+  // $r[$p] = ($r[$p] ?? 0) + 1; // Route
+  $r[$i] = $p; // Route
 }
-$arsum = array_sum($r);
 
+vdli(count($r));
+
+$pi = count($r) - 1;
+vdli($pi);
+
+$arsum = array_sum($r);
+function affArr2($arr)
+{
+  echo vname().' = '.(count($arr) ? implode(', ', $arr) : '[]').'<br>';
+}
+echo 'ars = '.$arsum.' ';
+echo end($r);
+// affArr2($r);
 vdli($r);
 
-$nbe = count($r);
-$kr  = array_keys($r);
-$p   = $kr[(array_flip(array_keys($r))[$p] + (($n - $arsum) % $nbe)) % $nbe];
-echo($p % $w).' '.intdiv($p, $w)."\n";
+// $nbe = count($r);
+// $kr  = array_keys($r);
+// $p   = $kr[(array_flip(array_keys($r))[$p] + (($n - $arsum) % $nbe)) % $nbe];
+// echo($p % $w).' '.intdiv($p, $w)."\n";
 
 // https://www.codingame.com/ide/puzzle/a-childs-play
 //##################################################################
