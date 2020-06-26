@@ -69,7 +69,7 @@ $ch    = str_replace("\r\n", '', $ch);
 $p = strpos($ch, 'O'); // Position
 vdli($p);
 
-$lf = ($loopfound = $w * $h - substr_count($ch, '#')) * 5;
+$lf = $loopfound = $w * $h - substr_count($ch, '#');
 vdli($lf);
 $s  = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
 $vs = 0;
