@@ -2,6 +2,7 @@
 <body>
 <font size="2" face="Arial">Le texte en HTML</font>
 <!-- 2do Mo Ex perso (Choisir autre style + autre option de format de date) -->
+<font size="3" face="Verdana"> <?php echo date("d-m-Y") ;?>  </font>
 
 <?php
 // le code PHP -----
