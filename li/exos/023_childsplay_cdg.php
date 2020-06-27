@@ -12,24 +12,27 @@ for ($i = 0; $i < $h; ++$i) {
   // $ch .= stream_get_line(STDIN, 500 + 1);
 }
 
-$p = strpos($ch, 'O'); // Position
-
+$p  = strpos($ch, 'O'); // Position
 $lf = $loopfound = $w * $h - substr_count($ch, '#');
-
 $s  = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
 $vs = 0;
 $r  = [];
 
-while (--$lf) {
+while ($lf--) {
+  $i = $loopfound - $lf - 1;
   $p = $s[$vs % 4];
   $s = [$p - $w, $p + 1, $p + $w, $p - 1]; // Sens
   $vs += '#' === ($ch[$s[$vs % 4]]);
-
-  $r[$p] = ($r[$p] ?? 0) + 1; // Route
+  $r[$i] = $p; // Route
 }
-$arsum = array_sum($r);
+$pi = count($r) - 1; // On part de l'avant-dernier
+$lastp = $r[$pi];
+// echo 'Der: '.$pi.' '.$r[$pi].'<hr>';
 
-$nbe = count($r);
-$kr  = array_keys($r);
-$p   = $kr[(array_flip(array_keys($r))[$p] + (($n - $arsum) % $nbe)) % $nbe];
+$pii = $pi;
+do {
+} while (--$pii && $r[$pii] !== $lastp);
+// echo 'Seq: '.$pii.' '.$r[$pii].'<hr>';
+
+$p = $r[($n - $pi - 1) % ($pi - $pii) + $pii];
 echo($p % $w).' '.intdiv($p, $w)."\n";

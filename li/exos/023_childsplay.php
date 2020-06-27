@@ -26,18 +26,18 @@ EOD;
 // => 7 1
 
 // Reconstitution T2
-$w = 12; $h = 8; $n = 1234321;
-// $n  = $ni  = 77;
-$ch = <<<'EOD'
-....#.......
-........#...
-...........#
-...#O.......
-...#........
-.......#....
-...........#
-....#.......
-EOD;
+// $w = 12; $h = 8; $n = 1234321;
+// // $n  = $ni  = 77;
+// $ch = <<<'EOD'
+// ....#.......
+// ........#...
+// ...........#
+// ...#O.......
+// ...#........
+// .......#....
+// ...........#
+// ....#.......
+// EOD;
 // => 4 2
 
 /*
@@ -68,8 +68,6 @@ EOD;
 $chAff = str_replace("\r\n", '<br>', $ch);
 $ch    = str_replace("\r\n", '', $ch);
 
-
-
 $p = strpos($ch, 'O'); // Position
 vdli($p);
 
@@ -92,26 +90,24 @@ while ($lf--) {
 vdli(count($r));
 
 $pi = count($r) - 1; // On part de l'avant-dernier
+
 vdli($pi);
-// vdl/i($r);
-
 vdli($lastp = $r[$pi]);
-// do {
-// } while (--$pi && $r[$pi]!=$lastp);
-// echo $pi.' '.$r[$pi].'<hr>';
-echo $pi.' '.$r[$pi].'<hr>';
+echo 'Der: '.$pi.' '.$r[$pi].'<hr>';
 
-// vdli(array_values($r));
+$pii = $pi;
+do {
+} while (--$pii && $r[$pii] !== $lastp);
+echo 'Seq: '.$pii.' '.$r[$pii].'<hr>';
 
-// $arsum = array_sum($r);
-// echo 'ars = '.$arsum.'<br>';
+$nbe = $pi - $pii;
+vdli($nbe);
 ?>
 <div class="container">
   <!-- <pre> -->
   <?php
   foreach ($r as $k => $v) {
     echo '<p style = "text-align: right">['.vf($k).'] => '.vf($v).'</p>';
-    // echo '<p style = "text-align: right">['.preg_replace('/^0*/', '&nbsp;', str_pad($k, 3, 0, STR_PAD_LEFT), 1, $n).'] => '.str_pad($k, 3, 0, STR_PAD_LEFT).'</p>';
   }
   ?>
   <!-- </pre> -->
@@ -120,18 +116,13 @@ echo $pi.' '.$r[$pi].'<hr>';
 echo '<hr>';
 // vdli($r);
 
-function affArr2($arr)
-{
-  echo vname().' = '.(count($arr) ? implode(', ', $arr) : '[]').'<br>';
-}
-// echo end($r).'<hr>';
-// affArr2($r);
-// vdli($r);
-
 // $nbe = count($r);
+
 // $kr  = array_keys($r);
+// Pos finale
+$p= $r[($n-$pi-1)%$nbe+$pii];
 // $p   = $kr[(array_flip(array_keys($r))[$p] + (($n - $arsum) % $nbe)) % $nbe];
-// echo($p % $w).' '.intdiv($p, $w)."\n";
+ echo $p.'<hr>'. ($p % $w).' '.intdiv($p, $w)."\n";
 
 // https://www.codingame.com/ide/puzzle/a-childs-play
 //##################################################################
