@@ -23,6 +23,7 @@ if ($simba > 0 && $simba < 700) {
 echo '<hr>';
 
 $medor = 'Chien';
+$medor = strtolower($medor);
     // Ici ne marche pas si casse non respectée...
     // 2do Mo: Trouver astuce pour que cela marche, quelque soit la casse utilisée
 //on enchaine les conditions ci-dessous
@@ -42,6 +43,7 @@ if ('girafe !' === $medor) {
 
 echo '<hr>';
 $animal = 'Vache';
+$animal = strtolower($animal);
     // Ici ne marche pas si casse non respectée...
     // 2do Mo: Trouver astuce pour que cela marche, quelque soit la casse utilisée
 
@@ -61,6 +63,7 @@ if ('cheval' === $animal) {
 
 echo '<hr>';
 $medor = 'Chien';
+$medor = strtolower($medor);
     // Ici ne marche pas si casse non respectée...
     // 2do Mo: Trouver astuce pour que cela marche, quelque soit la casse utilisée
 
@@ -91,6 +94,7 @@ switch ($medor) {
 
     echo '<hr>';
     $portable = 'huawei';
+    $portable = strtolower($portable);
     // Ici ne marche pas si casse non respectée...
     // 2do Mo: Trouver astuce pour que cela marche, quelque soit la casse utilisée
 
@@ -111,8 +115,8 @@ switch ($medor) {
                 echo 'Le protable est une marque samsung';
 
             break;
-            case 'Huawei':
-                echo 'Le portable est une marque Huawei';
+            case 'huawei':
+                echo 'Le portable est une marque huawei';
 
             break;
             default:
