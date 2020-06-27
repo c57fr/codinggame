@@ -1,4 +1,13 @@
 Exo 023: Child's play.<hr>
+<style>
+.container {
+  column-count: 5;
+}
+.container > p {
+  margin:0;
+}
+
+</style>
 <?php
 
 // echo nf(pow(2, 53)); // n max
@@ -88,18 +97,36 @@ while ($lf--) {
 
 vdli(count($r));
 
-$pi = count($r) - 1;
+$pi = count($r) - 1; // On part de l'avant-dernier
 vdli($pi);
+// vdl/i($r);
 
-$arsum = array_sum($r);
+vdli($r[$pi]);
+do {
+} while (--$pi && $r[$pi]!=18);
+echo $pi.' '.$r[$pi].'<hr>';
+
+// $arsum = array_sum($r);
+// echo 'ars = '.$arsum.'<br>';
+?>
+<div class="container">
+  <?php
+  foreach ($r as $k => $v) {
+    echo '<p>['.$k.'] => '.$v.'</p>';
+  }
+  ?>
+</div>
+<?php
+echo '<hr>';
+vdli($r);
+
 function affArr2($arr)
 {
   echo vname().' = '.(count($arr) ? implode(', ', $arr) : '[]').'<br>';
 }
-echo 'ars = '.$arsum.' ';
-echo end($r);
-// affArr2($r);
-vdli($r);
+// echo end($r).'<hr>';
+affArr2($r);
+// vdli($r);
 
 // $nbe = count($r);
 // $kr  = array_keys($r);
