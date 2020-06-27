@@ -5,7 +5,7 @@ Exo 023: Child's play.<hr>
   }
 .container > p {
   margin:0;
-  padding-right: 20%;
+  padding-right: 10%;
 }
 </style>
 <?php
@@ -72,12 +72,6 @@ $ch = <<<'EOD'
 EOD;
 // => 6 6
 */
-
-$a = [0, 1, 7, 15, 369];
-
-foreach ($a as $k => $v) {
-  echo vf($v, 7).'<br>';
-}
 
 // $n = '0001234010004,';
 // echo preg_replace('/(^0*)./', 'x', $n, 1).'<hr>';
