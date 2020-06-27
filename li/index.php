@@ -40,7 +40,8 @@ include '../dev/vdli.php';
 // include 'exos/021_test.php';
 // include 'exos/022_pikaptcha_ep1.php';
 // include 'exos/023_childsplay.php';
-include 'exos/024_seqOf1s.php';
+// include 'exos/024_seqOf1s.php';
+include 'exos/025_unitFractions_cdg.php';
 // include 'exos/test.php';
 
 // include 'exos/divers.php';
