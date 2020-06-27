@@ -48,7 +48,8 @@ echo '<br>';
 echo 'Ma passion, c\'est la programmation';
 echo '<div align="center"><font face="arial" size="2" color="blue"> Bonjour le monde !</font><br /> ';
 echo '<img src="images/desert.jpg" border="0" width="120px" height="100px"/></div> ';
-// 2do Mo: Caractères spéciaux (Effet visible dans le code source...)
+
+// Caractères spéciaux (Effet visible dans le code source...)
 echo 'Un texte'."\n<br>";
 echo "Un texte\n<br>";
 

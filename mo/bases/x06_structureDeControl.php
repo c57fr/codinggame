@@ -24,8 +24,7 @@ echo '<hr>';
 
 $medor = 'Chien';
 $medor = strtolower($medor);
-    // Ici ne marche pas si casse non respectée...
-    // 2do Mo: Trouver astuce pour que cela marche, quelque soit la casse utilisée
+
 //on enchaine les conditions ci-dessous
 if ('girafe !' === $medor) {
   echo 'Medor est un girafe !';
@@ -44,8 +43,6 @@ if ('girafe !' === $medor) {
 echo '<hr>';
 $animal = 'Vache';
 $animal = strtolower($animal);
-    // Ici ne marche pas si casse non respectée...
-    // 2do Mo: Trouver astuce pour que cela marche, quelque soit la casse utilisée
 
 if ('cheval' === $animal) {
   echo 'Animal est un cheval';
@@ -64,64 +61,74 @@ if ('cheval' === $animal) {
 echo '<hr>';
 $medor = 'Chien';
 $medor = strtolower($medor);
-    // Ici ne marche pas si casse non respectée...
-    // 2do Mo: Trouver astuce pour que cela marche, quelque soit la casse utilisée
 
 switch ($medor) {
-        case 'girafe':
-            echo 'Medor est un girafe';
+  case 'girafe':
 
-        break;
-        case 'elephant':
-            echo 'Medor est un elephant';
+    echo 'Medor est un girafe';
 
-        break;
-        case 'souris':
-            echo 'Medor est une souris';
+  break;
+  case 'elephant':
 
-        break;
-        case 'chien':
-            echo 'Medor est un chein';
+  echo 'Medor est un elephant';
 
-        break;
-        case 'chat':
-            echo 'Medor est un chat';
+break;
+case 'souris':
 
-        break;
-        default:
-        echo 'Peut etre un hyppopotame? Qui sait ...';
-    }
+  echo 'Medor est une souris';
 
-    echo '<hr>';
-    $portable = 'huawei';
-    $portable = strtolower($portable);
-    // Ici ne marche pas si casse non respectée...
-    // 2do Mo: Trouver astuce pour que cela marche, quelque soit la casse utilisée
+break;
+case 'chien':
 
-    switch ($portable) {
-            case 'alcatel':
-                echo 'Le portable est une marque alcatel';
+  echo 'Medor est un chien';
 
-            break;
-            case 'nokia':
-                echo 'Le portable est une marque nokia';
+break;
+case 'chat':
 
-            break;
-            case 'apple':
-                echo 'Le portable est une marque apple';
+  echo 'Medor est un chat';
 
-            break;
-            case 'samsung':
-                echo 'Le protable est une marque samsung';
+break;
+default:
 
-            break;
-            case 'huawei':
-                echo 'Le portable est une marque huawei';
+echo 'Peut-être un hyppopotame? Qui sait ...';
+}
 
-            break;
-            default:
-            echo 'On ne connait pas la marque';
-        }
+echo '<hr>';
+
+$portable = 'huawei';
+
+$portable = strtolower($portable);
+
+switch ($portable) {
+  case 'alcatel':
+
+    echo 'Le portable est une marque alcatel';
+
+  break;
+  case 'nokia':
+
+    echo 'Le portable est une marque nokia';
+
+  break;
+  case 'apple':
+
+    echo 'Le portable est une marque apple';
+
+  break;
+  case 'samsung':
+
+    echo 'Le portable est une marque samsung';
+
+  break;
+  case 'huawei':
+
+    echo 'Le portable est une marque huawei';
+
+  break;
+  default:
+
+  echo 'On ne connait pas la marque';
+}
 echo '<hr>';
 
 $toto = 6;
