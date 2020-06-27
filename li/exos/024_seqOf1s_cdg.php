@@ -3,9 +3,8 @@
 $b = stream_get_line(STDIN, 999 + 1, "\n");
 
 preg_match_all('/0/', $b, $z, PREG_OFFSET_CAPTURE);
-$l   = strlen($b);
 $a   = array_column($z[0], 1);
-$a[] = $l;
+$a[] = $l = strlen($b);
 
 $max = 0;
 foreach ($a as $k => $v) {
