@@ -12,20 +12,6 @@ Exo 023: Child's play.<hr>
 
 // echo nf(pow(2, 53)); // n max
 
-// $w = 12; $h = 6; $n = 987;
-// $p = 41;
-// echo($p % $w).' '.intdiv($p, $w)."\n";
-
-// $a = [0, 1, 2, 3, 4, 5];
-
-// vdli($a);
-// foreach ($a as $k => $v) {
-//   $a[$k] %= 4;
-//   echo($k % 4).' ';
-// }
-// vdli($a);
-
-// exit;
 // Reconstitution T1
 $w = 12; $h = 6; $n = 987;
 // $n  = $ni  = 77;
@@ -82,6 +68,8 @@ EOD;
 $chAff = str_replace("\r\n", '<br>', $ch);
 $ch    = str_replace("\r\n", '', $ch);
 
+
+
 $p = strpos($ch, 'O'); // Position
 vdli($p);
 
@@ -112,9 +100,6 @@ vdli($lastp = $r[$pi]);
 // } while (--$pi && $r[$pi]!=$lastp);
 // echo $pi.' '.$r[$pi].'<hr>';
 echo $pi.' '.$r[$pi].'<hr>';
-
-echo str_replace('0', '&nbsp;', str_pad(12, 10, 0, STR_PAD_LEFT));
-echo str_pad(12, 10, '0', STR_PAD_LEFT).'<br>';
 
 // vdli(array_values($r));
 
