@@ -73,8 +73,8 @@ function vdt(array $tab)
 }
 
 /**
- * $deb =microtime(true); au déb du script
- * 
+ * $deb =microtime(true); au déb du script.
+ *
  * Arrondit à la seconde par défaut, sinon, lever flag $precis.
  *
  * @param $deb str (microtime(true); du top départ)
@@ -100,7 +100,33 @@ function mf($size)
 {
   $unit = ['&nbsp;b', 'kb', 'mb', 'gb', 'tb', 'pb'];
 
-  return ($size) ? @nf(round($size / pow(1024, ($i = floor(log($size, 1024)))), 2),2).' '.$unit[$i] : '0,00 &nbsp;&nbsp;b';
+  return ($size) ? @nf(round($size / pow(1024, ($i = floor(log($size, 1024)))), 2), 2).' '.$unit[$i] : '0,00 &nbsp;&nbsp;b';
 }
 
 // echo mf(memory_get_usage(true)).'<br>'; //Ex.:  123 k
+
+/**
+ * Retourn v formatée avec n &nbsp;.
+ *
+ * @param mixed $v
+ * @param mixed $c
+ */
+function vf($v, $c = 3)
+{
+  if ($v > 0) {
+    ($s = sprintf('%0'.$c.'d', $v)).'<br>';
+    $s = preg_replace_callback_array(
+      [
+        '/(^0+)/' => function (&$match) {
+          return str_repeat('&nbsp;', 2 * strlen($match[0]));
+        },
+      ],
+      $s
+    ).'&nbsp;';
+    // vdli($v);
+    return $s;
+    // echo $s.'<hr>';
+  }
+
+  return str_repeat('&nbsp;', ($c - 1) * 2).'0&nbsp;';
+}
