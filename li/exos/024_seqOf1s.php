@@ -11,9 +11,20 @@ $b = '01010';
 // echo "3\n";
 
 // Reconstitution T3
-$b = '11011101111';
+// $b = '11011101111';
 // $b='11011111111';
 // 8
+
+// Soluce Pneu84
+$bb = array_map('strlen', explode('0', $b));
+vdli($bb);
+for ($j = 1; $j < count($bb); ++$j) {
+  $bb[$j - 1] += $bb[$j];
+}
+vdli($bb);
+echo(max($bb) + 1).'<hr>';
+
+//////////////////////////////////////////
 
 preg_match_all('/0/', $b, $z, PREG_OFFSET_CAPTURE);
 $a   = array_column($z[0], 1);
