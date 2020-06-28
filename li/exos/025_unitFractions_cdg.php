@@ -2,9 +2,14 @@
 
 $cdg = defined('STDIN');
 
-echo 1 * 2 * 3 * 4 * 6 * 8 * 9 * 12;
+if (!$cdg) {
+  $n = 12;
+  for ($l = $n * 2+1, $y = $n + 1; $y < $l; ++$y) {
+    echo $y.' '.($y - $n).' '.($y * $n / ($y - $n)).'<br>';
+  }
 
-echo '<hr>';
+  echo '<hr>';
+}
 function divisors($n)
 {
   $k         = 2;
@@ -19,7 +24,15 @@ function divisors($n)
   return $diviseurs;
 }
 if (!$cdg) {
-  vdli(divisors(36));
+  $ds = [1, 2, 3, 4, 6, 8, 9, 12];
+  echo '12 : '.implode(', ', $ds).'<br>';
+  // vdli(divisors(36));
+  for ($i = 1e2; $i < 1e2 + 1; ++$i) {
+    $a = divisors($i);
+    // if ($a === $ds) {
+    echo $i.' : '.implode(', ', $a).'<br>';
+    // }
+  }
   echo '<hr>';
 }
 
@@ -57,11 +70,12 @@ switch ($n) {
 
     break;
     case 100:
-    $ds = [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100];
+    $divss = [1, 2, 4, 5, 10, 20, 25, 50, 100];
+    $ds    = [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50, 80, 100];
 
     break;
     default:
-    $ds = [1, 3, 6, 12];
+    $ds = [1, 3, 9, 27];
 
     break;
 }
