@@ -1,5 +1,6 @@
-Exo 026: Bank robbers.<hr>
 <?php
+
+
 
 // Reconstitution T1
 
@@ -39,3 +40,20 @@ Contraintes
 0 ≤ N ≤ C
 
 */
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ */
+fscanf(STDIN, '%d', $R);
+fscanf(STDIN, '%d', $V);
+error_log(var_export($R.' '.$V, true));
+for ($i = 0; $i < $V; ++$i) {
+    fscanf(STDIN, '%d %d', $C, $N);
+    error_log(var_export($i.' '.$C.' '.$N, true));
+}
+
+// Write an answer using echo(). DON'T FORGET THE TRAILING \n
+// To debug: error_log(var_export($var, true)); (equivalent to var_dump)
+
+echo "1\n";
