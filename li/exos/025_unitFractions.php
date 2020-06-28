@@ -18,6 +18,6 @@ foreach ($ds as $k => $v) {
   echo '1/'.$n.' = 1/'.(($n + $v) * ($n / $v)).' + 1/'.($v + $n).' <br>';
 }
 
-// https://www.codingame.com/ide/puzzle/create-the-longest-sequence-of-1s
+// https://www.codingame.com/training/easy/unit-fractions
 //##################################################################
 // Solution validée dans codding :
