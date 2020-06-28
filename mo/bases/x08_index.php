@@ -1,5 +1,5 @@
 <?php
-require("08_fonction.php");  //on appelle la page contenant la function
+require("x08_fonction.php");  //on appelle la page contenant la function
 
 // affichage 
 Arial("2", "red", "Ici le texte ...");

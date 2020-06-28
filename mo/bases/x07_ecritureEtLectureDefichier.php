@@ -1,5 +1,6 @@
 <?php
-$fp = fopen("data.txt", "r");
+
+$fp = fopen('xdata.txt', 'r');
 // (1)
 $donnees = fgets($fp, 3555);
 // (2)
