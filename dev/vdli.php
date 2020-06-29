@@ -1,5 +1,5 @@
 <?php
-
+putenv('local=true');
 ob_implicit_flush(); // Pour actu x.debug ds chrome
 
 function affMij($m)
