@@ -44,7 +44,8 @@ include '../dev/vdli.php';
 // include 'exos/025_unitFractions_cdg.php';
 // include 'exos/026_bankrobbers_cdg.php';
 // include 'exos/026_enPOO.php';
-include 'exos/027_theRiverI.php';
+// include 'exos/027_theRiverI.php';
+include 'exos/028_parentheses.php';
 // include 'exos/test.php';
 
 // include 'exos/divers.php';
