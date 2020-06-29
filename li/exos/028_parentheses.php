@@ -3,9 +3,14 @@
 if (getenv('local')) {
   echo '028 - Expressions parenthésées.<hr>';
 
+  $ch = '{([ads]dze(f[gd]f))}';
+  echo (preg_replace('/\w|\[(?R)*]/', '', $ch));
+  // echo (preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/', '', $ch));
+
+  echo '<hr>';
   $ch = '{([]){}()}'; // Reconstitution T1 //true
   $ch = '{([{S}]]6K[()]}';  // Reconstitution T2 //false
-  // $ch = 'W12{}{}L{}';// T3 //true
+  $ch = 'W12{}{}L{}'; // T3 //true
   // $ch = '{()'; // false
   // $ch = 'abc]';//false
   // Reconstitution Autre
@@ -15,22 +20,22 @@ if (getenv('local')) {
   vdli($e);
   echo '<p style="font-size:20px; letter-spacing: 1rem;">'.$e.'</p>';
 
-  vdli(preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/','',$e));
-  echo preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/','',$e)?'false':'true';
+  vdli(preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/', '', $ch));
+  echo preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/', '', $ch) ? 'false' : 'true';
 
-  /*
-  $t = [
-    '[]' => '',
-    '()' => '',
-    '{}' => '',
-  ];
+/*
+$t = [
+  '[]' => '',
+  '()' => '',
+  '{}' => '',
+];
 
-  while (($e !== ($l ?? null))) {
-    $l = $e;
-    $e = strtr($l, $t);
-  }
-  echo 0 === strlen($e) ? 'true' : 'false';
-  */
+while (($e !== ($l ?? null))) {
+  $l = $e;
+  $e = strtr($l, $t);
+}
+echo 0 === strlen($e) ? 'true' : 'false';
+*/
 /*
 $pairs = ['(' => ')', '[' => ']', '{' => '}'];
 vdli($pairs);
@@ -71,7 +76,7 @@ else {
 
   // $e = preg_replace('/[^\(^\)^\{^\}^\[^\]]/', '', $ch);
 
-  preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/','',fgets(STDIN))?'false':'true';
+  preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/', '', fgets(STDIN)) ? 'false' : 'true';
 
   /*
   $t = [
