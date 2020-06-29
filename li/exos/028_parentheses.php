@@ -5,6 +5,7 @@ if (getenv('local')) {
 
   // Reconstitution T1
   $ch = '{([]){}()}';
+  // $ch = '{()';
   // Reconstitution T2
   // $ch = '{([{S}]]6K[()]}';
 
@@ -13,7 +14,7 @@ if (getenv('local')) {
   $pairs = ['(' => ')', '[' => ']', '{' => '}'];
   vdli($pairs);
   $ders = [];
-  $res  = true;
+  $res  = 'true';
   for ($l = strlen($ch),$i = 0; $i < $l && $res; ++$i) {
     // echo 'Ini.: '.implode(' ', $ders).'<br>';
     // echo $ch[$i].' ';
@@ -21,13 +22,14 @@ if (getenv('local')) {
       $ders[] = $pairs[$ch[$i]];
       // echo 'Ouvr.: '.implode(' ', $ders).'<br>';
     }
-    if (in_array($ch[$i], $pairs, true) && $ch[$i] == end($ders)) {
+    if (in_array($ch[$i], $pairs, true) && $ch[$i] === end($ders)) {
       array_pop($ders);
-      // echo 'Ferm.: '.$ch[$i].' - '.implode(' ', $ders).'<br>';
+    // echo 'Ferm.: '.$ch[$i].' - '.implode(' ', $ders).'<br>';
     } elseif (in_array($ch[$i], $pairs, true) && $ch[$i] !== end($ders)) {
       $res = false;
     }
   }
+  if(!empty($ders)) $res="false";
 
   echo $res."\n";
 }
@@ -37,10 +39,22 @@ if (getenv('local')) {
 
 // Solution validée dans codding :
 else {
-  fscanf(STDIN, '%s', $expression);
-  error_log(var_export($expression, true));
-  // Write an answer using echo(). DON'T FORGET THE TRAILING \n
-  // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
+  fscanf(STDIN, '%s', $ch);
+  error_log(var_export($ch, true));
 
-  echo "true\n";
+  $pairs = ['(' => ')', '[' => ']', '{' => '}'];
+  $ders = [];
+  $res  = 'true';
+  for ($l = strlen($ch),$i = 0; $i < $l && $res; ++$i) {
+    if (array_key_exists($ch[$i], $pairs)) {
+      $ders[] = $pairs[$ch[$i]];
+    }
+    if (in_array($ch[$i], $pairs, true) && $ch[$i] === end($ders)) {
+      array_pop($ders);
+    } elseif (in_array($ch[$i], $pairs, true) && $ch[$i] !== end($ders)) {
+      $res = 'false';
+    }
+  }
+  if(!empty($ders)) $res="false";
+  echo $res."\n";
 }
