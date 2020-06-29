@@ -4,7 +4,7 @@ if (getenv('local')) {
   echo '028 - Expressions parenthésées.<hr>';
 
   $ch = '{([]){}()}'; // Reconstitution T1 //true
-  // $ch = '{([{S}]]6K[()]}';  // Reconstitution T2 //false
+  $ch = '{([{S}]]6K[()]}';  // Reconstitution T2 //false
   // $ch = 'W12{}{}L{}';// T3 //true
   // $ch = '{()'; // false
   // $ch = 'abc]';//false
@@ -13,7 +13,11 @@ if (getenv('local')) {
   vdli($ch);
   $e = preg_replace('/[^\(^\)^\{^\}^\[^\]]/', '', $ch);
   vdli($e);
+  echo '<p style="font-size:20px; letter-spacing: 1rem;">'.$e.'</p>';
 
+  echo preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/','',$e)?'false':'true';
+
+  /*
   $t = [
     '[]' => '',
     '()' => '',
@@ -25,7 +29,7 @@ if (getenv('local')) {
     $e = strtr($l, $t);
   }
   echo 0 === strlen($e) ? 'true' : 'false';
-  
+  */
 /*
 $pairs = ['(' => ')', '[' => ']', '{' => '}'];
 vdli($pairs);
@@ -61,11 +65,14 @@ echo(($res) ? 'true' : 'false')."\n";
 
 // Solution validée dans codding :
 else {
-  fscanf(STDIN, '%s', $ch);
-  error_log(var_export($ch, true));
+  // fscanf(STDIN, '%s', $ch);
+  // error_log(var_export($ch, true));
 
-  $e = preg_replace('/[^\(^\)^\{^\}^\[^\]]/', '', $ch);
+  // $e = preg_replace('/[^\(^\)^\{^\}^\[^\]]/', '', $ch);
 
+  preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/','',fgets(STDIN))?'false':'true';
+
+  /*
   $t = [
     '[]' => '',
     '()' => '',
@@ -78,6 +85,7 @@ else {
   }
 
   echo 0 === strlen($e) ? 'true' : 'false';
+  */
 
   /*
   $pairs = ['(' => ')', '[' => ']', '{' => '}'];
