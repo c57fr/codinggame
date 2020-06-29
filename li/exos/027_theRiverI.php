@@ -49,7 +49,7 @@ if (getenv('local')) {
   while ($t--) {
     $deb = microtime(true);
     $i   = 7e5;
-    for ($i = 1; $i < 7e4; ++$i) {
+    for ($i = 7e4; $i; --$i) {
       $sum = sumd((string) $n);
     }
     echo  $n.' '.$sum.' '.nxt($n).' '.chrono($deb, 1).'<hr>';
