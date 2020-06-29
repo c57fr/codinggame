@@ -15,19 +15,9 @@ if (getenv('local')) {
   // Reconstitution T3
   function sumd($n)
   {
+    $n = (string) $n;
     for ($sum = 0, $l = strlen($n), $i = 0; $i < $l; ++$i) {
       $sum += (int) $n[$i];
-    }
-
-    return $sum;
-  }
-
-  function sum2($n)
-  {
-    $sum = 0;
-    while (0 !== $n) {
-      $sum += $n % 10;
-      $n = $n / 10;
     }
 
     return $sum;
@@ -42,7 +32,7 @@ if (getenv('local')) {
   $n = 123456;
   function nxt($n)
   {
-    return $n + sumd((string) $n);
+    return $n + sumd($n);
   }
 
   $t = 21;
@@ -50,7 +40,7 @@ if (getenv('local')) {
     $deb = microtime(true);
     $i   = 7e5;
     for ($i = 7e4; $i; --$i) {
-      $sum = sumd((string) $n);
+      $sum = sumd($n);
     }
     echo  $n.' '.$sum.' '.nxt($n).' '.chrono($deb, 1).'<hr>';
     // sleep(1);
