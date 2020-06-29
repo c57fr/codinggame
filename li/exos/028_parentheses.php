@@ -15,6 +15,7 @@ if (getenv('local')) {
   vdli($e);
   echo '<p style="font-size:20px; letter-spacing: 1rem;">'.$e.'</p>';
 
+  vdli(preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/','',$e));
   echo preg_replace('/\w|\[(?R)*]|\((?R)*\)|{(?R)*}/','',$e)?'false':'true';
 
   /*
