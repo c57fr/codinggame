@@ -14,7 +14,7 @@ if (getenv('local')) {
 
   // Reconstitution T3
 
-  while ($r1 !== $r2) {
+  while ($r1 !== (int) $r2) {
     $v = $r1 < $r2 ? 'r1' : 'r2';
     ${$v} += array_sum(str_split((string) ${$v}));
   }
