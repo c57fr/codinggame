@@ -42,8 +42,8 @@ include '../dev/vdli.php';
 // include 'exos/023_childsplay.php';
 // include 'exos/024_seqOf1s.php';
 // include 'exos/025_unitFractions_cdg.php';
-include 'exos/026_bankrobbers_cdg.php';
-// include 'exos/test.php';
+// include 'exos/026_bankrobbers_cdg.php';
+include 'exos/test.php';
 
 // include 'exos/divers.php';
 // include 'exos/prems.php';

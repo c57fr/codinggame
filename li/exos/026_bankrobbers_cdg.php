@@ -1,15 +1,47 @@
 <?php
 
+if ('127.0.0.1' === ($_SERVER['REMOTE_ADDR'] ?? 0)) {
+  function getTps($R, $V)
+  {
+    vdli($V);
+    $r = array_fill(0, $R, 0);
+    foreach ($V as $v) {
+      list($C, $N) = [substr($v, 0, 1), substr($v, 2, 1)];
+      $r[array_search(min($r), $r, true)] += 5 ** ($C - $N) * (10 ** $N);
+    }
+    vdli($r);
 
 
-// Reconstitution T1
+    
+    
+    // for(;$a;sort($r))$r[0]+=array_shift($z);
+    /*
+    $a = array_reverse($a);
+    while ($a) {
+      //   vdli($a);
+      sort($r);
+      //   vdli($r);
+      $r[0] += array_pop($a);
+      vdli($r);
+    }
+    */
+    return nf(max($r));
+  }
 
-// Reconstitution T2
-
+  // Reconstitution T1
+  $R = 1;
+  $V = ['3 1'];
+  echo getTps($R, $V).'<hr>';
+  // Reconstitution T2
+  $R = 4;
+  $V = ['3 2', '4 1', '7 6', '7 1'];
+  echo getTps($R, $V);
 // Reconstitution T3
-
+}
 // https://www.codingame.com/training/easy/bank-robbers
 //##################################################################
+// https://github.com/c57fr/codinggame
+
 // Solution validée dans codding :
 
 /*
@@ -38,22 +70,27 @@ Contraintes
 1 ≤ V ≤ 20
 3 ≤ C ≤ 8
 0 ≤ N ≤ C
-
 */
 
-/**
- * Auto-generated code below aims at helping you parse
- * the standard input according to the problem statement.
- */
-fscanf(STDIN, '%d', $R);
-fscanf(STDIN, '%d', $V);
-error_log(var_export($R.' '.$V, true));
-for ($i = 0; $i < $V; ++$i) {
+else {
+    $r=`head -n1`;$v=`head -n1`;
+    for(;fscanf(STDIN,"%d%d",$c,$n);)$z[]=10**$n*5**($c-$n);
+    for(;++$k<$r;)$o[$k]=0;     
+    for(;$z;sort($o))$o[0]+=array_shift($z);
+    echo max($o);
+
+    /*
+  fscanf(STDIN, '%d', $R);
+  $r = array_fill(0, $R, 0);
+  fscanf(STDIN, '%d', $V);
+//   error_log(var_export($R.' '.$V, true));
+
+  for ($i = 0; $i < $V; ++$i) {
     fscanf(STDIN, '%d %d', $C, $N);
-    error_log(var_export($i.' '.$C.' '.$N, true));
+    $r[array_search(min($r), $r, true)] += 5 ** ($C - $N) * (10 ** $N);
+  }
+
+  echo max($r)."\n";
+
+  */
 }
-
-// Write an answer using echo(). DON'T FORGET THE TRAILING \n
-// To debug: error_log(var_export($var, true)); (equivalent to var_dump)
-
-echo "1\n";
