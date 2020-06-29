@@ -82,6 +82,6 @@ else {
   do {
     sort($a);
     $a[0] = (string) nxt($a[0]);
-  } while ($a[0] !== $a[1]);
+  } while ($a[0] !== (string) $a[1]);
   echo $a[0]."\n";
 }
