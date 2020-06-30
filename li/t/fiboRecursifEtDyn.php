@@ -130,7 +130,7 @@ break;
 echo implode(', ', $fs);
 
 // ################################################################################
-//      https://www.supinfo.com/cours/2ADS/chapitres/05-programmation-dynamique
+//  2do https://www.supinfo.com/cours/2ADS/chapitres/05-programmation-dynamique
 // ################################################################################
 
 function testChrono($action = 0)
