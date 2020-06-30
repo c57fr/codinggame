@@ -15,6 +15,7 @@ else {
   fscanf(STDIN, '%d', $N);
   for ($i = 0; $i < $N; ++$i) {
     $line = stream_get_line(STDIN, 255 + 1, "\n");
+    error_log(var_export($line, true));
   }
   for ($i = 0; $i < $N; ++$i) {
     // Write an answer using echo(). DON'T FORGET THE TRAILING \n
