@@ -88,6 +88,7 @@ if (getenv('local')) {
 //*** https://www.codingame.com/training/easy/the-river-ii-
 //##################################################################
 // https://github.com/c57fr/codinggame
+// Dép local: http://codinggame/li
 
 // Solution validée dans coding :
 
