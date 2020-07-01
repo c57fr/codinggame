@@ -43,8 +43,9 @@ if (getenv('local')) {
     return 'NO';
   };
 
+  // in_array($r1 = fgets(STDIN), array_map(function ($r) { return $r + array_sum(str_split($r)); }, range(1, $r1)), true) ? 'YES' : 'NO';
   $dwarfie = function ($r1) {
-    in_array($r1 = fgets(STDIN), array_map(function ($r) { return $r + array_sum(str_split($r)); }, range(1, $r1)), true) ? 'YES' : 'NO';
+    in_array($r1, array_map(function ($r) { return $r + array_sum(str_split($r)); }, range(1, $r1)), true) ? 'YES' : 'NO';
   };
 
   $otpv = function ($r1) {
