@@ -44,10 +44,10 @@ include '../dev/vdli.php';
 // include 'exos/025_unitFractions_cdg.php';
 // include 'exos/026_bankrobbers_cdg.php';
 // include 'exos/026_enPOO.php';
-include 'exos/027_theRiverI.php';
+// include 'exos/027_theRiverI.php';
 // include 'exos/028_parentheses.php';
 // include 'exos/029_bushfire.php';
-include 'exos/030_theRiverII.php';
+include 'exos/030_theRiverII.php'; // Suite du 27
 // include 'exos/test.php';
 
 // include 'exos/divers.php';

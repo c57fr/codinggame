@@ -19,7 +19,7 @@ if (getenv('local')) {
     ${$v} += array_sum(str_split((string) ${$v}));
   }
 
-  echo $r1;
+  echo $r1.'<hr>';
 
 /*
   function nxt($n)

@@ -3,7 +3,15 @@
 if (getenv('local')) {
   echo '030 - The River II.<hr>';
 
-// Reconstitution T1 //
+  // Reconstitution T //
+$r1 = 80; // Y
+
+$nxt = $r1 + array_sum(str_split((string) $r1));
+  vdli($nxt);
+  // recherche précédent
+  for ($i = $r1; $i > 0; --$i) {
+    echo $i.' '.($i + array_sum(str_split((string) $r1))).'<br>';
+  }
 }
 //*** https://www.codingame.com/training/easy/the-river-ii-
 //##################################################################
@@ -16,5 +24,5 @@ else {
   fscanf(STDIN, '%d', $r1);
   error_log(var_export($r1, true));
 
-  echo "YES|NO\n";
+  echo "YES\n";
 }
