@@ -15,8 +15,64 @@ if (getenv('local')) {
   echo $r1.' ('.strlen($r1).')';
 
   echo '<hr>';
+  // 2do Benchmark (Que chrono) comparatif avec soluce 1
+  $f = ['deuk', 'sabrim', 'dwarfie', 'otpv', 'gc7'];
+  // gc7
 
-  // Recherche précédent
+  $deuk = function ($r1) {
+    $previous = 0;
+    do {
+      $diff = $r1 - (++$previous);
+    } while (array_sum(str_split((string) $previous)) !== $diff && $previous < $r1);
+    echo
+    [
+      true  => 'YES',
+      false => 'NO',
+    ][$previous < $r1]
+    ;
+  };
+
+  $sabrim = function ($r1) {
+    for ($i = $r1; $i > 0; --$i) {
+      if (array_sum(str_split($r1 - $i)) === $i) {
+        // exit('YES');
+        return 'YES';
+      }
+    }
+    // echo('NO');
+    return 'NO';
+  };
+
+  $dwarfie = function ($r1) {
+    in_array($r1 = fgets(STDIN), array_map(function ($r) { return $r + array_sum(str_split($r)); }, range(1, $r1)), true) ? 'YES' : 'NO';
+  };
+
+  $otpv = function ($r1) {
+    $rK = $r1;
+    while ($rK-- && !($meet = $rK + array_sum(str_split($rK)) === $r1));
+    echo $meet ? 'YES' : 'NO';
+
+    return 'Y/N<br>';
+  };
+
+  $gc7 = function ($r1) {
+    for ($i = $r1 - 1, $j = 0; $j < (strlen($r1) * 9); --$i) {
+      ++$j;
+      // echo $i.' '.($i + array_sum(str_split((string) $i))).'<br>';
+      if ($r1 === $i + array_sum(str_split((string) $i))) {
+        $fd = 'YES';
+
+        break;
+      }
+    }
+    echo($fd ?? 'NO')."\n";
+
+    return 'Y/N<br>';
+  };
+  foreach ($f as $k => $v) {
+    echo ${$v}($r1);
+  }
+
   for ($i = $r1 - 1, $j = 0; $j < (strlen($r1) * 9); --$i) {
     ++$j;
     // echo $i.' '.($i + array_sum(str_split((string) $i))).'<br>';
@@ -50,9 +106,8 @@ else {
   echo($fd ?? 'NO')."\n";
 
   /*
-  Soluce otpv
-  // 2do Benchmark comparatif avec soluce 1 
-  fscanf(STDIN, "%d", $r1);
+  // otpv
+    fscanf(STDIN, "%d", $r1);
   $rK = $r1;
   while ($rK-- && !($meet = $rK + array_sum(str_split($rK)) == $r1));
   echo $meet ? 'YES' : 'NO';
