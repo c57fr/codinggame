@@ -20,3 +20,5 @@ SELECT* FROM client_tbl WHERE enfants !='0'
 SELECT * FROM client_tbl WHERE nom LIKE 'le%'
 
 SELECT * FROM client_tbl WHERE nom LIKE '%ri%'
+
+//2do MO Exemple perso
