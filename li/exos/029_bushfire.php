@@ -3,8 +3,6 @@
 if (getenv('local')) {
   echo '029 - 1D Bush Fire.<hr>';
 
-  echo '<hr>';
-
   // Reconstitution T1 //
   // $line[] = 'f';
   $line = '...f.f...';
@@ -64,7 +62,7 @@ if (getenv('local')) {
 //##################################################################
 // https://github.com/c57fr/codinggame
 
-// Solution validée dans codding :
+// Solution validée dans coding :
 
 else {
   fscanf(STDIN, '%d', $N);

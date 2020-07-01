@@ -66,7 +66,7 @@ while ($t--) {
 */
 }
 
-// https://www.codingame.com/training/easy/the-river-i-
+//*** */ https://www.codingame.com/training/easy/the-river-i-
 //##################################################################
 // https://github.com/c57fr/codinggame
 
