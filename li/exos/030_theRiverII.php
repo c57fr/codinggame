@@ -4,16 +4,28 @@ if (getenv('local')) {
   echo '030 - The River II.<hr>';
 
   // Reconstitution T //
-$r1 = 80; // Y
-$r1 = 13; // Y
-$r1 = 20; // Y
 
-$nxt = $r1 + array_sum(str_split((string) $r1));
-  vdli($nxt);
-  // recherche précédent
-  for ($i = $r1; $i > 0; --$i) {
-    echo $i.' '.($i + array_sum(str_split((string) $i))).'<br>';
-  }
+  $r1 = 20; // N
+  $r1 = 117; // Y (99 & 108)
+  $r1 = 80; // Y
+  $r1 = 13; // Y
+
+  // NB: so the biggest step any number below your checking number is: amount_of_checks: ((first_digit-1)+(length_of_number-1))*9
+
+  echo $r1. ' ('.strlen($r1).')';
+
+  echo '<hr>';
+
+  // Recherche précédent
+  for ($i = $r1 - 1, $j = 0; $j < (strlen($r1) * 9); --$i) {
+    ++$j;
+    // echo $i.' '.($i + array_sum(str_split((string) $i))).'<br>';
+    if ( $r1 === $i + array_sum(str_split((string) $i))) {
+      $fd='YES';
+    break;
+    } 
+}
+echo ($fd ??'NO')."\n";
 }
 //*** https://www.codingame.com/training/easy/the-river-ii-
 //##################################################################
