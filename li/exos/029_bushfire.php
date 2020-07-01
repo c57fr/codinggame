@@ -3,31 +3,60 @@
 if (getenv('local')) {
   echo '029 - 1D Bush Fire.<hr>';
 
+  echo '<hr>';
   $l = 10;
-// echo 'Max fire: '.((int) ($l / 3)).' + ';
+  // echo 'Max fire: '.((int) ($l / 3)).' + ';
   // echo 'Max fire: '.(($l % 3 <=> 0)).' = ';
   // echo 'Max fire: '.((int) ($l / 3) + ($l % 3 <=> 0)).'<br>';
 
-// Reconstitution T1 //
-$line[]='.f..f';
-$line[]='.......fff';
-vdli($line);
+  // Reconstitution T1 //
+  // $line[] = 'f';
+  $line = '...f.f...';
+  // $line[] = 'ffffffffff';
+  // $line[] = '.f..f';
+  // vdli($line);
 
-$b = str_split($line[0]);
-vdli($b);
-
-for ($l=count($b)-1,$i=1; $i < $l-3; $i++) { 
-  // echo ($b[$i-1]=='f') ? 'X':$b[$i];
-  if ($b[$i-1]==='f'||
-   ($b[$l-2]==='f' || $b[$l-1]==='f' || $b[$l]==='f')){
-    vdli($i);
-    $b[$i]='X';
-    $b[$i-1]=$b[$i+1]=0;
-    ($i<($l-3)) ? $i+=2: $i++;
+  for ($c = $j = 0; $j < strlen($line) ; $j++)
+  if ($line[$j] == 'f')
+  {
+      $c++;
+      $j += 2;
   }
-}
-vdli($b);
+echo $c . "\n";
 
+
+  // $b = str_split($line[1]);
+  $b = $line[1];
+  echo strlen($line[1]);
+  // echo count($b);
+  vdli($b);
+
+  function fire($i, $b)
+  {
+    $b[$i] = $b[$i + 1] = $b[$i + 2] = 0;
+
+    return $b;
+  }
+
+  $n = 0;
+  for ($l = strlen($b) - 3,$i = 0; $i < $l; ++$i) {
+    // echo ($b[$i-1]=='f') ? 'X':$b[$i];
+    echo $i.' ';
+    if ('f' === $b[$i]) {
+      vdli($i);
+      $b = fire($i, $b);
+      $i += 2;
+      ++$n;
+    }
+  }
+  if ('f' === ($b[$l] ?? 0) || 'f' === ($b[$l + 1] ?? 0) || 'f' === $b[$l + 2]) {
+    $b = fire($i, $b);
+    ++$n;
+  }
+
+  vdli($i);
+  vdli($b);
+  echo $n;
 }
 //*** https://www.codingame.com/ide/puzzle/1d-bush-fire
 //##################################################################
@@ -38,14 +67,30 @@ vdli($b);
 else {
   fscanf(STDIN, '%d', $N);
   error_log(var_export($N, true));
-  for ($i = 0; $i < $N; ++$i) {
-    $line = stream_get_line(STDIN, 255 + 1, "\n");
-    error_log(var_export($line, true));
-  }
-  for ($i = 0; $i < $N; ++$i) {
-    // Write an answer using echo(). DON'T FORGET THE TRAILING \n
-    // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
 
-    echo "answer\n";
+  function fireB2($i, $b)
+  {
+    $b[$i] = $b[$i + 1] = $b[$i + 2] = 0;
+
+    return $b;
+  }
+
+  for ($k = 0; $k < $N; ++$k) {
+    $b = stream_get_line(STDIN, 255 + 1, "\n");
+    error_log(var_export($b, true));
+
+    $n = 0;
+    for ($l = strlen($b) - 3,$i = 0; $i < $l; ++$i) {
+      if ('f' === $b[$i]) {
+        $b = fireB2($i, $b);
+        $i += 2;
+        ++$n;
+      }
+    }
+    if ('f' === ($b[$l] ?? 0) || 'f' === ($b[$l + 1] ?? 0) || 'f' === $b[$l + 2]) {
+      $b = fireB2($i, $b);
+      ++$n;
+    }
+    echo $n."\n";
   }
 }
