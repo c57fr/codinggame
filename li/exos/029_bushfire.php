@@ -21,6 +21,14 @@ if (getenv('local')) {
   echo $c . "\n";
 
   /*
+  // Soluce Dwarfie
+  for(fscanf(STDIN, "%d", $N); 0 < $N; $N--) {
+    $line = preg_match_all("/f.{2}/",trim(fgets(STDIN))."..",$m);
+    echo count($m[0]),"\n";
+  }
+  */
+
+  /*
   $b = $line[1];
   echo strlen($line[1]);
 
