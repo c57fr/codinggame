@@ -4,32 +4,25 @@ if (getenv('local')) {
   echo '029 - 1D Bush Fire.<hr>';
 
   echo '<hr>';
-  $l = 10;
-  // echo 'Max fire: '.((int) ($l / 3)).' + ';
-  // echo 'Max fire: '.(($l % 3 <=> 0)).' = ';
-  // echo 'Max fire: '.((int) ($l / 3) + ($l % 3 <=> 0)).'<br>';
 
   // Reconstitution T1 //
   // $line[] = 'f';
   $line = '...f.f...';
-  // $line[] = 'ffffffffff';
+  $line = 'ffff..f..ffffff';
   // $line[] = '.f..f';
   // vdli($line);
 
-  for ($c = $j = 0; $j < strlen($line) ; $j++)
-  if ($line[$j] == 'f')
-  {
+    // Sol Pneu84
+  for ($l=strlen($line), $c = $j = 0; $j < $l; $j++)
+  if ($line[$j] == 'f') {
       $c++;
       $j += 2;
   }
-echo $c . "\n";
+  echo $c . "\n";
 
-
-  // $b = str_split($line[1]);
+  /*
   $b = $line[1];
   echo strlen($line[1]);
-  // echo count($b);
-  vdli($b);
 
   function fire($i, $b)
   {
@@ -57,6 +50,7 @@ echo $c . "\n";
   vdli($i);
   vdli($b);
   echo $n;
+  */
 }
 //*** https://www.codingame.com/ide/puzzle/1d-bush-fire
 //##################################################################
