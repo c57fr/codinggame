@@ -15,7 +15,7 @@ if (getenv('local')) {
   echo $r1.' ('.strlen($r1).')';
 
   echo '<hr>';
-  // 2do Benchmark (Que chrono) comparatif avec soluce 1
+  // 2do Benchmark de 10 itérations (Non comptées les 3 premières - Que chrono) comparatif avec soluce 1
   $f = ['deuk', 'sabrim', 'dwarfie', 'otpv', 'gc7'];
   // gc7
 
