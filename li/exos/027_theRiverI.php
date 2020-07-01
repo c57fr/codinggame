@@ -19,7 +19,7 @@ if (getenv('local')) {
     ${$v} += array_sum(str_split((string) ${$v}));
   }
 
-  echo $r1;
+  echo $r1.'<hr>';
 
 /*
   function nxt($n)
@@ -66,7 +66,7 @@ while ($t--) {
 */
 }
 
-// https://www.codingame.com/training/easy/the-river-i-
+//*** */ https://www.codingame.com/training/easy/the-river-i-
 //##################################################################
 // https://github.com/c57fr/codinggame
 
