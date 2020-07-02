@@ -33,8 +33,5 @@ else {
       error_log(var_export($x.' '.$y, true));
   }
   
-  // Write an answer using echo(). DON'T FORGET THE TRAILING \n
-  // To debug: error_log(var_export($var, true)); (equivalent to var_dump)
-  
   echo("hit_or_miss\n");
 }
