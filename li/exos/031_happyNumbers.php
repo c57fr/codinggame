@@ -20,4 +20,5 @@ else {
     error_log(var_export($x, true));
   }
   echo "23 :)\n";
+  echo "24 :(\n";
 }
