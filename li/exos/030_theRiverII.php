@@ -16,6 +16,12 @@ if (getenv('local')) {
   // echo $r1.' ('.strlen($r1).')<hr>';
 
   $f = ['deuk', 'sabrim', 'dwarfie', 'otpv', 'gc7'];
+  // Deuk : NO20000  - ≃ 00:17:14 +
+  // Sabrim : NO20000  - ≃ 00:20:01 +
+  // Dwarfie : YES19999  - ≃ 00:37:14 +
+  // Otpv : YES    28  - ≃ 00:00:02 +
+  // Gc7 : YES    28  - ≃ 00:00:02 +
+  
   $f = ['otpv', 'gc7'];
   // gc7
 
@@ -75,7 +81,7 @@ if (getenv('local')) {
   $t=0;
   foreach ($f as $k => $v) {
     $deb = microtime(true);
-    for ($k=1e5; $k<2e5; $k++){
+    for ($k=1e4; $k<2e4; $k++){
       ${$v}($k);
       // $t+=chrono($deb, 1, 1);
     }
