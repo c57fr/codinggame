@@ -80,7 +80,7 @@ function vdt(array $tab)
  * @param $deb str (microtime(true); du top départ)
  * @param mixed $precis
  */
-function chrono($deb, $precis = 0)
+function chrono($deb, $precis = 0, $n=false)
 {
   $fin    = microtime(true);
   $precis = ($precis) ? 1 : 0;
@@ -88,7 +88,7 @@ function chrono($deb, $precis = 0)
   $hms    = (int) ($t);
   $ms     = round(($t - $hms) * 1e3);
   $soms   = [['≃ ', '+'], ['', str_pad($ms, 3, '0', STR_PAD_LEFT).'&nbsp;ms.']]; // Secondes Ou MS
-  return $soms[$precis][0].date('H:i:s ', $hms).$soms[$precis][1];
+  return (!$n) ? ($soms[$precis][0].date('H:i:s ', $hms).$soms[$precis][1]):$t;
 }
 
 function nf($n, $dec = 0)
