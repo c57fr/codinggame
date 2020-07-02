@@ -3,6 +3,17 @@
 if (getenv('local')) {
   echo '030 - The River II.<hr>';
 
+  echo
+  [
+    true  => 'YES',
+    false => 'NO',
+  ][0];
+
+  vdli([
+    true  => 'YES',
+    false => 'NO',
+  ]);
+
   // Reconstitution T //
 
   $r1 = 20; // N
@@ -12,9 +23,8 @@ if (getenv('local')) {
 
   // NB: so the biggest step any number below your checking number is: amount_of_checks: ((first_digit-1)+(length_of_number-1))*9
 
-  echo $r1.' ('.strlen($r1).')';
+  // echo $r1.' ('.strlen($r1).')<hr>';
 
-  echo '<hr>';
   // 2do Benchmark de 10 itérations (Non comptées les 3 premières - Que chrono) comparatif avec soluce 1
   $f = ['deuk', 'sabrim', 'dwarfie', 'otpv', 'gc7'];
   // gc7
@@ -28,8 +38,7 @@ if (getenv('local')) {
     [
       true  => 'YES',
       false => 'NO',
-    ][$previous < $r1]
-    ;
+    ][$previous < $r1];
   };
 
   $sabrim = function ($r1) {
@@ -66,12 +75,12 @@ if (getenv('local')) {
         break;
       }
     }
-    echo($fd ?? 'NO')."\n";
+    echo($fd ?? 'NO')."<br>\n";
 
     return 'Y/N<br>';
   };
   foreach ($f as $k => $v) {
-    echo ${$v}($r1);
+    echo '<strong>'.ucwords($v).'</strong> : '.${$v}($r1).'<hr>';
   }
 
   for ($i = $r1 - 1, $j = 0; $j < (strlen($r1) * 9); --$i) {
