@@ -13,8 +13,8 @@ if (getenv('local')) {
 
 // Solution validée dans coding :
 /*
-3 ≤ N ≤ 10
-1 ≤ M ≤ 10
+3 ≤ N ≤ 10 // Corners
+1 ≤ M ≤ 10 // Number of shots
 -10000 < x,y < 10000
 */
 else {
