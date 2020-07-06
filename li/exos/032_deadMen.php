@@ -6,28 +6,37 @@ if (getenv('local')) {
   // echo 100/(0?:2);
   // exit;
 
+  // Exemple 1 (Triangle)
   $pts = [[0, 0], [4, 4], [8, 0]];
+  // Pt étudié (3, 2) (Shot)
+  $xs = 3;
+  $ys = 2;
+
+  // Exemple 2 (Carré)
+  $pts = [[3, 10], [3, 14], [8, 14], [8, 10]];
+  // Pt étudié (3, 2) (Shot)
+  $xs = 9;
+  $ys = 13;
+
   array_push($pts, $pts[0]);
-  vdli($pts);
+//   vdli($pts);
 
 //   vdli($pts = array_slice($pts, 1));
 
-
-  $i = 1; // Boucle pour chaque droite porteuse du segment défini par 2 points successifs
+  $i = 0; // Boucle pour chaque droite porteuse du segment défini par 2 points successifs
+  // 2fix Équation de la droite D0: x=3; (Pour exemple du carré)
   $p = (0 !== $pts[$i + 1][1] - $pts[$i][1]) ? ($pts[$i + 1][0] - $pts[$i][0]) / ($pts[$i + 1][1] - $pts[$i][1]) : 0;
   echo $p;
   vdli($y0 = ($pts[$i + 1][1] - ($pts[$i + 1][0] * $p)));
 
   // 2do boucle pour chaque shot
-  
-  // Pt étudié (3, 2) (Shot)
-  $xs = 3;
-  $ys = 2;
 
-  $x       = ($ys - $y0) / ($p);
-  $y       = $p * $x + $y0;
-  $bornesH = [$x, $y];
-  vdli($bornesH);
+  if ($p) {
+    $x       = ($ys - $y0) / ($p);
+    $y       = $p * $x + $y0;
+    $bornesH = [$x, $y];
+    vdli($bornesH);
+  }
 
   $y = $p * $xs + $y0;
   // vdli($y);
