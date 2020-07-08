@@ -1,9 +1,9 @@
-<!-- <select name="genre"> -->
+<select name="genre">
 <?php
 $server = 'localhost';
 $user   = 'root';
 $pw     = '';
-$db     = 'codingame';
+$db     = 'phpdebutant';
 $mysqli = new mysqli($server, $user, $pw, $db);
 if (!$mysqli->set_charset('utf8')) {
   printf("Erreur lors du chargement du jeu de caractères utf8 : %s\n", $mysqli->error);
@@ -17,14 +17,16 @@ if ($mysqli->connect_errno) {
 $sql = 'SELECT * from genres';
 $req = $mysqli->query($sql);
 $row = $req->fetch_assoc();
-var_dump($row);
+//var_dump($row);
 
-exit;
-$nb = mysqli_num_rows($query);
+//exit;
+$nb = mysqli_num_rows($row);
 if (!$nb[0]) {
   echo '<option>Aucun genre</option>';
 } else {
-  while ($list = mysqli_fetch_array($query)) {
+  while ($list = mysqli_fetch_array($row)) {
     echo '<option value="'.$list['CodeGenre'].'">'.$list['LibelleGenre'].'<option>';
   }
 }
+?>
+</select>
