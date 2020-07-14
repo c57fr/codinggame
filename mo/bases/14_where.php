@@ -1,5 +1,20 @@
-<select name="genre">
+<!--<select name="genre"> -->
 <?php
+
+$pdo = new PDO('mysql:host=localhost;dbname=phpdebutant', $use='root',$pass='');
+$query = $pdo->query('SELECT * FROM genres');
+if($query === false)
+{
+  var_dump($pdo->errorInfo());
+  die("Erreur SQL");
+}
+$affiche = $query->fetchAll();
+echo "<pre>";
+var_dump($affiche);
+echo "</pre>";
+
+
+/*
 $server = 'localhost';
 $user   = 'root';
 $pw     = '';
@@ -27,6 +42,6 @@ if (!$nb[0]) {
   while ($list = mysqli_fetch_array($row)) {
     echo '<option value="'.$list['CodeGenre'].'">'.$list['LibelleGenre'].'<option>';
   }
-}
+}*/
 ?>
 </select>
