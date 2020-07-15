@@ -1,18 +1,30 @@
 <!--<select name="genre"> -->
 <?php
 
-$pdo = new PDO('mysql:host=localhost;dbname=phpdebutant', $use='root',$pass='');
+$cnxs['db'] = 'codingame';
+$cnxs['u']  = 'root';
+$cnxs['pw'] = '';
+
+$pdo = new PDO(
+  'mysql:host=localhost;dbname='.$cnxs['db'],
+  $cnxs['u'],
+  $cnxs['pw'],
+  [
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+  ]
+);
+
 $query = $pdo->query('SELECT * FROM genres');
-if($query === false)
-{
+if (false === $query) {
   var_dump($pdo->errorInfo());
-  die("Erreur SQL");
+  die('Erreur SQL');
 }
 $affiche = $query->fetchAll();
-echo "<pre>";
+echo '<pre>';
 var_dump($affiche);
-echo "</pre>";
-
+echo '</pre>';
 
 /*
 $server = 'localhost';
@@ -40,7 +52,7 @@ if (!$nb[0]) {
   echo '<option>Aucun genre</option>';
 } else {
   while ($list = mysqli_fetch_array($row)) {
-    echo '<option value="'.$list['CodeGenre'].'">'.$list['LibelleGenre'].'<option>';
+  echo '<option value="'.$list['CodeGenre'].'">'.$list['LibelleGenre'].'<option>';
   }
 }*/
 ?>
