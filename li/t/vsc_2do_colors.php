@@ -93,80 +93,79 @@ echo 'Définition des couleurs de l\'éditeur VSC (Todo Tree)';
 /*
 
 "better-comments.highlightPlainText": true,
-"better-comments.tags":
-[
-  {
-  "tag": "!",
-  "color": "#FF0000",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "@bug",
-  "color": "#FF4901",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "@n",
-  "color": "#ffcf39",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "@i",
-  "color": "#0ff",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "***",
-  "color": "#5eff00",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "?",
-  "color": "#0000FF",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "@f",
-  "color": "#f0f",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "@q",
-  "color": "#ff0",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "@s",
-  "color": "#fff",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "@dl",
-  "color": "#7ff",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "/***",
-  "color": "#7ff",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  },
-  {
-  "tag": "@v",
-  "color": "#FF8C00",
-  "strikethrough": false,
-  "backgroundColor": "transparent"
-  }
-],
+  "better-comments.tags": [
+    {
+      "tag": "!",
+      "color": "#FF0000",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "@bug",
+      "color": "#FF4901",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "@n",
+      "color": "#ffcf39",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "@i",
+      "color": "#0ff",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "***",
+      "color": "#5eff00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "?",
+      "color": "#0000FF",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "@f",
+      "color": "#f0f",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "@q",
+      "color": "#ff0",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "@s",
+      "color": "#fff",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "@dl",
+      "color": "#7ff",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "/***",
+      "color": "#7ff",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    },
+    {
+      "tag": "@v",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "backgroundColor": "transparent"
+    }
+  ],
 
 */
