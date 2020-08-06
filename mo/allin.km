@@ -109,21 +109,23 @@
                     "id": "c4oh1605iqw0",
                     "created": 1596570569130,
                     "text": "Étape 1",
-                    "expandState": "collapse"
+                    "expandState": "expand"
                 },
                 "children": [
                     {
                         "data": {
                             "id": "c4oh1gjm1bs0",
                             "created": 1596570592074,
-                            "text": "Étude prémiminaire"
+                            "text": "test",
+                            "expandState": "expand"
                         },
                         "children": [
                             {
                                 "data": {
                                     "id": "c4oh1mm1ods0",
                                     "created": 1596570605282,
-                                    "text": "Identité"
+                                    "text": "test 2",
+                                    "expandState": "collapse"
                                 },
                                 "children": [
                                     {
