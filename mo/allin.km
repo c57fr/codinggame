@@ -10,7 +10,8 @@
                 "data": {
                     "id": "c4ogy6o8xw80",
                     "created": 1596570335494,
-                    "text": "Intro"
+                    "text": "Intro",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -71,7 +72,7 @@
                     "id": "c4oh0p62d1k0",
                     "created": 1596570532482,
                     "text": "Crea7",
-                    "expandState": "expand"
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -107,7 +108,8 @@
                 "data": {
                     "id": "c4oh1605iqw0",
                     "created": 1596570569130,
-                    "text": "Étape 1"
+                    "text": "Étape 1",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
@@ -142,7 +144,8 @@
                 "data": {
                     "id": "c4pos0wr1nk0",
                     "created": 1596693981598,
-                    "text": "// 2do Test"
+                    "text": "// 2do Test",
+                    "expandState": "collapse"
                 },
                 "children": [
                     {
