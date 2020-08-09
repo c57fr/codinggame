@@ -14,3 +14,6 @@ les tâches à faire pour demain:
     Par rapport aux taches que je me suis fixé, je fais un commit et un push grâce git graph. 
     C'est dans le but de maitriser le git graph 
     le samedi 08/08/20 je continue le tutoriel de prestashop
+    
+    ----------------------------
+    suite de l'exo pour bien maitriser le git graph 
