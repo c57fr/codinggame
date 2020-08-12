@@ -173,7 +173,7 @@
                 "data": {
                     "id": "c4pos0wr1nk0",
                     "created": 1596693981598,
-                    "text": "// 2do Test des 2do",
+                    "text": "2do Test des 2do",
                     "expandState": "expand"
                 },
                 "children": [
@@ -181,7 +181,7 @@
                         "data": {
                             "id": "c4posj3oz8g0",
                             "created": 1596694021200,
-                            "text": "Les 2do fonctionnent dans cette MindMap ",
+                            "text": "Les 2do fonctionnent dans cette MindMap\n(Faire précéder de //)",
                             "progress": 9
                         },
                         "children": []
