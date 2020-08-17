@@ -1,0 +1,19 @@
+
+exo:
+voici le tout premier commit fait grace aux explications de lio
+
+------------------------------
+je dois tous les jours m'entrainer avec git graph afin de le maitriser
+
+les tâches à faire pour demain:
+    1- je continue le tutoriel pour comprendre et maitriser prestashop
+    2- je fais un commit avec push sur git graph
+    3- j'essaie de comprendre la technique de mise à niveau sur git graph
+
+    ------------------
+    Par rapport aux taches que je me suis fixé, je fais un commit et un push grâce git graph. 
+    C'est dans le but de maitriser le git graph 
+    le samedi 08/08/20 je continue le tutoriel de prestashop
+    
+    ----------------------------
+    suite de l'exo pour bien maitriser le git graph 
