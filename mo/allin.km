@@ -129,7 +129,8 @@
                         "data": {
                             "id": "c4oh1gjm1bs0",
                             "created": 1596570592074,
-                            "text": "Étude prémiminaire"
+                            "text": "Étude prémiminaire",
+                            "expandState": "collapse"
                         },
                         "children": [
                             {
